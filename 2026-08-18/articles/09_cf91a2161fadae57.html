@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepSeek, 플러그인형 Harness 프리뷰 배포</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-tooling">
+      <p class="source"><span class="article-number">09</span> DeepSeek <span class="source-date">게시일 2026.08.13</span></p>
+      <h1>DeepSeek, 플러그인형 Harness 프리뷰 배포</h1>
+      <img class="detail-image" src="../assets/images/article_09_cf91a2161fadae57.png" alt="기사 이미지">
+      <p class="detail-lead">DeepSeek가 DeepSeek Harness를 개발자 프리뷰로 공개했다. 소스 코드도 같은 시점에 함께 풀었다. 이 도구는 에이전트 기능을 플러그인 단위로 나눠 조립하는 구조를 앞세운다. 아직 정식판은 아니며, 핵심 플러그인과 API는 계속 바뀔 수 있다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>DeepSeek는 에이전트 하니스를 만드는 개발자를 대상으로 DeepSeek Harness 개발자 프리뷰를 배포했다. 소스 코드도 함께 공개했다. DeepSeek는 에이전트의 거의 모든 기능을 플러그인으로 구현했다. 개발자는 소스 코드를 고치지 않고 설정만 바꿔 기능을 고르거나 교체하거나 확장할 수 있다.</p>
+<ul><li>플러그인 대상: 모델, 도구, 스킬, 세션, 샌드박스, 저장소, 루프, 스케줄링, UI</li><li>실행 방법 예시: `npx @deepseek-ai/dsh web`</li><li>소스 설치 예시: `git clone https://github.com/deepseek-ai/deepseek-harness`</li></ul>
+<p>DeepSeek는 Cordis 커널이 플러그인 장착과 해제, 의존성 관리를 맡는다고 설명했다. 플러그인은 Cordis의 서비스와 이벤트로 서로 연결된다. 실행 기록은 append-only 세션 로그에 남는다. 시스템 프롬프트, 추론, 도구 호출과 결과, 서브에이전트 스케줄링, 컨텍스트 주입 기록이 모두 포함된다.</p>
+<p>DeepSeek는 Trajectory 화면에서 기록 출처를 확인할 수 있다고 밝혔다. 재개, 분기, 검색, 재생도 같은 이벤트 스트림을 기준으로 동작한다. 실행 모드는 여러 가지다. Standard mode는 전체 도구 세트를 넣고, Code mode는 모델이 만든 코드로 여러 차례 도구 호출을 조정한다. Minimal mode는 셸 도구와 파일 편집기만 남긴다. Creator mode는 현재 런타임을 살피고 메모리 안에서 Cordis 플러그인을 시험하게 해준다.</p>
+        
+      </section>
+<section>
+        <h2>도입 가치</h2>
+        <p>이 도구의 핵심 차이는 기능을 하드코딩하지 않고 플러그인으로 분리한 점이다. 개발자는 모델이나 도구, 저장소 같은 요소를 설정에서 교체할 수 있다. 에이전트 스택을 한 번에 바꾸지 않고 부분 교체할 수 있다는 뜻이다.</p>
+<p>운영 측면에서는 추적성이 눈에 띈다. 모델이 본 정보와 도구 호출 기록이 세션 로그에 남는다. 같은 이벤트 스트림으로 재생과 분기를 할 수 있어서, 실패 원인 점검이나 정책 검토에 유리할 수 있다.</p>
+<p>다만 도입 조건은 아직 움직이는 상태다. DeepSeek는 개발자 프리뷰라고 못 박았다. 핵심 플러그인과 API도 계속 진화한다고 밝혔다. 운영 환경에 넣으려면 버전 고정과 호환성 검증이 먼저 필요하다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>이 사안은 여러 매체가 함께 다뤘다. MarkTechPost는 MIT 라이선스를 언급하며 오픈 생태계 측면을 짚었다. The New Stack도 모든 기능이 플러그인이라는 구조를 중심으로 소개했다. 공개된 발췌에는 고객 도입 사례나 경쟁사 대응은 나오지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 에이전트 실험 환경을 만든다면, 모델 성능보다 실행 통제 구조를 먼저 볼 필요가 있다. 세션 로그와 재생 기능은 감사 대응, 사고 분석, 프롬프트 변경 추적에 직접 연결된다.</p>
+<p>검토 포인트는 분명하다.</p>
+<ul><li>정보보호팀: 세션 로그에 어떤 데이터가 남는지</li><li>플랫폼팀: 플러그인 교체가 배포 절차에 미치는 영향</li><li>개발지원팀: 사내 도구를 플러그인으로 붙일 난이도</li><li>아키텍처팀: Cordis 의존성이 장기 표준에 맞는지</li></ul>
+<p>주의할 점도 있다. 프리뷰 단계라 API와 핵심 플러그인이 바뀔 수 있다. 성능 수치나 보안 경계, 라이선스 세부 조건은 발췌에 충분히 나오지 않았다. 파일럿을 한다면 사내 비식별 데이터와 제한된 도구 세트부터 붙여 보는 편이 안전하다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트 하니스(agent harness): 에이전트가 도구를 쓰고 작업을 이어가게 돕는 실행 틀</span> <span>플러그인(plugin): 기능을 모듈처럼 끼우고 빼는 구성 단위</span> <span>세션 로그(session log): 실행 중 입력과 호출 기록을 남기는 로그</span> <span>append-only: 기존 기록을 지우지 않고 뒤에만 추가하는 방식</span> <span>API: 다른 프로그램이 기능을 호출하는 연결 규칙</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: DeepSeek Harness developer preview</p>
+        <p class="url">게시일: 2026.08.13</p>
+        <p class="url">출처 URL: https://deepseek.com/harness/en/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

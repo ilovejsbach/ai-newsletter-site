@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 주간 뉴스레터 | 2026.06.18 - 2026.06.25</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main class="newsletter">
+    <header class="masthead">
+      <div>
+        <p class="kicker">Weekly AI Brief</p>
+        <h1>AI 주간 뉴스레터 | 2026.06.18 - 2026.06.25</h1>
+        <p class="lead">AI 모델 경쟁은 에이전트(agent), 보안 자동화, 실무형 평가로 이동 중입니다. 이번 주 업무 영향도가 큰 신호만 골라 웹진형으로 정리했습니다.</p>
+      </div>
+      <img class="hero-image" src="https://images.ctfassets.net/kftzwdyauwt9/6cfZttLA6PlFuCVypDeSh/5a3deeb70010cdf58dd7b78547850092/SEO_Card__4_.png?w=1600&amp;h=900&amp;fit=fill" alt="대표 이미지">
+    </header>
+    <section class="editors-pick">
+      <header class="section-title">
+        <p>Editor's Pick</p>
+        <h2>이번 주 이슈 레이더</h2>
+      </header>
+      <div class="feature-grid">
+        
+<article class="feature-card issue-card">
+  <p class="source"><span class="article-number">이슈 01</span> Issue Radar</p>
+  <h3><a href="articles/01_b63e5cb33bb0ec81.html">멀티모달·실시간 음성/문서 처리의 효율 경쟁이 가속화됨</a></h3>
+  <p>이번 주에는 음성 번역과 OCR, 멀티모달 모델의 효율을 높이는 흐름이 여러 출처에서 반복됐다. Google DeepMind는 Gemini 3.5 Live Translate로 70개 이상 언어의 near real-time 음성 번역을 공개했고, Gemini 3.5 Flash에는 computer use와 같은 실전형 멀티모달 기능을 내장했다. Hugging Face에서는 FFASR 리더보드로 far-field ASR의 실제 환경 성능 격차를 조명했고, PP-OCRv6와 Gemma 4 12B, DiffusionGemma 같은 경량·고효율 모델/도구가 함께 언급됐다. 큐레이터 글에서는 긴 문서 OCR에서 KV cache를 고정하는 방식과 실시간 번역 모델의 지연·정확도 경쟁도 포착된다.</p>
+  <p class="why"><strong>왜 뜨나</strong> 음성, OCR, 문서 파싱, 실시간 번역은 모두 엔터프라이즈에서 바로 쓰이는 영역이며, 이번 주엔 ‘정확도’뿐 아니라 ‘지연시간’, ‘메모리’, ‘현장 성능’이 핵심 경쟁 축으로 부상했다. 공식 제공사와 허깅페이스 블로그, 큐레이터 글이 서로 다른 관점에서 같은 트렌드를 가리키고 있어 신뢰도가 높다.</p>
+  <p class="why"><strong>사내 시사점</strong> 콜센터, 회의 요약, 글로벌 커뮤니케이션, 문서 자동화, 현장 디바이스, 검색/인덱싱 파이프라인에 영향이 크다. 특히 멀티언어 고객 응대와 대량 문서 처리에서는 모델 성능만이 아니라 비용, 메모리, 온디바이스/엣지 배치 가능성이 중요해진다.</p>
+  <div class="terms"><span>speech translation</span> <span>ASR</span> <span>OCR</span> <span>multimodal</span></div>
+  
+  <a class="detail-link" href="articles/01_b63e5cb33bb0ec81.html">대표 아티클 보기</a>
+</article>
+
+<article class="feature-card issue-card">
+  <p class="source"><span class="article-number">이슈 02</span> Issue Radar</p>
+  <h3><a href="articles/02_3d99cf87d464b7af.html">에이전트가 실제 업무를 끝까지 수행하는 ‘장기 실행 작업’ 경쟁이 본격화됨</a></h3>
+  <p>OpenAI와 Anthropic, Google DeepMind가 각각 장기 실행·복합 작업을 수행하는 에이전트 역량을 전면에 내세우고 있다. OpenAI는 에이전트가 여러 역할과 긴 작업을 수행하며 업무를 바꾼다고 설명했고, Anthropic은 Claude Opus 4.8의 장기 작업 일관성, Claude Code의 dynamic workflows, Claude Tag의 팀 단위 협업·위임을 강조했다. Google DeepMind도 Gemini 3.5 Flash의 built-in computer use와 3.5 Flash 기반 에이전트를 통해 브라우저·모바일·데스크톱을 넘나드는 실제 작업 자동화를 제시했다. 개발자 커뮤니티에서도 멀티 에이전트 오케스트레이션, 장기 실행 워크플로우, deep research/automation용 레포가 동시에 늘고 있다.</p>
+  <p class="why"><strong>왜 뜨나</strong> 이번 주 신호는 단순 ‘챗봇 개선’이 아니라, 모델이 실제로 여러 단계의 일을 이어서 수행하는 방향으로 확실히 이동하고 있음을 보여준다. 공식 제공사 3곳이 거의 같은 축(장기 작업, 컴퓨터 사용, 팀 협업, 워크플로우 자동화)을 각각 다른 제품으로 반복 강조했고, 개발자 커뮤니티에서도 멀티 에이전트·자동화 파이프라인이 활발히 등장한다. 즉, 패널 다양성과 권위가 모두 강하다.</p>
+  <p class="why"><strong>사내 시사점</strong> 기업 입장에서는 지식노동 자동화, 내부 운영 보조, 테스트·리서치·지원·문서 작업 위임 같은 업무에 직접 영향이 있다. 다만 도입 시에는 권한 관리, 검증 단계, 로그/감사 가능성, 사람의 승인 지점을 함께 설계해야 한다. 장기 실행 에이전트는 생산성을 올릴 수 있지만, 실패 시 피해 범위도 커질 수 있어 운영 거버넌스가 핵심이다.</p>
+  <div class="terms"><span>agentic AI</span> <span>장기 실행 작업</span> <span>computer use</span> <span>워크플로우 자동화</span></div>
+  <ul class="related-list"><li>Anthropic News · 클로드 오퍼스 4.8, 정직성과 장기 작업 강화</li></ul>
+  <a class="detail-link" href="articles/02_3d99cf87d464b7af.html">대표 아티클 보기</a>
+</article>
+
+<article class="feature-card issue-card">
+  <p class="source"><span class="article-number">이슈 03</span> Issue Radar</p>
+  <h3><a href="articles/01_b63e5cb33bb0ec81.html">AI 보안이 ‘탐지’에서 ‘패치·통제·표준화’로 확장됨</a></h3>
+  <p>OpenAI는 Daybreak와 Patch the Planet을 통해 취약점 발견을 넘어 패치 자동화와 오픈소스 유지보수 지원으로 범위를 넓혔고, Anthropic은 정책 제안에서 고도화된 모델의 위험과 규제 필요성을 제기했다. Google DeepMind는 다중 에이전트가 상호작용하는 환경을 전제로 AI Control Roadmap과 multi-agent safety research funding call을 발표하며 시스템 수준 보안을 강조했다. Hugging Face 쪽에서는 deep research agent의 개인정보 유출 위험(MosaicLeaks)과 이를 줄이기 위한 학습 방법도 제시됐다.</p>
+  <p class="why"><strong>왜 뜨나</strong> 보안 이슈는 이번 주에 여러 권위 있는 출처에서 동시에 터졌다. 한쪽은 실무형 대응(패치 자동화, 취약점 수정), 다른 쪽은 제도·통제·리스크 프레임워크, 또 다른 쪽은 에이전트의 프라이버시 누출이라는 기술적 취약점을 다뤘다. 즉, ‘AI가 강해질수록 안전장치도 함께 제품화되어야 한다’는 흐름이 공식 문서와 연구 글에서 반복 확인된다.</p>
+  <p class="why"><strong>사내 시사점</strong> 기업에는 매우 직접적이다. 공격 탐지와 패치 속도, 사내 에이전트의 데이터 누출 방지, 감사 가능성, 규제 대응, 모델 사용 정책 수립과 연결된다. 특히 개발·보안·플랫폼 팀은 자동화된 취약점 탐지/수정, 에이전트 권한 분리, 비밀정보 보호, 공급망 보안 검증을 함께 고민해야 한다.</p>
+  <div class="terms"><span>AI security</span> <span>patch automation</span> <span>multi-agent safety</span> <span>privacy leakage</span></div>
+  <ul class="related-list"><li>OpenAI News · 오픈소스 패치까지 돕는 AI 보안</li><li>Google DeepMind Blog · 구글 딥마인드, 멀티에이전트 안전 연구 공모</li><li>Google DeepMind Blog · 구글 딥마인드의 AI 통제 로드맵</li></ul>
+  <a class="detail-link" href="articles/01_b63e5cb33bb0ec81.html">대표 아티클 보기</a>
+</article>
+
+      </div>
+    </section>
+    <section class="articles">
+      <section class="article-group">
+  <header class="group-header">
+    <h2>주목할 만한 파운데이션 모델 소식</h2>
+    <p>주요 모델 제공사의 신규 모델, 성능 업데이트, 제품화 흐름입니다.</p>
+  </header>
+  <div class="card-grid">
+    
+<article class="article-card">
+  <img src="assets/images/article_05_5348a7d239028e9b.jpg" alt="기사 이미지">
+  <div class="article-body">
+    <p class="source"><span class="article-number">05</span> Anthropic News</p>
+    <h2><a href="articles/05_5348a7d239028e9b.html">클로드 오퍼스 4.8, 정직성과 장기 작업 강화</a></h2>
+    <p>앤트로픽이 Claude Opus 4.8을 내놓으며 코딩, 에이전트 작업, 전문 지식 업무 전반의 개선을 강조했다. 가격은 Opus 4.7과 같게 유지했고, 노력 제어(effort control), 대규모 동적 워크플로(dynamic workflows), 더 빠른 fast mode 같은 사용 방식 변화도 함께 붙였다.</p>
+    <div class="terms"><span>클로드 오퍼스 4.8(Claude Opus 4.8)</span> <span>에이전트(agent)</span> <span>동적 워크플로(dynamic workflows)</span></div>
+    <p><a class="detail-link" href="articles/05_5348a7d239028e9b.html">상세 아티클 보기</a></p>
+  </div>
+</article>
+
+<article class="article-card">
+  <img src="assets/images/article_06_855db08b75f6ecde.png" alt="기사 이미지">
+  <div class="article-body">
+    <p class="source"><span class="article-number">06</span> OpenAI News</p>
+    <h2><a href="articles/06_855db08b75f6ecde.html">오픈AI, LLM 추론 칩 직접 설계</a></h2>
+    <p>오픈AI와 브로드컴이 대규모 언어모델(LLM) 추론(inference)에 최적화한 전용 칩 ‘할라페뇨(Jalapeño)’를 공개했다. 범용 가속기를 일부 조정한 형태가 아니라, 현재와 미래 LLM의 커널(kernel)·메모리 이동·네트워킹·서빙 패턴을 기준으로 처음부터 설계했다는 점을 전면에 내세웠다.</p>
+    <div class="terms"><span>대규모 언어모델(LLM)</span> <span>추론(inference)</span> <span>ASIC</span></div>
+    <p><a class="detail-link" href="articles/06_855db08b75f6ecde.html">상세 아티클 보기</a></p>
+  </div>
+</article>
+
+<article class="article-card">
+  <img src="assets/images/article_07_416f1eec7676dbeb.png" alt="기사 이미지">
+  <div class="article-body">
+    <p class="source"><span class="article-number">07</span> Google DeepMind Blog</p>
+    <h2><a href="articles/07_416f1eec7676dbeb.html">구글 딥마인드, 멀티에이전트 안전 연구 공모</a></h2>
+    <p>구글 딥마인드와 파트너들이 최대 1천만 달러 규모의 멀티에이전트 안전성 연구 공모를 열었다. 개별 모델 안전성보다, 여러 조직이 만든 수많은 에이전트(agent)가 상호작용할 때 나타나는 집단 행동과 위험을 연구 대상으로 분명히 잡았다.</p>
+    <div class="terms"><span>멀티에이전트(multi-agent)</span> <span>에이전트(agent)</span> <span>테스트베드(testbed)</span></div>
+    <p><a class="detail-link" href="articles/07_416f1eec7676dbeb.html">상세 아티클 보기</a></p>
+  </div>
+</article>
+
+<article class="article-card">
+  <img src="assets/images/article_08_aec47bf765565a42.png" alt="기사 이미지">
+  <div class="article-body">
+    <p class="source"><span class="article-number">08</span> OpenAI News</p>
+    <h2><a href="articles/08_aec47bf765565a42.html">고급 AI 공통 기준 만들기 나선 오픈AI</a></h2>
+    <p>오픈AI가 리눅스 재단 산하 Appia Foundation 설립 참여를 알리며, 고급 AI 평가와 거버넌스의 공통 기준을 만들겠다고 밝혔다. 국제 표준과 기존 프레임워크를 실제 평가 기준으로 번역하고, 서로 다른 조직이 만든 모델·인프라·애플리케이션 사이에서 재사용 가능한 적합성 증거를 만들겠다는 구상이다.</p>
+    <div class="terms"><span>아피아 재단(Appia Foundation)</span> <span>리눅스 재단(Linux Foundation)</span> <span>적합성(conformity)</span></div>
+    <p><a class="detail-link" href="articles/08_aec47bf765565a42.html">상세 아티클 보기</a></p>
+  </div>
+</article>
+
+<article class="article-card">
+  <img src="assets/images/article_09_480508a9ca16ad81.png" alt="기사 이미지">
+  <div class="article-body">
+    <p class="source"><span class="article-number">09</span> OpenAI News</p>
+    <h2><a href="articles/09_480508a9ca16ad81.html">Omio, 검색형 여행을 대화형으로 바꾸다</a></h2>
+    <p>여행 플랫폼 Omio가 오픈AI 모델을 실시간 교통 재고·가격 데이터와 연결해 대화형 여행 탐색을 만들고, 내부적으로도 AI-네이티브(AI-native) 운영 전환을 추진하고 있다고 소개했다. 외부 고객 경험과 내부 업무 방식을 동시에 바꾸는 사례로 제시되지만, 기술 세부보다는 조직 전환과 생산성 변화에 무게가 실린 글이다.</p>
+    <div class="terms"><span>AI-네이티브(AI-native)</span> <span>대화형 커머스(conversational commerce)</span> <span>코덱스(Codex)</span></div>
+    <p><a class="detail-link" href="articles/09_480508a9ca16ad81.html">상세 아티클 보기</a></p>
+  </div>
+</article>
+
+<article class="article-card">
+  <img src="assets/images/article_10_45bc33c734d049b3.png" alt="기사 이미지">
+  <div class="article-body">
+    <p class="source"><span class="article-number">10</span> Google DeepMind Blog</p>
+    <h2><a href="articles/10_45bc33c734d049b3.html">구글 딥마인드의 AI 통제 로드맵</a></h2>
+    <p>구글 딥마인드가 내부 시스템에서 점점 더 강력해지는 AI 에이전트(agent)를 어떻게 통제할지 설명하는 AI Control Roadmap을 공개했다. 모델 정렬(alignment)에만 기대지 않고, 잠재적으로 비정렬된 내부 행위자로 간주한 뒤 감시·차단·대응을 겹겹이 두는 방어 심층(defense-in-depth) 접근을 제시한다.</p>
+    <div class="terms"><span>AI 통제 로드맵(AI Control Roadmap)</span> <span>정렬(alignment)</span> <span>방어 심층(defense-in-depth)</span></div>
+    <p><a class="detail-link" href="articles/10_45bc33c734d049b3.html">상세 아티클 보기</a></p>
+  </div>
+</article>
+
+  </div>
+</section>
+<section class="article-group">
+  <header class="group-header">
+    <h2>주요 뉴스·기술 블로그</h2>
+    <p>AI 도입, 보안, 에이전트, 벤치마크 등 업무 영향도가 있는 글입니다.</p>
+  </header>
+  <div class="card-grid">
+    
+<article class="article-card">
+  <img src="assets/images/article_03_3696e67c2c9e8aaa.png" alt="기사 이미지">
+  <div class="article-body">
+    <p class="source"><span class="article-number">03</span> OpenAI News</p>
+    <h2><a href="articles/03_3696e67c2c9e8aaa.html">오픈소스 패치까지 돕는 AI 보안</a></h2>
+    <p>Patch the Planet은 오픈소스 유지관리자에게 더 많은 취약점 리포트를 던지는 대신, AI와 보안 엔지니어가 함께 검증과 패치까지 지원하겠다는 프로그램이다. Trail of Bits가 초기 집중 투입을 맡고, HackerOne과 Calif가 분류와 공개 조율을 지원한다.</p>
+    <div class="terms"><span>Patch the Planet</span> <span>오픈소스 유지관리자(open-source maintainer)</span> <span>코덱스 시큐리티(Codex Security)</span></div>
+    <p><a class="detail-link" href="articles/03_3696e67c2c9e8aaa.html">상세 아티클 보기</a></p>
+  </div>
+</article>
+
+  </div>
+</section>
+    </section>
+  </main>
+</body>
+</html>

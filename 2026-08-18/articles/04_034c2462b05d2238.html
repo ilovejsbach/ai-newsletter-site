@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qwen 3.8 27B, 이전 27B보다 코딩 점수 올랐다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">04</span> Hugging Face · qwen <span class="source-date">게시일 2026.08.14</span></p>
+      <h1>Qwen 3.8 27B, 이전 27B보다 코딩 점수 올랐다</h1>
+      <img class="detail-image" src="../assets/images/article_04_034c2462b05d2238.png" alt="기사 이미지">
+      <p class="detail-lead">Qwen 3.8 27B가 Hugging Face에 올라왔다. 공개된 자료는 주로 벤치마크 표로 구성됐다. 표만 봐도 이전 세대 27B 모델보다 코딩, 에이전트, 멀티모달 항목에서 개선 폭이 크다. 다만 이 발췌에는 라이선스와 하드웨어 조건은 보이지 않는다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>Qwen 3.8 27B는 FP8 형식의 27B급 모델로 공개됐다. 자료에는 코딩, 에이전트, 일반 추론, 멀티모달 평가 결과가 담겼다. 많은 항목에서 Qwen3.6-27B와 Qwen3.7-Plus를 앞섰다.</p>
+<ul><li>Terminal Bench 2.1: 73.0</li><li>SWE-bench Pro: 61.7</li><li>NL2Repo-Bench: 42.3</li><li>DeepSWE 1.1: 42.2</li><li>QwenSWEBench: 79.0</li><li>CoWorkBench: 70.7</li><li>JobBench: 33.4</li><li>HLE: 30.8</li><li>LiveCodeBench v6: 90.3</li></ul>
+<p>멀티모달 평가도 함께 제시됐다. OSWorld-Verified는 84.3, WebArena-Verified는 64.8, AndroidWorld는 81.9였다. 문서 이해 항목 OmniDocBench 1.5는 91.1로 적혔다.</p>
+<p>비교표에서는 일부 항목에서 Opus4.6 Max가 더 높았다. 예를 들어 Terminal Bench 2.1은 Opus4.6 Max가 78.2였다. GPQA Diamond와 HLE에서도 Opus4.6 Max가 더 높게 적혔다.</p>
+        
+      </section>
+<section>
+        <h2>맥락 읽기</h2>
+        <p>이 발췌에는 모델 크기와 평가표는 있지만, 도입에 필요한 핵심 조건이 빠져 있다. 라이선스, 배포 방식, 권장 하드웨어, 상업 이용 조건을 확인할 수 없다. 그래서 실제 도입 조건보다 성능 방향을 읽는 데 초점을 맞춰야 한다.</p>
+<p>표만 보면 Qwen 3.8 27B는 특히 코딩과 에이전트 업무에 힘을 실었다. 이전 Qwen 27B 계열 대비 점프 폭이 큰 항목이 여럿 있다. 컴퓨터 유즈와 문서 이해 평가도 포함돼 있어, 텍스트 대화보다 실제 업무 조작 쪽을 겨냥한 모델로 읽힌다.</p>
+<p>오픈웨이트 진영에서는 27B급 모델이 어느 정도까지 상용 대형 모델에 근접하느냐가 늘 관심사다. 이 자료는 그 경쟁 축이 코딩에서 멀티모달 업무 자동화로 넓어졌음을 보여준다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>평가</th><th>Qwen3.8-27B</th><th>Qwen3.6-27B</th><th>Qwen3.7-Plus</th><th>Opus4.6 Max</th></tr></thead><tbody><tr><td>Terminal Bench 2.1</td><td>73.0</td><td>63.4</td><td>64.0</td><td>78.2</td></tr><tr><td>SWE-bench Pro</td><td>61.7</td><td>53.5</td><td>57.6</td><td>53.4</td></tr><tr><td>DeepSWE 1.1</td><td>42.2</td><td>13.3</td><td>14.2</td><td>--</td></tr><tr><td>CoWorkBench</td><td>70.7</td><td>61.0</td><td>65.1</td><td>68.2</td></tr><tr><td>OSWorld-Verified</td><td>84.3</td><td>63.9</td><td>73.3</td><td>72.7</td></tr><tr><td>OmniDocBench 1.5</td><td>91.1</td><td>89.4</td><td>91.4</td><td>86.6</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>HN Trending, The New Stack, Reddit r/LocalLLaMA, Simon Willison Blog 등 여러 채널이 이 모델을 함께 다뤘다. 커뮤니티에서는 성능 못지않게 기본 동작이 과하게 길게 생각하는 쪽으로 잡혀 있다는 반응도 나왔다. 아직 원문 발췌에는 공식 도입 사례나 고객 반응이 실려 있지 않다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 오픈웨이트 모델을 검토한다면, Qwen 3.8 27B는 코딩 보조와 문서·화면 이해 업무의 후보가 될 수 있다. 특히 사내 배포나 데이터 통제를 중시하는 팀은 관심을 가질 만하다.</p>
+<p>다만 지금 정보만으로는 바로 판단하기 어렵다.</p>
+<ul><li>확인 필요: 라이선스, 상업 이용 조건, 온프레미스(사내 서버에 직접 설치해 쓰는 방식) 가능 여부</li><li>인프라 질문: FP8 지원 하드웨어가 무엇인지, 메모리 요구량이 어느 수준인지</li><li>업무 적합성: 금융 문서 이해, 한국어 성능, 화면 조작 정확도, 내부 시스템 연동 난이도</li><li>리스크: 벤치마크는 강하지만 실제 운영에서 응답 길이와 지연 시간이 과도해질 수 있는지 점검 필요</li></ul>
+<p>PoC에서는 코딩 과제만 보지 말고 문서 검토, 화면 기반 업무, 검색 결합 업무를 함께 돌려야 한다. 오픈웨이트 모델은 성능보다 운영 책임 범위가 더 넓다는 점도 감안해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>오픈웨이트(Open weights): 학습된 모델 가중치를 공개해 내려받아 쓸 수 있는 방식</span> <span>FP8(FP8): 모델 연산과 저장에 쓰는 8비트 부동소수점 형식</span> <span>멀티모달(Multimodal): 텍스트 외에 이미지, 문서, 화면 등 여러 입력을 함께 다루는 방식</span> <span>에이전틱 코딩(Agentic coding): 여러 단계 계획과 도구 사용을 포함한 코딩 작업</span> <span>컴퓨터 유즈(Computer use): 운영체제나 브라우저, 앱을 직접 조작하는 모델 능력</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Qwen 3.8 27B</p>
+        <p class="url">게시일: 2026.08.14</p>
+        <p class="url">출처 URL: https://huggingface.co/Qwen/Qwen3.8-27B-FP8</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

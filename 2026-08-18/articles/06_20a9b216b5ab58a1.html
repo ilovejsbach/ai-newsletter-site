@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ByteDance, CUDA Agent로 커널 속도 높였다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">06</span> MarkTechPost <span class="source-date">게시일 2026.08.18</span></p>
+      <h1>ByteDance, CUDA Agent로 커널 속도 높였다</h1>
+      <img class="detail-image" src="../assets/images/article_06_20a9b216b5ab58a1.png" alt="기사 이미지">
+      <p class="detail-lead">이 연구는 GPU 커널을 사람이 아닌 모델이 더 빠르게 짜게 만드는 데 초점을 맞췄다. 목표는 정답 코드가 아니라 더 빠른 코드다. ByteDance Seed와 Tsinghua AIR는 모델을 실제 CUDA 개발 환경 안에 넣고 강화학습으로 훈련했다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>연구팀은 CUDA Agent를 공개했다. 이 시스템은 대형언어모델이 GPU 커널을 직접 작성하게 훈련한다. 기준 모델 Seed1.6은 KernelBench에서 과제 통과율이 74.0%였다. 하지만 torch.compile보다 빠른 비율은 27.2%에 그쳤다. 기하평균 속도도 0.69×라서 컴파일러보다 느렸다.</p>
+<p>연구팀은 모델을 실제 CUDA 개발 환경에 넣었다. 환경에는 프로파일링과 정답 검증이 포함됐다. 권한을 잠근 샌드박스도 함께 뒀다. 학습은 131,072 토큰 문맥에서 PPO 150 step으로 진행했다. 그 결과 250개 과제에서 통과율은 98.8%가 됐다. torch.compile보다 빠른 비율은 96.8%였다. 기하평균 속도는 2.11×였다.</p>
+<p>공개 범위는 제한적이다. 기반은 Seed1.6이다. 이 모델은 23B active, 230B total의 MoE 모델이다. 다만 훈련된 에이전트 가중치는 공개하지 않았다. 대신 CUDA-Agent-Ops-6K 데이터셋과 SKILL.md 사양, 보상 설계와 워밍업 레시피는 공개했다.</p>
+<ul><li>벤치마크: KernelBench 250개 과제</li><li>전체 결과: 통과율 98.8%, eager 대비 98.4% faster, torch.compile 대비 96.8% faster</li><li>전체 속도: eager 대비 2.60×, torch.compile 대비 2.11×</li><li>Level 2: 통과율 100%, torch.compile 대비 100% faster, 2.80×</li><li>Level 3: 통과율 94.0%, torch.compile 대비 90.0% faster, 1.52×</li><li>인프라: 프로파일링 샌드박스에 128 NVIDIA H20 GPUs 사용</li></ul>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <p>도입 장벽은 높다. 전체 재현에는 큰 GPU 자원이 필요하다. 연구팀은 프로파일링 샌드박스만으로 128 NVIDIA H20 GPUs를 썼다. 프런티어 연구소나 GPU 클라우드, 대형 인프라 팀이 유리한 구조다.</p>
+<p>그렇다고 중간 규모 팀이 완전히 배제되는 것은 아니다. 공개된 데이터셋과 보상 설계, 제약 조건, 스킬 명세는 다른 기반 모델에도 올릴 수 있다. 핵심은 모델을 도구 환경과 묶는 방식이다. 에이전트 루프는 OpenHands와 비슷한 도구 구성을 쓴다. Bash, Read/Write, Edit/MultiEdit, Glob, Grep, NotebookEdit, BashOutput, KillBash를 ReAct 패턴으로 연결했다.</p>
+<p>보안과 운영 통제도 설계에 포함됐다. 연구팀은 보상 해킹을 막기 위해 다섯 가지 장치를 넣었다. 검증과 프로파일링 스크립트는 권한을 잠갔다. torch.nn.functional 우회도 막았다. 다섯 개의 무작위 입력으로 정답을 다시 확인했다. 프로파일링에는 device synchronization과 warm-up을 넣었다. 웹 검색 도구는 아예 제공하지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>공개 발췌에는 고객 도입 사례나 경쟁사 공식 반응이 없다. 다만 비교표에는 Claude Opus 4.5와 Gemini 3 Pro가 포함됐다. Level 3의 faster rate 기준으로 CUDA Agent는 각각 50.0%, 52.0%보다 약 40포인트 앞섰다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 기업에는 추론 비용과 배치 처리 시간이 직접 연결된다. 지연시간이 민감한 리스크 계산과 추천, 실시간 분석 계열에서 커널 최적화 여지가 있는지 점검할 만하다. 다만 이 연구는 모델 가중치를 공개하지 않았다. 그대로 들여오기는 어렵다.</p>
+<ul><li>검토 팀: AI플랫폼, GPU 인프라, MLOps, 정보보호</li><li>우선 확인: 우리 워크로드에 fused kernel 병목이 실제로 있는가</li><li>우선 확인: torch.compile이 느린 연산 구간을 프로파일링으로 찾을 수 있는가</li><li>선행 과제: 격리된 GPU 샌드박스와 자동 검증 체계를 먼저 마련</li><li>리스크: 대규모 GPU 비용, 폐쇄형 기반 모델 의존, 재현 난이도</li><li>주의점: 본문에 추론 서비스 실사용 비용 절감 수치는 없다</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>CUDA: NVIDIA GPU에서 병렬 연산을 돌리는 개발 플랫폼</span> <span>커널(kernel): GPU에서 직접 실행되는 작은 연산 코드</span> <span>강화학습(RL): 보상 신호로 행동을 개선하는 학습 방식</span> <span>PPO(Proximal Policy Optimization): 강화학습에 널리 쓰는 정책 최적화 기법</span> <span>torch.compile: PyTorch 모델을 컴파일해 실행 속도를 높이는 기능</span> <span>샌드박스(sandbox): 권한과 실행 범위를 제한한 격리 환경</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: ByteDance Seed and Tsinghua AIR Introduces CUDA Agent: A Large-Scale Agentic RL System for CUDA Kernel Generation</p>
+        <p class="url">게시일: 2026.08.18</p>
+        <p class="url">출처 URL: https://www.marktechpost.com/2026/08/17/bytedance-seed-and-tsinghua-air-introduces-cuda-agent-a-large-scale-agentic-rl-system-for-cuda-kernel-generation/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

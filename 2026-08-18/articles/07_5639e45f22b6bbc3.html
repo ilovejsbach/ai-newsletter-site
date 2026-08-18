@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>숨은 추론 블록서 API 키 62개 복원</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-research">
+      <p class="source"><span class="article-number">07</span> stolen-thoughts.com <span class="source-date">게시일 2026.08.11</span></p>
+      <h1>숨은 추론 블록서 API 키 62개 복원</h1>
+      <img class="detail-image" src="../assets/images/article_07_5639e45f22b6bbc3.png" alt="기사 이미지">
+      <p class="detail-lead">이 연구는 숨겨진 추론이 정말 숨겨져 있는지부터 다시 묻는다. 연구팀은 Anthropic, OpenAI, Google API가 반환한 암호화 추론 블록이 세션과 사용자, 모델을 넘어 서로 바꿔 넣을 수 있다고 주장했다. 그 결과 보이지 않아야 할 추론과 민감정보를 대규모로 복원했다고 밝혔다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>연구팀은 프런티어 모델 API가 반환한 암호화 추론 블록을 분석했다. 이 블록은 세션과 사용자, 모델이 달라도 서로 바꿔 넣을 수 있다고 연구팀은 주장했다. 연구팀은 이 특성을 이용해 숨은 추론을 복원했다. 복원된 추론 길이는 API가 보고한 hidden thinking token 수와 가깝게 움직였다.</p>
+<p>연구팀은 GitHub와 Hugging Face에 공개된 에이전트 실행 기록 6,708건을 모았다. 이 기록에는 Claude, GPT, Gemini가 남긴 암호화 추론 블록이 포함돼 있었다. 연구팀은 모든 signed block에 복원 파이프라인을 적용했다. 그 결과 추론 블록 315,320개를 재구성했다고 밝혔다.</p>
+<p>민감정보도 함께 나왔다. 연구팀은 실제 사용자 세션만 따로 봤다. 그 안에서 704개의 서로 다른 프라이버시 아티팩트를 찾았다. 여기에는 API 키 62개, 비밀번호 33개, 액세스 토큰 24개, 개인 이메일 주소 30개가 포함됐다. 이름과 우편 주소, 내부 URL, 기술 식별자도 있었다. 이 가운데 64개는 보이는 대화에는 없고 추론 블록 안에만 있었다.</p>
+        
+      </section>
+<section>
+        <h2>방법과 결과</h2>
+        <p>방법은 단순하다. 연구팀은 공개 저장소의 에이전트 로그에서 암호화 추론 블록을 수집한 뒤, 이 블록을 다시 모델 입력으로 넣어 내용을 복원했다. 검증은 120개의 Codeforces 문제로 진행했다. 각 문제에서 API가 보고한 hidden thinking token 수와 복원된 추론 토큰 수를 비교했고, 두 수치가 가깝게 맞았다고 연구팀은 설명했다.</p>
+<p>결과는 보안 관점에서 강하다. 숨은 추론이 세션과 사용자 경계를 충분히 지키지 못한다면, 로그 공유만으로도 정보가 새어 나갈 수 있다. 연구팀은 세 회사 모델에서 현상을 재현했다고 밝혔다. 다만 발췌에는 회사별 방어 조건과 실패 사례가 자세히 나오지 않는다. 오탐과 누락 비율도 이 발췌만으로는 확인할 수 없다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>공개 발췌에는 각 API 제공사의 공식 반응이 없다. 고객사 대응이나 커뮤니티 차단 조치도 아직 확인되지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사는 에이전트 로그를 데이터 자산이자 보안 자산으로 함께 봐야 한다. 보이는 대화만 지워도 충분하다고 가정하면 안 된다. 숨은 추론 블록과 서명된 메타데이터가 남아 있는지 먼저 확인할 필요가 있다.</p>
+<ul><li>검토 팀: 정보보호, AI플랫폼, 개발생산성, 법무·컴플라이언스</li><li>즉시 점검: API 응답 원문과 에이전트 로그를 어디에 저장하는가</li><li>즉시 점검: GitHub, Hugging Face, 사내 위키에 실행 기록을 올리는 절차가 있는가</li><li>확인 질문: 모델 제공사가 추론 블록 보관과 재사용을 어떻게 제한하는가</li><li>선행 과제: 로그 마스킹 범위를 visible text에서 hidden block까지 넓히기</li><li>주의점: 발췌만으로는 취약점의 원인과 각 사업자의 수정 여부를 확정할 수 없다</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>추론 흔적(reasoning trace): 모델이 답을 만들며 남긴 중간 생각 기록</span> <span>체인 오브 소트(chain-of-thought): 답변 전개를 위해 모델이 생성한 사고 단계</span> <span>에이전트 실행 기록(agent trajectory): 모델이 도구를 쓰며 작업한 전체 로그</span> <span>복원(reconstruction): 숨겨진 데이터를 다시 읽을 수 있게 되돌리는 것</span> <span>프런티어 모델(frontier model): 성능 상위권의 대형 최신 모델</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Stealing Reasoning Traces from Proprietary LLM APIs</p>
+        <p class="url">게시일: 2026.08.11</p>
+        <p class="url">출처 URL: https://stolen-thoughts.com/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

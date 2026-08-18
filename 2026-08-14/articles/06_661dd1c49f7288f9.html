@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10초 영상 6.8초 생성, LTX-2.5 로컬로 돈다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">06</span> MarkTechPost <span class="source-date">게시일 2026.08.11</span></p>
+      <h1>10초 영상 6.8초 생성, LTX-2.5 로컬로 돈다</h1>
+      <img class="detail-image" src="../assets/images/article_06_661dd1c49f7288f9.png" alt="기사 이미지">
+      <p class="detail-lead">영상 생성도 클라우드 중심에서 로컬 실행으로 옮겨가고 있다. LTX는 이런 흐름에 맞춰 LTX-2.5를 공개했다. 회사는 로컬 GPU에서 돌아가는 속도와 일관성을 핵심 변화로 내세웠다. NVIDIA도 같은 날 로컬 AI 시리즈와 연결해 이 모델을 부각했다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>LTX는 오픈 웨이트 월드 모델 LTX-2.5를 출시했다. 이 모델은 영상 생성, 실시간 앱, physical AI 용도를 함께 겨냥한다. 회사는 NVIDIA RTX GPU와 DGX Spark에서 로컬 추론이 되도록 최적화했다고 밝혔다. VRAM 요구도 줄였다고 설명했다.</p>
+<p>LTX는 속도 수치를 전면에 내세웠다. 이미지-투-비디오 기준으로 10-second clip 생성에 on-prem은 6.8 seconds가 걸렸다. 같은 작업을 LTX API로 처리하면 23.7 seconds가 걸렸다. 기사에 실린 폐쇄형 대안은 52 to 398 seconds 범위였다.</p>
+<p>모델 구조도 크게 손봤다. 새 diffusion video decoder는 고속 장면의 시각적 artifacts를 줄이는 데 초점을 맞췄다. native multishot generation은 한 시퀀스를 한 번에 생성해 장면 사이 일관성을 유지한다. Gemma 4 language backbone과 prompt enhancer도 넣었다.</p>
+<ul><li>on-prem 속도: 10-second clip in 6.8 seconds</li><li>API 속도: 23.7 seconds</li><li>지원 경로: Hugging Face, ComfyUI, LTX API, GitHub</li><li>사용 조건: annual recurring revenue $10M 미만 조직은 무료</li><li>실행 장비 범위: data center GPUs to a Mac</li></ul>
+<p>LTX는 physical AI checkpoint도 함께 제공한다. 로보틱스용 도메인 데이터로 추가 미세조정할 수 있는 기반 모델이다. distilled model도 강화해 같은 품질을 더 낮은 비용과 더 빠른 추론으로 제공한다고 밝혔다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <p>도입 조건은 비교적 명확하다. 가중치는 Hugging Face에서 받을 수 있다. ComfyUI를 기본 지원한다. 관리형 생성이 필요하면 LTX API도 쓸 수 있다. 코드와 문서도 GitHub에 있다.</p>
+<p>하드웨어 조건은 폭넓게 제시됐다. 회사는 데이터센터 GPU부터 Mac까지 실행 가능하다고 적었다. 다만 어떤 품질에서 어느 장비가 필요한지, 최소 사양이 어디인지 세부 표는 없다. 로컬 실행을 강조했지만, 고속 수치는 2x NVIDIA GB200 기준이다.</p>
+<p>라이선스 조건도 확인 포인트다. annual recurring revenue $10M 미만 조직에는 무료라고 밝혔다. 그 이상 조직의 조건은 본문에 없다. 금융권처럼 상업 이용과 데이터 보관 의무가 있는 환경에서는 별도 약관 검토가 필요하다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>LTX-2.5</th><th>비교 대상</th></tr></thead><tbody><tr><td>on-prem 생성 시간</td><td>6.8 seconds</td><td>10-second clip</td></tr><tr><td>API 생성 시간</td><td>23.7 seconds</td><td>10-second clip</td></tr><tr><td>폐쇄형 대안 범위</td><td>52 to 398 seconds</td><td>Omni Flash, Grok 1.5, Veo 3.1, Seedance, FLUX, Kling</td></tr><tr><td>무료 기준</td><td>under $10M in annual recurring revenue</td><td>organizations</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>LTX는 Asteria가 이미 영화와 영상 제작에 LTX를 쓰고 있다고 소개했다. Reactor는 저지연 인프라에서 LTX-2.5를 돌려 interactive avatars와 live worlds, robotics workloads를 지원한다고 밝혔다. Markov Robotics도 physical systems 인지와 이동 개발에 LTX를 쓴다고 전했다. 다만 이 글은 NVIDIA 후원 기사라고 명시했다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 기업에서는 광고 영상보다 교육, 사내 홍보, 고객 안내, 시뮬레이션 콘텐츠가 먼저 떠오른다. 로컬 실행이 사실이라면 민감한 이미지나 브랜드 자산을 외부 클라우드로 보내지 않고도 시안을 만들 수 있다.</p>
+<p>검토할 팀은 브랜드, 홍보, 교육, 정보보호, 인프라 조직이다. RTX급 장비를 이미 가진 팀이 있다면 소규모 파일럿을 돌려볼 수 있다. 다만 원문은 품질 평가 기준과 실제 업무별 안정성 수치를 충분히 주지 않는다.</p>
+<p>확인할 항목은 아래와 같다.</p>
+<ul><li>우리 회사의 보안 정책상 로컬 GPU 장비에 생성 모델을 올릴 수 있는가</li><li>연 매출 또는 ARR 기준 라이선스 조건이 우리 조직에 어떻게 적용되는가</li><li>생성 영상의 저작권, 학습 데이터, 상업 이용 약관은 어떻게 적혀 있는가</li><li>실제 장비에서 생성 속도와 VRAM 사용량이 어느 정도인가</li></ul>
+<p>특히 후원 기사라는 점은 감안해야 한다. 벤치마크와 현업 품질은 별도 검증이 필요하다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>오픈 웨이트(Open weights): 학습된 가중치를 공개해 직접 실행·조정할 수 있는 방식</span> <span>월드 모델(World model): 다음 장면이나 환경 변화를 예측해 영상·시뮬레이션을 만드는 모델</span> <span>VRAM: GPU가 작업 중 데이터를 올려두는 메모리</span> <span>LoRA: 적은 자원으로 모델을 특정 스타일이나 업무에 맞게 미세조정하는 기법</span> <span>ComfyUI: 이미지·영상 생성 워크플로를 시각적으로 구성하는 도구</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: The Video Production Stack Now Fits on One Desk: LTX-2.5 Launches as NVIDIA-Accelerated Open Weights World Model</p>
+        <p class="url">게시일: 2026.08.11</p>
+        <p class="url">출처 URL: https://www.marktechpost.com/2026/08/11/the-video-production-stack-now-fits-on-one-desk-ltx-2-5-launches-as-nvidia-accelerated-open-weights-world-model/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

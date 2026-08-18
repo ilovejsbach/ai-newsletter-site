@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>클로드 오퍼스 4.8, 성능보다 신뢰성에 무게</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page">
+    <article class="detail-article">
+      <p class="source"><span class="article-number">08</span> Anthropic News <span class="source-date">게시일 2026.06.23</span></p>
+      <h1>클로드 오퍼스 4.8, 성능보다 신뢰성에 무게</h1>
+      <img class="detail-image" src="../assets/images/article_08_5348a7d239028e9b.jpg" alt="기사 이미지">
+      <p class="detail-lead">Claude Opus 4.8은 이전 세대의 대폭 교체라기보다, Opus 4.7을 다듬은 상위 버전에 가깝다. 발표는 코딩과 에이전트 작업 성능 향상을 말하지만, 더 눈에 띄는 축은 정직성, 불확실성 표기, 장시간 작업의 일관성이다. 여기에 effort control, dynamic workflows, Messages API의 system 엔트리 지원이 함께 붙으면서 모델 자체보다 사용 방식이 더 크게 바뀐다. 사내 관점에서는 &#x27;얼마나 똑똑한가&#x27;와 함께 &#x27;얼마나 통제 가능한가&#x27;를 같이 봐야 하는 업데이트다.</p>
+      <section>
+        <h2>무엇이 달라졌나</h2>
+        <p>Opus 4.8은 Opus 4.7을 기반으로 한 업그레이드 버전이다. Anthropic은 코딩, 에이전트형 작업, 전문 업무 전반에서 벤치마크 개선이 있었다고 설명한다.</p>
+<p>동시에 몇 가지 기능이 같이 붙었다.</p>
+<ul><li>claude.ai의 effort control</li><li>Claude Code의 dynamic workflows 연구 프리뷰</li><li>Opus 4.8 fast mode 비용 조정</li></ul>
+<p>특히 기본 가격은 4.7과 동일하게 유지됐다.</p>
+      </section>
+<section>
+        <h2>이번 발표의 중심은 성능보다 신뢰성</h2>
+        <p>가장 강조된 개선점 중 하나는 정직성(honesty)이다. 얇은 근거로 진척을 과장하거나, 자신이 만든 코드의 결함을 그냥 넘기는 경향을 줄였다는 설명이 붙는다.</p>
+<p>초기 테스터 평가는 Opus 4.8이 불확실성을 더 자주 드러내고, 근거 없는 주장을 덜 한다는 쪽이다. 내부 평가에서는 4.7보다 코드 결함을 언급 없이 통과시키는 비율이 약 4배 낮다고 적었다.</p>
+<p>이는 &#x27;더 많이 맞힌다&#x27;와는 다른 종류의 개선이다. 장기 실행 에이전트에서는 오답 자체만큼, 오답을 맞다고 밀어붙이는 행동이 큰 운영 리스크이기 때문이다.</p>
+      </section>
+<section>
+        <h2>어떤 제어면이 추가됐나</h2>
+        <p>effort control은 사용자가 응답에 투입할 사고량을 고를 수 있게 한다. 높은 effort에서는 더 자주, 더 깊게 생각해 품질을 높이고, 낮은 effort에서는 더 빨리 응답하며 사용량도 덜 소모한다.</p>
+<p>Opus 4.8의 기본은 high effort다. 더 어려운 작업이나 장시간 비동기 워크플로에는 `extra`(`xhigh`)나 `max`를 권장한다.</p>
+<p>Messages API도 바뀌었다. 이제 `messages` 배열 안에 system 엔트리를 넣을 수 있어, 작업 중간에 권한·토큰 예산·환경 맥락을 바꾸더라도 프롬프트 캐시를 깨지 않고 업데이트할 수 있다. 하네스 설계 관점에서 꽤 실용적인 변화다.</p>
+      </section>
+<section>
+        <h2>Claude Code는 얼마나 커졌나</h2>
+        <p>dynamic workflows는 Claude Code에서 더 큰 작업을 맡기기 위한 기능이다. Claude가 계획을 세우고, 한 세션 안에서 수백 개의 병렬 서브에이전트를 돌린 뒤, 결과를 검증해 사용자에게 보고하는 구조다.</p>
+<p>예시로는 수십만 줄 규모 코드베이스의 마이그레이션을 시작부터 머지까지 수행하는 시나리오가 제시됐다. 기준은 기존 테스트 스위트 통과다.</p>
+<p>현재는 Enterprise, Team, Max 플랜의 Claude Code에서 연구 프리뷰로 제공된다. 즉 기능 자체는 크지만, 접근 범위는 아직 제한적이다.</p>
+      </section>
+<section>
+        <h2>가격과 배포는 어떻게 보이나</h2>
+        <p>API 가격은 Opus 4.7과 동일하다.</p>
+<ul><li>일반 모드: 입력 100만 토큰당 5달러, 출력 25달러</li><li>fast mode: 입력 100만 토큰당 10달러, 출력 50달러</li></ul>
+<p>빠른 모드는 Opus 4.8에서 2.5배 속도로 일할 수 있고, 이전 모델 대비 3배 더 저렴해졌다고 적었다. 개발자는 `claude-opus-4-8` 모델명으로 Claude API에서 사용할 수 있다.</p>
+<p>사내에서는 effort 수준별 토큰 사용량 차이까지 함께 계산해야 실제 비용 그림이 나온다.</p>
+      </section>
+<section>
+        <h2>실무 영향과 확인할 점</h2>
+        <p>이번 릴리즈는 단일 질의응답보다 장시간 협업형 모델 운영에 더 직접적인 영향을 준다. 특히</p>
+<ul><li>실행 중 system 지시 업데이트</li><li>effort 수준별 품질·비용 조정</li><li>병렬 서브에이전트 기반 대규모 코드 작업</li></ul>
+<p>같은 면이 눈에 띈다.</p>
+<p>반면 Anthropic도 이를 &#x27;크지만 점진적인 개선&#x27;으로 표현한다. 더 낮은 비용의 동급 역량 모델과, Opus보다 더 높은 지능의 새 클래스 모델도 별도로 준비 중이라고 밝혀, 이번 버전이 종착점은 아니라는 점도 분명히 했다.</p>
+      </section>
+<section>
+        <h2>출처와 한계</h2>
+        <p>본문은 더 넓은 평가와 안전성 검토를 System Card에 두고 있다. 따라서 세부 벤치마크 해석, 안전성 평가 방법, OSWorld-Verified 업데이트 방식은 원문 발췌만으로 다 보기 어렵다.</p>
+<p>또한 발표에는 향후 Mythos 계열 공개 계획과 규제 맥락도 함께 언급되지만, 이는 Opus 4.8 자체 스펙과는 구분해 볼 필요가 있다.</p>
+<p>출처: Anthropic News, Claude Opus 4.8</p>
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트형 작업(agentic tasks)</span> <span>노력도 제어(effort control)</span> <span>동적 워크플로(dynamic workflows)</span> <span>정렬 평가(alignment assessment)</span> <span>프롬프트 캐시(prompt cache)</span> <span>메시지 API(Messages API)</span> <span>병렬 서브에이전트(parallel subagents)</span> <span>시스템 카드(System Card)</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Introducing Claude Opus 4.8 An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle...</p>
+        <p class="url">게시일: 2026.06.23</p>
+        <p class="url">출처 URL: https://www.anthropic.com/news/claude-opus-4-8</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

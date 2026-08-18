@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepSeek V4 Pro 0813, 12개 사업자 가격 갈린다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">03</span> openrouter.ai <span class="source-date">게시일 2026.08.12</span></p>
+      <h1>DeepSeek V4 Pro 0813, 12개 사업자 가격 갈린다</h1>
+      <img class="detail-image" src="../assets/images/article_03_7408c6cd79dc3a53.png" alt="기사 이미지">
+      <p class="detail-lead">DeepSeek V4 Pro 0813의 API 가격표와 사업자별 성능 비교가 공개됐다. 이 모델은 대형 MoE 구조를 쓴다고 소개됐다. 핵심 정보는 세 가지다. 입력·출력 단가, 1,048,576 token 컨텍스트, 그리고 12개 사업자별 속도와 가용성 차이다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>DeepSeek V4 Pro 0813은 DeepSeek의 대형 MoE 모델로 소개됐다. 기본 가격은 입력과 출력 모두 사업자에 따라 조금씩 달랐다. 가장 눈에 띄는 점은 1,048,576 token 컨텍스트와 다수 사업자 공급 구조다.</p>
+<ul><li>기본 가격: $1.218 per million input tokens, $2.436 per million output tokens</li><li>컨텍스트 윈도우: 1,048,576 token</li><li>공급 사업자 수: 12 providers</li></ul>
+<p>사업자별 수치도 함께 공개됐다. 같은 모델이라도 응답 시작 시간과 초당 토큰 수, 업타임이 서로 달랐다. 운영 환경에서는 모델 성능 못지않게 공급 경로를 따져야 한다.</p>
+<p>일부 사업자는 할인 가격을 제시했다. 일부 사업자는 더 낮은 레이턴시를 내세웠다. 반면 업타임은 DeepSeek 자체 제공이 99.95%로 가장 높게 적혔다.</p>
+        
+      </section>
+<section>
+        <h2>주요 트렌드</h2>
+        <p>이 사례는 프런티어 모델 시장이 단일 API 경쟁에서 멀티 프로바이더 경쟁으로 옮겨가고 있음을 보여준다. 이제 모델 회사가 직접 파는 채널과 중개 사업자가 함께 경쟁한다. 고객은 모델 하나를 고른 뒤에도 어디서 호출할지 다시 선택해야 한다.</p>
+<p>가격 정책도 계층화되고 있다. 입력·출력 단가뿐 아니라 cache read 가격까지 따로 제시한다. 긴 컨텍스트를 자주 쓰는 고객은 단순한 토큰 단가보다 캐시 정책이 더 중요할 수 있다.</p>
+<p>가용성 측면에서도 선택지가 넓어졌다. 12개 사업자가 붙으면 조달 리스크를 나눌 수 있다. 반대로 사업자별 성능 편차가 커서 표준화된 운영이 어려워질 수도 있다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>사업자</th><th>입력 /M</th><th>출력 /M</th><th>Cache read /M</th><th>Latency</th><th>Throughput</th><th>Uptime</th></tr></thead><tbody><tr><td>GMICloud 30% off</td><td>$ 1.218</td><td>$ 2.436</td><td>$ 0.1015</td><td>3.87 s</td><td>52 tps</td><td>99.56%</td></tr><tr><td>Baseten</td><td>$ 1.32</td><td>$ 3.96</td><td>$ 0.132</td><td>0.67 s</td><td>95 tps</td><td>98.17%</td></tr><tr><td>SiliconFlow</td><td>$ 1.32</td><td>$ 3.96</td><td>$ 0.44</td><td>1.36 s</td><td>69 tps</td><td>99.59%</td></tr><tr><td>NovitaAI</td><td>$ 1.32</td><td>$ 3.96</td><td>$ 0.35</td><td>1.47 s</td><td>98 tps</td><td>99.59%</td></tr><tr><td>Parasail</td><td>$ 1.32</td><td>$ 3.96</td><td>$ 0.044</td><td>0.41 s</td><td>44 tps</td><td>99.74%</td></tr><tr><td>DeepSeek</td><td>$ 1.32</td><td>$ 3.96</td><td>$ 0.044</td><td>1.30 s</td><td>86 tps</td><td>99.95%</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>Reddit r/LocalLLaMA와 Simon Willison Blog 등 커뮤니티 채널이 이 모델을 함께 다뤘다. 관심은 모델 소개 자체보다 가격표와 사업자별 차이에 쏠렸다. 아직 대형 고객 도입 사례나 경쟁사 대응은 공개되지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 외부 LLM API를 고를 때는 모델명만 비교하면 부족하다. 같은 모델이라도 사업자별 레이턴시와 업타임 차이가 커서, 고객 서비스와 내부 배치 작업의 최적 선택이 달라질 수 있다.</p>
+<p>검토 항목은 다음과 같다.</p>
+<ul><li>적용 업무 구분: 실시간 상담 보조, 내부 문서 검색, 야간 배치 분석</li><li>확인 질문: 사업자별 데이터 저장 위치, 금융 규제 대응 문서, 장애 시 대체 경로 제공 여부</li><li>비용 항목: 입력·출력 단가 외에 cache read 가격이 총비용에 미치는 영향</li><li>운영 설계: 한 사업자 단일 사용이 나은지, 다중 사업자 라우팅이 나은지</li></ul>
+<p>이번 자료에는 라이선스 조건, 안전 정책, 엔터프라이즈 지원 범위가 없다. 장문 컨텍스트가 실제로 어떤 품질을 내는지도 확인되지 않았다. PoC에서는 긴 문서 처리 품질과 장애 전환 시나리오를 따로 시험해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>MoE(Mixture-of-Experts): 여러 전문가 모듈 중 일부만 골라 쓰는 모델 구조</span> <span>컨텍스트 윈도우(Context window): 모델이 한 번에 참고할 수 있는 입력 길이</span> <span>레이턴시(Latency): 요청 후 첫 응답이 나오기까지 걸리는 시간</span> <span>처리량(Throughput): 일정 시간 동안 처리하는 토큰 양</span> <span>업타임(Uptime): 서비스가 정상 동작한 비율</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: DeepSeek V4 Pro 0813</p>
+        <p class="url">게시일: 2026.08.12</p>
+        <p class="url">출처 URL: https://openrouter.ai/deepseek/deepseek-v4-pro-0813</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
