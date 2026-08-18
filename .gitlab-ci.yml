@@ -1,0 +1,25 @@
+# 사내 깃랩 Pages 배포 설정 — 이 파일이 저장소 루트에 있으면 push할 때마다
+# CI가 저장소 내용을 정적 사이트로 배포한다 (GitLab에서는 이 파일 자체가
+# Pages를 켜는 방법). GitHub는 이 파일을 무시하므로 테스트 저장소에 둬도 무해.
+#
+# 배포 후 주소(사내 인스턴스 설정에 따라 다름, 관리자에게 확인):
+#   https://<pages-도메인>/<그룹>/<프로젝트>/            ← 아카이브 목록
+#   https://<pages-도메인>/<그룹>/<프로젝트>/latest/     ← 최신 호 (게시판 고정 글용)
+#   https://<pages-도메인>/<그룹>/<프로젝트>/2026-08-18/ ← 주차별 (게시판 주간 글용)
+#
+# 러너가 외부 이미지를 못 받는 환경이면 아래 image 줄을 사내 레지스트리
+# 이미지로 바꾸거나, shell 러너면 줄 자체를 지워도 된다 (cp/mv만 쓴다).
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+    # GitLab Pages는 public/ 폴더 아티팩트를 그대로 서빙한다.
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
