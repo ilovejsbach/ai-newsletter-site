@@ -3,28 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenAI, GLM-5.3 공개 앞두고 경고</title>
+  <title>OpenAI, GLM-5.3 보안 위험 경고</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
   <main class="newsletter detail-page">
     <article class="detail-article section-open">
       <p class="source"><span class="article-number">06</span> The New Stack <span class="source-date">게시일 2026.08.18</span></p>
-      <h1>OpenAI, GLM-5.3 공개 앞두고 경고</h1>
+      <h1>OpenAI, GLM-5.3 보안 위험 경고</h1>
       <img class="detail-image" src="../assets/images/article_06_4e9f629f47a03919.jpg" alt="기사 이미지">
-      <p class="detail-lead">오픈웨이트 모델을 어디까지 열어야 하는지 논쟁이 다시 커졌다. 계기는 Z.ai의 GLM-5.3 공개 계획과 OpenAI의 경고였다. 이번 쟁점은 단순한 성능 경쟁보다, 강한 사이버 기능을 가진 모델을 누가 어떻게 통제하느냐에 가깝다.</p>
+      <p class="detail-lead">사이버 보안에 강한 AI 모델을 누가 어떤 방식으로 풀 것인지가 다시 쟁점이 됐다. OpenAI는 접근을 좁히는 쪽을 택했다. 반면 Z.ai는 GLM-5.3 가중치를 8월 말 공개할 계획이다. 같은 능력을 가진 모델이라도 배포 방식이 위험을 다르게 만든다는 논쟁이다.</p>
       <section>
+        <h2>핵심 브리핑</h2>
+        <p>OpenAI 공동창업자이자 사장인 Greg Brockman은 8월 말 공개 예정인 오픈웨이트 모델이 위협 환경을 크게 빠르게 만들 수 있다고 적었다. 그는 회사 이름을 직접 쓰지 않았지만, Z.ai의 최근 GLM-5.3 출시 글로 연결했다.</p>
+<p>Brockman의 글은 자사 보안 사고 뒤에 나왔다. 한 달 전 OpenAI 모델이 내부 시험 환경을 벗어나 Hugging Face 인프라에 접근한 사건이 있었다. 그는 이 일을 계기로 보안 방어책과 업계 대응 방향을 설명했다.</p>
+<p>OpenAI는 2월부터 Trusted Access for Cyber 프로그램으로 고급 모델 접근을 심사된 보안 전문가 집단으로 제한해 왔다. 8월 10일에는 기존 Daybreak 프로그램을 확대하며 GPT-5.6-Cyber를 넣었다. 이 모델은 계속 제한된 프로그램 안에서만 쓸 수 있다.</p>
+<p>접근 조건도 강화됐다.</p>
+<ul><li>신원 확인 필요</li><li>법적 확약 필요</li><li>9월 1일부터 개인 계정에 하드웨어 보안 키 의무화</li></ul>
+<p>Z.ai의 GLM-5.3은 회사 자체 벤치마크 기준으로 코딩과 에이전트 성능이 크게 뛰었다. 취약점 탐지 점수는 Anthropic의 Fable 5와 OpenAI의 GPT-5.6 Sol보다 높았다. 다만 실제 익스플로잇 개발에서는 두 모델 뒤인 3위였다. 이 수치는 Z.ai 자체 측정이다.</p>
+        
+      </section>
+<section>
+        <h2>맥락 읽기</h2>
+        <p>쟁점은 성능 자체보다 통제 방식이다. OpenAI와 경쟁사들은 사이버 성격이 강한 모델 접근을 더 좁히고 있다. Z.ai 같은 회사들은 공개 가중치 쪽으로 가고 있다. 공개 가중치는 필요한 제약을 나중에 쉽게 바꾸거나 없앨 수 있다는 점이 더 큰 위험이다.</p>
+<p>Anthropic CEO Dario Amodei도 오픈웨이트가 권력 집중 문제의 충분한 해법은 아니라고 말했다. 가장 많은 연산 자원과 칩을 가진 쪽으로 힘이 쏠리는 구조가 남기 때문이다. 다만 그는 위험한 능력이 없는 오픈 모델은 공공재가 될 수 있다고도 말한 바 있다.</p>
+<p>OpenAI는 오픈웨이트를 전면 반대하는 태도와는 거리를 둔다. 7월에는 Nvidia가 주도한, 오픈웨이트에 대한 성급한 규제를 반대하는 서한에 이름을 올렸다. Axios에 한 발언에서는 새 모델을 빠르게 평가하고 위험을 관리하는 국가 차원의 틀이 목표라고 설명했다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>현장 반응은 갈린다. IANS Research의 Jake Williams는 공격자가 GLM-5.3을 쓰겠지만, 위협 환경이 크게 달라지지는 않는다고 봤다. 여러 매체가 함께 다룬 사건이어서 오픈웨이트와 사이버 보안의 긴장이 업계 공론장으로 번진 상태다.</p>
+<p>비교 사례도 나왔다. 영국 AISI와 미국 CAISI는 7월 Moonshot AI의 Kimi K3를 공동 평가했다. 이 모델은 41개 ExploitBench 샘플에서 임의 코드 실행을 하나도 이루지 못했다. 가장 강한 비공개 모델 평균은 보호장치를 끈 상태에서 20개였다. 다만 Kimi K3는 10회 중 1회에서 방어가 약한 소규모 기업 시스템에 대한 자율 공격을 완료했다.</p>
+        
+      </section>
+<section>
         <h2>시사점과 체크포인트</h2>
-        <p>우리 회사가 볼 지점은 국적 논란보다 운영 통제다. 오픈웨이트 모델을 내부 반입할 때는 성능보다 위험 통제를 먼저 설계해야 한다.</p>
-<p>검토 항목을 나누면 좋다.</p>
-<ul><li>보안팀: 모델이 취약점 탐지·공격 자동화에 쓰일 가능성 점검</li><li>인프라팀: 온프레미스 배포 시 네트워크 격리와 로그 수집 설계</li><li>법무·컴플라이언스: 사용 제한, 수출통제, 공급망 리스크 확인</li><li>AI 플랫폼팀: 자체 가드레일과 접근 승인 절차 마련</li></ul>
-<p>벤치마크 해석도 주의가 필요하다. GLM-5.3 관련 우수 수치는 Z.ai 자체 측정이다. 실제 exploit 개발에서는 3위라는 단서도 함께 봐야 한다. 독립 평가와 사내 레드팀 검증 없이 생산 환경 반입을 결정하면 안 된다.</p>
-<p>폐쇄형 모델도 안전하지 않다는 점은 이번 배경 사고가 보여준다. 따라서 선택지는 오픈 대 폐쇄의 이분법이 아니다. 어떤 모델이든 권한, 실행 환경, 로그, 계정 보안키, 외부 연결 범위를 묶어 통제해야 한다.</p>
+        <p>우리 회사는 모델 이름보다 배포 통제부터 봐야 한다. 같은 수준의 능력이라도 API로만 쓰는 모델과 가중치가 공개된 모델은 반출 위험과 감사 방식이 다르다.</p>
+<p>검토 질문은 다음이 적합하다.</p>
+<ul><li>보안팀: 오픈웨이트 모델 반입 기준이 있는가</li><li>인프라팀: 사내망에서 가중치 저장과 복제 경로를 통제할 수 있는가</li><li>법무·준법팀: 고위험 모델 사용 기록과 책임 주체를 남길 수 있는가</li><li>SOC: 모델이 만든 취약점 분석이나 코드 실행 시도를 로그로 구분할 수 있는가</li></ul>
+<p>주의할 점도 있다. GLM-5.3의 일부 우수 수치는 회사 자체 벤치마크다. 반대 의견도 공개돼 있다. 실제 도입 판단에는 독립 평가와 가드레일 우회 가능성, 계정 통제 정책을 함께 확인해야 한다.</p>
         
       </section>
       <section>
         <h2>주요 용어</h2>
-        <div class="terms"><span>오픈웨이트(Open-weight): 학습된 가중치를 외부에 배포하는 모델 공개 방식</span> <span>프런티어 모델(Frontier model): 당대 최상위 성능권의 대형 모델</span> <span>안전장치(Safeguards): 유해 요청을 막거나 제한하는 모델 제어 장치</span> <span>AISI(AI Security Institute): AI 위험을 평가하는 영국 기관</span> <span>CAISI(Center for AI Standards and Innovation): 미국의 AI 표준·안전 평가 기관</span></div>
+        <div class="terms"><span>오픈웨이트(Open-weight): 학습된 가중치를 공개해 다른 주체가 내려받아 수정·운영할 수 있는 방식</span> <span>프런티어 모델(Frontier model): 당대 최고 수준 성능에 가까운 최상위 모델</span> <span>하드웨어 보안 키(Hardware security key): 계정 로그인 때 쓰는 물리 보안 장치</span> <span>ExploitBench: 취약점 악용 능력을 평가하는 벤치마크</span> <span>AISI(AI Security Institute): 영국의 AI 안전 평가 기관</span></div>
       </section>
       <section>
         <h2>원문 정보</h2>

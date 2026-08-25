@@ -12,19 +12,45 @@
       <p class="source"><span class="article-number">05</span> MarkTechPost <span class="source-date">게시일 2026.08.18</span></p>
       <h1>구글, 에이전트용 P2P 망 SAM 공개</h1>
       <img class="detail-image" src="../assets/images/article_05_8a6e7f05f419a3c7.png" alt="기사 이미지">
-      <p class="detail-lead">에이전트가 클라우드와 사내 데이터센터, 노트북, 모바일 기기로 흩어지면 도구 공유가 복잡해진다. 많은 팀은 이때 내부 스크립트나 LLM 엔드포인트를 인터넷에 노출한다. 구글은 이 문제를 겨냥해 Sovereign Agent Mesh, 줄여서 SAM을 오픈소스로 내놨다.</p>
+      <p class="detail-lead">구글이 Sovereign Agent Mesh, 줄여서 SAM을 오픈소스로 공개했다. 이 SAM은 Segment Anything이 아니다. 여러 장소와 기기에서 돌아가는 AI 에이전트가 MCP 도구를 안전하게 공유하도록 만든 네트워크다. 목표는 내부 스크립트나 사설 API를 공용 인터넷에 직접 열지 않는 데 있다.</p>
       <section>
+        <h2>핵심 브리핑</h2>
+        <p>SAM은 Apache-2.0 라이선스로 배포된 네트워킹 프로젝트다. 클라우드 서버, 사내 데이터센터, 노트북, Raspberry Pi, Android 기기처럼 흩어진 에이전트를 한 망으로 묶는다. 설정 없이 노드를 찾고, NAT 환경에서도 연결을 유지하며, 각 호출은 암호 방식으로 승인한다.</p>
+<p>저장소에는 주의 문구가 있다. 구글이 공식 지원하는 제품은 아니다. 공개 네트워크는 베타 테스트넷으로 표시돼 있다. 실서비스에는 공개 테스트넷 대신 제어 평면을 직접 운영하라고 문서가 권한다.</p>
+<p>지금 제공하는 배포물은 다음과 같다.</p>
+<ul><li>Go 바이너리</li><li>설치 스크립트</li><li>ghcr.io Docker 이미지</li><li>charts/sam-mesh Helm 차트</li><li>프로덕션 Kubernetes 가이드</li><li>Android·iOS 지원</li><li>공개 테스트넷: bananas.sam-mesh.dev</li></ul>
+<p>구성 요소는 세 가지 바이너리로 나뉜다.</p>
+<ul><li>sam-control-plane: 신원 등록, 토큰 발급, 정책 배포</li><li>sam-router: libp2p 부트스트랩 지점, GossipSub 라우팅 오버레이</li><li>sam-node: P2P 전송, 자가 복구 연결, 로컬 MCP HTTP 인터페이스</li></ul>
+<p>노드는 sam-node join으로 가입한다. 그다음 sam-node run으로 실행한다. libp2p는 5001/udp와 5002/tcp를 쓴다. 로컬 MCP API 기본 포트는 8080이다.</p>
+<p>권한 모델도 분명하다. 제어 평면은 OIDC JWT를 검증한 뒤, 클레임을 Datalog 사실로 바꾸고 Biscuit 토큰에 담는다. 각 노드는 이 토큰과 로컬 규칙만으로 오프라인 승인 여부를 판단한다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <p>접근 제어 기본값은 엄격하다. 명시 허용이 없으면 모두 막는다. 서비스 검색 카탈로그인 system://sam.catalog도 예외가 아니다. granted_service_exact(...) 같은 권한 사실을 따로 줘야 한다. 서비스 이름은 type://name 형식을 쓴다. mcp://*와 mcp://build-runner.* 같은 와일드카드도 지원한다.</p>
+<p>요청 처리도 두 단계로 나뉜다. 1단계는 차단 목록과 폐기 캐시를 먼저 확인한다. 2단계는 Biscuit 승인기를 정확히 두 번 실행한다. 먼저 노드 자신의 신원 토큰을 검사해 target_fact를 만든다. 다음에 호출자 토큰을 검사한다. 연결한 피어 ID가 토큰의 피어 ID와 일치해야 해서 재전송 공격도 막는다.</p>
+<p>운영자가 로컬 규칙을 더 좁힐 수도 있다. 밤 9시 이후 쓰기 도구를 막거나 외주 인력 접근을 차단할 수 있다. 다만 로컬 허용 규칙이 제어 평면 제약을 덮어쓰지는 못한다.</p>
+<p>에이전트가 실제로 호출하는 MCP 도구도 정해져 있다.</p>
+<ul><li>discover_remote_services</li><li>find_remote_tools</li><li>call_remote_tool</li></ul>
+<p>보안 경계 설계도 눈에 띈다. sam-box와 nano-init은 샌드박스 밖으로 나가는 트래픽을 통제한다. nano-init은 프록시 환경 변수를 넣는다. 이를 무시하는 도구에는 80과 443 포트의 C connect() 호출을 가로채는 인터셉터를 건다. sam-box는 Biscuit를 검증한 뒤 secrets.yaml에서 실제 자격증명을 넣고 HTTPS로 요청을 올린다. 에이전트 샌드박스 안에는 키를 두지 않는다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>문서는 중견기업과 엔터프라이즈 엔지니어링 조직을 주요 대상이라고 적었다. 단일 VPC 안에서만 에이전트를 돌리는 스타트업은 얻는 이익이 작다고도 밝혔다. 금융, 헬스케어, 공공, 국방, 산업·로보틱스 엣지 운영 조직을 적합 업종으로 제시했다. 아직 공개된 반응은 확인되지 않았다.</p>
+        
+      </section>
+<section>
         <h2>시사점과 체크포인트</h2>
-        <p>우리 회사가 여러 망 구간에서 AI 에이전트를 돌린다면 검토 가치가 있다. 특히 사내 API를 인터넷에 열지 않고 도구를 붙여야 하는 부서에 맞을 수 있다.</p>
-<p>먼저 확인할 항목이 있다.</p>
-<ul><li>IAM·SSO 팀: OIDC 클레임을 어떤 권한 규칙으로 바꿀지</li><li>네트워크 팀: 5001/udp, 5002/tcp, 8080 정책 검토</li><li>보안팀: 기본 거부 정책과 토큰 폐기 절차 설계</li><li>플랫폼팀: Kubernetes 배포와 자체 control plane 운영 가능 여부</li></ul>
-<p>리스크도 뚜렷하다. 공개 메시가 아직 beta testnet이다. 공식 지원 제품도 아니다. 장애 대응 책임은 도입 조직에 남는다. 벤더 지원이 필요한 업무라면 상용 대안과 함께 비교해야 한다.</p>
-<p>도입 전에는 작은 범위가 적절하다. 예를 들면 개발용 MCP 도구 검색, 비민감 추론 호출, 샌드박스 에이전트의 외부 통신 통제부터 시험할 수 있다. 결제, 고객정보, 운영계 권한처럼 민감도가 높은 흐름은 토큰 정책과 감사 체계가 먼저 준비돼야 한다.</p>
+        <p>우리 회사가 검토한다면 핵심은 에이전트 기능보다 네트워크 경계 설계다. 사내 API를 공용 인터넷에 열지 않고도 지점, 재택 단말, 클라우드 워크로드를 묶을 수 있는지 봐야 한다.</p>
+<p>먼저 확인할 항목은 다음과 같다.</p>
+<ul><li>IAM 팀: OIDC 클레임을 어떤 권한 사실로 바꿀지</li><li>인프라 팀: 제어 평면을 어디에 둘지</li><li>보안 팀: 기본 차단 정책과 예외 승인 절차를 어떻게 설계할지</li><li>플랫폼 팀: MCP 도구 이름 체계와 권한 단위를 어떻게 나눌지</li><li>단말 운영 팀: 노트북·모바일 기기 배포 범위를 허용할지</li></ul>
+<p>주의점도 분명하다. 공개 메시는 베타 테스트넷이다. 구글 공식 지원 제품도 아니다. 규제 환경에서는 자체 운영 역량이 없으면 도입 부담이 커질 수 있다. 반대로 오프라인 승인과 비밀정보 분리 구조는 감사 대응에 유리할 수 있다.</p>
         
       </section>
       <section>
         <h2>주요 용어</h2>
-        <div class="terms"><span>제로 트러스트(Zero Trust): 기본 허용 없이 매 요청을 검증하는 보안 방식</span> <span>P2P(Peer-to-Peer): 중앙 서버를 거치지 않고 노드끼리 직접 연결하는 구조</span> <span>MCP(Model Context Protocol): 모델과 도구를 연결하는 호출 규약</span> <span>OIDC(OpenID Connect): 사용자 로그인 정보를 표준 방식으로 확인하는 체계</span> <span>Biscuit: 권한 규칙을 담아 오프라인 검증이 가능한 토큰 형식</span></div>
+        <div class="terms"><span>P2P(Peer-to-Peer): 중앙 서버를 거치지 않고 노드끼리 직접 연결하는 방식</span> <span>제로 트러스트(Zero Trust): 내부망도 자동 신뢰하지 않고 요청마다 검증하는 보안 원칙</span> <span>MCP(Model Context Protocol): 모델과 도구를 연결하는 호출 규칙</span> <span>OIDC(OpenID Connect): 로그인 정보를 검증할 때 쓰는 표준 인증 방식</span> <span>Biscuit: 권한 규칙을 담아 오프라인 검증이 가능한 토큰 방식</span></div>
       </section>
       <section>
         <h2>원문 정보</h2>
