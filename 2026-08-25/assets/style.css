@@ -116,6 +116,7 @@ th { width: 140px; color: var(--muted); font-weight: 700; }
 .story-thumb span { position: absolute; top: 8px; left: 8px; background: rgba(17,23,33,.82); color: #fff; font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
 
 /* 콜아웃(pull quote): 본문에서 그대로 인용한 한 문장. --sc는 섹션 색을 상속받는다 */
+.story-yama { margin: 4px 0 2px; color: #4a5361; font-size: 15px; line-height: 1.6; max-width: 720px; }
 .story-hook { margin: 2px 0 0; padding: 2px 0 2px 14px; border-left: 3px solid var(--sc, var(--accent)); color: #333d4b; font-size: 16.5px; font-weight: 500; line-height: 1.65; max-width: 720px; }
 .story-summary { margin: 0 0 10px; color: #333d4b; }
 .slots { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }

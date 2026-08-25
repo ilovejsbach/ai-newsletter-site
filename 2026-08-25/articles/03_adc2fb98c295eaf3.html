@@ -3,50 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenAI, Codex를 오픈 하네스로 넓혔다</title>
+  <title>OpenAI, Codex를 앱 속 에이전트 틀로 넓혔다</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
   <main class="newsletter detail-page">
     <article class="detail-article section-frontier">
       <p class="source"><span class="article-number">03</span> OpenAI <span class="source-date">게시일 2026.08.19</span></p>
-      <h1>OpenAI, Codex를 오픈 하네스로 넓혔다</h1>
+      <h1>OpenAI, Codex를 앱 속 에이전트 틀로 넓혔다</h1>
       <img class="detail-image" src="../assets/images/article_03_adc2fb98c295eaf3.webp" alt="기사 이미지">
-      <p class="detail-lead">OpenAI가 Codex를 앱, CLI, IDE를 넘어 플랫폼으로 쓰는 방법을 공개했다. 핵심은 오픈소스 하네스다. 이 계층이 문맥 유지, 도구 사용, 승인 요청, 실행 경계 설정을 맡는다. 개발팀은 이 하네스를 기존 제품과 워크플로에 붙여 에이전트를 넣을 수 있다.</p>
+      <p class="detail-lead">OpenAI는 Codex를 하나의 앱이 아니라, 다른 제품 안에 넣을 수 있는 실행 틀로 설명했다. 핵심은 모델이 아니라 하네스다. 이 하네스가 문맥 유지, 도구 호출, 승인 요청, 작업 재개를 맡는다.</p>
       <section>
         <h2>핵심 브리핑</h2>
-        <p>OpenAI는 Codex의 오픈소스 하네스가 앱, CLI, IDE 확장의 공통 기반이라고 설명했다. 하네스는 작업 이해, 장기 문맥 유지, 관련 정보 확인, 도구 호출, 진행 상황 노출, 실패 처리, 승인 요청, 결과 반환을 맡는다. OpenAI는 모델만 붙이는 것으로는 충분한 에이전트를 만들기 어렵다고 못 박았다.</p>
-<p>Codex app-server는 이 기능을 문서화된 클라이언트 프로토콜로 노출한다. 애플리케이션은 스레드를 만들고, 턴을 시작하고, 이벤트를 받고, 승인 요청을 처리할 수 있다. OpenAI는 개발팀이 새 런타임을 처음부터 만들지 말고 Codex를 기반으로 시작할 수 있다고 제안했다.</p>
-<p>오픈소스로 공개된 구성요소는 Codex CLI, app-server, 공식 Codex SDK다. 다만 오픈소스는 하네스와 통합 표면에 한정된다. 모델 접근과 관리형 서비스는 별개로 남는다.</p>
-<p>통합 방식도 용도별로 나뉜다.</p>
-<ul><li>스크립트, CI 작업, 일회성 백그라운드 작업은 codex exec</li><li>코드에서 시작·재개·스트리밍이 필요하면 Codex SDK</li><li>제품 자체에 에이전트를 넣으려면 Codex app-server</li></ul>
-<p>OpenAI는 샘플 운영 앱 Relay도 소개했다. 이 앱은 가상 배송 대시보드 옆에서 에이전트를 돌린다. 애플리케이션이 가진 MCP 도구를 연결하고, 배송 재예약 같은 영향 있는 작업은 사람 승인을 요구한다.</p>
+        <p>OpenAI는 Codex 앱, CLI, IDE 확장 뒤에서 같은 오픈소스 하네스가 동작한다고 밝혔다. 이 하네스는 모델이 작업 문맥을 모으고, 여러 단계로 추론하고, 도구를 쓰고, 경계 안에서 실행되도록 돕는다. 개발팀은 이 틀을 가져다 자사 제품과 워크플로에 붙일 수 있다.</p>
+<p>OpenAI는 강한 에이전트가 프롬프트와 응답만으로는 부족하다고 설명했다. 작업 이해, 장기 문맥 유지, 관련 정보 확인, 도구 호출, 실패 처리, 사람 승인 요청, 결과 반환이 함께 필요하다는 뜻이다. 이 실행 계층이 바로 하네스다.</p>
+<p>Codex 하네스는 대화 상태 관리, 실행 스트리밍, 도구 사용, 샌드박스와 승인 정책 적용, 여러 턴에 걸친 작업 지속을 맡는다. Codex app-server는 이를 문서화된 클라이언트 프로토콜로 노출한다. 앱은 스레드를 만들고, 턴을 시작하고, 이벤트를 받고, 승인 요청을 처리할 수 있다.</p>
+<p>OpenAI는 통합 방식도 나눠 제시했다.</p>
+<ul><li>스크립트나 CI 작업에는 codex exec를 쓴다</li><li>프로그램 코드에서 작업을 시작하거나 재개하려면 Codex SDK를 쓴다</li><li>제품 자체에 에이전트를 넣으려면 Codex app-server를 쓴다</li></ul>
+<p>OpenAI는 ARC-AGI-3에서 하네스 설계가 결과를 크게 바꿨다고 밝혔다. retained reasoning과 context compaction을 적용하자 GPT‑5.6 Sol 점수가 13.3%에서 38.3%로 올랐다. 출력 토큰은 6분의 1로 줄었다.</p>
         
       </section>
 <section>
         <h2>주요 트렌드</h2>
-        <p>OpenAI는 에이전트 경쟁의 기준을 모델 응답에서 실행 구조로 옮기고 있다. 기존 제품 경험을 버리고 범용 채팅으로 옮기기보다, 현업이 이미 보는 대시보드와 기록 시스템 안에 에이전트를 넣으라는 방향이다. 이는 엔터프라이즈 도입의 저항을 줄이려는 전략으로 읽힌다.</p>
-<p>오픈소스 공개 범위도 선을 그었다. 하네스와 통합 계층은 열지만 모델 접근과 관리형 서비스는 분리했다. 개발자 생태계는 넓히되 핵심 모델 서비스는 통제하는 구조다.</p>
-<p>실사용 사례도 코딩 바깥으로 넓혔다. OpenAI는 보안 조사, 운영 대시보드, 고객지원 콘솔, 내부 업무 앱을 예시로 들었다. Codex를 코딩 도구가 아니라 범용 업무 에이전트 런타임으로 키우려는 신호다.</p>
+        <p>이번 발표는 모델 API를 파는 데서 한 걸음 더 나아간다. OpenAI는 범용 코딩 비서로 사용자를 끌어오는 대신, 기존 제품 화면 안에 Codex를 심는 구조를 밀고 있다. 대시보드, 기록 화면, 승인 흐름 같은 업무 맥락을 애플리케이션이 계속 쥐는 방식이다.</p>
+<p>오픈소스 전략도 분명하다. OpenAI는 CLI, app-server, 공식 SDK를 공개 컴포넌트로 제공한다. 다만 오픈소스로 여는 부분은 하네스와 통합 표면이고, 모델 접근과 관리형 서비스는 별개로 남긴다고 선을 그었다.</p>
         
       </section>
 <section>
         <h2>업계의 움직임</h2>
-        <p>OpenAI는 공개 구현 사례로 GitHub, JetBrains, Cisco를 들었다. GitHub와 JetBrains는 기존 IDE 흐름에 Codex를 넣고 있다. Cisco는 Cisco Cloud Control의 App Builder에서 Codex SDK를 쓴다.</p>
-<p>Thrive Holdings와 Crete는 세무 준비 워크플로에 Codex를 적용했다. 이 파일럿은 7,000건의 신고서를 처리했고 준비 시간을 약 3분의 1 줄였다.</p>
+        <p>공개 사례도 이미 나왔다. GitHub와 JetBrains는 기존 IDE 흐름에 Codex를 넣고 있다. Cisco는 Cisco Cloud Control 안의 App Builder에서 Codex SDK를 쓴다. Thrive Holdings와 Crete는 세무 준비 워크플로에 Codex를 넣었고, 시범 운영에서 7,000건의 신고를 처리하며 준비 시간을 약 3분의 1 줄였다.</p>
         
       </section>
 <section>
         <h2>시사점과 체크포인트</h2>
-        <p>우리 회사가 에이전트를 업무 시스템에 넣으려면 채팅 화면부터 만들 필요는 없다. 오히려 티켓, 계정, 장애 대응, 승인 대기열처럼 기존 화면을 유지한 채 에이전트 루프만 붙이는 편이 현업 수용성이 높을 수 있다.</p>
-<p>검토 포인트는 다음과 같다.</p>
-<ul><li>어떤 시스템이 문맥과 기록의 원본이 될지</li><li>에이전트가 호출할 도구를 누가 소유하고 감사할지</li><li>승인 필수 작업과 자동 처리 작업의 경계를 어디에 둘지</li><li>로컬 실행과 관리형 서비스의 분리로 보안 요건을 맞출 수 있는지</li></ul>
-<p>OpenAI가 제시한 ARC-AGI-3 수치는 자체 설명에 나온 값이다. retained reasoning과 context compaction을 넣었을 때의 결과이며, 모든 업무에 같은 폭으로 재현된다고 볼 수는 없다. 금융 업무에 쓰려면 감사 로그, 권한 모델, 실패 복구 설계를 별도로 확인해야 한다.</p>
-        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>적용 전</th><th>적용 후</th></tr></thead><tbody><tr><td>GPT-5.6 Sol 점수</td><td>13.3%</td><td>38.3%</td></tr><tr><td>출력 토큰</td><td>기준값</td><td>6분의 1</td></tr></tbody></table></div>
+        <p>우리 회사가 볼 부분은 코딩 지원보다 업무 시스템 통합이다. 운영 대시보드, 고객 지원 콘솔, 보안 조사 화면, 내부 결재 화면에 에이전트를 붙일 수 있다면 비개발 조직도 바로 쓸 수 있다.</p>
+<p>도입 검토 때는 다음을 따져야 한다.</p>
+<ul><li>어떤 시스템이 문맥과 기록의 원본이 될지</li><li>승인 요청을 현행 결재 체계와 어떻게 맞출지</li><li>에이전트가 접근할 파일과 도구 범위를 어디까지 열지</li><li>중단, 재개, 실패 처리 로그를 어떻게 남길지</li></ul>
+<p>OpenAI가 제시한 수치는 하네스 설계 효과를 보여주지만, 특정 벤치마크 결과다. 우리 업무에 맞는 성과는 별도 검증이 필요하다. 오픈소스 컴포넌트와 별도인 모델 접근 조건도 계약 단계에서 따져봐야 한다.</p>
+        
       </section>
       <section>
         <h2>주요 용어</h2>
-        <div class="terms"><span>harness: 에이전트가 문맥 유지·도구 호출·승인 요청을 처리하는 실행 계층</span> <span>Codex SDK: 애플리케이션 코드에서 Codex 작업을 제어하는 개발 도구</span> <span>app-server: 앱이 로컬 Codex 프로세스와 연결하는 서버 구성요소</span> <span>MCP services: 애플리케이션이 에이전트에 제공하는 도구 연결 방식</span> <span>sandbox: 접근 가능한 파일·도구 범위를 제한하는 실행 격리 환경</span></div>
+        <div class="terms"><span>하네스(Harness): 모델 실행, 도구 호출, 승인 처리, 상태 유지를 맡는 실행 계층</span> <span>SDK(Software Development Kit): 응용프로그램이 기능을 붙일 때 쓰는 개발 도구 묶음</span> <span>샌드박스(Sandbox): 허용된 범위 안에서만 실행되게 제한한 환경</span> <span>MCP(Model Context Protocol): 모델에 도구와 문맥을 연결하는 방식</span> <span>ARC-AGI-3: 추론 능력을 재는 벤치마크</span></div>
       </section>
       <section>
         <h2>원문 정보</h2>

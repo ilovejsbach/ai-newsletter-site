@@ -3,48 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nvidia AVO, ARC-AGI-3 100% 기록</title>
+  <title>Nvidia AVO, ARC-AGI-3 100점 기록</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
   <main class="newsletter detail-page">
     <article class="detail-article section-research">
       <p class="source"><span class="article-number">08</span> The New Stack <span class="source-date">게시일 2026.08.21</span></p>
-      <h1>Nvidia AVO, ARC-AGI-3 100% 기록</h1>
+      <h1>Nvidia AVO, ARC-AGI-3 100점 기록</h1>
       <img class="detail-image" src="../assets/images/article_08_4072e47f8f400be6.png" alt="기사 이미지">
-      <p class="detail-lead">Nvidia가 자사 에이전트 시스템 AVO의 구조와 벤치마크 결과를 공개했다. 핵심은 같은 모델이라도 어떤 시스템에 넣느냐에 따라 장기 추론 성능이 크게 달라졌다는 주장이다. 대상 벤치마크는 ARC Prize의 ARC-AGI-3다. 결과 발표 주체는 Nvidia 팀 블로그다.</p>
+      <p class="detail-lead">같은 모델도 어떤 시스템 안에서 돌리느냐에 따라 결과가 크게 달라질 수 있다. Nvidia는 이를 벤치마크 점수로 보여줬다. Claude Opus 5 단독 점수는 30.2%였지만, AVO 시스템과 함께 돌리자 ARC-AGI-3 공개 세트 전체를 풀었다. 다만 이 수치는 Nvidia 팀의 블로그 설명에 기반한다.</p>
       <section>
         <h2>핵심 브리핑</h2>
-        <p>Nvidia는 Claude Opus 5 단독 30.2% 점수가 AVO 시스템 안에서는 100.00 RHAE가 됐다고 밝혔다. 대상은 ARC-AGI-3 공용 세트다. 25개 환경의 183개 레벨을 모두 완료했다고 적었다.</p>
-<p>비교 기준도 분명히 제시됐다. ARC Prize는 7월 분석 글에서 Claude Opus 5가 ARC-AGI-3 공용 환경과 과제에서 높은 추론 노력 설정으로 30.2%를 기록했다고 밝혔다. 같은 글에서 Max reasoning effort 기준 ARC-AGI-1은 97.5%, ARC-AGI-2 반비공개 세트는 90.4%라고 썼다.</p>
-<p>AVO는 2026년 3월 말 처음 소개된 범용 코딩 에이전트 시스템이다. 코드 확인과 수정, 명령 실행, 문서 참조, 실행 검증을 맡는다. Nvidia는 특히 긴 다단계 작업에서 문맥 안 자율 운영을 오래 유지하는 데 초점을 뒀다고 설명했다.</p>
-<p>AVO가 이번에 한 일은 기존 진화 탐색의 미리 정한 변형 단계를 자율 에이전트 판단으로 바꾸는 것이다. 에이전트가 다음 후보를 만들기 위해 무엇을 살필지, 무엇을 바꿀지, 무엇을 시험할지, 무엇을 커밋할지를 스스로 정한다.</p>
-<p>Nvidia는 이 결과가 반비공개나 비공개 경쟁 세트 결과는 아니라고 못 박았다. 공용 25개 환경에 대한 공식 점수판과 RHAE 기준 결과만 공개했다.</p>
+        <p>Nvidia는 AVO라는 범용 코딩 에이전트 시스템의 구조와 동작 방식을 공개했다. AVO는 원래 어려운 소프트웨어 엔지니어링과 GPU 커널 최적화에 쓰던 시스템이다. 이번에는 이를 ARC-AGI-3 추론 벤치마크에 적용했다.</p>
+<p>Nvidia 팀은 금요일 공개한 글에서 Claude Opus 5의 기준점수 30.2%가 완전한 AVO 시스템 안에서는 100.00 RHAE로 올라갔다고 밝혔다. 대상은 ARC-AGI-3 공개 세트의 25개 환경, 183개 레벨이다. 팀은 이 결과가 모델 능력만이 아니라 시스템 설계가 장기 과제 성능을 여는 사례라고 설명했다.</p>
+<p>ARC Prize는 7월 분석 글에서 Claude Opus 5가 ARC-AGI-3 공개 세트에서 높은 추론 노력 설정으로 30.2%를 기록했다고 전했다. 같은 분석에 따르면 Max 추론 노력에서 ARC-AGI-1은 97.5%, ARC-AGI-2 반비공개 세트는 90.4%였다. ARC-AGI-3는 RHAE를 쓴다. 이 지표는 과제 완수와 레벨별 행동 효율을 사람의 첫 시도 기준과 비교해 합산한다.</p>
+<ul><li>Nvidia는 공개 세트 25개 환경을 사용했다</li><li>전체 183개 레벨을 완료했다고 밝혔다</li><li>점수는 공식 scorecard와 RHAE 지표를 썼다</li><li>반비공개와 비공개 대회 세트 결과는 아니라고 못 박았다</li></ul>
         
       </section>
 <section>
         <h2>방법과 결과</h2>
-        <p>연구팀은 ARC-AGI-3와 GPU 커널 최적화가 겉보기엔 다르지만 계산 패턴은 비슷하다고 봤다. 둘 다 불완전한 정보로 가설을 세운다. 외부 인터페이스로 행동한다. 결과를 보고 문제 이해를 수정한다. 틀린 가정에서 회복하며 긴 작업을 이어 간다.</p>
-<p>이 구조를 가능하게 한 핵심은 두 가지다. 첫째는 지속 메모리다. 이전 구현, 평가 결과, 컴파일러와 프로파일러 출력, 누적 추론을 계속 보존한다. 둘째는 감독기다. 사람 대신 프로그램 모듈이 전체 탐색 경로를 감시하고 진척이 멈추면 개입한다.</p>
-<p>Nvidia는 GPT-5.6 Sol과도 일부 실험을 했다. 회사가 어려운 하위 게임 묶음이라고 분류한 집합에서 Sol은 몇몇 경우 실제 경과 시간에서 더 빨랐다. Opus는 같은 수준 비교에서 환경 행동 수를 더 적게 썼다. 연구팀은 모델별 운영 특성이 보완적일 수 있다고 적었지만, 더 넓은 체계 비교는 미래 과제로 남겼다.</p>
-        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>모델·시스템</th><th>수치</th><th>측정 주체·조건</th></tr></thead><tbody><tr><td>ARC-AGI-3 공용 세트</td><td>Claude Opus 5 단독</td><td>30.2%</td><td>ARC Prize, 높은 추론 노력</td></tr><tr><td>ARC-AGI-3 공용 세트</td><td>Claude Opus 5 + AVO</td><td>100.00 RHAE</td><td>Nvidia 팀, 25개 환경·183개 레벨</td></tr><tr><td>ARC-AGI-1</td><td>Claude Opus 5</td><td>97.5%</td><td>ARC Prize, Max reasoning effort</td></tr><tr><td>ARC-AGI-2 반비공개</td><td>Claude Opus 5</td><td>90.4%</td><td>ARC Prize, Max reasoning effort</td></tr></tbody></table></div>
+        <p>AVO의 핵심은 다음 후보를 사람이 정해주지 않는다는 점이다. 기존 진화 탐색 시스템의 미리 정한 변형 단계를 에이전트가 대신한다. 에이전트는 무엇을 살필지, 무엇을 바꿀지, 무엇을 시험할지, 무엇을 커밋할지를 스스로 정한다.</p>
+<p>Nvidia 팀은 GPU 커널 최적화와 ARC-AGI-3가 겉으로는 달라 보여도 계산 패턴은 비슷하다고 봤다. 두 경우 모두 불완전한 정보에서 가설을 세우고, 외부 인터페이스로 행동하고, 결과를 관찰하고, 문제 모델을 고치고, 틀린 가정에서 회복하며 긴 구간을 버텨야 한다.</p>
+<p>AVO가 이를 버티게 하는 장치는 두 가지다. 하나는 퍼시스턴트 메모리다. 이전 구현, 평가 결과, 컴파일러와 프로파일러 출력, 누적 추론을 저장한다. 다른 하나는 수퍼바이저다. 이 모듈은 검색 흐름 전체를 감시하고, 진척이 멈추면 개입한다.</p>
+<p>GPT-5.6 Sol과의 조합 실험도 일부 공개했다. Nvidia는 이를 어려운 일부 게임 집합에서 시험했다. Sol은 몇몇 경우 실제 경과 시간에서 더 빨랐다. Opus는 같은 레벨 비교에서 환경 행동 수가 더 적었다. 팀은 두 모델의 운영 프로필이 보완적일 수 있다고 적었다. 다만 더 넓은 체계 비교는 미래 과제로 남겼다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>대상</th><th>모델 또는 시스템</th><th>범위</th><th>지표</th><th>결과</th><th>측정 주체</th></tr></thead><tbody><tr><td>ARC-AGI-3 공개 세트</td><td>Claude Opus 5 단독</td><td>공개 세트</td><td>RHAE</td><td>30.2%</td><td>ARC Prize</td></tr><tr><td>ARC-AGI-3 공개 세트</td><td>Claude Opus 5 + AVO</td><td>25개 환경, 183개 레벨</td><td>RHAE</td><td>100.00</td><td>Nvidia 팀</td></tr><tr><td>ARC-AGI-1</td><td>Claude Opus 5</td><td>Max 추론 노력</td><td>점수</td><td>97.5%</td><td>ARC Prize</td></tr><tr><td>ARC-AGI-2 반비공개</td><td>Claude Opus 5</td><td>Max 추론 노력</td><td>점수</td><td>90.4%</td><td>ARC Prize</td></tr></tbody></table></div>
       </section>
 <section>
         <h2>업계의 움직임</h2>
-        <p>이번 글에는 외부 기업의 공식 반응이 실리지는 않았다. 아직 공개된 반응은 확인되지 않았다.</p>
+        <p>현재 확인되는 반응은 Nvidia 자체 설명이 중심이다. 다만 ARC Prize가 별도로 Claude Opus 5의 기준점수를 공개해 둔 상태라, 최소한 출발점 비교는 외부 수치와 맞물린다. 경쟁사나 독립 평가기관의 교차 검증 결과는 아직 보이지 않는다.</p>
         
       </section>
 <section>
         <h2>시사점과 체크포인트</h2>
-        <p>이 결과가 맞다면 기업이 성능 개선을 얻는 경로가 달라진다. 더 비싼 모델로만 갈아타는 대신, 메모리 보존, 감독기, 도구 실행 루프를 어떻게 짜느냐가 성능 차이를 만들 수 있다.</p>
-<p>우리 회사가 바로 점검할 질문은 다음과 같다.</p>
-<ul><li>AI 플랫폼팀: 현재 에이전트에 지속 메모리와 복구 절차가 있는가</li><li>업무자동화팀: 긴 작업을 단계별 검증 루프로 쪼갤 수 있는가</li><li>보안팀: 감독기가 멈춤 판단을 잘못할 때 어떤 통제가 필요한가</li><li>구매팀: 모델 사용료보다 시스템 운영비가 더 커질 가능성을 계산했는가</li></ul>
-<p>주의점도 있다. 100% 결과는 Nvidia 자체 발표다. 공용 세트 기준이다. 반비공개나 실제 업무 과제의 재현성은 아직 확인되지 않았다. 벤치마크 점수를 곧바로 업무 성능으로 옮겨 읽으면 안 된다.</p>
+        <p>이 사례는 사내 AI 도입에서도 같은 결론을 보여준다. 모델을 바꾸는 것만으로 긴 업무 자동화가 되지 않을 수 있다. 상태 저장, 도구 실행, 실패 복구, 감독 모듈이 함께 있어야 실제 성과가 난다.</p>
+<p>실무 점검 항목은 다음과 같다.</p>
+<ul><li>업무 자동화 팀은 모델 평가와 에이전트 시스템 평가를 분리한다</li><li>플랫폼 팀은 장기 실행 상태를 남길 메모리 계층을 설계한다</li><li>보안 팀은 수퍼바이저가 잘못된 행동을 어디서 중단할지 기준을 만든다</li><li>현업 부서는 벤치마크 점수보다 실제 업무 완료율과 재시도 비용을 함께 본다</li></ul>
+<p>한계도 분명하다. 100.00 점수는 Nvidia 팀이 공개 세트에서 측정한 값이다. 반비공개나 비공개 세트 결과는 아니다. 모델 간 비교도 일부 하위 집합 실험 수준이다. 우리 회사가 비슷한 구조를 검토한다면, 내부 업무 플로우에서 장기 실행 안정성을 따로 재야 한다.</p>
         
       </section>
       <section>
         <h2>주요 용어</h2>
-        <div class="terms"><span>ARC-AGI-3: 상호작용형 추론 능력을 평가하는 ARC Prize 벤치마크</span> <span>RHAE(Relative Human Action Efficiency): 사람의 첫 시도 대비 과업 완료와 행동 효율을 함께 보는 점수</span> <span>에이전트 하니스(Agent harness): 모델이 도구를 쓰고 상태를 관리하도록 감싸는 실행 틀</span> <span>지속 메모리(Persistent memory): 긴 작업에서 이전 상태와 결과를 계속 보존하는 구조</span> <span>감독기(Supervisor): 작업 정체를 감시하고 개입하는 프로그램 모듈</span></div>
+        <div class="terms"><span>에이전트 하네스(Agent harness): 모델이 도구 실행, 코드 수정, 검증을 반복하도록 감싸는 실행 틀</span> <span>RHAE(Relative Human Action Efficiency): 사람의 첫 시도 대비 행동 효율과 과제 완수를 함께 반영하는 ARC-AGI-3 지표</span> <span>퍼시스턴트 메모리(Persistent memory): 세션이 길어져도 중간 상태와 결과를 저장해 이어 쓰는 구조</span> <span>수퍼바이저(Supervisor): 에이전트의 진행 상황을 감시하고 막히면 개입하는 소프트웨어 모듈</span></div>
       </section>
       <section>
         <h2>원문 정보</h2>
