@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Security가 Mythos 5로 코드 취약점 찾는다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">02</span> Claude Blog <span class="source-date">게시일 2026.08.21</span></p>
+      <h1>Claude Security가 Mythos 5로 코드 취약점 찾는다</h1>
+      <img class="detail-image" src="../assets/images/article_02_f034ee1587ce0876.jpg" alt="기사 이미지">
+      <p class="detail-lead">Anthropic이 Claude Mythos 5의 사이버 보안 기능을 더 넓게 배포하겠다고 밝혔다. 배포 방식은 직접 접근을 줄이고, 방어 작업에 필요한 출력만 제공하는 쪽에 가깝다. Claude Enterprise 고객은 Claude Security에서 Mythos 5로 코드 스캔을 돌릴 수 있다. 회사는 오픈소스 보안을 위한 $35 million 크레딧 펀드도 함께 내놨다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>Anthropic은 Claude Mythos 5를 Claude Security에 넣었다. 파트너사의 보안 도구에도 곧 통합할 계획이다. Claude Enterprise 요금제 고객은 이제 Claude Security에서 이 모델로 코드베이스를 스캔할 수 있다. 스캔 결과는 취약점, CWE 분류, 신뢰도, 심각도, 제안된 수정안으로 돌아온다. 수정 반영은 Claude Code에서 이어서 할 수 있지만, 최종 적용 전에는 사람이 반드시 검토하고 승인해야 한다.</p>
+<ul><li>Claude Security는 현재 public beta 상태다</li><li>Mythos 5 스캔은 기존 요금제의 standard token usage로 과금된다</li><li>별도 add-on은 없다</li><li>Enterprise 관리자는 admin console에서 기능을 켤 수 있다</li><li>사용자는 claude.ai/security에서 저장소를 골라 스캔한다</li></ul>
+<p>Anthropic은 모델에 직접 접근하게 하는 방식을 특히 위험하다고 봤다. 그래서 최종 사용자는 모델과 대화하지 않고, 패치 제안이나 보안 경보 같은 특정 결과물만 받게 설계했다. 회사는 이 방식이 offensive cyber misuse 위험을 낮춘다고 설명했다. 동시에 Defender Advantage Fund(0xDAF)로 오픈소스 보안 단체에 $35 million의 Claude 크레딧을 지원한다. Cyber Verification Program도 앞으로 몇 주 안에 넓힐 계획이다.</p>
+        
+      </section>
+<section>
+        <h2>주요 트렌드</h2>
+        <p>이번 발표는 강한 모델을 기업 보안에 넣는 표준 배치 방식이 바뀌고 있음을 보여준다. Anthropic은 모델을 넓게 푸는 대신, 기존 보안 제품 안에 백엔드로 심는 방식을 택했다. 파트너 제품과 서비스 안에 Mythos 5를 넣고, 사용자에게는 제한된 결과물만 보여준다. 라이선스나 가격보다 접근 통제와 안전장치가 사업 구조의 핵심으로 올라왔다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>여러 매체가 함께 다룬 사건이다. The New Stack과 MarkTechPost는 Claude Security 취약점 스캐너에 Mythos 5가 들어간 점과, 직접 모델 접근 없이 기업이 방어 기능을 쓰게 했다는 점을 짚었다. Anthropic은 기존에 Claude Opus 기반 보안 제품을 만든 파트너들과도 Mythos 5 통합을 확대하고 있다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 환경에서는 이 배포 방식이 특히 중요하다. 개발자나 운영자가 강한 모델에 직접 프롬프트를 넣지 않아도, 코드 스캔과 패치 제안은 받을 수 있기 때문이다. 보안성과 생산성을 동시에 보려면 모델 사용 화면을 늘리기보다, 승인된 보안 절차 안에 모델 결과를 끼워 넣는 쪽이 현실적이다.</p>
+<ul><li>검토 팀: 정보보호, AppSec, 개발플랫폼, 컴플라이언스</li><li>확인 질문: 소스코드가 어디에서 처리되는가</li><li>확인 질문: 취약점 결과와 수정안의 검토 책임자는 누구인가</li><li>확인 질문: 모델 출력이 공격 코드 생성으로 새지 않게 통제하는가</li><li>확인 질문: 감사 로그와 권한 분리가 가능한가</li></ul>
+<p>이번 글에는 탐지 정확도나 오탐률 수치가 없다. 스캔 품질은 내부 저장소 유형과 언어별로 따로 검증해야 한다. 오픈소스 보안 지원 펀드는 생태계 차원에서는 의미가 있지만, 우리 회사 도입 효과와는 분리해서 봐야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>cyber defense: 공격이 아니라 방어 목적의 사이버 보안 업무</span> <span>dual-use: 방어와 공격 양쪽에 쓸 수 있는 성격</span> <span>CWE(Common Weakness Enumeration): 소프트웨어 취약점 유형 분류 체계</span> <span>public beta: 정식 출시 전 공개 시험 단계</span> <span>Cyber Verification Program: 검증된 보안팀에 접근 제한을 완화하는 프로그램</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders</p>
+        <p class="url">게시일: 2026.08.21</p>
+        <p class="url">출처 URL: https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

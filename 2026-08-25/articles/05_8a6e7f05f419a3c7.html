@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>구글, 에이전트용 P2P 망 SAM 공개</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">05</span> MarkTechPost <span class="source-date">게시일 2026.08.18</span></p>
+      <h1>구글, 에이전트용 P2P 망 SAM 공개</h1>
+      <img class="detail-image" src="../assets/images/article_05_8a6e7f05f419a3c7.png" alt="기사 이미지">
+      <p class="detail-lead">에이전트가 클라우드와 사내 데이터센터, 노트북, 모바일 기기로 흩어지면 도구 공유가 복잡해진다. 많은 팀은 이때 내부 스크립트나 LLM 엔드포인트를 인터넷에 노출한다. 구글은 이 문제를 겨냥해 Sovereign Agent Mesh, 줄여서 SAM을 오픈소스로 내놨다.</p>
+      <section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 여러 망 구간에서 AI 에이전트를 돌린다면 검토 가치가 있다. 특히 사내 API를 인터넷에 열지 않고 도구를 붙여야 하는 부서에 맞을 수 있다.</p>
+<p>먼저 확인할 항목이 있다.</p>
+<ul><li>IAM·SSO 팀: OIDC 클레임을 어떤 권한 규칙으로 바꿀지</li><li>네트워크 팀: 5001/udp, 5002/tcp, 8080 정책 검토</li><li>보안팀: 기본 거부 정책과 토큰 폐기 절차 설계</li><li>플랫폼팀: Kubernetes 배포와 자체 control plane 운영 가능 여부</li></ul>
+<p>리스크도 뚜렷하다. 공개 메시가 아직 beta testnet이다. 공식 지원 제품도 아니다. 장애 대응 책임은 도입 조직에 남는다. 벤더 지원이 필요한 업무라면 상용 대안과 함께 비교해야 한다.</p>
+<p>도입 전에는 작은 범위가 적절하다. 예를 들면 개발용 MCP 도구 검색, 비민감 추론 호출, 샌드박스 에이전트의 외부 통신 통제부터 시험할 수 있다. 결제, 고객정보, 운영계 권한처럼 민감도가 높은 흐름은 토큰 정책과 감사 체계가 먼저 준비돼야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>제로 트러스트(Zero Trust): 기본 허용 없이 매 요청을 검증하는 보안 방식</span> <span>P2P(Peer-to-Peer): 중앙 서버를 거치지 않고 노드끼리 직접 연결하는 구조</span> <span>MCP(Model Context Protocol): 모델과 도구를 연결하는 호출 규약</span> <span>OIDC(OpenID Connect): 사용자 로그인 정보를 표준 방식으로 확인하는 체계</span> <span>Biscuit: 권한 규칙을 담아 오프라인 검증이 가능한 토큰 형식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Meet SAM (Sovereign Agent Mesh): A Zero-Config, Zero-Trust P2P Network for AI Agents</p>
+        <p class="url">게시일: 2026.08.18</p>
+        <p class="url">출처 URL: https://www.marktechpost.com/2026/08/18/meet-sam-sovereign-agent-mesh-a-zero-config-zero-trust-p2p-network-for-ai-agents/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

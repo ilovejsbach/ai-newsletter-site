@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 4개를 써서 Fire HD 루팅한 사례</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-tooling">
+      <p class="source"><span class="article-number">10</span> github.io <span class="source-date">게시일 2026.08.23</span></p>
+      <h1>AI 4개를 써서 Fire HD 루팅한 사례</h1>
+      <img class="detail-image" src="../assets/images/article_10_217d546d8e6d495e.png" alt="기사 이미지">
+      <p class="detail-lead">이 글은 공식 발표가 아니라 개인의 보안 실험 기록이다. 작성자는 Amazon Fire HD 10을 홈 대시보드 용도로 썼고, 기기가 하루에 여러 번 완전히 꺼지는 문제를 겪었다. 그는 원인 분석과 루팅 시도를 여러 AI 모델에 맡겼다. 비용, 실패 과정, 안전장치 충돌까지 비교적 자세히 공개했다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>작성자는 Amazon Fire HD 10 (11th gen, 2021)을 24시간 연결해 썼다. 그런데 지난겨울부터 기기가 스스로 완전히 종료되기 시작했고, 기기 로그에는 Software_Shutdown이 남았다. 작성자는 종료 권한이 있는 Amazon 서비스가 기기를 끄고 있다고 봤다.</p>
+<p>그는 Claude Code와 몇 달 동안 원인을 추적했다. Amazon 서비스 5개를 비활성화해 몇 달간 문제를 막았지만, 보호된 패키지는 끌 수 없었다. 루팅이 필요했지만 이 태블릿에는 공개된 루팅 방법이 없었다고 적었다. XDA 스레드는 있었지만 bootrom이 막혀 있어 통상적으로는 unrootable로 여겨졌다고 썼다.</p>
+<p>8월 13일 그는 opencode CLI에서 Kimi K3를 사용했다. Kimi K3는 먼저 알려진 루팅 방법이 없다는 점을 다시 확인했다. 이후 Amazon의 OTA 이미지에서 정확한 펌웨어용 커널을 추출해 Mali GPU 관련 취약점을 대조했고, 그 결과 CVE-2022-38181이 남아 있다고 판단했다. 이 취약점은 Arm Mali 커널 드라이버의 use-after-free 버그다.</p>
+<p>작성자는 자신의 태블릿이 Fire OS 7.3.2.6을 사용했고, Amazon이 2024년 6월 Fire OS 7.3.2.9에서 수정한 패치를 적용하지 않았다고 적었다. Kimi K3는 시도당 성공 확률이 single-digit-to-low-double-digit percent 수준이라고 스스로 경고했다. 약 30시간 동안 621 messages를 주고받으며 도구를 만들었고, 비용은 $164.25가 들었다고 밝혔다. 시도는 500회를 넘겼고, 부팅마다 자동으로 6번 재시도했다고 적었다.</p>
+<p>이후 GLM-5.2가 투입됐다. 작성자는 GLM-5.2가 Kimi K3의 반복 실패를 설계 버그로 짚었고, 비용은 $21.90이었다고 적었다. GLM-5.2는 CPU와 GPU 사이 cache coherency가 없어서 GPU 쓰기 결과를 CPU가 보지 못할 수 있다고 판단했다. 작성자는 나중에 이 진단이 틀렸다고 밝혔다. 그는 이어 GLM-5.3가 마지막 해결을 맡았다고 소개했지만, 발췌문은 그 마무리 과정의 상세를 끝까지 담지는 않았다.</p>
+<ul><li>태블릿 구매 가격: $114.26</li><li>추가 지출 총액: $266.15</li><li>Kimi K3 비용: $164.25</li><li>GLM-5.2 비용: $21.90</li><li>GLM-5.3는 $80 subscription 첫날 사용</li><li>Claude는 기존 Claude Max plan에서 사용하다가 safeguards에 막힘</li></ul>
+        
+      </section>
+<section>
+        <h2>도입 가치</h2>
+        <p>이 사례는 AI 코딩 도구의 가치가 코드 작성보다 넓다는 점을 보여준다. Kimi K3는 공개 포럼 요약을 넘어서, OTA 이미지에서 실제 커널을 뽑고 취약점 적용 가능성을 직접 대조했다. GLM-5.2는 장시간 반복된 실패 로그를 보고 설계 결함을 의심했다. 작성자는 모델을 바꿔 가며 HANDOFF.md를 넘겼고, 모델끼리 역할을 분담시켰다.</p>
+<p>동시에 운영 리스크도 분명했다. Anthropic과 OpenAI 계열 도구는 합법적 자기 기기 분석이라는 맥락에서도 사이버 작업을 폭넓게 차단했다. 작성자는 Claude가 자신의 과거 세션 요약조차 거부했고, OpenAI Codex도 CPU cache coherency 질문을 거절했다고 적었다. 실무에서는 모델 성능만 볼 일이 아니다. 어떤 요청이 막히는지, 어떤 계정 검증이 필요한지, 작업 인계가 가능한지가 도입 난이도를 좌우한다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>이 글은 Hacker News에서 주목을 받았고, 모델별 안전장치 차이를 드러낸 사례로 소비됐다. 본문에는 Hugging Face가 OpenAI 내부 사이버 보안 평가 이슈에 뒤늦게 대응했다는 언급도 나온다. 다만 경쟁사 공식 입장이나 벤더의 직접 반응은 발췌문에 없다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 기업은 AI 코딩 도구를 개발 보조로만 보면 부족하다. 보안 분석, 로그 해석, 재현 스크립트 작성, 장시간 시행착오 기록까지 포함해 평가해야 한다.</p>
+<p>우리 회사라면 다음을 먼저 확인할 만하다.</p>
+<ul><li>보안성 높은 작업을 어떤 모델이 정책상 허용하는가</li><li>거부가 나왔을 때 다른 모델이나 내부 도구로 인계할 수 있는가</li><li>모델이 만든 분석 기록을 감사용으로 남길 수 있는가</li><li>취약점 연구와 악용 경계에 대한 내부 승인 절차가 있는가</li></ul>
+<p>이 사례는 생산성과 위험을 함께 보여준다. 작성자는 합법적 자기 기기 분석이라고 주장했지만, 기업 환경에서는 자산 소유 확인과 승인 기록이 먼저 필요하다. 발췌문은 GLM-5.3의 최종 해결 과정을 끝까지 담지 않았다. 실제 재현성과 일반화 가능성은 원문 전체를 확인해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>루팅(Rooting): 기기 운영체제의 최고 권한을 얻어 제조사 제한을 푸는 작업</span> <span>취약점(Vulnerability): 소프트웨어나 하드웨어의 보안상 약점</span> <span>OTA(Over-the-Air): 기기에 네트워크로 배포하는 소프트웨어 업데이트</span> <span>ADB(Android Debug Bridge): PC에서 안드로이드 기기를 제어하는 개발자 도구</span> <span>커널(Kernel): 운영체제의 핵심 부분으로 하드웨어와 프로그램 실행을 관리한다</span> <span>안전장치(Safeguards): 모델이 특정 요청을 거부하거나 제한하는 정책과 필터</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day</p>
+        <p class="url">게시일: 2026.08.23</p>
+        <p class="url">출처 URL: https://ericpardee.github.io/fire-hd-ownership/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

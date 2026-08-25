@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>엔비디아 AVO, ARC-AGI-3 100점 달성</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-research">
+      <p class="source"><span class="article-number">08</span> The New Stack <span class="source-date">게시일 2026.08.21</span></p>
+      <h1>엔비디아 AVO, ARC-AGI-3 100점 달성</h1>
+      <img class="detail-image" src="../assets/images/article_08_4072e47f8f400be6.png" alt="기사 이미지">
+      <p class="detail-lead">좋은 모델을 고르는 일만으로 에이전트 성능이 결정되지는 않는다. 엔비디아는 그 차이를 벤치마크 수치로 보여줬다. Claude Opus 5를 AVO라는 에이전트 시스템으로 감쌌더니 ARC-AGI-3 점수가 크게 뛰었다는 내용이다.</p>
+      <section>
+        <h2>방법과 결과</h2>
+        <p>AVO는 기존 진화 탐색 시스템의 미리 정한 variation step을 에이전트로 바꿨다. 에이전트가 무엇을 볼지, 무엇을 바꿀지, 무엇을 시험할지, 무엇을 커밋할지를 스스로 정한다. 팀은 이 구조를 GPU 커널 최적화에서 먼저 다듬었고, 그 뒤 ARC-AGI-3로 옮겼다.</p>
+<p>저자들은 두 과제가 겉보기보다 닮았다고 봤다. 둘 다 불완전한 정보에서 가설을 세우고, 외부 인터페이스로 행동한 뒤 결과를 관찰한다. 그러면서 문제 모델을 수정하고 잘못된 가정을 복구하며, 긴 구간에서 계속 진전해야 한다.</p>
+<p>결과 수치는 다음과 같다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>대상</th><th>측정 주체</th><th>평가 조건</th><th>결과</th></tr></thead><tbody><tr><td>Claude Opus 5 단독</td><td>ARC Prize</td><td>ARC-AGI-3 public set, high reasoning effort</td><td>30.2%</td></tr><tr><td>Claude Opus 5</td><td>ARC Prize</td><td>ARC-AGI-1, Max reasoning effort</td><td>97.5%</td></tr><tr><td>Claude Opus 5</td><td>ARC Prize</td><td>ARC-AGI-2 semi-private, Max reasoning effort</td><td>90.4%</td></tr><tr><td>AVO + Claude Opus 5</td><td>Nvidia 팀 블로그</td><td>ARC-AGI-3 public set, 25 environments, 183 levels</td><td>100.00 RHAE</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 얻을 교훈은 모델 교체보다 운영층 설계가 더 큰 차이를 낼 수 있다는 점이다. 메모리, 도구, 감독, 복구 로직을 어떻게 붙이느냐가 장기 업무 자동화 성능을 좌우할 수 있다.</p>
+<p>검토 포인트를 실무로 옮기면 이렇다.</p>
+<ul><li>AI 플랫폼팀: 에이전트가 중간 상태를 얼마나 오래 보존하는지</li><li>업무시스템팀: 실행 결과를 검증하는 루프가 있는지</li><li>보안팀: 감독 모듈이 위험 행동을 중단시킬 수 있는지</li><li>현업 부서: 긴 절차를 작은 단계로 나눠 도구화할 수 있는지</li></ul>
+<p>벤치마크 해석은 신중해야 한다. 100.00은 엔비디아 팀 블로그 결과다. 공개 세트 기준이며, 비공개 경쟁 세트 결과는 아니다. 독립 재현과 비용 정보가 없으므로, 이 수치만으로 현업 성능을 단정하면 안 된다.</p>
+<p>그래도 방향성은 분명하다. 문서 검색, 코드 수정, 명령 실행, 결과 검증처럼 여러 단계를 거치는 업무라면, 단일 모델 점수보다 에이전트 시스템 설계를 먼저 점검하는 편이 실익이 클 수 있다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트 하니스(agent harness): 모델에 도구·메모리·실행 제어를 붙인 운영 틀</span> <span>지속 메모리(persistent memory): 여러 단계 작업 중간 상태를 계속 보관하는 장치</span> <span>감독 모듈(supervision): 진행 정체나 오류를 감시하고 개입하는 소프트웨어</span> <span>RHAE(Relative Human Action Efficiency): 인간 기준 대비 과업 완수와 행동 효율을 함께 보는 지표</span> <span>월클록 시간(wall-clock time): 사람이 체감하는 실제 경과 시간</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia&#x27;s AVO, it hit 100%.</p>
+        <p class="url">게시일: 2026.08.21</p>
+        <p class="url">출처 URL: https://thenewstack.io/nvidia-avo-arcagi3-benchmark/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
