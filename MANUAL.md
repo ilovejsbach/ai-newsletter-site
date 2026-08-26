@@ -49,10 +49,13 @@ uv run ai-newsletter humanize outputs/<이번주 폴더> --capture
 uv run python scripts/build_site.py outputs/<이번주 폴더> ~/workspace/ai-newsletter-site
 ```
 
-**망간 이동** — 바뀐 것만 옮기면 됨 (폴더 1 + 파일 2):
-- `<YYYY-MM-DD>/` (새 주차 폴더)
-- `index.html` (아카이브 목록 갱신본)
-- `latest/index.html` (최신 호 리다이렉트 갱신본)
+**망간 이동** — 델타 zip 하나만 옮기면 됨:
+```
+uv run python scripts/make_delta_zip.py ~/workspace/ai-newsletter-site
+```
+(외부망에서 실행 — 새 주차 폴더 + index.html + latest/ 에 더해, 직전 주 이후
+바뀐 그 외 파일까지 git 이력으로 자동 감지해 담는다. 보통 5~10MB.)
+zip 안 경로가 저장소 루트 기준이라, 내부망 git 작업 폴더에 **그대로 풀면 끝**.
 
 **내부망** — 깃랩 저장소에 복사 후:
 ```
