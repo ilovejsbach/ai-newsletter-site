@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tide, 내부 침해 가정한 AI 보안 서버 Raziel 공개</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-tooling">
+      <p class="source"><span class="article-number">10</span> The New Stack <span class="source-date">게시일 2026.08.31</span></p>
+      <h1>Tide, 내부 침해 가정한 AI 보안 서버 Raziel 공개</h1>
+      <img class="detail-image" src="../assets/images/article_10_27285a3bbd46f791.jpg" alt="기사 이미지">
+      <p class="detail-lead">AI 에이전트가 코드를 만들고 운영 작업까지 맡기면 보안 문제도 바뀐다. 누가 로그인했는지보다, 내부에 들어온 뒤 어떤 권한을 얻는지가 더 중요해진다. Tide는 이 지점을 겨냥해 에이전트 통합용 보안 서버를 내놨다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>Tide는 AI 코딩 에이전트가 자사 보안 체계를 더 쉽게 붙이도록 Raziel을 공개했다. Raziel은 MCP 서버 형태로 제공된다. AI 도우미가 Tide의 인증, 임계 암호, 종단간 암호화, 거버넌스 구조를 이해하고 통합 작업을 수행하게 돕는 목적이다. 회사는 해커가 이미 내부에 들어왔다는 가정에서 출발한다. 그래서 비밀번호나 루트 키 같은 강한 권한을 한곳에 오래 두지 않는 설계를 내세운다. Tide는 이를 emergent authority라고 부른다. 신원과 정책, 맥락, 의도가 맞을 때만 권한이 생기고 곧 사라지는 방식이라는 설명이다. 개발자는 문서를 길게 읽기보다 코딩 에이전트에 Raziel을 연결해 셀프호스티드와 관리형 호스팅 중 무엇이 맞는지 추천받고, 검증된 통합 플레이북을 만들 수 있다. 새 프로젝트를 위한 TideCloak 퀵스타트도 함께 소개했다.</p>
+<ul><li>TideCloak은 IAM이 놓이는 자리에 들어가는 개발자용 제품이다</li><li>이 제품은 인증, 권한 부여, 종단간 암호화, 거버넌스를 맡는다</li><li>구현 내용은 공개 GitHub 저장소에서 점검할 수 있다고 회사는 밝혔다</li><li>emergent authority 백서는 챗봇 설명과 함께 공개됐다</li><li>Tide는 Lloyd’s of London 언더라이터와 제휴했다고 밝혔다</li><li>TideCloak 도입 기업은 우대 사이버 보험 조건을 받을 수 있다고 한다</li></ul>
+        
+      </section>
+<section>
+        <h2>도입 가치</h2>
+        <p>Raziel의 차별점은 보안 통합 작업을 사람 대신 에이전트가 수행하게 설계했다는 점이다. 회사는 기존 보안 도구가 공격자가 어떻게 들어오는지 찾는 데 집중했다면, 자사는 침해 이후 공격자가 무엇을 가져갈 수 있는지부터 본다고 설명했다. Raziel의 프롬프트 가운데 하나도 시스템의 취약한 진입점보다 블라스트 레디어스(피해 범위) 파악에 맞춰져 있다.</p>
+<p>운영 측면에서는 권한을 중앙에 쌓아두는 구조를 줄이려는 시도다. 관리자 자격증명, 서비스 계정, 키 저장소가 한곳에 몰리면 침해 뒤 피해가 커질 수 있다. Tide는 권한을 암호학적으로 쪼개 재조합이 어렵게 만든다고 설명했다. 다만 기사에는 성능 오버헤드나 기존 IAM과의 구체 통합 난이도, 적용 비용은 나오지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>이번 발표는 AI 에이전트가 민감한 작업을 맡기 시작한 흐름을 반영한다. Tide는 규제가 강한 고객사 요구가 지금 제품의 출발점이었다고 설명했다. 아직 경쟁사 대응이나 고객 도입 사례의 세부 내용은 공개되지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 환경에서는 에이전트가 배포, 권한 변경, 데이터 접근 같은 작업까지 맡을 수 있는지가 핵심 쟁점이다. 이때 단순 인증 강화만으로는 부족할 수 있다. 권한이 어디에 저장되고, 누가 대리 실행하며, 로그가 어디까지 남는지 따져야 한다.</p>
+<ul><li>IAM, 비밀정보 관리, 서비스 계정 구조가 한곳에 집중됐는지 점검</li><li>에이전트가 수행할 작업을 읽기, 변경, 승인으로 나눠 최소 권한을 설계</li><li>관리자 키와 루트 권한을 상시 보관하는 시스템이 있는지 확인</li><li>침해 이후 피해 범위를 계산하는 점검표를 만들고 정기 점검</li><li>외부 보안 제품을 도입할 때 감사 로그, 규제 대응, 보험 조건 변화까지 함께 검토</li></ul>
+<p>이번 발표는 에이전트 시대의 보안을 &quot;누가 들어오나&quot;에서 &quot;들어온 뒤 무엇을 할 수 있나&quot;로 옮겨 놓는다. 다만 독립 검증 성능 수치나 실제 대형 고객 적용 결과는 아직 공개되지 않았다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>MCP(Model Context Protocol): AI 도우미가 외부 도구와 지식을 연결해 쓰는 규약</span> <span>권한(authority): 어떤 사용자나 시스템에 접근·복호화·승인 권한을 부여하는 힘</span> <span>임계 암호(threshold cryptography): 비밀값을 여러 조각으로 나눠 일부가 함께 있어야 쓸 수 있게 하는 암호 기법</span> <span>종단간 암호화(end-to-end encryption): 송신자와 수신자만 내용을 읽을 수 있게 하는 암호화</span> <span>IAM(Identity and Access Management): 사용자 신원과 접근 권한을 관리하는 체계</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Tide launched Raziel for AI security. It assumes hackers are inside.</p>
+        <p class="url">게시일: 2026.08.31</p>
+        <p class="url">출처 URL: https://thenewstack.io/tide-raziel-emergent-authority/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

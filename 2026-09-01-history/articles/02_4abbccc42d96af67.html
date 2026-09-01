@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI, 자체 추론칩 Jalapeño 수치 공개</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">02</span> SemiAnalysis <span class="source-date">게시일 2026.08.25</span></p>
+      <h1>OpenAI, 자체 추론칩 Jalapeño 수치 공개</h1>
+      <img class="detail-image" src="../assets/images/article_02_4abbccc42d96af67.png" alt="기사 이미지">
+      <p class="detail-lead">AI 서비스 비용은 이제 모델 사용료만으로 설명하기 어렵다. 전력과 장비 효율이 서비스 단가를 크게 좌우한다. OpenAI가 이번에 공개한 것은 바로 그 비용 구조를 바꿀 수 있는 자체 추론 칩이다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>OpenAI는 LLM 추론 전용 칩 Jalapeño를 공개했고, 자체 제공 수치에서 전력 대비 처리량이 경쟁 칩보다 높다고 주장했다. 이 칩은 Broadcom과 함께 만들었고, OpenAI는 2024년 중반에 설계를 시작해 약 16개월 만에 테이프아웃했다고 밝혔다.</p>
+<p>공개된 설명의 초점은 특정 모델 전용 칩이 아니라, 여러 모델과 여러 추론 작업을 돌릴 수 있는 범용 칩이라는 점이다. 매체는 OpenAI 연구실에서 InferenceX 벤치마크 실행을 직접 확인했다고 썼다. 다만 전체 InferenceX 제품군을 모두 돌린 것은 아니며, AgentX 결과는 보지 못했다고 적었다.</p>
+<p>보도에 나온 핵심 수치는 다음과 같다.</p>
+<ul><li>DeepSeek R1에서 동시성 1 기준 초당 700토큰 이상을 기록했다고 밝혔다.</li><li>Kimi-K2.5와 GPT-OSS에서는 사용자당 초당 약 1,400토큰이 나왔다고 적었다.</li><li>이 결과는 단일 토큰 예측(STP)으로 얻었고, speculative decoding과 prefill-decode 분리를 쓰지 않았다고 밝혔다.</li><li>OpenAI와 매체는 GSM8k 평가에서 엔비디아 칩과 비슷한 결과를 확인했다고 썼다.</li></ul>
+<p>중요한 단서도 함께 나왔다. 핵심 수치는 OpenAI가 제공했다. 현장 검증은 있었지만 전체 벤치마크를 독립적으로 재현한 것은 아니다. 비교 대상도 Blackwell보다 HBM4를 쓰는 Rubin이 더 적절하다고 매체는 지적했다.</p>
+        
+      </section>
+<section>
+        <h2>주요 트렌드</h2>
+        <p>이번 발표는 모델 기업이 칩 기업 역할까지 넓히는 흐름을 보여준다. OpenAI는 칩을 직접 설계하고, Broadcom과 생산 파트너십을 맺었다.</p>
+<p>경쟁의 기준도 바뀌고 있다. OpenAI는 예산보다 데이터센터 전력 제약이 더 크기 때문에, MW당 토큰 처리량이 가장 중요하다고 설명했다. 엔비디아도 같은 행사에서 전력 효율과 긴 수명을 미래 GPU의 핵심 요소로 꼽았다.</p>
+<p>사업 구조 측면에서도 의미가 있다. 성능뿐 아니라 엔비디아 마진 대신 Broadcom 마진 구조를 쓰면 비용 계산이 달라질 수 있다. 다만 현재 Jalapeño는 엔지니어링 샘플 단계로 보이며, 고객 출하 중인 Rubin과는 상용화 시점이 다르다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>OpenAI 관련 채널은 Jalapeño의 첫 결과가 업계 최고 수준의 속도와 효율을 보인다고 소개했다. 반면 이번 분석 글은 비교 조건이 완전히 같지 않다는 점을 함께 적었다.</p>
+<p>매체는 특히 Blackwell과의 비교가 불완전할 수 있다고 지적했다. Vera Rubin 시스템은 이미 고객 출하가 시작됐지만, Jalapeño는 아직 그 단계가 아니라고 썼다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 기업이 당장 자체 칩을 설계할 일은 드물다. 그래도 AI 원가를 볼 때 GPU 가격만 보던 방식은 점점 한계가 뚜렷해진다.</p>
+<p>우리 회사라면 인프라팀과 AI 플랫폼팀이 아래를 함께 봐야 한다.</p>
+<ul><li>추론 서비스의 병목이 장비 가격인지 전력인지 구분했는가</li><li>장문 문맥과 다중 대화처럼 실제 업무 부하에서 성능을 재는 벤치마크가 있는가</li><li>벤더 제공 수치와 독립 검증 수치를 구분해 조달 판단에 반영하는가</li></ul>
+<p>이번 수치는 흥미롭지만, 독립 평가와 상용 공급 계획이 더 나와야 판단 폭이 넓어진다. 특히 실제 운영 환경에서는 캐시 관리와 라우터, 오프로딩 같은 요소가 성능을 크게 바꿀 수 있다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>ASIC(Application-Specific Integrated Circuit): 특정 용도에 맞춰 설계한 반도체</span> <span>추론(Inference): 학습된 AI 모델이 실제 입력에 답을 내는 과정</span> <span>테이프아웃(Tape-out): 반도체 설계를 마치고 생산 단계로 넘기는 일</span> <span>성능/전력(perf/W): 전력 1단위로 얼마나 많은 작업을 처리하는지 보는 지표</span> <span>총소유비용(TCO): 장비 구매·운영·전력 등을 합친 전체 비용</span> <span>HBM4(High Bandwidth Memory 4): AI 연산에 쓰는 고대역폭 메모리 규격</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: OpenAI Jalapeño: Better than Nvidia Blackwell</p>
+        <p class="url">게시일: 2026.08.25</p>
+        <p class="url">출처 URL: https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

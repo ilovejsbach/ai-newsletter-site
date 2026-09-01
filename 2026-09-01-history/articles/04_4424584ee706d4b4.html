@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Z.ai, GLM-5.3를 오픈웨이트로 풀었다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">04</span> Hugging Face · zai-org <span class="source-date">게시일 2026.08.28</span></p>
+      <h1>Z.ai, GLM-5.3를 오픈웨이트로 풀었다</h1>
+      <img class="detail-image" src="../assets/images/article_04_4424584ee706d4b4.png" alt="기사 이미지">
+      <p class="detail-lead">오픈 모델 시장에서는 성능만큼 배포 가능성이 중요하다. 가중치를 직접 받을 수 있으면 기업은 사내 환경에 맞게 시험하고 통제하기 쉽다. GLM-5.3 공개는 그 선택지를 하나 더 늘린 소식이다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>GLM-5.3는 Z.ai가 공개한 오픈웨이트 모델이다. 기업은 이 형태의 모델을 내려받아 자체 환경에서 시험하거나 배포할 수 있다.</p>
+<p>공개된 표를 보면 GLM-5.3는 이전 버전 GLM-5.2보다 여러 항목에서 점수가 올랐다. 비교표에는 코딩, 소프트웨어 엔지니어링, 보안, 도구 사용 관련 벤치마크가 함께 실렸다. 다만 이번 발췌에는 모델 크기와 하드웨어 요구, 구체적 배포 방식은 담기지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <p>이번 발췌에서 확인되는 도입 정보는 오픈웨이트 공개 사실과 벤치마크 표까지다. 실제 도입에 필요한 라이선스 세부 조항과 하드웨어 요구 조건은 여기서 확인되지 않는다.</p>
+<p>성능 비교표는 공개됐다. 이전 버전 대비 개선 폭과 주요 경쟁 모델 대비 위치를 읽는 데 도움이 된다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>벤치마크</th><th>GLM-5.3</th><th>GLM-5.2</th><th>Kimi K3</th><th>DeepSeek-V4 Pro-0813</th><th>Qwen3.8-Max</th></tr></thead><tbody><tr><td>Terminal Bench 2.1</td><td>88.2</td><td>81.0</td><td>88.3</td><td>87.9</td><td>86.6</td></tr><tr><td>Terminal Bench 3.0</td><td>28.3</td><td>4.6</td><td>17.4</td><td>–</td><td>–</td></tr><tr><td>DeepSWE (v1.1)</td><td>66.9</td><td>46.2</td><td>67.5</td><td>62.7</td><td>56.6</td></tr><tr><td>NL2Repo</td><td>58.0</td><td>48.9</td><td>58.0</td><td>61.1</td><td>55.9</td></tr><tr><td>ProgramBench (Almost Solved)</td><td>19.0</td><td>9.5</td><td>17.5</td><td>–</td><td>10.5</td></tr><tr><td>CyberGym</td><td>84.5</td><td>77.2</td><td>80.0</td><td>83.3</td><td>78.5</td></tr><tr><td>AutomationBench (v1.0.6)</td><td>48.2</td><td>26.2</td><td>46.7</td><td>43.2</td><td>39.8</td></tr><tr><td>Agents&#x27; Last Exam (ALE-CLI)</td><td>28.5</td><td>23.8</td><td>27.6</td><td>25.7</td><td>27.0</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>관련 보도에서는 오픈웨이트 공개 자체보다 새 라이선스가 하이퍼스케일러를 겨냥할 수 있다는 점도 함께 다뤘다. 성능 경쟁과 별개로, 누가 어떤 조건에서 쓸 수 있는지가 쟁점이라는 뜻이다.</p>
+<p>여러 매체가 함께 다룬 사건이지만, 고객사 도입 사례는 아직 확인되지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 오픈 모델을 검토 중이라면, 성능표만 보고 바로 선택하기는 이르다. 라이선스와 운영 조건이 맞아야 실제 배포가 가능하다.</p>
+<p>확인할 항목은 아래와 같다.</p>
+<ul><li>상업 이용과 재배포 조건에 제한이 있는가</li><li>사내 GPU 자원으로 시험 가능한 크기인가</li><li>보안 코딩과 도구 사용 성능이 우리 업무 과제와 맞는가</li><li>외부 API 대신 사내 배포로 바꿀 때 운영 인력이 충분한가</li></ul>
+<p>벤치마크는 참고 자료다. 금융 업무에 쓰려면 내부 데이터로 정확도와 응답 속도, 감사 가능성까지 별도로 검증해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>오픈웨이트(Open-weight): 학습된 모델 가중치를 공개해 내려받아 쓸 수 있는 형태</span> <span>벤치마크(Benchmark): 모델 성능을 일정한 과제로 비교하는 시험</span> <span>에이전트(Agent): 도구를 호출하고 여러 단계를 거쳐 작업을 수행하는 AI 방식</span> <span>라이선스(License): 모델 사용·재배포·상업 이용 조건을 정한 규정</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: GLM-5.3 is now open-weight</p>
+        <p class="url">게시일: 2026.08.28</p>
+        <p class="url">출처 URL: https://huggingface.co/zai-org/GLM-5.3</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
