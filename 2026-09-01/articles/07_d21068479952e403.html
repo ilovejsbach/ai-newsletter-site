@@ -26,9 +26,9 @@
 <figure class="detail-image-wrap info-image" style="margin:18px 0"><img class="detail-image" src="../assets/images/article_07_info2_a1a08ba3.png" alt="원문 자료 이미지"><figcaption style="font-size:12px;color:#888;margin-top:6px">원문 자료 (기사 원문에서 발췌)</figcaption></figure>
 <section>
         <h2>스펙과 도입 조건</h2>
-        <p>도입 조건은 비교적 선명하다. 라이선스는 Apache 2.0이다. 엔드포인트는 OpenAI 호환 형식을 지원한다. vLLM 예시가 있고, SGLang도 지원한다고 IBM이 적었다.</p>
+        <p>도입 조건은 비교적 선명하다. 라이선스는 Apache 2.0이다. 엔드포인트는 OpenAI 호환 형식을 지원한다. vLLM 예시가 있고, SGLang도 지원한다고 IBM이 밝혔다.</p>
 <p>긴 문맥과 도구 호출은 장점이지만 운영비도 함께 본다. 51만 2000토큰 문맥은 유용한 반면, 메모리와 지연 시간을 함께 늘릴 수 있다. 제공된 발췌에는 권장 GPU나 실제 추론 비용이 없으므로, 내부 파일럿에서는 사용 패턴을 좁혀 측정해야 한다.</p>
-<p>학습 데이터 관리 방식도 공개했다. IBM은 서로 다른 데이터 소스를 OpenAI Chat 형식으로 통일했다. 품질 평가는 GPT-OSS-120B와 Gemma 4를 심사 모델로 써서 진행했다. 중복 제거는 tools와 messages 필드를 묶어 SHA-256 해시로 처리했다.</p>
+<p>학습 데이터 관리 방식도 공개됐다. IBM은 서로 다른 데이터 소스를 OpenAI Chat 형식으로 통일했고, 품질 평가는 GPT-OSS-120B와 Gemma 4를 심사 모델로 써서 진행했다. 중복 제거는 tools와 messages 필드를 묶어 SHA-256 해시로 처리했다.</p>
         
       </section>
 <section>
