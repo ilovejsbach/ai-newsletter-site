@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anthropic은 왜 Cursor를 끊지 않았나</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">02</span> The New Stack <span class="source-date">게시일 2026.08.31</span></p>
+      <h1>Anthropic은 왜 Cursor를 끊지 않았나</h1>
+      <img class="detail-image" src="../assets/images/article_02_7d463f6d51bff694.jpg" alt="기사 이미지">
+      <p class="detail-lead">오픈AI와 Anthropic이 같은 AI 코딩 도구를 두고 다른 결정을 내렸다. 겉으로는 파트너십 판단처럼 보이지만, 뒤에는 연산 자원 계약이 얽혀 있다. 모델 공급자와 도구 사업자의 관계가 이제 단순한 고객 관계만은 아니라는 뜻이다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>오픈AI는 주말에 Cursor의 오픈AI 모델 직접 접근을 11월부터 끊겠다고 밝혔다. 이 발표는 AI 업계에서 큰 반응을 불렀다. 곧바로 Anthropic 공동창업자 톰 브라운은 Cursor를 신뢰하는 파트너로 계속 보겠다고 공개 글을 올렸다. 그는 Cursor 안의 Claude 모델 지원을 위해 연산 자원도 계속 늘리겠다고 밝혔다.</p>
+<p>이 반응이 눈길을 끈 이유는 Anthropic의 이전 대응과 달랐기 때문이다. 2025년 5월 OpenAI가 AI 코딩 도구 Windsurf를 30억 달러에 인수할 수 있다는 보도가 나오자, Anthropic은 몇 주 안에 Windsurf의 Claude 3.5 Sonnet과 Claude 3.7 Sonnet 직접 접근을 끊었다. 이후 OpenAI 거래는 무산됐고, Google이 24억 달러를 들여 Windsurf 창업자와 연구개발 인력을 DeepMind로 데려갔다.</p>
+<p>xAI 사례도 있었다. 보도에 따르면 Anthropic은 올해 1월 xAI 직원들의 Claude 접근도 차단했다. 이들은 Cursor를 통해 Claude를 쓰고 있었고, Cursor는 이를 Anthropic의 새 정책이라고 설명한 것으로 전해졌다.</p>
+<p>그런데 지금 Cursor는 SpaceX 소유다. SpaceX는 xAI도 보유하고 있다. Anthropic 입장에서는 실제 경쟁사와 연결된 도구 사업자를 계속 지원하는 셈이다.</p>
+        
+      </section>
+<section>
+        <h2>주요 트렌드</h2>
+        <p>이번 사건은 AI 시장의 힘이 모델 성능만으로 정해지지 않는다는 점을 드러낸다. 연산 자원을 누가 쥐고 있는지가 사업 판단을 바꾼다. Anthropic은 SpaceX와 대규모 컴퓨트 계약을 맺었다. SpaceX의 상장 신고서에 따르면 Anthropic은 Colossus와 Colossus II에서 2029년 5월까지 월 12억 5천만 달러를 내기로 했다. 계약에는 해지권도 붙어 있다.</p>
+<ul><li>계약 대상은 합쳐서 Nvidia GPU 약 32만 5천 개 규모다</li><li>SpaceX는 자체 AI 학습과 추론 수요를 충족할 만큼 자원은 남긴다고 밝혔다</li></ul>
+<p>이 구조에서 SpaceX는 특이한 위치에 선다. SpaceX는 xAI와 Cursor를 통해 Anthropic과 경쟁한다. 동시에 Anthropic에 대규모 인프라도 판다. 업계 인사들은 Anthropic이 Cursor를 끊지 못한 배경으로 이 연산 자원 의존도를 지목했다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>Replit 창업자 Amjad Masad는 Anthropic의 이번 대응이 Windsurf 때보다 훨씬 부드럽다고 공개적으로 지적했다. 업계 해설가 Gergely Orosz도 비슷한 해석을 내놨다. 여러 반응은 SpaceX가 경쟁사에 인프라를 파는 위치를 지렛대로 보고 있다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 AI 코딩 도구나 모델 API를 고를 때도 같은 문제가 생길 수 있다. 공급자가 전략을 바꾸면 접근 권한이 짧은 통지 뒤에 끊길 수 있다. 특히 특정 모델 하나에 강하게 묶인 도구는 운영 리스크가 크다.</p>
+<p>실무에서는 다음을 먼저 확인할 필요가 있다.</p>
+<ul><li>도구가 여러 모델을 바꿔 연결할 수 있는지 볼 것</li><li>모델 접근이 직접 계약인지 재판매 구조인지 확인할 것</li><li>계약 종료 예고 기간과 대체 절차를 확인할 것</li><li>개발 조직이 특정 모델 기능에 과도하게 의존하는지 점검할 것</li><li>보안 검토와 함께 공급망 집중도도 평가할 것</li></ul>
+<p>비개발 조직도 영향을 받는다. 개발 생산성 도구가 갑자기 바뀌면 운영, 감사, 교육 계획이 모두 흔들릴 수 있다. IT 구매팀과 법무, 보안, 개발플랫폼 팀이 같은 표로 벤더 의존도를 관리하는 편이 안전하다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>직접 접근(Direct access): 중간 사업자 없이 모델 제공사의 자원에 바로 연결되는 방식</span> <span>컴퓨트(Compute): AI 학습·추론에 쓰는 서버와 GPU 연산 자원</span> <span>파운데이션 모델(Foundation model): 다양한 작업의 기반이 되는 범용 대형 AI 모델</span> <span>AI 코딩 도구(AI coding tool): 코드를 생성·수정·설명해 주는 개발 지원 도구</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: SpaceX is in an &quot;enviable position&quot;: why Anthropic is sticking with Cursor as OpenAI cuts access</p>
+        <p class="url">게시일: 2026.08.31</p>
+        <p class="url">출처 URL: https://thenewstack.io/anthropic-spacex-cursor-compute-openai/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

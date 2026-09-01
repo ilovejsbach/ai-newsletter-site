@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>오픈AI 추론칩 Jalapeño 성능 수치가 나왔다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">01</span> SemiAnalysis <span class="source-date">게시일 2026.08.25</span></p>
+      <h1>오픈AI 추론칩 Jalapeño 성능 수치가 나왔다</h1>
+      <img class="detail-image" src="../assets/images/article_01_4abbccc42d96af67.png" alt="기사 이미지">
+      <p class="detail-lead">오픈AI가 자체 설계한 AI 칩 Jalapeño의 상세 내용을 공개했다. 이 칩은 대규모 언어모델 추론에 맞춘 반도체다. 목표는 같은 전력으로 더 많은 토큰을 처리하는 것이다. 오픈AI는 GPU 의존도를 낮추고 데이터센터 전력 제약도 줄이려 한다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>오픈AI는 Jalapeño를 특정 모델 전용이 아닌 범용 AI 추론칩으로 설계했다. 회사는 Broadcom과 함께 이 칩 프로그램을 추진했다. 설계는 2024년 중반에 시작했다. 제조 테이프아웃까지는 약 16개월이 걸렸다.</p>
+<p>외부 매체는 오픈AI 연구소에서 InferenceX 벤치마크를 일부 확인했다. 매체는 여러 오픈소스 모델에서 Nvidia, AMD, Google 칩보다 앞섰다고 전했다. Jalapeño는 저지연 환경과 고처리량 환경에서 모두 강한 수치를 보였다고 했다. DeepSeek R1에서는 동시 사용자 1명 기준 초당 700토큰 이상을 기록했다.</p>
+<ul><li>Kimi-K2.5와 GPT-OSS에서는 사용자당 약 초당 1,400토큰을 보였다고 했다</li><li>이 수치는 STP 기준이다</li><li>투기적 디코딩은 쓰지 않았다</li><li>프리필과 디코드 분리 구성도 쓰지 않았다</li><li>GSM8k 평가는 Nvidia 칩과 비슷한 수준이라고 했다</li></ul>
+<p>다만 이번 수치에는 조건이 붙는다. 성능 수치는 오픈AI가 제공했다. 매체는 현장에서 일부 실행을 확인했지만 InferenceX 전체 세트와 AgentX 결과는 보지 못했다. 비교 대상 모델도 최신 최상위 모델은 아니었다.</p>
+<p>매체는 Blackwell 비교가 완전하지 않다고도 적었다. HBM4를 쓰는 Rubin 계열과 비교하는 편이 더 적절하다는 설명이다. 그럼에도 공개 수치상 Jalapeño는 Rubin의 2026년 7월 수치와 비교해도 전력당 처리량에서 앞섰다고 매체는 전했다.</p>
+<p>비용 측면에서는 Jalapeño와 Vera Rubin이 비슷한 수준으로 나왔다. 다만 Rubin 쪽은 투기적 디코딩을 썼고 Jalapeño는 쓰지 않았다. 매체는 Jalapeño가 이 기능을 더하면 토큰당 비용을 더 낮출 수 있다고 봤다.</p>
+        
+      </section>
+<section>
+        <h2>주요 트렌드</h2>
+        <p>이번 공개는 AI 경쟁의 축이 모델에서 칩과 전력으로 넓어졌다는 점을 보여준다. 오픈AI는 예산보다 데이터센터 전력이 더 큰 제약이라고 설명했다. 그래서 회사는 달러당 성능보다 메가와트당 토큰 처리량을 더 중시한다.</p>
+<p>이 전략은 사업 구조에도 영향을 준다. 오픈AI는 Broadcom과 손잡고 자체 칩을 만들었다. Nvidia의 높은 마진 구조를 일부 피하려는 목적도 읽힌다. 다만 매체는 비용만으로는 설명이 부족하다고 적었다. Meta와 Microsoft도 비슷한 시도를 했지만 아직 같은 성과를 내지 못했다.</p>
+<p>기술 선택도 운영 관점에 맞춰져 있다. 오픈AI는 프리필과 디코드를 분리한 칩 풀 대신 같은 칩과 같은 패브릭에서 처리하는 방식을 골랐다. 이 선택은 이론상 최고 효율보다 실제 운영 단순성을 우선한 설계로 읽힌다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>여러 매체가 함께 다룬 사건이다. 관련 보도에서는 오픈AI 뉴스룸도 Jalapeño의 초기 결과가 속도와 효율에서 업계 선도 수준이라고 소개했다. 다만 이번 교차 보도에서도 독립적인 전체 벤치마크 검증은 아직 부족하다는 점이 함께 지적됐다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 기업이 바로 자체 칩을 만들 일은 드물다. 하지만 AI 인프라를 고를 때 보는 기준은 달라질 수 있다. 우리 회사라면 모델 정확도만 보지 말고 전력 예산, 응답 지연, 토큰당 비용을 함께 비교해야 한다.</p>
+<p>검토 포인트는 분명하다.</p>
+<ul><li>추론 업무가 많은 시스템인지 먼저 구분할 것</li><li>장기 계약 GPU와 대체 인프라 비용을 함께 볼 것</li><li>벤더 수치가 자체 측정인지 독립 검증인지 확인할 것</li><li>벤치마크가 우리 업무와 비슷한 긴 문맥, 다회전 대화 조건인지 볼 것</li><li>투기적 디코딩 같은 최적화가 포함된 수치인지 확인할 것</li></ul>
+<p>아직 확인이 더 필요한 부분도 있다. 양산 일정은 기사 발췌에 없다. 엔지니어링 샘플을 넘어 실제 대규모 서비스에 언제 투입할지도 아직 분명하지 않다. 도입 검토팀은 인프라, 보안, 재무, AI 플랫폼 조직이 함께 봐야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>ASIC(Application-Specific Integrated Circuit): 특정 용도에 맞춰 설계한 반도체</span> <span>추론(Inference): 학습된 AI 모델이 실제 입력에 답을 만드는 단계</span> <span>HBM4(High Bandwidth Memory 4): AI 연산용 고대역폭 메모리 규격</span> <span>STP(Single Token Prediction): 토큰을 한 번에 하나씩 생성하는 방식</span> <span>MTP(Multi Token Prediction): 토큰 여러 개를 한 번에 예측해 속도를 높이는 방식</span> <span>TCO(Total Cost of Ownership): 장비 도입부터 운영까지의 총비용</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: OpenAI Jalapeño: Better than Nvidia Blackwell</p>
+        <p class="url">게시일: 2026.08.25</p>
+        <p class="url">출처 URL: https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
