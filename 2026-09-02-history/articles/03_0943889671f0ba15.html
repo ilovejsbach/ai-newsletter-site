@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meta, 실시간 음성 전사에서 경쟁사 앞섰다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">03</span> The New Stack <span class="source-date">게시일 2026.09.01</span></p>
+      <h1>Meta, 실시간 음성 전사에서 경쟁사 앞섰다</h1>
+      <img class="detail-image" src="../assets/images/article_03_0943889671f0ba15.png" alt="기사 이미지">
+      <p class="detail-lead">Meta가 실시간 음성 전사 모델을 내놨다. 목표는 말을 다 들은 뒤 정리하는 것이 아니라, 대화가 진행되는 동안 바로 텍스트로 바꾸는 일이다. 회의, 고객 상담, 웨어러블 기기처럼 지연 시간이 중요한 서비스가 직접 겨냥된 셈이다. 이번 평가는 특히 영어 실시간 전사 성능에 초점이 맞춰져 있다.</p>
+      <section>
+        <h2>주요 트렌드</h2>
+        <p>실시간 전사는 올여름 가장 붐비는 AI 시장 중 하나가 됐다. OpenAI, Google, xAI, Alibaba가 몇 주 간격으로 스트리밍 모델을 내놨다. 기존 전문 업체들까지 있어 경쟁은 더 치열하다.</p>
+<p>Meta의 차별점은 제품 연결성이다. 안경, Mac 앱 같은 자사 제품이 실시간 음성 인식 성능에 직접 의존한다. 그래서 Meta는 이 분야를 계속 밀어붙일 이유가 분명하다. 반면 이번 모델은 오픈 웨이트를 공개하지 않아, 오픈 모델 생태계를 기대한 개발자에게는 제약이 있다.</p>
+<p>기술 방식도 운영 목표가 뚜렷하다. 모델은 80밀리초 단위 오디오 조각을 받고, 그때마다 텍스트를 낼지 다음 오디오를 더 들을지 결정한다. Meta는 이를 adaptive delay라고 부른다. 어려운 단어는 더 듣고, 쉬운 단어는 빨리 적는 구조다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>모델</th><th>영어 실시간 전사 오류율</th></tr></thead><tbody><tr><td>Muse Voice Transcribe</td><td>3.1%</td></tr><tr><td>Cartesia Ink-2</td><td>3.4%</td></tr><tr><td>ElevenLabs Scribe v2 Real-time</td><td>3.6%</td></tr><tr><td>GPT Live Transcribe</td><td>3.9%</td></tr><tr><td>Gemini 3.5 Transcribe Live</td><td>4%</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>기사에서는 OpenAI, Google, xAI, Alibaba가 최근 몇 주 안에 같은 영역의 모델을 잇달아 내놨다고 정리했다. 실시간 전사 시장이 빠르게 과밀해지고 있다는 뜻이다.</p>
+<p>다만 기사도 0.3포인트 차이의 벤치마크 우위가 오래가지는 않을 수 있다고 봤다. 아직 공개된 고객 도입 반응은 구체적으로 확인되지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 현장에서는 회의록 자동화, 상담 기록 보조, 음성 인증 전 단계 텍스트화, 다자 통화 기록 정리에 바로 연결할 수 있다. 화자 구분과 긴 대화 지원은 콜센터와 내부 회의 업무에서 특히 중요하다.</p>
+<p>다만 이번 벤치마크는 영어 기준이다. 한국어와 영어가 섞인 회의, 업계 용어가 많은 상담, 잡음이 큰 통화 환경에서 같은 성능이 나오는지는 확인이 필요하다. 오픈 웨이트를 제공하지 않기 때문에 사내 온프레미스(사내 서버에 직접 설치해 쓰는 방식) 요구가 있는 조직에는 제약이 된다.</p>
+<p>체크포인트는 아래와 같다.</p>
+<ul><li>고객센터 운영팀: 실제 통화 샘플로 지연 시간과 오류율 검증</li><li>보안팀: 음성 데이터 저장 위치와 API 사용 정책 확인</li><li>데이터팀: 화자 분리 결과를 상담 분석 시스템에 붙일 수 있는지 점검</li><li>해외사업부: 다국어 전환 대화에서 언어 혼합 성능 시험</li></ul>
+<p>가격은 공개됐지만, 실제 지연 시간 수치와 한국어 성능은 이번 기사에 없다. 영어 벤치마크 1위를 곧바로 전면 도입 근거로 삼기에는 정보가 더 필요하다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>음성 전사(Speech-to-text): 사람의 말을 텍스트로 바꾸는 기술</span> <span>스트리밍(Streaming): 음성이 들어오는 즉시 순차 처리하는 방식</span> <span>화자 분리(Speaker diarization): 누가 말했는지 구분하는 기능</span> <span>오류율(WER, Word Error Rate): 전사 결과에서 단어가 틀린 비율</span> <span>강화학습(RL, Reinforcement Learning): 보상을 기준으로 모델 행동을 조정하는 학습 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Meta just beat OpenAI and Google at real-time transcription</p>
+        <p class="url">게시일: 2026.09.01</p>
+        <p class="url">출처 URL: https://thenewstack.io/meta-muse-voice-transcribe/</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
