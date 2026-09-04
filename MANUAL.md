@@ -10,7 +10,7 @@
 index.html         ← 전체 호 아카이브 목록
 latest/            ← 최신 호로 자동 이동 (게시판 고정 글용)
 fonts/             ← Pretendard 폰트 (전 주차 공유, 1회만 존재)
-2026-06-25/ …      ← 주차별 뉴스레터 (index.html + articles/ + assets/)
+2026-08-14/ …      ← 주차별 뉴스레터 (index.html + articles/ + assets/)
 ```
 
 ## 1회 초기 구축 (내부망)
