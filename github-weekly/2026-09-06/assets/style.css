@@ -70,6 +70,7 @@ h1 { margin: 0; font-size: 34px; line-height: 1.25; letter-spacing: 0; }
 .terms { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
 .terms span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; color: var(--muted); font-size: 13px; }
 .meta, .url { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.url a { color: inherit; text-decoration: underline; word-break: break-all; }
 .detail-link { color: var(--accent); font-weight: 700; text-decoration: none; }
 .quality { padding: 28px 44px 48px; }
 .quality h2 { margin: 0 0 10px; font-size: 20px; }
