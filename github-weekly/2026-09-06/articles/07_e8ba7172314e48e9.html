@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>사내 LLM 서빙 속도와 비용을 줄이는 vLLM</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-infra detail-repo" style="--sc:#4b5563">
+      <p class="source"><span class="article-number">07</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">vllm-project</span><span class="repo-sep">/</span><span class="repo-repo">vllm</span></p>
+      <h1>사내 LLM 서빙 속도와 비용을 줄이는 vLLM</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 91,072</span><span class="repo-lang">Python</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v0.28.0 (08.26)</span><span class="repo-active">최근 활동 09.06</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 있음</span><span class="repo-check-state">AGENTS.md 있음</span></p>
+      <img class="detail-image" src="../assets/images/article_07_e8ba7172314e48e9.png" alt="기사 이미지">
+      <p class="detail-lead">vLLM은 오픈모델 운영에서 가장 자주 거론되는 추론 엔진 가운데 하나다. 목표는 같은 장비에서 더 많은 요청을 더 낮은 지연으로 처리하는 일이다. 단순 라이브러리로도 쓰고, API 서버로 바로 열 수도 있다. 이번 릴리스에는 성능 개선과 하드웨어 지원 확대가 많이 들어갔다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>vLLM은 대형 언어모델 추론과 서빙을 빠르고 쉽게 하려는 라이브러리다. Hugging Face의 여러 모델을 바로 붙일 수 있다. OpenAI 호환 API 서버와 Anthropic Messages API, gRPC도 지원한다. 같은 자원으로 더 많은 요청을 처리하도록 돕는 도구에 가깝다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>Python 기반 라이브러리다.</li><li>pip와 uv로 설치할 수 있다.</li><li>개발용으로는 소스 빌드도 지원한다.</li><li>Docker 이미지를 제공한다.</li><li>OpenAI 호환 API 서버 형태로 띄울 수 있다.</li><li>외부 API 키 필요 여부는 이 저장소 기준으로 적혀 있지 않다.</li><li>NVIDIA GPU, AMD GPU, Intel GPU와 x86, ARM, PowerPC CPU를 지원한다.</li><li>Google TPU, Intel Gaudi, IBM Spyre, Huawei Ascend, Rebellions NPU, Apple Silicon, MetaX GPU용 플러그인도 지원한다.</li><li>라이선스는 Apache-2.0이다.</li><li>최신 릴리스는 v0.28.0이며 2026-08-26에 공개됐다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>사내 규정 문서 검색 챗봇을 자체 GPU 서버에 올리고 OpenAI 호환 API로 여러 업무 시스템이 함께 붙을 때 적합하다.</li><li>고객 문의 요약이나 상담 분류 모델을 배치와 실시간으로 같이 운영해야 할 때 요청 묶음 처리 기능이 도움이 된다.</li><li>계열사별로 다른 오픈모델을 시험하면서 같은 서빙 인터페이스를 유지하고 싶을 때 유용하다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>PagedAttention, 연속 배칭, prefix caching으로 메모리와 처리량을 최적화한다.</li><li>OpenAI 호환 API 서버와 Anthropic Messages API, gRPC를 지원한다.</li><li>병렬 샘플링, beam search, structured output, tool calling, reasoning parser를 지원한다.</li></ul>
+        
+      </section>
+<section>
+        <h2>성능과 운영 비용</h2>
+        <p>vLLM은 처리량과 메모리 효율을 앞세운다. 핵심 기법으로 PagedAttention, 연속 배칭, chunked prefill, prefix caching을 쓴다. 양자화는 FP8, INT8, INT4, GPTQ, AWQ, GGUF 등 여러 방식을 지원한다. 하드웨어 선택 폭도 넓다.</p>
+<p>이번 v0.28.0 릴리스에는 Kimi-K3와 DeepSeek V4 최적화가 크게 들어갔다. Kimi-K3에서는 커널 수준에서 1.5~3배 속도 향상을 적었다. DSpark TTFT는 약 60% 개선했다고 밝혔다. shared-expert sharding을 선택하면 GPU당 메모리 약 17 GiB를 아낄 수 있다고 적었다.</p>
+<p>다만 이 수치들은 릴리스 노트에 적힌 프로젝트 측 설명이다. 모델과 커널, 병렬화 방식, 하드웨어 조건이 함께 바뀐다. 실제 사내 성능은 같은 모델, 같은 입력 길이, 같은 GPU에서 다시 재야 한다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>플랫폼</th><th>설치 또는 이미지</th></tr></thead><tbody><tr><td>PyPI (CUDA 13.0)</td><td>pip install vllm</td></tr><tr><td>PyPI (CUDA 13.0, uv)</td><td>uv pip install vllm --torch-backend=auto</td></tr><tr><td>ROCm</td><td>pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/0.28.0/rocm722</td></tr><tr><td>CUDA 13.0 기본 이미지</td><td>docker pull vllm/vllm-openai:v0.28.0</td></tr><tr><td>ROCm 이미지</td><td>docker pull vllm/vllm-openai-rocm:v0.28.0</td></tr><tr><td>CPU 이미지</td><td>docker pull vllm/vllm-openai-cpu:v0.28.0</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 호출 없이 사내에서 자체 서빙하는 용도로 쓸 수 있다. 다만 붙일 모델의 다운로드 경로와 라이선스는 별도 확인이 필요하다.</li><li>모델 입력과 출력이 사내 서버에 머물 수 있어 데이터 반출 통제에 유리하다.</li><li>유지보수 주체는 UC Berkeley 출발의 커뮤니티 조직이다.</li><li>상용 LLM 서빙 플랫폼과 추론 게이트웨이를 일부 대체할 수 있지만, 운영 모니터링과 장애 대응 체계는 별도 구성해야 한다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>추론(Inference): 학습된 AI 모델이 입력을 받아 답을 만드는 실행 단계</span> <span>서빙(Serving): 모델을 API나 서비스 형태로 운영하는 일</span> <span>배칭(Batching): 여러 요청을 묶어 한 번에 처리하는 방식</span> <span>양자화(Quantization): 모델 계산 정밀도를 낮춰 속도와 메모리 사용을 줄이는 기법</span> <span>KV 캐시(KV Cache): 이전 토큰 계산 결과를 저장해 다음 응답을 빠르게 하는 메모리</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: vllm-project/vllm</p>
+        <p class="url">최근 활동: 2026.09.06</p>
+        <p class="url">출처 URL: <a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener noreferrer">https://github.com/vllm-project/vllm</a></p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
