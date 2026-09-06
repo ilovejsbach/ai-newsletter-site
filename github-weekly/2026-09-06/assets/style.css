@@ -119,9 +119,12 @@ th { width: 140px; color: var(--muted); font-weight: 700; }
    .repo-*·.license-badge를 한 번도 출력하지 않으므로 계산값이 바뀌지 않는다 (docs/DESIGN_REVIEW_GITHUB_STORY_ROW.md 4-1~4-8) */
 .story-repo { padding: 22px 0 24px; }
 .story-repo.has-thumb { grid-template-columns: 1fr 240px; gap: 24px; align-items: start; }
-.story-repo .source { margin: 0 0 2px; font-size: 12.5px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
-.story-repo .source-date { margin-left: 6px; color: var(--muted); font-weight: 500; }
-.story-repo h3 { margin: 2px 0 6px; }
+/* 첫 줄: 순번 칩 + 제목을 한 h3 안에 flex로 나란히. 칩은 .article-number 규격(24px 높이) 그대로, 간격은 gap이 맡는다.
+   flex-start + margin-top 3px = 제목 첫 줄(22px/1.4 = 30.8px)의 세로 중심에 칩을 맞춘다 — 제목이 두 줄로 접혀도 칩은 첫 줄에 남는다 */
+.story-repo h3 { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 2px; }
+.story-repo h3 .article-number { flex: 0 0 auto; margin: 3px 0 0; }
+.story-repo h3 a { min-width: 0; }
+.story-repo .repo-name { margin: 0 0 6px; }
 .story-repo .story-yama { margin: 0 0 10px; }
 .story-repo .story-hook { margin: 0 0 14px; }
 .story-repo .story-thumb img { aspect-ratio: 2 / 1; background: var(--wash); }
@@ -141,7 +144,6 @@ th { width: 140px; color: var(--muted); font-weight: 700; }
 .repo-check { padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: #4a5361; font-size: 12px; font-weight: 600; }
 .repo-facts .hot { color: var(--sc, var(--ink)); }
 .detail-article .repo-name { margin: 0 0 4px; }
-.detail-repo .source-date { margin-left: 6px; color: var(--muted); font-weight: 500; }  /* 저장소 상세도 주황 날짜 강조 해제 (설계 4-9) */
 /* 좁은 폭(게시판 iframe): 저장소 행만 썸네일 열을 줄이고(760px), 더 좁으면 숨긴다(560px). 선택자에 .story-repo 필수 */
 @media (max-width: 760px) {
   .story-repo.has-thumb { grid-template-columns: 1fr 160px; gap: 16px; }
