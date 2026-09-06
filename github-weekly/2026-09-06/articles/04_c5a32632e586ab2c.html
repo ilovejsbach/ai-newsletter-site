@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>모델 교체를 쉽게 하는 에이전트 골격</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-releases">
+      <p class="source"><span class="article-number">04</span> GitHub · langchain-ai <span class="source-date">최근 활동 2026.09.06</span></p>
+      <h1>모델 교체를 쉽게 하는 에이전트 골격</h1>
+      <p class="repo-facts" style="margin:0 0 6px;font-size:13.5px;color:#4a5361">스타 145,732 · 이번 주 +0 · Python · MIT <span class="license-badge" title="자동 분류 — 법무 판단을 대신하지 않습니다" style="display:inline-block;padding:1px 7px;border-radius:10px;font-size:12px;font-weight:700;background:#e6f4ea;color:#1e6b3a">사내 사용 가능</span> · 최근 릴리스 langchain-core==1.6.2 (09.04) · 테스트 없음 · 예제 없음 · AGENTS.md 있음</p>
+      <img class="detail-image" src="../assets/images/article_04_c5a32632e586ab2c.png" alt="기사 이미지">
+      <p class="detail-lead">LangChain은 에이전트와 LLM 앱을 만드는 범용 프레임워크다. 저장소는 모델, 임베딩, 벡터 저장소, 외부 도구를 같은 인터페이스로 묶는 점을 앞세운다. 고수준 패키지인 Deep Agents, 저수준 제어용 LangGraph, 운영 도구인 LangSmith와도 연결된다. 이번 주에는 langchain-core 1.6.2 릴리스가 나왔다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>LangChain은 AI 에이전트와 LLM 앱을 만들 때 공통 연결 규칙을 제공하는 프레임워크다. 업무 시스템마다 로그인 방식이 달라도 그룹웨어가 중간 규칙을 맞춰 주는 것과 비슷하다. 개발자는 모델과 도구를 바꿔 가며 실험해도 큰 틀을 다시 짜지 않아도 된다. 그래서 시범 서비스에서 운영 서비스로 옮길 때 구조를 덜 흔들 수 있다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어는 Python이다.</li><li>패키지로 설치해 쓰는 형태다.</li><li>외부 모델이나 도구 연동 시 해당 서비스 접근 정보가 필요할 수 있다.</li><li>라이선스는 MIT다.</li><li>최신 릴리스는 langchain-core 1.6.2이며 발췌 정보에는 릴리스 주기가 없다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>고객 문의 분류와 답변 초안 생성을 여러 모델로 비교 실험할 때 적합하다.</li><li>규정 문서 검색 서비스에서 임베딩과 벡터 저장소를 바꿔 가며 정확도를 점검할 때 유용하다.</li><li>야간 배치 점검용 에이전트가 사내 시스템과 외부 모델을 함께 호출해야 할 때 공통 연결층으로 쓸 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>모델, 임베딩, 벡터 저장소를 하나의 표준 인터페이스로 묶어 바꿔 끼우기 쉽게 만든다.</li><li>다양한 데이터 소스와 외부·내부 시스템을 연결하는 통합 구성을 제공한다.</li><li>빠른 시제품 개발부터 세밀한 제어까지 단계별 추상화 수준을 고를 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이번 릴리스에서 바뀐 점</h2>
+        <p>이번 langchain-core 1.6.2에는 OpenAI용 비동기 도구 지원이 추가됐다. core 라이브러리의 mistune은 3.3.0에서 3.3.3으로, tornado는 6.5.7에서 6.5.8로 올렸다. Google GenAI 표준 콘텐츠와 Bedrock converse 표준 콘텐츠에서 불필요한 객체 변경을 피하는 수정도 들어갔다. OpenAI 비동기 도구를 쓰는 팀은 호환성을 확인하면 되고, 표준 콘텐츠 객체를 재사용하던 코드는 변경 의존이 없는지 점검할 필요가 있다.</p>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 모델과 도구를 붙이면 요청 데이터가 사외로 나갈 수 있다.</li><li>사내 문서 검색이나 고객 데이터 처리에 쓸 때는 연결 대상별 반출 통제가 필요하다.</li><li>유지보수 주체는 langchain-ai 조직이다.</li><li>상용 에이전트 빌더로 대체할 수 있지만, 모델 교체 자유도와 코드 수준 제어는 비교가 필요하다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>프레임워크(Framework): 공통 구조와 규칙을 제공하는 개발 뼈대</span> <span>임베딩(Embedding): 문장이나 문서를 숫자 벡터로 바꾼 표현</span> <span>벡터 저장소(Vector store): 비슷한 의미의 데이터를 빠르게 찾는 저장소</span> <span>오케스트레이션(Orchestration): 여러 단계와 도구 실행 순서를 관리하는 일</span> <span>비동기(Async): 한 작업을 기다리는 동안 다른 작업을 함께 처리하는 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: langchain-ai/langchain</p>
+        <p class="url">최근 활동: 2026.09.06</p>
+        <p class="url">출처 URL: https://github.com/langchain-ai/langchain</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
