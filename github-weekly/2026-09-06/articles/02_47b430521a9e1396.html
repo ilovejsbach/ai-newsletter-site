@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>증거부터 따지는 트레이딩 연구 콘솔</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-rising detail-repo" style="--sc:#c2410c">
+      <p class="source"><span class="article-number">02</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">kyky2347</span><span class="repo-sep">/</span><span class="repo-repo">ALTA</span></p>
+      <h1>증거부터 따지는 트레이딩 연구 콘솔</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 159</span><span class="repo-lang">Python</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v0.25.0 (08.27)</span><span class="repo-active">최근 활동 09.05</span><span class="repo-check-state">테스트 없음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 있음</span></p>
+      <img class="detail-image" src="../assets/images/article_02_47b430521a9e1396.png" alt="기사 이미지">
+      <p class="detail-lead">이 저장소는 수익 예측보다 연구 절차를 먼저 통제하려는 설계를 내세운다. 여러 에이전트가 기회를 찾고, 찬반을 토론하고, 표현 방식을 고르고, 별도 위험 감사를 거친다. 모델은 열린 판단을 맡고, 코드가 권한과 상태 전이를 고정한다. 금융IT 관점에서는 AI 도구보다 운영 통제 모델에 더 가깝다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>ALTA는 공개 시장을 조사하는 멀티에이전트 연구 시스템이다. 여러 에이전트가 독립적으로 신호를 찾고, 찬반을 겨루며, 위험 감사를 통과한 안만 Shadow 장부에 남긴다. 운영자는 이 과정을 이중 언어 콘솔에서 끝까지 추적할 수 있다. 비유하면 애널리스트팀, 리스크팀, 집행 승인 절차를 한 실험실 안에 축소해 놓은 형태다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어는 Python이며, 콘솔 쪽은 React와 Node.js 22+를 쓴다.</li><li>macOS 또는 Linux가 필요하다.</li><li>Python 3.12+, uv, Corepack, Docker Desktop 또는 Docker Engine이 필요하다.</li><li>설치 후 프로젝트 로컬 명령으로 대시보드를 띄운다.</li><li>PostgreSQL과 Redis를 사용한다.</li><li>Tiger Paper는 기본으로 꺼져 있고, 운영자 승인 없이는 증권사 권한을 얻지 않는다.</li><li>라이선스는 Apache-2.0이다.</li><li>현재 작업 릴리스는 0.26.0으로 적었고, 저장소 메타데이터의 최신 릴리스는 v0.25.0이다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>리서치 조직이 고객 문의나 종목 아이디어를 바로 주문으로 넘기지 않고 근거와 반론을 분리해 검토할 때 맞다.</li><li>야간 자동 분석이 중간에 끊겨도 다음 날 같은 상태에서 재개해야 하는 실험 환경을 만들 때 유용하다.</li><li>모의투자 계정 연동 전 단계에서 권한 승인과 위험 한도 통제가 제대로 걸리는지 점검할 때 적합하다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>독립적인 Scout 에이전트가 기회를 찾고, Debate 단계에서 찬반과 촉매를 따진다.</li><li>별도 Audit 단계가 위험과 권한을 점검한 뒤 Shadow 또는 Tiger Paper로 보낸다.</li><li>운영 콘솔이 각 에이전트의 작업, 사용 도구, 결정 이유, 현재 권한 경계를 보여준다.</li></ul>
+        
+      </section>
+<section>
+        <h2>왜 지금 주목받나</h2>
+        <p>이 저장소는 실거래 성과를 약속하지 않고, 그 주장 자체를 시험 가능하게 만드는 데 초점을 둔다. 실거래 모드는 아예 없고, Tiger Paper도 운영자가 명시적으로 승인해야만 켤 수 있다. 중단 복구를 도메인 모델에 넣어 한 번에 하나의 자율 실행만 점유하고, 오래된 작업 소유권은 회수한다. 비슷한 에이전트 데모가 한 번의 대화 응답을 보여줄 때, ALTA는 근거 보존과 권한 분리, 복구 계약을 먼저 세워 관심을 받는다.</p>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 호출은 제공자 설정에 따라 달라진다. 유료 제공자 없이 고정 데이터로 첫 실행이 가능하다.</li><li>Tiger Paper를 켜면 증권사 경계로 나간다. 기본값은 꺼짐이다.</li><li>데이터 반출 범위는 제공자 설정과 브로커 연결 범위별로 확인이 필요하다.</li><li>유지보수 주체는 개인 계정으로 보인다.</li><li>대체 가능한 상용 제품은 있다. 다만 이 저장소는 연구 절차 감사와 복구 흐름을 전면에 둔다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>Shadow trading: 실제 주문 없이 시장 데이터로 가상 포지션을 운영하는 방식</span> <span>Paper trading: 증권사 모의 계정으로 주문을 시험하는 방식</span> <span>라인리지(Lineage): 데이터와 판단이 어떤 근거에서 나왔는지 추적하는 기록</span> <span>멱등성(Idempotency): 같은 요청을 다시 실행해도 결과가 중복되지 않게 하는 성질</span> <span>루프백(loopback): 같은 컴퓨터 안에서만 접속하는 네트워크 주소</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: kyky2347/ALTA</p>
+        <p class="url">최근 활동: 2026.09.05</p>
+        <p class="url">출처 URL: <a href="https://github.com/kyky2347/ALTA" target="_blank" rel="noopener noreferrer">https://github.com/kyky2347/ALTA</a></p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

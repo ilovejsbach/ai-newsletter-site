@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>사내 지식과 시계열을 묶는 모델 지향 저장소</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-infra detail-repo" style="--sc:#4b5563">
+      <p class="source"><span class="article-number">08</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">deeplethe</span><span class="repo-sep">/</span><span class="repo-repo">utopia</span></p>
+      <h1>사내 지식과 시계열을 묶는 모델 지향 저장소</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 5,049</span><span class="repo-lang">Rust</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">최근 활동 09.06</span><span class="repo-check-state">테스트 없음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_08_4eb733afdb6b8b30.png" alt="기사 이미지">
+      <p class="detail-lead">이 저장소는 기업용 지식 기반을 새로 짜려는 흐름과 맞닿아 있다. 다만 공개된 설명이 매우 짧다. 그래서 지금 단계에서는 구현 세부보다 방향성을 읽는 수준이 적절하다. 주제어를 보면 그래프 구조와 시계열, 벡터 검색을 한데 묶으려는 의도가 드러난다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>이 저장소는 엔터프라이즈용 오픈소스 world model을 표방한다. 사내 지식을 단순 문서 검색이 아니라 관계와 시간 정보까지 포함해 다루려는 방향으로 보인다. 주제어에는 knowledge graph, GraphRAG, temporal knowledge graph, PostgreSQL, pgvector가 포함돼 있다. 규정과 상품, 조직 변경 이력을 한 장부에 묶어 보는 지식 기반에 가깝다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어 표시는 Rust다.</li><li>설치 형태는 확인되지 않았다.</li><li>외부 API 키 필요 여부는 확인되지 않았다.</li><li>라이선스는 Apache-2.0이다.</li><li>릴리스 정보는 없다.</li></ul>
+        
+      </section>
+<section>
+        <h2>대안 대비 차별점</h2>
+        <p>이 저장소는 엔터프라이즈 world model이라는 표현을 전면에 내건다. 주제어 구성을 보면 단순 RAG보다 그래프 구조와 시계열 지식을 함께 다루려는 점이 다르다. PostgreSQL과 pgvector, ontology, bitemporal 같은 키워드가 함께 붙어 있다. 다만 README 본문 정보가 적어, 비교 가능한 아키텍처 설명과 운영 방식은 아직 확인하기 어렵다.</p>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>규정 문서와 조직 변경 이력을 함께 찾아야 하는 내부 검색 파일럿을 검토할 때 방향 참고용으로 볼 수 있다.</li><li>상품, 계정, 이벤트 관계를 시간축까지 포함해 지식 구조로 묶는 실험을 설계할 때 아이디어를 얻기 좋다.</li><li>GraphRAG와 PostgreSQL 기반 지식 저장소를 온프레미스 후보로 탐색할 때 초기 목록에 넣을 만하다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>공개된 README 정보가 부족해 핵심 기능을 자세히 확인하기 어렵다.</li><li>커뮤니티 토론과 이슈, 기여 가이드를 제공한다.</li><li>Ontology2SQL 관련 참조 링크를 함께 안내한다.</li></ul>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 호출 여부는 확인 필요다.</li><li>self-hosted 주제어가 있어 사내 설치 방향은 읽히지만, 실제 배포 방식은 확인이 필요하다.</li><li>유지보수 주체는 deeplethe 조직 또는 계정으로 보이지만, 개인 프로젝트인지 조직 프로젝트인지 확인이 필요하다.</li><li>상용 지식 검색 플랫폼이나 그래프 데이터 제품과 겹칠 수 있으나, 기능 범위 비교 자료는 아직 부족하다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>지식 그래프(Knowledge Graph): 개체와 관계를 연결해 표현한 지식 구조</span> <span>GraphRAG: 그래프 구조 지식을 검색해 생성형 AI 답변에 넣는 방식</span> <span>시계열 지식 그래프(Temporal Knowledge Graph): 시간 변화까지 담는 지식 그래프</span> <span>pgvector: PostgreSQL에서 벡터 검색을 돕는 확장</span> <span>온프레미스(On-premise): 사내 서버에 직접 설치해 쓰는 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: deeplethe/utopia</p>
+        <p class="url">최근 활동: 2026.09.06</p>
+        <p class="url">출처 URL: <a href="https://github.com/deeplethe/utopia" target="_blank" rel="noopener noreferrer">https://github.com/deeplethe/utopia</a></p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
