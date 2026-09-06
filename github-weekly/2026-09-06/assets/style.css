@@ -115,6 +115,41 @@ th { width: 140px; color: var(--muted); font-weight: 700; }
 .story-thumb { position: relative; }
 .story-thumb img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; }
 .story-thumb span { position: absolute; top: 8px; left: 8px; background: rgba(17,23,33,.82); color: #fff; font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
+/* 저장소 행(.story-repo): metrics.license_spdx가 있는 기사에만 붙는다. AI 판은 이 클래스와 아래
+   .repo-*·.license-badge를 한 번도 출력하지 않으므로 계산값이 바뀌지 않는다 (docs/DESIGN_REVIEW_GITHUB_STORY_ROW.md 4-1~4-8) */
+.story-repo { padding: 22px 0 24px; }
+.story-repo.has-thumb { grid-template-columns: 1fr 240px; gap: 24px; align-items: start; }
+.story-repo .source { margin: 0 0 2px; font-size: 12.5px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+.story-repo .source-date { margin-left: 6px; color: var(--muted); font-weight: 500; }
+.story-repo h3 { margin: 2px 0 6px; }
+.story-repo .story-yama { margin: 0 0 10px; }
+.story-repo .story-hook { margin: 0 0 14px; }
+.story-repo .story-thumb img { aspect-ratio: 2 / 1; background: var(--wash); }
+.story-repo .story-thumb span { display: none; }
+/* 명패·지표 띠·배지·점검 알약은 클래스 단독 선택자 — 목록 행과 상세 페이지가 같은 규칙을 공유한다 */
+.repo-name { margin: 0 0 2px; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; font-variant-ligatures: none; }
+.repo-owner { font-weight: 500; color: #4a5361; }
+.repo-sep { margin: 0 1px; color: var(--muted); }
+.repo-repo { font-weight: 700; color: var(--ink); }
+.repo-facts { display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; row-gap: 4px; margin: 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.repo-stars, .repo-delta { color: var(--ink); font-weight: 600; }
+.license-badge { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 10px; font-size: 12px; font-weight: 700; }
+.license-badge.tier-permissive { background: #e6f4ea; color: #1e6b3a; }
+.license-badge.tier-copyleft { background: #fff3e0; color: #9a4a00; }
+.license-badge.tier-unknown { background: #eceff1; color: #4b5563; }
+.repo-checks { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-left: 6px; }
+.repo-check { padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: #4a5361; font-size: 12px; font-weight: 600; }
+.repo-facts .hot { color: var(--sc, var(--ink)); }
+.detail-article .repo-name { margin: 0 0 4px; }
+.detail-repo .source-date { margin-left: 6px; color: var(--muted); font-weight: 500; }  /* 저장소 상세도 주황 날짜 강조 해제 (설계 4-9) */
+/* 좁은 폭(게시판 iframe): 저장소 행만 썸네일 열을 줄이고(760px), 더 좁으면 숨긴다(560px). 선택자에 .story-repo 필수 */
+@media (max-width: 760px) {
+  .story-repo.has-thumb { grid-template-columns: 1fr 160px; gap: 16px; }
+}
+@media (max-width: 560px) {
+  .story-repo.has-thumb { grid-template-columns: 1fr; }
+  .story-repo .story-thumb { display: none; }
+}
 
 /* 콜아웃(pull quote): 본문에서 그대로 인용한 한 문장. --sc는 섹션 색을 상속받는다 */
 .story-yama { margin: 4px 0 2px; color: #4a5361; font-size: 15px; line-height: 1.6; max-width: 720px; }
@@ -159,19 +194,34 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
 .article-group.section-open { --sc: var(--open); }
 .article-group.section-research { --sc: var(--research); }
 .article-group.section-tooling { --sc: var(--tooling); }
-.article-group[class*="section-"] .group-header { border-bottom: 3px solid var(--sc); background: #fff; }
+.article-group[class*="section-"] .group-header { border-bottom: 3px solid var(--sc, var(--ink)); background: #fff; }
 .article-group[class*="section-"] .group-header h2 { font-weight: 800; }
-.article-group[class*="section-"] .article-number { background: var(--sc); }
-.article-group[class*="section-"] .detail-link { color: var(--sc); }
-.article-group[class*="section-"] .thumb-placeholder { background: color-mix(in srgb, var(--sc) 10%, #fff); color: var(--sc); }
-.article-group[class*="section-"] .slot h4 { color: var(--sc); }
-.article-group[class*="section-"] .story-no { color: var(--sc); opacity: .28; }
+.article-group[class*="section-"] .article-number { background: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .detail-link { color: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .thumb-placeholder { background: color-mix(in srgb, var(--sc, var(--ink)) 10%, #fff); color: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .slot h4 { color: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .story-no { color: var(--sc, var(--ink)); opacity: .28; }
 /* 상세 아티클(개별 PNG)도 섹션 색 상속 */
 .detail-article.section-frontier { --sc: var(--frontier); }
 .detail-article.section-open { --sc: var(--open); }
 .detail-article.section-research { --sc: var(--research); }
 .detail-article.section-tooling { --sc: var(--tooling); }
-.detail-article[class*="section-"] .article-number { background: var(--sc); }
-.detail-article[class*="section-"] h1 { border-bottom: 3px solid var(--sc); padding-bottom: 14px; }
-.detail-article[class*="section-"] section h2 { color: var(--sc); font-size: 15px; letter-spacing: .04em; }
-.detail-article[class*="section-"] .detail-lead { background: #f8f9fa; border-left: 3px solid var(--sc); padding: 14px 18px; }
+.detail-article[class*="section-"] .article-number { background: var(--sc, var(--ink)); }
+.detail-article[class*="section-"] h1 { border-bottom: 3px solid var(--sc, var(--ink)); padding-bottom: 14px; }
+.detail-article[class*="section-"] section h2 { color: var(--sc, var(--ink)); font-size: 15px; letter-spacing: .04em; }
+.detail-article[class*="section-"] .detail-lead { background: #f8f9fa; border-left: 3px solid var(--sc, var(--ink)); padding: 14px 18px; }
+
+.article-group.group-labeled .group-header { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 14px; row-gap: 2px; padding: 34px 44px 10px; background: transparent; border-bottom: 2px solid var(--sc, var(--ink)); }
+.article-group.group-labeled .group-header h2 { font-size: 13.5px; font-weight: 800; line-height: 1.5; letter-spacing: .08em; color: var(--sc, var(--ink)); margin: 0; }
+.article-group.group-labeled .group-header h2::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; background: var(--sc, var(--ink)); vertical-align: 1px; }
+.article-group.group-labeled .group-header p { font-size: 14px; color: var(--muted); margin: 0; flex: 1 1 320px; }
+.group-labeled .story-list { padding-top: 18px; }
+.group-labeled .section-empty { padding-top: 18px; }
+/* 대표 슬롯: ★ 표식 + 금색 테두리 카드. .story-repo padding(22px 0 24px)보다 뒤에 와야 카드 안쪽 여백이 생기고,
+   .story:last-child { border-bottom: 0 }가 카드 밑선을 지우지 않도록 border-bottom을 다시 선언한다 */
+.article-group.section-feature.group-labeled .group-header h2::before { content: "★"; width: auto; height: auto; background: none; font-size: 13px; }
+.section-feature.group-labeled .story { border: 1px solid var(--sc, var(--ink)); border-bottom: 1px solid var(--sc, var(--ink)); border-radius: 8px; padding: 20px 24px; margin: 0 0 6px; }
+@media (max-width: 720px) {
+  .article-group.group-labeled .group-header { padding: 28px 22px 8px; }
+  .group-labeled .story-list { padding-top: 16px; }
+}
