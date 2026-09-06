@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>에이전트 업무법을 모은 Claude Code 참고서</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-agents">
+      <p class="source"><span class="article-number">07</span> GitHub · shanraisshan <span class="source-date">최근 활동 2026.09.06</span></p>
+      <h1>에이전트 업무법을 모은 Claude Code 참고서</h1>
+      <p class="repo-facts" style="margin:0 0 6px;font-size:13.5px;color:#4a5361">스타 65,637 · 이번 주 +0 · HTML · MIT <span class="license-badge" title="자동 분류 — 법무 판단을 대신하지 않습니다" style="display:inline-block;padding:1px 7px;border-radius:10px;font-size:12px;font-weight:700;background:#e6f4ea;color:#1e6b3a">사내 사용 가능</span> · 테스트 없음 · 예제 없음 · AGENTS.md 없음</p>
+      <img class="detail-image" src="../assets/images/article_07_beef767476532531.png" alt="기사 이미지">
+      <p class="detail-lead">AI 코딩 도구가 늘면서 잘 쓰는 법을 따로 배우려는 수요도 커졌다. 이 저장소는 제품 설명서가 아니라 커뮤니티 실전 노트를 모은 형태다. 그래서 기능을 설치하는 법보다 어떤 순서로 일시키는지가 중심이다. 내부 학습 자료로 볼 때 가치가 있다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>이 저장소는 Claude Code를 어떻게 써야 하는지 정리한 베스트 프랙티스 모음집이다. 에이전트와 명령, 스킬, 훅을 어떤 구조로 조합할지 사례 중심으로 보여준다. 단일 기능을 제공하는 소프트웨어라기보다 업무 운영 매뉴얼에 가깝다. 신입이 팀의 일하는 법 문서를 먼저 읽고 공통 방식부터 익히는 상황과 비슷하다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>주 언어 표기는 HTML이다.</li><li>패키지 설치형 도구는 아니다.</li><li>별도 릴리스는 없다.</li><li>Docker 이미지는 제공하지 않는다.</li><li>라이선스는 MIT다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>사내 AI 파일럿 팀이 고객 문의 분류나 문서 점검 업무를 에이전트로 나누기 전에 역할 설계를 익힐 때 좋다.</li><li>개발팀이 코드 리뷰와 계획 수립, 실행, 검증 단계를 AI로 분리 운영하려는 때 참고할 수 있다.</li><li>여러 모델을 함께 쓰는 실험을 하면서 어떤 요청은 Claude에, 어떤 검토는 Codex에 맡길지 정하려는 팀에 맞다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>Research → Plan → Execute → Review → Ship 형태의 개발 워크플로 모음을 제공한다.</li><li>Claude Code와 다른 모델을 플러그인, MCP, 라우터 세 방식으로 결합하는 예시를 정리한다.</li><li>에이전트와 명령, 스킬, 훅, 설정 파일이 어디에 놓이는지 표로 정리해 참조성을 높였다.</li></ul>
+        
+      </section>
+<section>
+        <h2>대안 대비 차별점</h2>
+        <p>이 저장소는 기능 하나를 깊게 파는 도구보다 학습 자료 성격이 강하다. 이 저장소는 워크플로보다 먼저 참고서처럼 읽으라고 안내한다. 실제로 /weather-orchestrator 예시를 템플릿으로 삼아 명령 → 에이전트 → 스킬 흐름을 통째로 보여준다.</p>
+<p>비슷한 팁 모음과 다른 점은 범위다. 프롬프팅과 세션 관리뿐 아니라 CLAUDE.md, 규칙 파일, 훅, Git·PR, 디버깅, 일상 사용법까지 한데 묶었다. Claude Code만 다루지 않고 Codex, Gemini, GPT, Kimi, DeepSeek, 로컬 모델과 섞는 운영법도 적었다.</p>
+<p>저장소 안 표는 실제 파일 위치를 알려준다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>기능</th><th>위치</th><th>설명</th></tr></thead><tbody><tr><td>Subagents</td><td>.claude/agents/.md</td><td>서브에이전트 정의</td></tr><tr><td>Commands</td><td>.claude/commands/.md</td><td>명령 정의</td></tr><tr><td>Skills</td><td>.claude/skills//SKILL.md</td><td>공식 Skills·모노리포용 Skills</td></tr><tr><td>Workflows</td><td>.claude/commands/weather-orchestrator.md</td><td>오케스트레이션 예시</td></tr><tr><td>Hooks</td><td>.claude/hooks/</td><td>가이드</td></tr><tr><td>Settings</td><td>.claude/settings.json</td><td>권한·모델 설정·샌드박싱 등</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 호출 여부는 이 저장소만으로는 확정할 수 없다. 실제로 연결할 Claude Code와 타 모델 설정을 따로 확인해야 한다.</li><li>저장소 자체는 학습 자료라 데이터 반출 기능을 직접 담지 않는다. 다만 예시 워크플로를 실제 서비스에 붙이면 반출 경로가 생길 수 있어 검토가 필요하다.</li><li>유지보수 주체는 개인 계정으로 보인다.</li><li>상용 제품을 바로 대체하기보다 사내 AI 활용 가이드나 교육 콘텐츠의 초안 재료로 쓰는 편이 맞다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트(Agent): 목표를 받고 여러 단계를 스스로 수행하는 AI 작업 단위</span> <span>스킬(Skill): 특정 작업을 잘하게 만든 재사용 지침이나 기능 묶음</span> <span>훅(Hook): 어떤 이벤트가 일어날 때 자동으로 실행되는 연결 장치</span> <span>플러그인(Plugin): 기존 도구에 기능을 추가하는 확장 모듈</span> <span>라우터(Router): 요청을 어느 모델·제공자로 보낼지 바꾸는 연결 계층</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: shanraisshan/claude-code-best-practice</p>
+        <p class="url">최근 활동: 2026.09.06</p>
+        <p class="url">출처 URL: https://github.com/shanraisshan/claude-code-best-practice</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
