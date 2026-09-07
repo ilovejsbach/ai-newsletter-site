@@ -1,14 +1,24 @@
 # 사내 깃랩 Pages 배포 설정 — 2026-08 실제 검증본 (파이프라인 #846 성공).
 # 사내 러너는 외부 docker.io 이미지를 못 받으므로 image 지정 없이 기본 환경을
 # 쓰고, 이 인스턴스에서 동작이 확인된 `pages: true` 문법을 사용한다.
-# 주차 폴더는 20*-*-* 글롭으로 잡히므로 매주 폴더가 늘어도 수정 불필요.
+#
+# 2026-09-04 변경: 발행 대상을 화이트리스트에서 제외 목록으로 뒤집었다.
+#   이전: cp -r 20*-*-* public/   -> "20"으로 시작하는 폴더만 발행됐다.
+#   요일별 트랙(github-weekly 등)이 생기면서 그 폴더들이 누락돼
+#   목차에는 링크가 뜨는데 404 가 나는 상태였다.
+#   이제 트랙 폴더가 늘어도 이 파일은 고치지 않는다.
+#   `*` 글롭은 숨김 파일(.gitlab-ci.yml, .gitignore)을 잡지 않으므로 자동으로 빠진다.
 create-pages:
   stage: deploy
   script:
     - rm -rf public && mkdir public
-    - cp index.html public/
-    - cp -r fonts latest public/
-    - cp -r 20*-*-* public/
+    - |
+      for f in * ; do
+        case "$f" in
+          public|MANUAL.md|post_meta.json) ;;
+          *) cp -r "$f" public/ ;;
+        esac
+      done
   pages: true
   rules:
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
