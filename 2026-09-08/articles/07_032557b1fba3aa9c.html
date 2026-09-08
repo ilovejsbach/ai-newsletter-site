@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iris 검색 에이전트, 공개 모델 상위권 성능 제시</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">07</span> arXiv <span class="source-date">게시일 2026.09.03</span></p>
+      <h1>Iris 검색 에이전트, 공개 모델 상위권 성능 제시</h1>
+      <figure class="detail-image-wrap" style="margin:0"><img class="detail-image" src="../assets/images/article_07_032557b1fba3aa9c.png" alt="기사 이미지"><figcaption class="image-credit" style="font-size:12px;opacity:.6;margin-top:4px">이미지 출처: AI 생성</figcaption></figure>
+      <p class="detail-lead">이 논문은 검색을 잘하는 AI 비서를 어떻게 학습시켰는지에 초점을 둔다. 연구진은 단순 질의응답이 아니라, 여러 웹 문서를 넘나들어야 풀리는 문제를 대량으로 만들었다. 그런 뒤 검색 경로까지 포함한 학습 데이터와 강화학습을 결합해 검색 에이전트 성능을 끌어올렸다고 주장했다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>연구진은 Iris-mini와 Iris-pro 두 검색 에이전트를 제시했다. 규모는 각각 35B-A3B와 397B-A17B다. 두 모델은 웹 말뭉치의 하이퍼링크 구조를 이용해 만든 다단계 검색 과제로 학습했다.</p>
+<p>문제 생성 방식도 까다롭게 설계했다. 연구진은 시작 페이지와 바깥 링크로 개체 그래프를 만들었다. 정답이 아닌 개체는 문자열 일치만으로 찾지 못하도록 서술형 참조로 바꿨다. 기준 모델이 사전 지식만으로는 틀리고, 근거를 주면 맞히는 질문만 남겼다.</p>
+<p>그 뒤 질문을 검색 경로가 포함된 학습 궤적으로 바꿨다. 이 데이터는 궤적 단위와 턴 단위로 걸러낸 뒤 SFT에 썼다. 이후에는 실시간 검색 환경에서 RL을 돌렸고, 보상 판정기와 관찰 요약기는 학습 클러스터 안에서 제공했다. 너무 길어진 롤아웃은 요청 단위에서 끊고, 다음 단계에서 저장된 접두부부터 재개했다.</p>
+<p>연구진은 SFT-RL climbing이라는 절차를 썼다고 설명했다. 각 RL 라운드에서 가장 어려운 문제를 푼 경로와 가장 효율적인 경로를 다음 SFT 단계로 다시 넣는 구조다. 테스트 때는 서브 에이전트나 별도 검증 단계를 붙이지 않았다. 단일 ReAct 에이전트만 썼다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <p>이 논문은 모델 가중치와 데이터 구성, 학습, 평가 레시피를 공개할 계획이라고 밝혔다. 다만 발췌문에는 라이선스, 실제 배포 형식, 하드웨어 요구 조건이 구체적으로 나오지 않았다. 도입 조건은 공개 시점의 저장소와 모델 카드에서 다시 확인해야 한다.</p>
+<p>성능 해석에서 중요한 단서도 있다. 연구진은 추론 시 문맥 관리가 검색 벤치마크에서 시스템 간 차이보다 더 큰 영향을 줄 수 있다고 적었다. 그래서 모든 벤치마크를 문맥 관리 사용 여부 두 조건으로 평가했고, 도구 세트와 문맥 한도, 판정기는 고정했다고 밝혔다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>벤치마크</th><th>Iris-mini</th><th>Iris-pro</th></tr></thead><tbody><tr><td>BrowseComp</td><td>82.2</td><td>88.6</td></tr><tr><td>BrowseComp-ZH</td><td>84.8</td><td>85.1</td></tr><tr><td>DeepSearchQA</td><td>86.9</td><td>92.9</td></tr><tr><td>HLE</td><td>52.3</td><td>56.4</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>원문 발췌에는 외부 기업이나 커뮤니티 반응이 따로 담기지 않았다. 아직 공개된 반응은 확인되지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>기업 환경에서 검색 에이전트를 검토할 때는 모델 이름보다 데이터 경로 설계가 먼저다. 어떤 문서를 검색할지, 중간 요약을 어디까지 남길지, 긴 작업을 끊었다가 다시 이어도 근거가 유지되는지가 실무 품질을 좌우한다.</p>
+<p>우리 회사라면 다음을 점검할 만하다.</p>
+<ul><li>사내 문서, 규정, 티켓, 코드 저장소를 한 에이전트가 함께 검색해도 되는지</li><li>중간 검색 결과를 요약할 때 원문 근거와 충돌하지 않는지</li><li>긴 조사 작업을 중단·재개할 때 감사 가능성이 유지되는지</li><li>벤치마크 점수가 내부 과제와 얼마나 닮았는지</li><li>가중치와 레시피 공개 뒤 라이선스와 운영 비용이 어떤지</li></ul>
+<p>논문 수치는 연구진 측정값이다. 독립 평가와 실제 운영 결과는 아직 분리해서 봐야 한다. 금융권에서는 정답률만큼 잘못된 근거 인용과 민감정보 노출 가능성을 함께 시험해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>검색 에이전트(Search agent): 검색 도구를 써서 정보를 찾고 답을 만드는 AI</span> <span>SFT(Supervised Fine-Tuning): 정답 예시로 모델을 추가 학습하는 방식</span> <span>강화학습(RL): 보상 신호를 기준으로 행동을 개선하는 학습 방식</span> <span>ReAct: 추론과 도구 사용을 번갈아 수행하는 에이전트 방식</span> <span>문맥 관리(Context management): 긴 작업에서 필요한 정보만 남기고 정리하는 운영 기법</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Iris: Climbing to the Search Frontier</p>
+        <p class="url">게시일: 2026.09.03</p>
+        <p class="url">출처 URL: <a href="https://arxiv.org/abs/2609.04304" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2609.04304</a></p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
