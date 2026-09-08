@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLaDA-Image, 2억 2000만 샘플 학습법 공개</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div style="position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid #e2e2e2;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">07</span> arXiv <span class="source-date">게시일 2026.09.03</span></p>
+      <h1>LLaDA-Image, 2억 2000만 샘플 학습법 공개</h1>
+      <figure class="detail-image-wrap" style="margin:0"><img class="detail-image" src="../assets/images/article_07_a883e6148c6a5371.png" alt="기사 이미지"><figcaption class="image-credit" style="font-size:12px;opacity:.6;margin-top:4px">이미지 출처: AI 생성</figcaption></figure>
+      <p class="detail-lead">LLaDA-Image는 공개 학습 레시피로 강한 이미지 생성기를 만들겠다는 연구다. 연구진은 처음부터 이미지-텍스트 짝 데이터에 크게 기대지 않고, 먼저 이미지 전용 사전학습으로 시각 생성 기반을 쌓았다. 이후 편집 지시를 잘 따르는 통합 모델과 빠른 추론용 Turbo 버전을 함께 제시했다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>연구진은 LLaDA-Image를 60억 규모 DiT와 고정된 비전-언어 이해 모듈로 구성했다. 이 모델은 사실적인 이미지를 만들고 세밀한 편집 지시도 따른다고 설명했다. 학습 초반부터 이미지-텍스트 짝 데이터에 의존하지 않고, 이미지 전용 사전학습과 중간 학습으로 생성 기반을 먼저 만들었다.</p>
+<ul><li>전체 생성 파이프라인 규모: 2억 2000만 샘플</li><li>이 중 실제 이미지 비중: 98%</li><li>기본 모델 규모: 60억</li><li>Turbo 추론 단계: 2~4단계</li><li>공개 범위: 모델 가중치, 학습 코드, 상세 레시피</li></ul>
+<p>연구진은 효율적인 학습을 위해 DiT 전반에 parameter-free RMSNorm을 썼고, 최적화에는 Muon을 적용했다. 이후 LLaDA-Image를 LLaDA-Image-Turbo로 증류해 빠른 추론이 가능하게 했다. Qwen-Image-Bench에서 영어 트랙 53.53점, 중국어 트랙 53.38점을 기록했고, 연구진은 두 트랙 모두 오픈소스 모델 가운데 최고 점수라고 밝혔다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <p>공개 범위는 비교적 분명하다. 연구진은 모델 가중치와 학습 코드, 상세 레시피를 함께 배포한다고 밝혔다. 다만 라이선스 종류와 상용 사용 조건은 발췌문에 없다.</p>
+<p>도입 관점에서 눈에 띄는 조건은 두 가지다. 첫째, 기본 모델은 60억 규모라 학습과 서빙 비용이 가볍지 않을 수 있다. 둘째, 빠른 추론이 필요하면 Turbo 버전이 대안이 된다. Turbo는 2~4단계 샘플링으로 동작해 지연 시간을 줄이는 데 초점을 맞췄다.</p>
+<p>데이터 구성도 확인 포인트다. 전체 2억 2000만 샘플 중 98%가 실제 이미지다. 조직이 비슷한 재현을 시도할 때는 텍스트 짝 데이터보다 대규모 이미지 자산 확보가 먼저 병목이 될 수 있다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>아직 공개된 반응은 확인되지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 기업은 이 모델을 바로 학습하기보다 생성형 디자인, 마케팅 시안, 내부 콘텐츠 제작 보조에 쓸 수 있는지부터 따져보는 편이 현실적이다. 특히 이미지 편집 지시 준수와 추론 속도는 업무 적용성에 직접 닿는다.</p>
+<p>검토 항목은 분명하다.</p>
+<ul><li>브랜드·마케팅팀: 세밀한 편집 지시를 얼마나 안정적으로 따르는지 평가</li><li>인프라팀: 60억 규모 기본 모델과 Turbo 버전의 지연 시간·비용 차이 측정</li><li>법무·준법팀: 공개 가중치와 코드의 라이선스, 생성물 권리 범위 확인</li><li>데이터팀: 사내 이미지 자산을 추가 학습에 쓸 수 있는지 저작권과 개인정보 이슈 점검</li></ul>
+<p>벤치마크 점수는 연구진 발표 기준이다. 독립 평가 결과와 실제 운영 비용은 발췌문에 없다. 사내 적용 전에는 사내 프롬프트와 편집 업무 예시로 따로 검증해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>DiT(Diffusion Transformer): 확산 모델을 트랜스포머 구조로 구현한 생성기</span> <span>비전-언어 모듈(Vision-Language Module): 이미지와 텍스트를 함께 이해하는 구성 요소</span> <span>증류(Distillation): 큰 모델의 생성 방식을 작은·빠른 모델로 옮기는 학습</span> <span>샘플링 단계(Sampling Step): 확산 모델이 이미지를 만들 때 거치는 반복 횟수</span> <span>벤치마크(Benchmark): 모델 성능을 같은 조건에서 비교하는 평가 기준</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: LLaDA-Image: Building Strong Image Generators with Fully Open Training Recipes</p>
+        <p class="url">게시일: 2026.09.03</p>
+        <p class="url">출처 URL: <a href="https://arxiv.org/abs/2609.03796" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2609.03796</a></p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
