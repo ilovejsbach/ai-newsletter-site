@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI가 덜 만들고 덜 고치게 하는 법</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-rising detail-repo" style="--sc:#c2410c">
+      <p class="source"><span class="article-number">03</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">DietrichGebert</span><span class="repo-sep">/</span><span class="repo-repo">ponytail</span></p>
+      <h1>AI가 덜 만들고 덜 고치게 하는 법</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 132,204</span><span class="repo-delta hot">이번 주 +3,184</span><span class="repo-lang">JavaScript</span><span class="repo-license">MIT <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v4.9.0 (08.07)</span><span class="repo-active">최근 활동 09.07</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 있음</span><span class="repo-check-state">AGENTS.md 있음</span></p>
+      <img class="detail-image" src="../assets/images/article_03_38c3408d933af173.png" alt="기사 이미지">
+      <p class="detail-lead">사내 개발에서는 새로 만드는 속도보다 덜 건드리는 판단이 더 중요할 때가 많다. 이 저장소는 그 판단을 에이전트에 심으려는 시도다. 많이 만드는 대신 적게 바꾸는 쪽으로 유도한다. 오래된 시스템이나 규제 환경에서는 이런 태도가 운영 부담을 줄일 수 있다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>ponytail은 코딩 에이전트가 새 코드를 많이 쓰지 않도록 행동 방식을 바꿔 주는 저장소다. 이미 있는 구성요소를 먼저 보고, 필요한 만큼만 손보게 유도한다. 불필요한 라이브러리 추가나 큰 구조 변경을 줄이는 데 초점을 둔다. 베테랑이 회의 한마디 없이 코드 양을 반으로 줄이는 식의 작업 습관을 옮겨 놓은 셈이다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어는 JavaScript다.</li><li>최신 릴리스는 v4.9.0이다.</li><li>예제와 테스트를 제공한다.</li><li>README 발췌만으로는 설치 형태와 필요한 런타임 버전을 확인하기 어렵다.</li><li>라이선스는 MIT다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>레거시 계정계 주변 서비스를 고칠 때 에이전트가 새 프레임워크나 라이브러리를 과하게 들여오지 않게 하고 싶을 때 맞다.</li><li>고객 문의 처리 화면의 작은 개선처럼 기존 화면과 로직을 최대한 살려야 하는 업무에 어울린다.</li><li>운영 중인 배치 코드에서 장애 수정 범위를 최소화해 승인 절차와 회귀 테스트 부담을 줄이려는 팀에 적합하다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>에이전트가 적은 코드로 해결하도록 유도하는 기술을 제공한다.</li><li>독립 벤치마크 관련 문서를 추가해 측정 방법을 분리해 보여 준다.</li><li>Qoder 지원, 서브에이전트 범위 설정, 상태 표시줄 제어를 포함한 운용 기능을 제공한다.</li></ul>
+        
+      </section>
+<section>
+        <h2>왜 지금 주목받나</h2>
+        <p>코딩 에이전트가 생산성을 높인다는 말과 달리, 현장에서는 불필요한 코드와 의존성을 늘리는 문제가 자주 나온다. 이 저장소는 바로 그 지점을 겨냥한다. 최근 릴리스에서는 기본 모드가 재시작 뒤에도 유지되도록 바뀌었고, 현재 활성 수준을 확인하는 동작도 손봤다. Windows, Codex, OpenCode, 제거 도구 쪽 수정도 대거 포함해 실제 사용 중 걸리던 문제를 정리했다.</p>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 호출 여부는 확인 필요다.</li><li>데이터 반출 가능성은 연결하는 에이전트와 모델 설정에 따라 달라질 수 있어 별도 점검이 필요하다.</li><li>유지보수 주체는 개인 계정 저장소다.</li><li>상용 대체재는 확인 필요다. 다만 코딩 보조 도구의 규칙 세트나 프롬프트 묶음으로 일부 대체할 수 있다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>YAGNI(You Aren&#x27;t Gonna Need It): 당장 필요 없는 기능은 미리 만들지 않는 개발 원칙</span> <span>헤드리스(headless): 화면 없이 명령으로만 실행하는 방식</span> <span>git diff: 변경 전후 코드 차이를 보여 주는 기록</span> <span>서브에이전트(subagent): 큰 작업 안에서 하위 역할을 맡는 보조 에이전트</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: DietrichGebert/ponytail</p>
+        <p class="url">최근 활동: 2026.09.07</p>
+        <p class="url">출처 URL: <a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener noreferrer">https://github.com/DietrichGebert/ponytail</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

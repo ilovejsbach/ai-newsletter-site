@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>결제사 갈아타기 쉽게 하는 Hyperswitch</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-releases detail-repo" style="--sc:#1d4ed8">
+      <p class="source"><span class="article-number">04</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">juspay</span><span class="repo-sep">/</span><span class="repo-repo">hyperswitch</span></p>
+      <h1>결제사 갈아타기 쉽게 하는 Hyperswitch</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 43,595</span><span class="repo-delta">이번 주 +11</span><span class="repo-lang">Rust</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v1.126.0 (08.24)</span><span class="repo-active">최근 활동 09.09</span><span class="repo-check-state">테스트 없음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_04_67171ff2b2c225f0.png" alt="기사 이미지">
+      <p class="detail-lead">결제 시스템은 한 번 붙이면 바꾸기 어렵고, 사업자마다 규칙도 제각각이다. 이 저장소는 그 복잡함을 중간 계층에서 흡수하려는 결제 인프라다. 여러 결제사 연결, 재시도, 비용 점검, 대사 자동화를 모듈로 나눠 제공한다. 전부 교체하지 않고 필요한 기능만 기존 스택 위에 올릴 수도 있다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>Hyperswitch는 여러 결제 사업자와 결제 운영 기능을 한데 묶는 오픈소스 플랫폼이다. 기업은 라우팅, 재시도, Vault, 비용 관측, 대사 같은 모듈만 골라 쓸 수 있다. 기존 결제 시스템을 전부 걷어내지 않고 필요한 부분만 덧붙일 수 있다. 여러 은행과 카드사를 연결하는 중계 허브를 직접 두는 방식에 가깝다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어는 Rust다.</li><li>로컬 설치는 Docker 또는 Podman 기반 스크립트를 제공한다.</li><li>설치 프로필은 Standard, Full, Minimal로 나뉜다.</li><li>별도 설치 없이 쓸 수 있는 Hosted Sandbox를 제공한다.</li><li>클라우드 배포는 AWS, GCP, Azure용 Helm Charts를 지원한다.</li><li>Dockerfile을 제공한다.</li><li>라이선스는 Apache 2.0이다.</li><li>최신 릴리스는 v1.126.0이다.</li></ul>
+        
+      </section>
+<section>
+        <h2>대안 대비 차별점</h2>
+        <p>이 저장소는 결제 게이트웨이 하나를 대체하는 단일 연결 도구보다 모듈 구성이 넓다. 전체 결제 스택으로 쓸 수 있지만, 라우팅이나 Vault처럼 필요한 부분만 따로 붙이는 방식도 지원한다. 기존 Vault를 그대로 두고 연결하는 bring-your-own-vault 방식도 안내한다. Rust 앱 서버가 중심이지만, 더 가벼운 connector 라이브러리인 hyperswitch-prism과 독립 실행 가능한 decision-engine도 따로 둔다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>프로세서</th><th>유형</th><th>가이드</th></tr></thead><tbody><tr><td>Global Payments</td><td>결제 게이트웨이</td><td>View →</td></tr><tr><td>Stripe</td><td>결제 게이트웨이</td><td>View →</td></tr><tr><td>Pay</td><td>결제 게이트웨이</td><td>View →</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>카드사나 PG사를 한 곳만 쓰던 결제 경로를 다중 사업자 라우팅으로 바꾸려는 전자금융 서비스에 맞다.</li><li>정산 대사 업무를 수작업에서 자동화로 옮겨 운영 인력을 줄이려는 결제 운영팀에 적합하다.</li><li>해외 결제 수단, 간편결제, BNPL을 기존 결제 화면에 단계적으로 늘리려는 서비스에 어울린다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>비용 관측 기능으로 숨은 수수료, 등급 하락, 패널티를 점검할 수 있다.</li><li>Revenue Recovery 기능으로 카드 BIN, 지역, 결제 수단에 맞춘 재시도 전략을 설정할 수 있다.</li><li>Intelligent Routing 기능으로 여러 PSP 가운데 승인률이 높을 곳으로 거래를 보낼 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 호출은 결제 사업자와 직접 연동하는 구조라 사실상 필수다.</li><li>카드, 토큰, 계좌 정보 같은 민감 데이터 처리가 포함되므로 데이터 반출 경로와 보관 위치를 설계 단계에서 점검해야 한다.</li><li>유지보수 주체는 Juspay 조직이다.</li><li>상용 대체재는 다수 있다. 기존 PG 통합 솔루션, 결제 오케스트레이션 제품, 대사 자동화 제품과 겹치는 영역이 있다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>PSP(Payment Service Provider): 가맹점과 카드사 사이 결제 처리를 맡는 사업자</span> <span>PCI: 카드정보를 안전하게 다루기 위한 보안 기준</span> <span>Vault: 카드, 토큰, 계좌 정보 같은 민감 결제 정보를 안전하게 보관하는 저장소</span> <span>토큰화(tokenization): 민감 정보를 대체 식별값으로 바꿔 저장·전송하는 방식</span> <span>리컨실리에이션(reconciliation): 거래 기록과 정산 기록을 맞춰 보는 대사 작업</span> <span>Helm Chart: 쿠버네티스에 애플리케이션을 배포하는 패키지 형식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: juspay/hyperswitch</p>
+        <p class="url">최근 활동: 2026.09.09</p>
+        <p class="url">출처 URL: <a href="https://github.com/juspay/hyperswitch" target="_blank" rel="noopener noreferrer">https://github.com/juspay/hyperswitch</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

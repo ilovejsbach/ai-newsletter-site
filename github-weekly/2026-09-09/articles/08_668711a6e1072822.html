@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>에이전트 토큰 사용량을 로컬에서 줄이는 압축기</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-infra detail-repo" style="--sc:#4b5563">
+      <p class="source"><span class="article-number">08</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">headroomlabs-ai</span><span class="repo-sep">/</span><span class="repo-repo">headroom</span></p>
+      <h1>에이전트 토큰 사용량을 로컬에서 줄이는 압축기</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 70,806</span><span class="repo-delta">이번 주 +1,691</span><span class="repo-lang">Python</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v0.37.0 (08.27)</span><span class="repo-active">최근 활동 09.09</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 있음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_08_668711a6e1072822.png" alt="기사 이미지">
+      <p class="detail-lead">이 저장소는 AI 에이전트가 모델에 보내는 내용과 모델이 다시 쓰는 내용을 줄이는 도구다. 압축 대상은 로그, 파일, 도구 출력, RAG 청크, 대화 기록까지 넓다. 핵심은 압축을 사용자 컴퓨터에서 돌린다는 점이다. 기존 앱 코드에 손을 대지 않고 프록시로 붙일 수 있는 경로도 제공한다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>Headroom은 AI 에이전트가 읽는 자료를 모델에 보내기 전에 압축하는 도구다. 로그, JSON, 소스 코드, 일반 문장까지 내용 종류에 맞춰 다른 압축기를 고른다. 프롬프트나 파일 내용은 압축을 위해 외부로 보내지 않는다. 긴 회의록에서 필요한 대목만 추려 임원 보고용 한 장으로 줄이는 일과 닮았다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>Python과 TypeScript를 지원한다.</li><li>PyPI 패키지로 CLI를 제공하며, npm 패키지는 TypeScript SDK만 제공한다.</li><li>라이브러리, 프록시, 에이전트 래핑, MCP 서버 방식으로 설치해 쓸 수 있다.</li><li>OpenAI 호환 클라이언트와 여러 에이전트 도구를 프록시로 연결할 수 있다.</li><li>압축은 로컬에서 실행된다.</li><li>라이선스는 Apache-2.0이다.</li><li>최신 릴리스는 v0.37.0이다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>고객 문의 분류나 문서 검색 에이전트가 긴 JSON 응답과 로그를 자주 모델에 넘겨 비용이 커질 때 알맞다.</li><li>개발 지원 에이전트가 대용량 코드와 테스트 로그를 반복해서 읽어 야간 처리 비용이 늘어날 때 써볼 만하다.</li><li>규정 문서 검색 시스템이 RAG 청크를 많이 붙여 응답 지연과 토큰 비용이 함께 커질 때 검토할 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>Python·TypeScript 라이브러리로 메시지를 직접 압축한다.</li><li>프록시 모드로 코드 수정 없이 기존 클라이언트 앞에 붙인다.</li><li>MCP 서버와 cross-agent memory, learn 기능으로 여러 에이전트 환경을 함께 다룬다.</li></ul>
+        
+      </section>
+<section>
+        <h2>성능과 운영 비용</h2>
+        <p>저장소는 코딩 에이전트에서 토큰을 20% 덜 쓰고, JSON에서는 60~95%까지 줄였다고 소개한다. 예시로는 10,144 토큰을 1,260 토큰으로 줄였고 같은 FATAL을 찾았다고 적었다. 지연도 수치를 공개했다. 제공자 토크나이저로 측정했고, 오프라인 고정 시드 환경에서 shipped compress()를 써 재현 가능하게 돌렸다고 설명한다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>수치</th><th>조건</th></tr></thead><tbody><tr><td>코딩 에이전트 토큰 절감</td><td>20%</td><td>소개 문구 기준</td></tr><tr><td>JSON 토큰 절감</td><td>60~95%</td><td>소개 문구 기준</td></tr><tr><td>예시 압축</td><td>10,144 → 1,260 tokens</td><td>같은 FATAL 발견</td></tr><tr><td>압축 지연 p50</td><td>0.21 ms</td><td>10K-token JSON search result</td></tr><tr><td>압축 지연</td><td>1.4 ms</td><td>100K tokens</td></tr><tr><td>출력 토큰 절감 추정</td><td>31.7%</td><td>95% CI 27.7% … 35.7%, estimated</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>압축 자체는 로컬에서 돌지만, 최종 LLM 호출은 연결한 외부 제공자로 나간다.</li><li>원문을 로컬 캐시에 저장하고 필요 시 다시 꺼내므로 저장 위치와 보존 정책을 정해야 한다.</li><li>유지보수 주체는 headroomlabs-ai 조직으로 보인다.</li><li>토큰 최적화 기능은 일부 상용 프록시·관제 제품과 겹치지만, 로컬 압축과 MCP 결합 방식은 직접 비교가 필요하다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>토큰(Token): 모델이 비용과 처리량을 계산할 때 쓰는 텍스트 단위</span> <span>프록시(Proxy): 기존 요청 앞단에 끼워 동작을 가로채는 중계 계층</span> <span>RAG(Retrieval-Augmented Generation): 외부 문서를 찾아 답변에 붙이는 방식</span> <span>MCP(Model Context Protocol): 모델이 도구와 문맥을 주고받는 연결 방식</span> <span>KV 캐시(KV Cache): 같은 프롬프트 앞부분을 재활용해 응답 속도와 비용을 줄이는 캐시</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: headroomlabs-ai/headroom</p>
+        <p class="url">최근 활동: 2026.09.09</p>
+        <p class="url">출처 URL: <a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener noreferrer">https://github.com/headroomlabs-ai/headroom</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

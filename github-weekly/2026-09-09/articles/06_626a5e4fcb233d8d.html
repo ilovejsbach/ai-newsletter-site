@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>분석·토론·주문 역할을 나눈 AI 트레이딩</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-agents detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">06</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">TauricResearch</span><span class="repo-sep">/</span><span class="repo-repo">TradingAgents</span></p>
+      <h1>분석·토론·주문 역할을 나눈 AI 트레이딩</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 103,424</span><span class="repo-delta">이번 주 +718</span><span class="repo-lang">Python</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v0.4.0 (08.31)</span><span class="repo-active">최근 활동 09.07</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_06_626a5e4fcb233d8d.png" alt="기사 이미지">
+      <p class="detail-lead">이 저장소는 금융 트레이딩 회사를 흉내 낸 멀티에이전트 프레임워크다. 한 모델이 모든 판단을 내리지 않는다. 재무, 뉴스, 심리, 기술 분석 같은 역할을 나눈 뒤 토론과 승인 절차를 거친다. 저장소는 연구 목적이라고 밝혔고, 투자 조언 용도는 아니라고 선을 그었다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>TradingAgents는 여러 AI 역할이 협업해 매매 판단을 만드는 프레임워크다. 재무 분석가, 심리 분석가, 뉴스 분석가, 기술 분석가가 각자 의견을 낸다. 그 뒤 강세·약세 리서처가 토론하고, 트레이더와 포트폴리오 관리자가 최종 결정을 정리한다. 회의 참석자마다 맡은 안건이 다른 투자심의위원회를 화면 안에 옮긴 셈이다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>Python 3.12 환경 예시를 제공한다.</li><li>패키지 설치 방식과 Docker 실행 방식을 지원한다.</li><li>OpenAI, Google, Anthropic, xAI, DeepSeek, Qwen, GLM, MiniMax, OpenRouter, Alpha Vantage 등 외부 API 키가 필요할 수 있다.</li><li>Azure OpenAI와 AWS Bedrock도 지원한다.</li><li>Ollama와 OpenAI 호환 서버를 써서 로컬 모델이나 사내 엔드포인트로 붙일 수 있다.</li><li>라이선스는 Apache-2.0이다.</li><li>최신 릴리스는 v0.4.0이며 2026년 들어 릴리스를 자주 냈다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>리서치 조직이 같은 종목을 두고 재무·뉴스·심리 관점을 나눠 보고서를 초안으로 만들 때 유용하다.</li><li>해외 주식과 가상자산을 함께 보는 팀이 시장별 티커 규칙을 바꿔가며 같은 절차로 분석할 때 맞다.</li><li>투자 의사결정 로그를 남겨 나중에 왜 그런 판단이 나왔는지 복기하려는 실험 환경에 어울린다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>재무, 심리, 뉴스, 기술 분석 역할을 나눈 에이전트 팀을 제공한다.</li><li>강세·약세 리서처의 구조화된 토론을 거쳐 트레이더 판단을 보강한다.</li><li>포트폴리오 관리자와 리스크 관리 단계에서 주문 제안을 승인하거나 반려한다.</li></ul>
+        
+      </section>
+<section>
+        <h2>대안 대비 차별점</h2>
+        <p>이 도구는 단일 프롬프트로 종목 의견을 내는 구조와 다르다. 분석 역할, 토론 역할, 주문 승인 역할을 분리해 실제 조직의 검토 절차를 흉내 낸다. 모델 제공자 선택 폭도 넓다. OpenAI 계열만 묶지 않고 Bedrock, Azure OpenAI, Ollama, OpenAI 호환 서버까지 받는다. CLI에서 종목, 날짜, 모델 제공자, 연구 깊이를 고를 수 있어 실험 조건을 바꾸기 쉽다.</p>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 LLM API와 시세 데이터 API를 폭넓게 호출할 수 있다.</li><li>프롬프트와 분석 대상 종목 정보가 외부 서비스로 나갈 수 있어 반출 기준을 먼저 정해야 한다.</li><li>유지보수 주체는 TauricResearch 조직으로 보인다.</li><li>상용 투자 리서치 도구와 일부 겹치지만, 이 저장소는 연구용 프레임워크라 운영 책임 체계는 별도 검토가 필요하다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트(Agent): 정해진 역할과 작업 흐름에 따라 움직이는 AI 실행 단위</span> <span>LLM(Large Language Model): 긴 문장을 이해하고 생성하는 대규모 언어 모델</span> <span>CLI(Command Line Interface): 터미널에서 글자로 명령을 내리는 방식</span> <span>체크포인트(Checkpoint): 실행 중간 상태를 저장해 이어서 돌리는 기능</span> <span>Ollama(Ollama): 로컬에서 모델을 띄워 쓰는 실행 환경</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: TauricResearch/TradingAgents</p>
+        <p class="url">최근 활동: 2026.09.07</p>
+        <p class="url">출처 URL: <a href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noopener noreferrer">https://github.com/TauricResearch/TradingAgents</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

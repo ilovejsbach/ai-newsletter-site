@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>에이전트 작업 순서를 고정하는 ECC</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-rising detail-repo" style="--sc:#c2410c">
+      <p class="source"><span class="article-number">01</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">affaan-m</span><span class="repo-sep">/</span><span class="repo-repo">ECC</span></p>
+      <h1>에이전트 작업 순서를 고정하는 ECC</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 254,303</span><span class="repo-delta hot">이번 주 +3,398</span><span class="repo-lang">JavaScript</span><span class="repo-license">MIT <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v2.2.1 (09.08)</span><span class="repo-active">최근 활동 09.09</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 있음</span><span class="repo-check-state">AGENTS.md 있음</span></p>
+      <img class="detail-image" src="../assets/images/article_01_edb3a626875732de.png" alt="기사 이미지">
+      <p class="detail-lead">코딩 에이전트는 답을 잘 써도 일하는 순서가 들쭉날쭉할 때가 많다. 이 저장소는 그 순서를 설치형으로 묶어 둔다. 한 번 넣어 두면 에이전트가 계획부터 검증까지 같은 흐름을 따른다. 여러 편집기와 에이전트에 붙일 수 있지만 지원 범위는 도구마다 다르다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>ECC는 코딩 에이전트에 작업 절차와 보조 기능을 붙여 주는 저장소다. 에이전트가 바로 코드를 쓰기보다 먼저 계획을 세우고, 테스트로 확인하고, 스스로 리뷰하게 만든다. 반복해서 잘 먹힌 작업 방식은 기술과 워크플로로 남긴다. 숙련자가 옆에서 일감 처리 순서를 잡아 주는 팀 운영 규칙에 가깝다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어는 JavaScript다.</li><li>범용 패키지는 Node.js 18 이상이 필요하다.</li><li>Claude Code 플러그인 설정에는 Git과 Claude Code 2.1 이상이 필요하다.</li><li>설치 형태는 npm 패키지 기반 가이드 설정과 각 하네스용 플러그인 방식이 있다.</li><li>Claude Code, Codex, Kimi Code를 위한 가이드 패키지 설정을 제공한다.</li><li>Cursor, OpenCode, Gemini, Zed, GitHub Copilot 등에는 기능 제한 어댑터를 제공한다.</li><li>라이선스는 MIT다.</li><li>최신 릴리스는 v2.2.1이며, npm 배포는 버전 태그 기준으로 나온다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>야간 배치 장애를 고칠 때 에이전트가 수정 전에 점검 계획과 테스트 순서를 먼저 잡게 하고 싶을 때 쓸 만하다.</li><li>규정 반영 개발에서 같은 검토 절차를 여러 저장소에 반복 적용해야 할 때 도움이 된다.</li><li>고객사별 커스텀 기능을 만들 때 자주 쓰는 수정 패턴을 기술로 저장해 재사용하려는 팀에 맞다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>계획, 테스트, 구현, 리뷰, 검증, 기억, 개선 순서를 기본 작업 흐름으로 제공한다.</li><li>68개 에이전트와 286개 기술, 94개 레거시 명령 호환 계층을 제공한다.</li><li>메모리, 규칙, 후크, 연속 학습, AgentShield 보안 스캔을 포함한다.</li></ul>
+        
+      </section>
+<section>
+        <h2>왜 지금 주목받나</h2>
+        <p>많은 코딩 에이전트는 답변은 잘해도 팀의 작업 절차를 기본으로 갖고 있지 않다. ECC는 그 절차를 프롬프트가 아니라 설치물로 옮긴다. Claude Code에 가장 잘 맞추되 Codex 연동 경로도 지원한다. 다만 다른 도구는 기능이 제한될 수 있어 같은 수준의 동작을 기대하면 안 된다. 같은 하네스에 설치 방식을 겹쳐 넣으면 기술, 명령, 후크가 중복될 수 있어 경로를 하나만 골라야 한다.</p>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 키 필요 여부는 저장소 설명만으로는 확인하기 어렵다. 각 하네스와 연결하는 모델 서비스 구성이 따로 있는지 확인이 필요하다.</li><li>진단 정보는 자동 업로드하지 않는다고 밝힌다.</li><li>여러 에이전트와 편집기를 지원하지만 기능 차이가 있어 표준 운영 대상을 먼저 정해야 한다.</li><li>유지보수 주체는 개인 계정 저장소다.</li><li>상용 대체재는 Claude Code 플러그인, Codex 플러그인, Copilot용 지시 파일 구성처럼 각 도구의 기본 확장 방식이 있다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트 하네스(agent harness): AI 에이전트가 일하는 방식과 연결 도구를 묶은 실행 틀</span> <span>컨텍스트 윈도(context window): 모델이 한 번에 보고 처리할 수 있는 입력 범위</span> <span>플러그인(plugin): 기존 도구에 기능을 덧붙이는 확장 모듈</span> <span>MCP(Model Context Protocol): 모델과 외부 도구를 잇는 연결 규약</span> <span>후크(hook): 특정 시점에 자동으로 실행하는 작업 규칙</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: affaan-m/ECC</p>
+        <p class="url">최근 활동: 2026.09.09</p>
+        <p class="url">출처 URL: <a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener noreferrer">https://github.com/affaan-m/ECC</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
