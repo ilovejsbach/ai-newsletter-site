@@ -1,0 +1,39 @@
+{
+  "schema": "gartner-observed-catalog-manifest/v1",
+  "body_dir": ".gartner-session/cdp-revalidation-20260910/5271642d-a9e3-4cb8-8312-e2fd4a7e547e",
+  "input_manifest": ".gartner-session/cdp-revalidation-20260910/5271642d-a9e3-4cb8-8312-e2fd4a7e547e/body-manifest.json",
+  "input_manifest_sha256": "c74cac429869a50274bee4110c4b6b8e7be382cf6e396bed10a4d9040ddde848",
+  "projection": "projection.json",
+  "article_ids": [
+    "7453226",
+    "8342617",
+    "8343317",
+    "8350517",
+    "8358749"
+  ],
+  "source_files": [
+    {
+      "path": ".gartner-session/cdp-revalidation-20260910/5271642d-a9e3-4cb8-8312-e2fd4a7e547e/body-7453226.json",
+      "sha256": "9e5a2a26d5c9434b8c42510024294a9dff6c94f958120cd6faf6f21e21ad0477"
+    },
+    {
+      "path": ".gartner-session/cdp-revalidation-20260910/5271642d-a9e3-4cb8-8312-e2fd4a7e547e/body-8342617.json",
+      "sha256": "47752b5f35f668820adcd4e53b6eab9e64ea5084da9e5f5bd28501954b7a4d28"
+    },
+    {
+      "path": ".gartner-session/cdp-revalidation-20260910/5271642d-a9e3-4cb8-8312-e2fd4a7e547e/body-8343317.json",
+      "sha256": "fa402084e59e25b028acdf2b1ca83b667f59d186a8a2761deeb4c6151f76584f"
+    },
+    {
+      "path": ".gartner-session/cdp-revalidation-20260910/5271642d-a9e3-4cb8-8312-e2fd4a7e547e/body-8350517.json",
+      "sha256": "a50cd915d1dd666e93df778328ecf3daefebbe0b45f773ed063c65221720c216"
+    },
+    {
+      "path": ".gartner-session/cdp-revalidation-20260910/5271642d-a9e3-4cb8-8312-e2fd4a7e547e/body-8358749.json",
+      "sha256": "323abc0d954e328a015cba1c33bcd9d3bb9ed7a3eda7b522cac45254c43267fd"
+    }
+  ],
+  "full_body_copied": false,
+  "validation": "validate_phase1_projection passed",
+  "provenance": "observed_raw"
+}
