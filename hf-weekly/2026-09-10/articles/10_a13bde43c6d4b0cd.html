@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPU에서 도는 페르시아어 TTS</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-lab detail-repo" style="--sc:#6d28d9">
+      <p class="source"><span class="article-number">10</span> Hugging Face</p>
+      <h1>CPU에서 도는 페르시아어 TTS</h1>
+      <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.06</span></p>
+      
+      <p class="detail-lead">음성 모델은 언어권이 좁아도 기술 방향을 읽는 데 도움이 된다. 이번 후보는 대형 GPU보다 경량 구동을 앞세웠다. 실험실 코너에서 볼 포인트는 CPU 성능과 한계 공개 방식이다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>mehdi-hf가 pocket-tts-farsi를 공개했다. 이 모델은 페르시아어 텍스트를 음성으로 바꾸는 100M 파라미터 음성 합성 모델이다. 짧은 음성 프롬프트로 목소리 복제도 할 수 있다. MIT 라이선스라 상업 이용 제약은 낮다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>카드에는 CPU에서 실시간보다 몇 배 빠르게 돈다고 적었다. 학습 데이터는 CC0 공개 음성 497시간 분량이다. 카드 작성자는 낯선 화자에서는 안정성이 떨어지고, 긴 문장은 잘게 나눠야 한다고 한계도 함께 적었다. 평가 표에는 학생 모델이 교사 모델보다 WER와 UTMOS에서 모두 앞선다고 나온다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>상업 이용은 MIT 라이선스 기준으로 가능하다. 접근 승인 필요 문구는 없다. 파라미터 수는 100M이며, 카드에는 CPU 실행을 전면에 내세웠다. 다만 긴 입력은 청크 분할이 필요하고, 낯선 화자 프롬프트에서는 반복 루프가 늘 수 있다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>음성 합성(TTS): 텍스트를 사람 목소리처럼 읽어주는 기술</span> <span>목소리 복제(Voice Cloning): 짧은 음성 예시를 받아 비슷한 화자 음색으로 합성하는 기능</span> <span>WER(WER): 음성 인식 오류율</span> <span>UTMOS(UTMOS): 합성 음성의 자연스러움을 추정하는 지표</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: mehdi-hf/pocket-tts-farsi</p>
+        <p class="url">공개일: 2026.09.06</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/mehdi-hf/pocket-tts-farsi" target="_blank" rel="noopener noreferrer">https://huggingface.co/mehdi-hf/pocket-tts-farsi</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

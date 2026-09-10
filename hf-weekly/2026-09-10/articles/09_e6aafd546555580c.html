@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4단계로 생성·편집하는 이미지 모델</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-lab detail-repo" style="--sc:#6d28d9">
+      <p class="source"><span class="article-number">09</span> Hugging Face</p>
+      <h1>4단계로 생성·편집하는 이미지 모델</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.04</span></p>
+      
+      <p class="detail-lead">이미지 모델은 생성과 편집이 갈라져 있던 때가 길었다. 이번 후보는 두 작업을 한 계열로 묶는 흐름에 속한다. 실험실 코너에서 볼 포인트는 속도와 공개 범위다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>inclusionAI가 LLaDA-Image-Turbo를 공개했다. 이 모델은 텍스트로 이미지를 만들고, 참조 이미지를 받아 편집도 하는 통합 이미지 모델이다. Turbo 버전은 2~4단계 샘플링으로 빠른 생성과 편집을 겨냥한다. 중국어와 영어 텍스트 렌더링도 지원한다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>같은 계열 기본 모델은 Qwen-Image-Bench에서 영어 53.53, 중국어 53.38을 기록했다고 적었다. Turbo는 이 기본 모델을 빠르게 쓰도록 증류한 버전이다. 생성과 편집을 따로 나누지 않고 한 체크포인트로 처리하는 점이 실무 흐름과 잘 맞는다. FP8 체크포인트도 따로 제공한다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>이 자료에는 라이선스 정보가 보이지 않아 상업 이용 여부를 먼저 확인해야 한다. 학습 코드는 아직 coming soon으로 적혀 있고, 추론 코드와 가중치는 공개됐다. 계열 크기는 6B 파라미터라고 적었지만, 필요한 최소 메모리는 없다. PyTorch와 Diffusers 기반 환경이 있으면 생성과 편집 시험은 시작할 수 있다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>샘플링 단계(Sampling Steps): 이미지를 만들 때 반복 계산하는 횟수</span> <span>참조 이미지 편집(Reference-image Editing): 입력 이미지를 유지하며 지시대로 바꾸는 작업</span> <span>FP8(FP8): 메모리 사용을 낮추기 위한 8비트 부동소수점 형식</span> <span>Diffusers(Diffusers): 이미지 생성 모델 추론에 널리 쓰는 라이브러리</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: inclusionAI/LLaDA-Image-Turbo</p>
+        <p class="url">공개일: 2026.09.04</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/inclusionAI/LLaDA-Image-Turbo" target="_blank" rel="noopener noreferrer">https://huggingface.co/inclusionAI/LLaDA-Image-Turbo</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>512K 문맥을 내세운 36B 추론 모델</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">06</span> Hugging Face</p>
+      <h1>512K 문맥을 내세운 36B 추론 모델</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.07</span></p>
+      <figure class="detail-image-wrap" style="margin:0"><img class="detail-image" src="../assets/images/article_06_600ee8857bfdd2e9.png" alt="기사 이미지"><figcaption class="image-credit" style="font-size:12px;opacity:.6;margin-top:4px">이미지 출처: AI 생성</figcaption></figure>
+      <p class="detail-lead">긴 문맥과 도구 호출은 사내 AI 활용에서 같이 묶이는 경우가 많다. 규정 문서, 매뉴얼, 고객 기록처럼 긴 입력을 읽고 외부 시스템까지 건드려야 하기 때문이다. 이번 후보는 그 자리를 겨냥한 대형 추론 모델이다. 공개 범위는 넓지만, 장비 문턱은 낮지 않다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>IFM이 K2-Horizon-MoVA-36B-A4B를 공개했다. 이 모델은 긴 문맥과 도구 호출을 겨냥한 텍스트 생성 모델이다. 에이전트 작업, 코드 작업, 긴 문서 추론을 한 모델로 처리하려는 팀에 맞는다. IFM은 최종 체크포인트를 먼저 공개했고, 중간 체크포인트와 데이터, 학습 코드도 공개하겠다고 적었다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>이 모델은 36B 파라미터를 저장하지만 토큰마다 4B를 사용한다고 적었다. 문맥 길이는 524,288토큰이다. IFM은 에이전트와 추론 벤치마크에서 약 30B급 공개 가중치 밀집 모델과, 최대 15배 큰 혼합 전문가 모델보다 앞선다고 밝혔다. 단, 점수는 IFM 표와 Artificial Analysis 기준 점수를 함께 쓴 비교다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>본문에는 Apache-2.0으로 소개됐고, 카드에는 fully open 계획도 적혀 있다. 다만 현재 공개 시점에 데이터와 학습 코드는 추후 공개 예정으로 적혀 있어 공개 범위는 확인이 더 필요하다. 파라미터 수는 36B이며, SGLang 레시피는 2× H200에서 검증됐다고 밝혔다. vLLM과 SGLang, Transformers 사용법이 함께 적혀 있어 대형 GPU 서버가 있으면 시험은 바로 가능하다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>문맥 길이(Context Length): 한 번에 넣을 수 있는 입력 길이</span> <span>활성 파라미터(Activated Parameters): 토큰마다 실제 계산에 쓰는 파라미터 수</span> <span>도구 호출(Tool Calling): 모델이 외부 함수나 시스템을 호출하는 기능</span> <span>vLLM(vLLM): 대형 언어 모델 추론과 서빙에 쓰는 오픈소스 엔진</span> <span>SGLang(SGLang): 대형 언어 모델 서빙과 에이전트 실행에 쓰는 프레임워크</span> <span>AA-LCR(AA-LCR): 긴 문맥 추론 성능을 재는 평가</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: IFM/K2-Horizon-MoVA-36B-A4B</p>
+        <p class="url">공개일: 2026.09.07</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B" target="_blank" rel="noopener noreferrer">https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

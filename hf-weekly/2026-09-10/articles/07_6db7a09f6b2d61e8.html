@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2B 크기로 131K 문맥을 담은 모델</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">07</span> Hugging Face</p>
+      <h1>2B 크기로 131K 문맥을 담은 모델</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.09</span></p>
+      
+      <p class="detail-lead">소형 모델은 사내 실험 속도를 좌우한다. 개인용 장비나 단일 서버에서 돌릴 수 있어야 사용 부서가 직접 만져볼 수 있기 때문이다. 이번 후보는 2B급인데도 긴 문맥과 도구 호출을 앞세웠다. 평가 폭도 넓게 제시해 초기 검토 자료로 쓰기 좋다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>openbmb가 MiniCPM5-2B를 공개했다. 이 모델은 로컬 비서, 코딩 에이전트, 도구 호출 업무를 겨냥한 2B 텍스트 생성 모델이다. 작은 배포 크기를 유지하면서 131,072 문맥 길이를 기본 지원한다. GGUF와 GPTQ, MLX 형식도 함께 풀었다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>카드에는 같은 비교군에서 평균 53.9를 기록했다고 적었다. 2B급 공개 모델 중 최고라고 주장하며, 비교에 넣은 더 큰 모델들 최고값 51.1도 넘었다고 밝혔다. 점수는 일부는 Artificial Analysis 공식 수치이고, 나머지는 내부 재현값이라 측정 주체가 섞여 있다. 긴 문맥, 수학 추론, 코드, 도구 호출에서 강점이 두드러진다고 정리했다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>라이선스 정보는 이번 자료에 보이지 않아 확인이 필요하다. 파라미터 수는 2,516,756,480개다. vLLM과 SGLang 예시가 함께 있고, GGUF와 4비트 GPTQ, Apple Silicon용 MLX까지 제공해 장비 선택 폭은 넓다. 다만 카드에는 필요한 최소 메모리를 밝히지 않았다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>GGUF(GGUF): llama.cpp 계열 실행기에 맞춘 경량 배포 형식</span> <span>GPTQ(GPTQ): 메모리를 줄이기 위한 양자화 형식</span> <span>MLX(MLX): Apple Silicon에서 모델 실행에 쓰는 프레임워크</span> <span>SWE-bench Verified(SWE-bench Verified): 실제 소프트웨어 이슈 해결 능력을 재는 평가</span> <span>MMLU-Pro(MMLU-Pro): 폭넓은 지식과 추론 능력을 보는 시험</span> <span>도구 호출(Tool Calling): 모델이 외부 함수나 시스템을 호출하는 기능</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: openbmb/MiniCPM5-2B</p>
+        <p class="url">공개일: 2026.09.09</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/openbmb/MiniCPM5-2B" target="_blank" rel="noopener noreferrer">https://huggingface.co/openbmb/MiniCPM5-2B</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
