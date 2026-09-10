@@ -228,7 +228,7 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
   .group-labeled .story-list { padding-top: 16px; }
 }
 
-/* ── A. 표지 패널 (마스트헤드 오른쪽, .hero-panel 자리) ───────────── */
+/* ── A. 표지 패널 (마스트헤드 오른쪽) — 1판 그대로, 바뀌지 않는다 ──── */
 .issue-plate { min-height: 260px; border-radius: 8px; border: 1px solid var(--line);
   background: var(--sc, #1f2b45); color: #f3f5f9;
   display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; }
@@ -245,7 +245,7 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
 .plate-legend { margin: 0; font-size: 12.5px; color: rgba(255,255,255,.66);
   font-variant-numeric: tabular-nums; }
 
-/* ── B. 비교표 ─────────────────────────────────────────────────── */
+/* ── B. 비교표 (전폭 띠, 격자 밖) — 3열·7열 폭만 2판에서 바뀐다 ────── */
 .matrix { overflow-x: auto; margin: 4px 44px 6px; }
 .matrix-table { min-width: 820px; }
 .matrix-table th, .matrix-table td { vertical-align: middle; }
@@ -257,10 +257,10 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
 .matrix-table thead th:first-child { background: var(--wash); }
 .matrix-table thead th:nth-child(1), .matrix-table tbody th { width: 210px; }
 .matrix-table th:nth-child(2), .matrix-table td:nth-child(2) { width: 86px; }
-.matrix-table th:nth-child(3), .matrix-table td:nth-child(3) { width: 96px; }
+.matrix-table th:nth-child(3), .matrix-table td:nth-child(3) { width: 132px; }  /* 96 → 132 */
 .matrix-table th:nth-child(4), .matrix-table td:nth-child(4) { width: 132px; }
 .matrix-table th:nth-child(6), .matrix-table td:nth-child(6) { width: 74px; }
-.matrix-table th:nth-child(7), .matrix-table td:nth-child(7) { width: 186px; }
+.matrix-table th:nth-child(7), .matrix-table td:nth-child(7) { width: 150px; }  /* 186 → 150 */
 .matrix-table .col-bar { width: 208px; white-space: nowrap; }
 .bar-track { display: inline-block; width: 108px; height: 8px; vertical-align: middle;
   background: var(--line); border-radius: 2px; overflow: hidden; }
@@ -269,73 +269,95 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
   font-variant-numeric: tabular-nums; }
 .matrix-note { display: none; margin: 0 44px 10px; font-size: 12.5px; color: var(--muted); }
 
-/* ── C. 커버 기사 행 ───────────────────────────────────────────── */
-.story-model { display: grid; grid-template-columns: 1fr 240px; gap: 24px;
-  align-items: start; padding: 28px 0 30px; }
-.story-model h3 { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 2px; }
-.story-model h3 .article-number { flex: 0 0 auto; margin: 3px 0 0; }
-.story-model h3 a { min-width: 0; }
-.story-model .repo-name  { margin: 0 0 6px; }
-.story-model .story-yama { margin: 0 0 10px; }
-.story-model .story-hook { margin: 0 0 14px; }
+/* ── C. 커버 — 2단 격자 (1판의 .story-model / .model-panel을 대체한다) ── */
+.cover-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 26px 28px; align-items: start; padding: 18px 44px 34px; }
+/* 마지막 카드가 왼쪽 단에 혼자 남으면(커버가 홀수 건) 두 단을 걸쳐 구멍을 없앤다 */
+.model-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.model-card { border-top: 1px solid var(--line); padding: 14px 0 4px; }
+.model-card h3 { display: flex; align-items: flex-start; gap: 9px; margin: 0 0 4px;
+  font-size: 20px; line-height: 1.38; }
+.model-card h3 .article-number { flex: 0 0 auto; margin: 3px 0 0; }
+.model-card h3 a { color: var(--ink); text-decoration: none; min-width: 0; }
+.model-card h3 a:hover { color: var(--sc, var(--accent)); text-decoration: underline; }
+.model-card .repo-name { margin: 0 0 8px; font-size: 13.5px; }
+.model-card .story-hook { margin: 0; font-size: 15.5px; max-width: none; }
+.model-card .repo-facts { font-size: 12.5px; column-gap: 12px; }
 .model-size { color: var(--ink); font-weight: 600; }
 .size-note { margin-left: 5px; color: var(--muted); font-weight: 500; }
-.model-derive, .model-task { color: var(--muted); }
+.model-task { color: var(--muted); }
 
-/* 수치 패널 — 커버 행 오른쪽 240px (썸네일 자리를 대신한다) */
-.model-panel { border: 1px solid var(--line); border-radius: 8px; background: #fbfcfd;
-  padding: 16px 18px; }
-.mp-head { margin: 0 0 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-.mp-num { display: block; font-size: 27px; font-weight: 800; line-height: 1.1;
+/* 가로 수치 줄 — 1px gap에 배경을 깔아 칸을 가른다 (_BASE_CSS의 .slots 수법) */
+.mp-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 1px; margin: 12px 0 10px; background: var(--line);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.mp-cell { background: var(--paper); padding: 8px 2px 7px; }
+.mp-num { display: block; font-size: 20px; font-weight: 800; line-height: 1.15;
   color: var(--ink); font-variant-numeric: tabular-nums; }
-.mp-cap { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
-.mp-grid { margin: 0; display: grid; row-gap: 6px; }
-.mp-grid > div { display: flex; justify-content: space-between; align-items: baseline; }
-.mp-grid dt { font-size: 13px; color: var(--muted); }
-.mp-grid dd { margin: 0; font-size: 13.5px; font-weight: 600; color: var(--ink);
-  font-variant-numeric: tabular-nums; }
+.mp-cap { display: block; margin-top: 2px; font-size: 12px; color: var(--muted); }
 
-/* ── D. 코너 기사 행 ───────────────────────────────────────────── */
-.brief-list { padding: 6px 44px 30px; }
-.brief { padding: 12px 0 13px; border-bottom: 1px solid var(--line); }
-.brief:last-child { border-bottom: 0; }
-.brief .repo-name { margin: 0 0 2px; font-size: 13px; }
-.brief h3 { display: flex; align-items: flex-start; gap: 9px;
-  margin: 0 0 4px; font-size: 17px; line-height: 1.4; }
-.brief h3 .article-number { flex: 0 0 auto; margin: 2px 0 0; }
+/* ── D. 코너 — 3단 격자 (1판의 .brief-list를 대체한다) ─────────────── */
+.brief-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  gap: 18px 20px; align-items: start; padding: 16px 44px 28px; }
+/* 넷째 카드가 혼자 남으면 폭을 벌린다 (편성 상한은 3건) */
+.brief:last-child:nth-child(3n+1) { grid-column: 1 / -1; }
+.brief { border-top: 1px solid var(--line); padding: 12px 0 4px; }
+.brief .repo-name { margin: 0 0 3px; font-size: 12.5px; }
+.brief h3 { display: flex; align-items: flex-start; gap: 8px; margin: 0 0 5px;
+  font-size: 16px; line-height: 1.42; }
+.brief h3 .article-number { flex: 0 0 auto; margin: 2px 0 0; min-width: 28px; padding: 0 6px; }
 .brief h3 a { color: var(--ink); text-decoration: none; min-width: 0; }
 .brief h3 a:hover { color: var(--sc, var(--accent)); text-decoration: underline; }
-.brief-line { margin: 0 0 6px; font-size: 14px; color: #333d4b; max-width: 720px; }
-.brief-facts { font-size: 12.5px; }
+.brief-line { margin: 0 0 7px; font-size: 13.5px; color: #333d4b; max-width: none; }
+.brief-facts { font-size: 12px; column-gap: 10px; }
 .model-likes { color: var(--ink); font-weight: 600; }
 
-/* ── E. 표본 격자 (코너 2 전용) ─────────────────────────────────── */
-.specimen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 2px;
-  max-width: 640px; }
+/* ── E. 표본 격자 (실험실 코너 카드 안, 2장 2열) ───────────────────── */
+.specimen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0 2px; }
 .specimen figure { margin: 0; }
 .specimen img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
   border: 1px solid var(--line); border-radius: 6px; background: var(--wash); }
-.specimen figcaption { margin-top: 4px; font-size: 12px; color: var(--muted); }
+.specimen figcaption { margin-top: 4px; font-size: 11.5px; color: var(--muted); }
 
-/* ── F. 좁은 폭 ────────────────────────────────────────────────── */
+/* ── F. 코드 판 (상세 전용) ────────────────────────────────────── */
+.code-plate { margin: 14px 0 16px; padding: 0; border: 1px solid var(--line);
+  border-radius: 6px; background: #fbfcfd; }
+.code-cap { margin: 0; padding: 9px 14px 0; font-size: 12.5px; color: var(--muted); }
+.code-scroll { overflow-x: auto; }          /* 흐르는 것은 이 상자 하나뿐이다 */
+.code-scroll pre { margin: 0; padding: 9px 14px 12px; }
+.code-scroll code { display: block; white-space: pre;   /* 코드를 임의로 접지 않는다 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12.5px; line-height: 1.7; color: #26313f; }
+.code-src { margin: 0; padding: 0 14px 10px; font-size: 12.5px; color: var(--muted);
+  overflow-wrap: anywhere; }
+
+/* ── G. 상세의 정의표와 판정 격자 ───────────────────────────────── */
+.spec-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 6px 0 4px; }
+.spec-table th { width: 132px; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line);
+  color: var(--muted); font-weight: 700; text-align: left; vertical-align: top; }
+.spec-table td { padding: 8px 0; border-bottom: 1px solid var(--line);
+  color: var(--ink); vertical-align: top; overflow-wrap: anywhere; }
+.spec-table code, .detail-article p code { font-family: ui-monospace, SFMono-Regular, Menlo,
+  Consolas, "Courier New", monospace; font-size: 12.5px; background: var(--wash);
+  padding: 1px 5px; border-radius: 3px; }
+
+.license-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1px; margin: 8px 0 10px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.license-grid > div { background: var(--paper); padding: 12px 14px; }
+.license-grid dt { margin: 0 0 4px; font-size: 12.5px; color: var(--muted); font-weight: 700; }
+.license-grid dd { margin: 0; font-size: 14px; color: var(--ink); font-weight: 600; }
+.license-note { margin: 0; font-size: 12.5px; color: var(--muted); }
+
+/* ── H. 좁은 폭 ────────────────────────────────────────────────
+   단 수는 미디어 쿼리로 정하지 않는다. auto-fit + minmax가 스스로 접는다(2-6절).
+   여기서 손대는 것은 좌우 여백과 안내 문구뿐이다. */
 @media (max-width: 900px) {
   .matrix-note { display: block; }
-}
-@media (max-width: 760px) {
-  .story-model { grid-template-columns: 1fr 190px; gap: 18px; }
-}
-@media (max-width: 620px) {
-  /* 패널을 숨기지 않고 본문 아래로 내린다 — 수치는 이 판의 내용이지 장식이 아니다 */
-  .story-model { grid-template-columns: 1fr; gap: 14px; }
-  .model-panel { padding: 12px 14px; }
-  .mp-head { margin: 0 0 8px; padding-bottom: 8px; }
-  .mp-num { font-size: 22px; }
-  .mp-grid { grid-template-columns: repeat(3, 1fr); column-gap: 10px; }
-  .mp-grid > div { display: block; }
-  .specimen { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
   .matrix { margin: 4px 22px 6px; }
   .matrix-note { margin: 0 22px 10px; }
-  .brief-list { padding: 6px 22px 26px; }
+  .cover-grid { padding: 16px 22px 28px; }
+  .brief-grid { padding: 14px 22px 24px; }
 }

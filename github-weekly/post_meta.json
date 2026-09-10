@@ -8,6 +8,8 @@
     "주간동향"
   ],
   "edition_name": "GitHub 주간 동향",
+  "weekday": "wed",
+  "brief": "이번 주 급상승한 저장소와 새 릴리스가 실제로 쓸 만한지, 라이선스와 도입 조건까지 확인합니다.",
   "previous_week": "2026-09-06",
-  "published_at": "20260910T025717Z"
+  "published_at": "20260910T091641Z"
 }

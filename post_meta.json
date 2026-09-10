@@ -8,6 +8,8 @@
     "주간동향"
   ],
   "edition_name": "AI 주간 동향",
+  "weekday": "tue",
+  "brief": "이번 주 AI 업계가 어디로 움직였는지, 프론티어 모델과 오픈웨이트, 연구와 도구로 나눠 짚습니다.",
   "previous_week": "2026-09-01",
-  "published_at": "20260910T025716Z"
+  "published_at": "20260910T091639Z"
 }
