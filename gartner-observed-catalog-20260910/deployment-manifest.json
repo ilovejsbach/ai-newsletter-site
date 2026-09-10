@@ -1,0 +1,24 @@
+{
+  "schema": "gartner-observed-catalog-deployment/v1",
+  "edition": "gartner-observed-catalog",
+  "catalog_id": "gartner-observed-2026-09-10",
+  "site_repo": "ilovejsbach/ai-newsletter-site",
+  "site_path": "gartner-observed-catalog-20260910/",
+  "baseline_commit": "2d79e41981b1b0d943d0ef5a89aee5fd688cab26",
+  "end_commit": "08a07dcf47a258ae2e75095874385a02c85a76ea",
+  "included_files": [
+    {"path": "index.html", "sha256": "898573ddcadc147a597e328563780873c18cbe8043656987aa1b2a0955646d02"},
+    {"path": "gartner-observed-catalog-20260910/articles/7453226.html", "sha256": "01ace570e7842a64be2220fdc6173cb954646b733bfc02b01f5b61e08f5bf345"},
+    {"path": "gartner-observed-catalog-20260910/articles/8342617.html", "sha256": "3bb6652abc8bc9b9c283abeafab5a7e50b02d2b60cbebb43e78a910b0965f513"},
+    {"path": "gartner-observed-catalog-20260910/articles/8343317.html", "sha256": "1cc4d2c3ea7d75ee3c78f973ae14bc5fa65d437d84e86c67aaf38843b9acb96c"},
+    {"path": "gartner-observed-catalog-20260910/articles/8350517.html", "sha256": "1511f2778a9bf077ecbd2b048157201bcbac23282bafeb9aa834ed8ff2ba5a0b"},
+    {"path": "gartner-observed-catalog-20260910/articles/8358749.html", "sha256": "dbfa510ba0486467337192ce932ee693f82082a23b4951b4f9e58484ba9ed824"},
+    {"path": "gartner-observed-catalog-20260910/index.html", "sha256": "f9dd4e4630c43b5ab881c4f1d95abcbec750f6afd643b12a24a7a5b25f6df7f9"},
+    {"path": "gartner-observed-catalog-20260910/manifest.json", "sha256": "759df68931529fb48bfd13524db380e137792c6bfbba29b75547e481e8c5d03e"},
+    {"path": "gartner-observed-catalog-20260910/projection.json", "sha256": "630620776d3e8dc970e184a66771bf0c2a63f4afc3d7471a75b3afacd0c4627f"}
+  ],
+  "release_tag": "gartner-observed-catalog-20260910",
+  "dated_asset": "newsletter_delta_gartner-observed-catalog_20260910.zip",
+  "fixed_asset": "newsletter_delta_gartner-observed-catalog.zip",
+  "site_url": "https://ilovejsbach.github.io/ai-newsletter-site/gartner-observed-catalog-20260910/"
+}
