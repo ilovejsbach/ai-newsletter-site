@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>검증 가능한 보상으로 만든 RL 데이터</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-data detail-repo" style="--sc:#b45309">
+      <p class="source"><span class="article-number">12</span> Hugging Face</p>
+      <h1>검증 가능한 보상으로 만든 RL 데이터</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.07</span></p>
+      
+      <p class="detail-lead">SFT 데이터가 답변 방식을 익히게 한다면, RL 데이터는 보상으로 행동을 다듬는다. 이 자료는 그중에서도 검증 가능한 보상에 초점을 맞췄다. 사내에서는 학습 실험 가능성과 검증 부담을 함께 봐야 한다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>OpenBMB가 UltraData-RL-2609를 공개했다. 이 데이터셋은 강화학습용 텍스트 자료다. 수학 추론, 과학·지식 추론, 긴 문맥 이해, 코드 생성을 담았다. Apache-2.0 라이선스라 상업 이용 제약은 없다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>카드는 85,995개 샘플을 담았다고 밝혔다. 모든 샘플을 검증 가능한 과제로 만들고, 확인할 수 없는 라벨은 버렸다고 적었다. JustRL II 실험에서는 이 데이터셋으로 AIME 2025가 약 300 RL 단계 안에 61에서 81로 올랐다는 수치도 함께 제시했다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>Apache-2.0 라이선스라 사내 학습용 검토는 가능하다. 이 자료는 데이터셋이라 파라미터 수와 메모리 요구량은 해당하지 않는다. 다만 코드 영역은 테스트 케이스만 제공하고 샌드박스는 포함하지 않는다. 따라서 코드 보상까지 쓰려면 실행 환경을 사내에서 따로 준비해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>강화학습(RL): 보상 신호를 바탕으로 모델 행동을 조정하는 학습 방식이다.</span> <span>보상 검증(verifiable reward): 답이 맞는지 규칙이나 실행으로 확인할 수 있는 보상이다.</span> <span>샌드박스(sandbox): 코드를 격리된 환경에서 안전하게 실행하는 공간이다.</span> <span>ground_truth: 정답 판정에 쓰는 기준 답안이다.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: openbmb/UltraData-RL-2609</p>
+        <p class="url">공개일: 2026.09.07</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/datasets/openbmb/UltraData-RL-2609" target="_blank" rel="noopener noreferrer">https://huggingface.co/datasets/openbmb/UltraData-RL-2609</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

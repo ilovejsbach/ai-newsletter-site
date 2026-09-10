@@ -12,9 +12,9 @@
       <div>
         <p class="kicker">Weekly Hugging Face Brief</p>
         <h1>허깅페이스 주간 동향 | 2026.08.27 - 2026.09.10</h1>
-        <p class="lead">이번 호 커버는 문서 이미지 질의응답이다. 문서가 스캔본, 화면 캡처, 청구서로 갈라지면서 OCR 없이 답을 뽑는 모델과 인보이스 특화 모델이 함께 올라왔고, 성능 경쟁도 비슷한 후보들 사이에서 붙는 흐름이다. 금융IT 조직은 계약서, 청구서, 보고서에서 숫자와 항목을 바로 읽어야 하므로 지금 이 과업을 먼저 봐야 한다. 이번 주에는 긴 문맥 추론 모델과 문서·금융 데이터셋도 늘어났으니, 사내 문서 한 장을 골라 질문 답변 흐름부터 시험해 볼 만하다.</p>
+        <p class="lead">이번 호 커버는 문서 이미지에서 답을 찾는 과업을 다룬다. 문서 질의응답은 OCR 없이 답을 내는 모델과, 청구서 항목을 뽑는 모델, 작은 실험용 모델로 갈라져 세부 과제가 나뉘는 단계다. 이번 주에는 100만 토큰을 읽는 멀티모달 모델과 36B급, 2B급 소형 모델이 함께 나오며 긴 문맥 처리와 도구 호출 쪽 경쟁이 동시에 움직였다. 사내에서는 청구서와 계약서 같은 문서에서 항목 추출을 먼저 시험해 보면 된다.</p>
       </div>
-      <div class="issue-plate" style="--sc:#1e3a5f"><p class="plate-kicker">이번 호 커버</p><strong class="plate-topic">문서 이해</strong><p class="plate-line">후보 92건에서 4건을 골랐습니다</p><div class="lic-band"><span class="lic-seg tier-permissive" style="width:75.0%"></span><span class="lic-seg tier-copyleft" style="width:25.0%"></span></div><p class="plate-legend">사내 사용 가능 3 · 법무 확인 1 · 확인 필요 0</p></div>
+      <div class="issue-plate" style="--sc:#1e3a5f"><p class="plate-kicker">이번 호 커버</p><strong class="plate-topic">문서 이해</strong><p class="plate-line">후보 95건에서 4건을 골랐습니다</p><div class="lic-band"><span class="lic-seg tier-permissive" style="width:75.0%"></span><span class="lic-seg tier-copyleft" style="width:25.0%"></span></div><p class="plate-legend">사내 사용 가능 3 · 법무 확인 1 · 확인 필요 0</p></div>
     </header>
     <section class="editors-pick">
       <header class="section-title">
@@ -28,20 +28,20 @@
         
 <article class="feature-card issue-card">
   <p class="source"><span class="article-number">05</span> 이번 주 새로 나온 것</p>
-  <h3><a href="articles/05_20c9f9de702fe722.html#top">문서 화면도 읽는 비전 질의응답 모델</a></h3>
-  <p class="card-callout">&ldquo;이 모델은 이미지와 텍스트를 함께 받아 답을 만드는 비전-언어 모델이다. 문서 화면 이해나 이미지 질의응답, 시각 자료 요약 같은 자리에 바로 올려볼 수 있다.&rdquo;</p>
+  <h3><a href="articles/05_5c348986a15182f2.html#top">100만 토큰 읽는 멀티모달 모델</a></h3>
+  <p class="card-callout">&ldquo;텍스트와 이미지를 함께 처리하는 대형 모델이다. MIT 라이선스라 상업 이용 제약은 없지만, 카드가 필요한 메모리와 장비는 밝히지 않았다.&rdquo;</p>
+</article>
+
+<article class="feature-card issue-card">
+  <p class="source"><span class="article-number">06</span> 이번 주 새로 나온 것</p>
+  <h3><a href="articles/06_600ee8857bfdd2e9.html#top">36B로 긴 문맥 다루는 에이전트형 모델</a></h3>
+  <p class="card-callout">&ldquo;36B 규모지만 토큰당 4B만 활성화하는 텍스트 모델이다. Apache-2.0 라이선스라 상업 이용은 가능하지만, 검증된 서빙은 H200 2장 기준으로 제시됐다.&rdquo;</p>
 </article>
 
 <article class="feature-card issue-card">
   <p class="source"><span class="article-number">11</span> 이번 주 데이터셋</p>
-  <h3><a href="articles/11_7f25db35eaaad8c0.html#top">금융 문서 질의응답용 공개 벤치마크</a></h3>
-  <p class="card-callout">&ldquo;inclusionAI가 FinFIRST를 공개했다. 이 데이터셋은 금융 문서 질의응답과 검색, 웹 탐색, 에이전트 평가를 겨냥한 자료다.&rdquo;</p>
-</article>
-
-<article class="feature-card issue-card">
-  <p class="source"><span class="article-number">08</span> 실험실</p>
-  <h3><a href="articles/08_b70a238b6d99c5e8.html#top">투명 물체 표면 방향을 읽는 실험 모델</a></h3>
-  <p class="card-callout">&ldquo;Longxiang-ai가 TransNormal-2를 공개했다. 이 모델은 한 장의 이미지에서 표면 법선(표면 방향)을 추정하는 그림→그림 모델이다.&rdquo;</p>
+  <h3><a href="articles/11_42d1604bae836bd2.html#top">에이전트 학습용 48만여 궤적 데이터</a></h3>
+  <p class="card-callout">&ldquo;도구 호출과 검색, 코드, 일반 에이전트 작업을 담은 SFT 데이터셋이다.&rdquo;</p>
 </article>
 
       </div>
@@ -64,17 +64,8 @@
           <td>Impira</td>
           <td>—</td>
           <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
-          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span><span class="bar-num">306,218</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span><span class="bar-num">308,402</span></td>
           <td>22.08</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row"><span class="repo-owner">naver-clova-ix</span><span class="repo-sep">/</span><span class="repo-repo">donut-base-finetuned-docvqa</span></th>
-          <td>Naver Clova Ix</td>
-          <td>—</td>
-          <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
-          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:8.2%"></span></span><span class="bar-num">24,959</span></td>
-          <td>22.07</td>
           <td></td>
         </tr>
         <tr>
@@ -82,8 +73,17 @@
           <td>Impira</td>
           <td>—</td>
           <td>cc-by-nc-sa-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></td>
-          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:7.9%"></span></span><span class="bar-num">24,258</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:8.0%"></span></span><span class="bar-num">24,638</span></td>
           <td>22.09</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">naver-clova-ix</span><span class="repo-sep">/</span><span class="repo-repo">donut-base-finetuned-docvqa</span></th>
+          <td>Naver Clova Ix</td>
+          <td>—</td>
+          <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:7.8%"></span></span><span class="bar-num">24,184</span></td>
+          <td>22.07</td>
           <td></td>
         </tr>
         <tr>
@@ -91,7 +91,7 @@
           <td>Fxmarty</td>
           <td>—</td>
           <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
-          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.8%"></span></span><span class="bar-num">5,372</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.6%"></span></span><span class="bar-num">5,066</span></td>
           <td>23.06</td>
           <td></td>
         </tr>
@@ -100,7 +100,7 @@
           <td>Tiennvcs</td>
           <td>—</td>
           <td>cc-by-sa-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></td>
-          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.5%"></span></span><span class="bar-num">604</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.5%"></span></span><span class="bar-num">681</span></td>
           <td>22.03</td>
           <td>다운로드 하한 미달</td>
         </tr>
@@ -109,7 +109,7 @@
           <td>Zpm</td>
           <td>—</td>
           <td>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
-          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.5%"></span></span><span class="bar-num">549</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.5%"></span></span><span class="bar-num">569</span></td>
           <td>24.08</td>
           <td>다운로드 하한 미달</td>
         </tr>
@@ -120,10 +120,10 @@
   <div class="story-list">
 <article class="story story-model" id="story-01">
   <div class="story-main">
-    <h3><span class="article-number">01</span><a href="articles/01_b3a87806cf73f5aa.html#top">문서 이미지에서 답을 찾는 질의응답 모델</a></h3>
+    <h3><span class="article-number">01</span><a href="articles/01_b3a87806cf73f5aa.html#top">문서 이미지에서 답을 찾는 모델</a></h3>
     <p class="repo-name"><span class="repo-owner">impira</span><span class="repo-sep">/</span><span class="repo-repo">layoutlm-document-qa</span></p>
     <p class="story-yama">문서 이미지에 질문을 넣으면 답을 뽑는 문서 질의응답 모델이다.</p>
-    <p class="story-hook">&ldquo;이 모델은 문서 이미지에 질문을 붙여 답을 뽑는 문서 질의응답용 모델이다. 청구서나 영수증, 일반 문서에서 필요한 항목을 찾는 자리에 맞는다. 파이프라인 실행에는 PIL, pytesseract, PyTorch가 필요하다.&rdquo;</p>
+    <p class="story-hook">&ldquo;문서 이미지에서 항목 값을 찾는 모델이며 MIT 라이선스라 상업 이용 제약은 없다.&rdquo;</p>
     <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">문서 이해</span><span class="repo-active">공개일 23.03</span></p>
   </div>
   <aside class="model-panel"><p class="mp-head"><span class="mp-num">31만</span><span class="mp-cap">다운로드</span></p><dl class="mp-grid"><div><dt>좋아요</dt><dd>1,184</dd></div></dl></aside>
@@ -131,35 +131,35 @@
 
 <article class="story story-model" id="story-02">
   <div class="story-main">
-    <h3><span class="article-number">02</span><a href="articles/02_ce6034f8301cca8a.html#top">OCR 없이 문서를 읽는 DocVQA 모델</a></h3>
-    <p class="repo-name"><span class="repo-owner">naver-clova-ix</span><span class="repo-sep">/</span><span class="repo-repo">donut-base-finetuned-docvqa</span></p>
-    <p class="story-yama">문서 이미지에서 질문 답을 생성하는 DocVQA용 모델이다.</p>
-    <p class="story-hook">&ldquo;이 모델은 문서 이미지에서 질문의 답을 생성하는 문서 질의응답 모델이다. 카드 작성 주체는 배포 팀이 아니라 Hugging Face 팀이다. 카드에는 라이선스와 평가 결과, 필요한 메모리가 없다.&rdquo;</p>
-    <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">문서 이해</span><span class="model-derive">파생 1 · ONNX</span><span class="repo-active">공개일 24.03</span></p>
-  </div>
-  <aside class="model-panel"><p class="mp-head"><span class="mp-num">2만</span><span class="mp-cap">다운로드</span></p><dl class="mp-grid"><div><dt>좋아요</dt><dd>281</dd></div><div><dt>파생본</dt><dd>1</dd></div></dl></aside>
-</article>
-
-<article class="story story-model" id="story-03">
-  <div class="story-main">
-    <h3><span class="article-number">03</span><a href="articles/03_c65a8f8331c68d77.html#top">인보이스 항목 추출에 맞춘 문서 QA</a></h3>
+    <h3><span class="article-number">02</span><a href="articles/02_c65a8f8331c68d77.html#top">청구서 항목 추출에 맞춘 질의응답</a></h3>
     <p class="repo-name"><span class="repo-owner">impira</span><span class="repo-sep">/</span><span class="repo-repo">layoutlm-invoices</span></p>
-    <p class="story-yama">청구서와 일반 문서에서 질문 답을 찾는 문서 질의응답 모델이다.</p>
-    <p class="story-hook">&ldquo;이 모델은 청구서와 다른 문서에서 질문 답을 뽑는 문서 질의응답 모델이다. 청구서용 데이터와 SQuAD2.0, DocVQA로 파인튜닝했다. 연속되지 않은 토큰도 답으로 뽑을 수 있다고 적었다.&rdquo;</p>
+    <p class="story-yama">청구서와 일반 문서에서 질문에 맞는 답을 뽑는 문서 질의응답 모델이다.</p>
+    <p class="story-hook">&ldquo;청구서 주소처럼 떨어진 토큰도 뽑는 문서 질의응답 모델이지만 비상업 라이선스라 상용 서비스에는 못 쓴다.&rdquo;</p>
     <p class="repo-facts"><span class="repo-license">cc-by-nc-sa-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></span><span class="model-task">문서 이해</span><span class="repo-active">공개일 23.03</span></p>
   </div>
   <aside class="model-panel"><p class="mp-head"><span class="mp-num">2만</span><span class="mp-cap">다운로드</span></p><dl class="mp-grid"><div><dt>좋아요</dt><dd>229</dd></div></dl></aside>
 </article>
 
+<article class="story story-model" id="story-03">
+  <div class="story-main">
+    <h3><span class="article-number">03</span><a href="articles/03_ce6034f8301cca8a.html#top">OCR 없이 문서 답변을 생성하는 모델</a></h3>
+    <p class="repo-name"><span class="repo-owner">naver-clova-ix</span><span class="repo-sep">/</span><span class="repo-repo">donut-base-finetuned-docvqa</span></p>
+    <p class="story-yama">문서 이미지와 질문을 받아 답 텍스트를 생성하는 DocVQA 모델이다.</p>
+    <p class="story-hook">&ldquo;문서 이미지를 OCR 없이 읽는 DocVQA 모델이며 MIT 라이선스라 상업 이용 제약은 없다.&rdquo;</p>
+    <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">문서 이해</span><span class="model-derive">파생 2 · ONNX</span><span class="repo-active">공개일 24.03</span></p>
+  </div>
+  <aside class="model-panel"><p class="mp-head"><span class="mp-num">2만</span><span class="mp-cap">다운로드</span></p><dl class="mp-grid"><div><dt>좋아요</dt><dd>281</dd></div><div><dt>파생본</dt><dd>2</dd></div></dl></aside>
+</article>
+
 <article class="story story-model" id="story-04">
   <div class="story-main">
-    <h3><span class="article-number">04</span><a href="articles/04_e207bd968848af86.html#top">MIT 라이선스의 소형 문서 QA 후보</a></h3>
+    <h3><span class="article-number">04</span><a href="articles/04_e207bd968848af86.html#top">소형 문서 질의응답 실험 모델</a></h3>
     <p class="repo-name"><span class="repo-owner">fxmarty</span><span class="repo-sep">/</span><span class="repo-repo">tiny-doc-qa-vision-encoder-decoder</span></p>
-    <p class="story-yama">문서 질의응답용 비전-인코더-디코더 모델이다.</p>
-    <p class="story-hook">&ldquo;이 모델은 문서 질의응답용 비전-인코더-디코더 계열 모델이다. 요약 정보에는 MIT 라이선스와 Hugging Face Endpoints 호환이 적혀 있다. 카드 본문이 없어 성능과 필요한 메모리는 확인할 수 없다.&rdquo;</p>
+    <p class="story-yama">문서 질의응답용 비전-텍스트 모델이다.</p>
+    <p class="story-hook">&ldquo;문서 질의응답용 소형 모델이지만 카드 정보가 적어 장비와 성능은 직접 확인해야 한다.&rdquo;</p>
     <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">문서 이해</span><span class="repo-active">공개일 23.10</span></p>
   </div>
-  <aside class="model-panel"><p class="mp-head"><span class="mp-num">5,372</span><span class="mp-cap">다운로드</span></p><dl class="mp-grid"><div><dt>좋아요</dt><dd>16</dd></div></dl></aside>
+  <aside class="model-panel"><p class="mp-head"><span class="mp-num">5,066</span><span class="mp-cap">다운로드</span></p><dl class="mp-grid"><div><dt>좋아요</dt><dd>16</dd></div></dl></aside>
 </article>
 </div>
 </section>
@@ -170,24 +170,24 @@
   </header>
   <div class="brief-list">
 <article class="brief" id="story-05">
-  <p class="repo-name"><span class="repo-owner">deepseek-ai</span><span class="repo-sep">/</span><span class="repo-repo">DeepSeek-V4-Flash-Vision-Exp</span></p>
-  <h3><span class="article-number">05</span><a href="articles/05_20c9f9de702fe722.html#top">문서 화면도 읽는 비전 질의응답 모델</a></h3>
-  <p class="brief-line">이미지와 텍스트를 함께 받아 답하는 비전 모델</p>
-  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 843</span><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+  <p class="repo-name"><span class="repo-owner">deepseek-ai</span><span class="repo-sep">/</span><span class="repo-repo">DeepSeek-V4.1-Flash</span></p>
+  <h3><span class="article-number">05</span><a href="articles/05_5c348986a15182f2.html#top">100만 토큰 읽는 멀티모달 모델</a></h3>
+  <p class="brief-line">이미지와 긴 문서를 함께 읽고 답하는 대형 멀티모달 모델.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 494</span><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
 </article>
 
 <article class="brief" id="story-06">
   <p class="repo-name"><span class="repo-owner">IFM</span><span class="repo-sep">/</span><span class="repo-repo">K2-Horizon-MoVA-36B-A4B</span></p>
-  <h3><span class="article-number">06</span><a href="articles/06_600ee8857bfdd2e9.html#top">512K 문맥을 내세운 36B 추론 모델</a></h3>
-  <p class="brief-line">긴 문맥과 도구 호출을 겨냥한 36B 추론 모델</p>
-  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 260</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+  <h3><span class="article-number">06</span><a href="articles/06_600ee8857bfdd2e9.html#top">36B로 긴 문맥 다루는 에이전트형 모델</a></h3>
+  <p class="brief-line">긴 문맥과 도구 호출을 겨냥한 36B급 텍스트 모델.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 265</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
 </article>
 
 <article class="brief" id="story-07">
   <p class="repo-name"><span class="repo-owner">openbmb</span><span class="repo-sep">/</span><span class="repo-repo">MiniCPM5-2B</span></p>
-  <h3><span class="article-number">07</span><a href="articles/07_6db7a09f6b2d61e8.html#top">2B 크기로 131K 문맥을 담은 모델</a></h3>
-  <p class="brief-line">긴 문맥과 도구 호출을 담은 2B 소형 모델</p>
-  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 922</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+  <h3><span class="article-number">07</span><a href="articles/07_6db7a09f6b2d61e8.html#top">2B급으로 도구 호출 노린 소형 모델</a></h3>
+  <p class="brief-line">2B급 크기로 긴 문맥과 도구 호출을 노린 소형 모델.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 1,002</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
 </article>
 </div>
 </section>
@@ -199,23 +199,23 @@
   <div class="brief-list">
 <article class="brief" id="story-08">
   <p class="repo-name"><span class="repo-owner">Longxiang-ai</span><span class="repo-sep">/</span><span class="repo-repo">TransNormal-2</span></p>
-  <h3><span class="article-number">08</span><a href="articles/08_b70a238b6d99c5e8.html#top">투명 물체 표면 방향을 읽는 실험 모델</a></h3>
-  <p class="brief-line">투명 물체까지 겨냥한 표면 방향 추정 모델</p>
+  <h3><span class="article-number">08</span><a href="articles/08_b70a238b6d99c5e8.html#top">투명 물체 표면 읽는 이미지 어댑터</a></h3>
+  <p class="brief-line">투명 물체 이미지에서 표면 방향 정보를 추정하는 어댑터.</p>
   <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 3</span><span class="repo-license">미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span></p>
 </article>
 
 <article class="brief" id="story-09">
-  <p class="repo-name"><span class="repo-owner">inclusionAI</span><span class="repo-sep">/</span><span class="repo-repo">LLaDA-Image-Turbo</span></p>
-  <h3><span class="article-number">09</span><a href="articles/09_e6aafd546555580c.html#top">4단계로 생성·편집하는 이미지 모델</a></h3>
-  <p class="brief-line">생성과 편집을 한 모델에 묶은 4단계 이미지 모델</p>
-  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 39</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+  <p class="repo-name"><span class="repo-owner">backpack-run</span><span class="repo-sep">/</span><span class="repo-repo">Wan2.2-TI2V-5B-Backpack-Video</span></p>
+  <h3><span class="article-number">09</span><a href="articles/09_9049bdfa64b5637c.html#top">5B로 시험하는 텍스트 영상 생성</a></h3>
+  <p class="brief-line">Wan2.2 기반으로 텍스트에서 영상을 만드는 5B 파생 모델.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 3</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
 </article>
 
 <article class="brief" id="story-10">
-  <p class="repo-name"><span class="repo-owner">mehdi-hf</span><span class="repo-sep">/</span><span class="repo-repo">pocket-tts-farsi</span></p>
-  <h3><span class="article-number">10</span><a href="articles/10_a13bde43c6d4b0cd.html#top">CPU에서 도는 페르시아어 TTS</a></h3>
-  <p class="brief-line">CPU에서 돌아가는 페르시아어 음성 합성 모델</p>
-  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 19</span><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+  <p class="repo-name"><span class="repo-owner">F16</span><span class="repo-sep">/</span><span class="repo-repo">krea2-turbo-sda</span></p>
+  <h3><span class="article-number">10</span><a href="articles/10_2b6e9f0b3b8f3d3b.html#top">한 프롬프트에서 더 다양한 그림</a></h3>
+  <p class="brief-line">같은 프롬프트에서 더 다양한 그림을 뽑게 하는 LoRA 어댑터.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 72</span><span class="repo-license">미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span></p>
 </article>
 </div>
 </section>
@@ -226,17 +226,17 @@
   </header>
   <div class="brief-list">
 <article class="brief" id="story-11">
-  <p class="repo-name"><span class="repo-owner">datasets</span><span class="repo-sep">/</span><span class="repo-repo">inclusionAI</span></p>
-  <h3><span class="article-number">11</span><a href="articles/11_7f25db35eaaad8c0.html#top">금융 문서 질의응답용 공개 벤치마크</a></h3>
-  <p class="brief-line">금융 문서 질의응답을 겨냥한 소형 벤치마크 데이터셋</p>
-  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 12</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+  <p class="repo-name"><span class="repo-owner">datasets</span><span class="repo-sep">/</span><span class="repo-repo">openbmb</span></p>
+  <h3><span class="article-number">11</span><a href="articles/11_42d1604bae836bd2.html#top">에이전트 학습용 48만여 궤적 데이터</a></h3>
+  <p class="brief-line">도구 호출과 에이전트 학습용 대화 궤적을 담은 SFT 데이터셋.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 73</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
 </article>
 
 <article class="brief" id="story-12">
-  <p class="repo-name"><span class="repo-owner">datasets</span><span class="repo-sep">/</span><span class="repo-repo">sarvamai</span></p>
-  <h3><span class="article-number">12</span><a href="articles/12_f4be9d23d9f157b9.html#top">산스크리트·영어 번역과 QA 데이터셋</a></h3>
-  <p class="brief-line">산스크리트와 영어를 잇는 다목적 텍스트 데이터셋</p>
-  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 8</span><span class="repo-license">cc-by-4.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+  <p class="repo-name"><span class="repo-owner">datasets</span><span class="repo-sep">/</span><span class="repo-repo">openbmb</span></p>
+  <h3><span class="article-number">12</span><a href="articles/12_822d6100363eefa8.html#top">검증 가능한 보상으로 만든 RL 데이터</a></h3>
+  <p class="brief-line">수학·코드·긴 문맥 강화학습용 검증 가능 데이터셋.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 72</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
 </article>
 </div>
 </section>

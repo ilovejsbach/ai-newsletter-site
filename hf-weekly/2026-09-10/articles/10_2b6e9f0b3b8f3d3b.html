@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>한 프롬프트에서 더 다양한 그림</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-lab detail-repo" style="--sc:#6d28d9">
+      <p class="source"><span class="article-number">10</span> Hugging Face</p>
+      <h1>한 프롬프트에서 더 다양한 그림</h1>
+      <p class="repo-facts"><span class="repo-license">미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span><span class="repo-active">공개일 08.30</span></p>
+      
+      <p class="detail-lead">이미지 생성 실험에서는 품질 못지않게 다양성이 중요하다. 같은 문장에서 결과가 늘 비슷하면 시안 생성 효율이 떨어진다. 이 LoRA는 바로 그 지점을 겨냥했다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>F16이 krea2-turbo-sda를 공개했다. 이 모델은 Krea 2 Turbo에 붙여 쓰는 LoRA 어댑터다. 목적은 같은 프롬프트에서 더 다양한 이미지를 만드는 것이다. 라이선스는 other로 분류돼 상업 이용 가능 여부를 바로 단정할 수 없다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>카드는 10개 프롬프트와 16개 씨드 평가에서 CLIP 코사인 거리 지표가 0.0296에서 0.0548로 늘었다고 밝혔다. 반면 HPSv2.1 품질 점수는 0.2990에서 0.2987로 거의 같다고 적었다. 다만 해부학 오류가 늘 수 있고, 8단계 가운데 처음 2단계에서만 켜야 한다는 조건도 함께 붙였다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>license_spdx 값이 other라 상업 이용 가능 여부는 따로 확인해야 한다. 카드도 Krea 2 Community License 조건을 따른다고 적었다. 이 모델은 krea/Krea-2-Turbo용 어댑터이며, 학습 자체는 48 GB GPU에서 약 1.9시간이라고 밝혔지만 추론에 필요한 최소 메모리는 따로 밝히지 않았다. 사내 실험 전에는 기본 모델 조건과 단계별 적용 방식부터 확인해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>씨드(seed): 같은 프롬프트에서도 다른 결과를 만들게 하는 난수 시작값이다.</span> <span>LoRA: 기존 모델 위에 얹어 성격을 바꾸는 소형 추가 가중치다.</span> <span>프롬프트 적합도(prompt adherence): 입력한 지시를 결과가 얼마나 잘 따르는지 보는 기준이다.</span> <span>HPSv2: 이미지 품질과 선호를 재는 평가 지표다.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: F16/krea2-turbo-sda</p>
+        <p class="url">공개일: 2026.08.30</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/F16/krea2-turbo-sda" target="_blank" rel="noopener noreferrer">https://huggingface.co/F16/krea2-turbo-sda</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

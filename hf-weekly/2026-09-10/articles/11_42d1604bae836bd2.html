@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>에이전트 학습용 48만여 궤적 데이터</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-data detail-repo" style="--sc:#b45309">
+      <p class="source"><span class="article-number">11</span> Hugging Face</p>
+      <h1>에이전트 학습용 48만여 궤적 데이터</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.06</span></p>
+      
+      <p class="detail-lead">이번 주 데이터셋 코너에서는 학습용 자료를 본다. 이 자료는 완성된 모델이 아니라, 에이전트 행동을 가르치는 SFT 데이터다. 독자가 볼 포인트는 권리 조건과 재현 가능성이다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>OpenBMB가 UltraData-SFT-Agent-2609를 공개했다. 이 데이터셋은 에이전트 지시 튜닝용 텍스트 자료다. 도구 사용, 검색, 코드 에이전트, 일반 에이전트 작업의 전체 궤적을 담았다. Apache-2.0 라이선스라 상업 이용 제약은 없다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>카드는 약 500,000개 샘플과 483,661개 궤적을 담았다고 밝혔다. 답만 있는 자료가 아니라 환경 관찰, 도구 호출, 오류, 재시도, 최종 제출까지 남겼다. 실패와 복구 흔적도 일부 보존해 학습 신호로 쓴 점이 눈에 띈다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>Apache-2.0 라이선스라 사내 학습용 검토는 가능하다. 이 자료는 데이터셋이라 파라미터 수와 장비 요구 조건은 해당하지 않는다. 대신 실행 환경, 도구 구현, 테스트 코드는 포함하지 않는다. 따라서 로컬에서 그대로 재생하는 용도보다, 후속 학습용 정적 자료로 보는 편이 맞다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>데이터셋(dataset): 모델 학습이나 평가에 쓰는 자료 모음이다.</span> <span>SFT(Supervised Fine-Tuning): 정답 예시를 주고 모델을 추가 학습시키는 방식이다.</span> <span>궤적(trajectory): 사용자 요청부터 도구 호출, 중간 결과, 최종 답까지 이어진 전체 기록이다.</span> <span>JSONL: 한 줄에 한 개 레코드를 담는 텍스트 데이터 형식이다.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: openbmb/UltraData-SFT-Agent-2609</p>
+        <p class="url">공개일: 2026.09.06</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/datasets/openbmb/UltraData-SFT-Agent-2609" target="_blank" rel="noopener noreferrer">https://huggingface.co/datasets/openbmb/UltraData-SFT-Agent-2609</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
