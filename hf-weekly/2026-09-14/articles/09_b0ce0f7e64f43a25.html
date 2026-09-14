@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>참조 음성으로 읽는 터키어 TTS</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-lab detail-repo" style="--sc:#6d28d9">
+      <p class="source"><span class="article-number">09</span> Hugging Face</p>
+      <h1>참조 음성으로 읽는 터키어 TTS</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.10</span></p>
+      
+      <p class="detail-lead">언어별 TTS는 지원 언어보다 사용 절차가 더 큰 차이를 만든다. Kahya-TTS-v1.0 카드는 설치와 추론 예제를 길게 적었다. 대신 학습 재현 정보와 데이터 재배포는 선을 그었다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>AlicanKiraz0/Kahya-TTS-v1.0은 터키어 TTS 모델이다. Alican Kiraz가 OpenBMB의 VoxCPM2 적응본으로 공개했다. 카드에 따르면 이 모델은 참조 음성을 넣어 문장 단위로 새 텍스트를 읽는다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>이 릴리스는 이미 평가한 Step 1500 병합 체크포인트를 묶었다. 카드에는 2026년 9월 7일 CUDA 스모크 체크 결과도 적었다. 두 문장 시험에서 48 kHz 오디오 3.36초를 만들었고, 길이 한도 실패는 없었다. 다만 그 검증은 예제 명령 확인용이고, 예전 개발 벤치마크와는 구분해야 한다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>Apache-2.0이라 상업 이용에 제약이 없다. 설치 예시는 NVIDIA CUDA GPU와 Python 3.12를 요구했다. 베이스 모델은 openbmb/VoxCPM2이고, 카드에는 파라미터 수와 최소 메모리를 적지 않았다. 낯선 화자와 억양에서의 유사도는 카드가 보장하지 않아, 참조 음성을 바꿔 들으며 확인해야 한다.</p>
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>python ./Kahya-TTS-v1.0/inference.py \\
+  --model ./Kahya-TTS-v1.0 \\
+  --reference ./speaker.wav \\
+  --text &quot;Merhaba, bugün sana nasıl yardımcı olabilirim?&quot; \\
+  --output-dir ./kahya-single</code></pre></div><p class="code-src">원문: https://huggingface.co/AlicanKiraz0/Kahya-TTS-v1.0</p></figure>
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>TTS(Text-to-Speech): 텍스트를 음성으로 바꾸는 기술.</span> <span>보이스 클로닝(Voice cloning): 참조 음성의 화자 특성을 따라 새 문장을 읽는 방식.</span> <span>파인튜닝(Fine-tuning): 기존 모델을 특정 데이터로 다시 학습하는 일.</span> <span>CUDA: NVIDIA GPU를 계산에 쓰게 해주는 환경.</span> <span>48 kHz: 1초 음성을 4만 8천 번 샘플링한 출력 품질 표기.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: AlicanKiraz0/Kahya-TTS-v1.0</p>
+        <p class="url">공개일: 2026.09.10</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/AlicanKiraz0/Kahya-TTS-v1.0" target="_blank" rel="noopener noreferrer">https://huggingface.co/AlicanKiraz0/Kahya-TTS-v1.0</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

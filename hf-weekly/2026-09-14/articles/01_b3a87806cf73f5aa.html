@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>문서 이미지에서 답 찾기</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">01</span> Hugging Face</p>
+      <h1>문서 이미지에서 답 찾기</h1>
+      <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 03.18</span></p>
+      
+      <p class="detail-lead">문서 질의응답 모델은 스캔 문서나 PDF 화면에서 필요한 답을 찾는 자리에 들어간다. 사람이 문서를 눈으로 읽고 항목을 확인하던 일을 줄일 때 쓴다. 이번 후보군은 같은 과업을 다루지만, 라이선스와 사용 방식이 다르다. 사내 반입 가능 여부와 실행 조건을 같이 봐야 한다.</p>
+      <section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>이 모델은 문서 이미지용 질의응답 모델이다. 사용자는 문서 이미지와 질문을 넣는다. 모델은 문서 안에서 답을 찾아 돌려준다. 청구서 번호나 금액처럼 정해진 항목을 찾는 업무에 맞는다.</p>
+        
+      </section>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from transformers import pipeline
+
+nlp = pipeline(
+    &quot;document-question-answering&quot;,
+    model=&quot;impira/layoutlm-document-qa&quot;,
+)
+
+nlp(
+    &quot;https://templates.invoicehome.com/invoice-template-us-neat-750px.png&quot;,
+    &quot;What is the invoice number?&quot;
+ )
+{&#x27;score&#x27;: 0.9943977, &#x27;answer&#x27;: &#x27;us-001&#x27;, &#x27;start&#x27;: 15, &#x27;end&#x27;: 15}
+# ... 이어지는 예제는 원문 카드에 있습니다</code></pre></div><p class="code-src">원문: https://huggingface.co/impira/layoutlm-document-qa</p></figure>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">설치</th><td><code>pip install git+https://github.com/huggingface/transformers.git@2ef774211733f0acf8d3415f9284c49ef219e991</code></td></tr><tr><th scope="row">라이브러리</th><td>transformers</td></tr><tr><th scope="row">파이프라인</th><td>document-question-answering</td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">함께 필요한 것</th><td>PIL, pytesseract, PyTorch</td></tr><tr><th scope="row">지원 언어</th><td>en</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>카드에는 예시 실행 결과만 있다. 자체 측정인지 독립 평가인지 밝히지 않았고, 벤치마크 표도 없다. 카드는 평가 결과를 밝히지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>언제 이것을 고르나</h2>
+        <p>상업 서비스에 넣을 모델을 찾으면 이 후보를 먼저 볼 수 있다. impira/layoutlm-invoices는 청구서에 더 맞춰졌지만 비상업 조건이 붙는다. naver-clova-ix/donut-base-finetuned-docvqa와 fxmarty/tiny-doc-qa-vision-encoder-decoder는 라이선스 부담이 없지만, 이 카드만큼 바로 실행할 예제를 주지 않았다. 문서 이미지와 질문을 곧바로 붙여 시험할 팀이면 이 후보가 가장 빠르다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>문서 질의응답(Document Question Answering): 문서 이미지에서 질문에 맞는 답을 찾는 과업</span> <span>OCR(Optical Character Recognition): 이미지 속 글자를 문자로 읽는 기술</span> <span>DocVQA: 문서 이미지 질의응답 평가·학습에 쓰는 데이터셋</span> <span>SQuAD2.0: 질의응답 학습에 널리 쓰는 영어 데이터셋</span> <span>파이프라인(Pipeline): 전처리와 추론을 묶어 바로 호출하는 실행 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: impira/layoutlm-document-qa</p>
+        <p class="url">공개일: 2023.03.18</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/impira/layoutlm-document-qa" target="_blank" rel="noopener noreferrer">https://huggingface.co/impira/layoutlm-document-qa</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

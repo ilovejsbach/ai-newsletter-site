@@ -1,8 +1,8 @@
 {
-  "week": "2026-09-10",
+  "week": "2026-09-14",
   "track": "official",
-  "iframe_path": "hf-weekly/2026-09-10/",
-  "title": "허깅페이스 주간 동향 | 2026.08.27 - 2026.09.10",
+  "iframe_path": "hf-weekly/2026-09-14/",
+  "title": "허깅페이스 주간 동향 | 2026.08.31 - 2026.09.14",
   "tags": [
     "허깅페이스",
     "주간동향"
@@ -10,6 +10,6 @@
   "edition_name": "허깅페이스 주간 동향",
   "weekday": "thu",
   "brief": "뉴스가 아니라 지형입니다. 이번 호가 고른 과업에서 어떤 모델이 실제로 쓰이는지를 봅니다.",
-  "previous_week": null,
-  "published_at": "20260910T091642Z"
+  "previous_week": "2026-09-10",
+  "published_at": "20260914T001740Z"
 }

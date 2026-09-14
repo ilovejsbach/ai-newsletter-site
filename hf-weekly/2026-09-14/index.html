@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>허깅페이스 주간 동향 | 2026.08.31 - 2026.09.14</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 전체 호 아카이브</a></div>
+  <main class="newsletter">
+    <header class="masthead">
+      <div>
+        <p class="kicker">Weekly Hugging Face Brief</p>
+        <h1>허깅페이스 주간 동향 | 2026.08.31 - 2026.09.14</h1>
+        <p class="lead">이번 호 커버는 문서 이미지에서 질문의 답을 찾는 문서 QA 작업을 다룹니다. OCR 없이 답을 바로 뽑는 모델과 청구서, 일반 문서, 작은 규모 시험 모델이 함께 나오며, 같은 과업을 두고 후보가 아직 한 줄로 정리되지 않았습니다. 금융IT 현장에서는 청구서와 증빙, 내부 문서를 사람이 다시 확인하는 일이 많아 문서 읽기 자동화가 바로 업무 시간과 오류를 줄입니다. 이번 주에는 문서 QA와 화면 이해형 모델, 음성 합성, 학습용 데이터가 같이 움직였으니, 사내 문서 몇 종으로 먼저 답 위치와 오답 패턴을 시험해 보면 됩니다.</p>
+      </div>
+      <div class="issue-plate" style="--sc:#1e3a5f"><p class="plate-kicker">이번 호 커버</p><strong class="plate-topic">문서 이해</strong><p class="plate-line">후보 95건에서 4건을 골랐습니다</p><div class="lic-band"><span class="lic-seg tier-permissive" style="width:75.0%"></span><span class="lic-seg tier-copyleft" style="width:25.0%"></span></div><p class="plate-legend">사내 사용 가능 3 · 법무 확인 1 · 확인 필요 0</p></div>
+    </header>
+    <section class="articles">
+      <section class="article-group section-cover group-labeled" style="--sc:#1e3a5f">
+  <header class="group-header">
+    <h2>이번 호 커버</h2>
+    <p>이번 호가 다루는 과업에서 실제로 쓰이는 모델의 지형입니다.</p>
+  </header>
+  
+  <div class="matrix">
+    <table class="data-table matrix-table">
+      <thead>
+        <tr><th scope="col">모델</th><th scope="col">만든 곳</th><th scope="col">크기</th><th scope="col">라이선스</th><th scope="col" class="col-bar">다운로드</th><th scope="col">갱신</th><th scope="col">비고</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><span class="repo-owner">impira</span><span class="repo-sep">/</span><span class="repo-repo">layoutlm-document-qa</span></th>
+          <td>Impira</td>
+          <td>—</td>
+          <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span><span class="bar-num">305,042</span></td>
+          <td>22.08</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">impira</span><span class="repo-sep">/</span><span class="repo-repo">layoutlm-invoices</span></th>
+          <td>Impira</td>
+          <td>—</td>
+          <td>cc-by-nc-sa-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:8.1%"></span></span><span class="bar-num">24,786</span></td>
+          <td>22.09</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">naver-clova-ix</span><span class="repo-sep">/</span><span class="repo-repo">donut-base-finetuned-docvqa</span></th>
+          <td>Naver Clova Ix</td>
+          <td>—</td>
+          <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:7.8%"></span></span><span class="bar-num">23,667</span></td>
+          <td>22.07</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">fxmarty</span><span class="repo-sep">/</span><span class="repo-repo">tiny-doc-qa-vision-encoder-decoder</span></th>
+          <td>Fxmarty</td>
+          <td>—</td>
+          <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.5%"></span></span><span class="bar-num">4,630</span></td>
+          <td>23.06</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">tiennvcs</span><span class="repo-sep">/</span><span class="repo-repo">layoutlmv2-base-uncased-finetuned-docvqa</span></th>
+          <td>Tiennvcs</td>
+          <td>—</td>
+          <td>cc-by-sa-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.5%"></span></span><span class="bar-num">660</span></td>
+          <td>22.03</td>
+          <td>다운로드 하한 미달</td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">zpm</span><span class="repo-sep">/</span><span class="repo-repo">Llama-3.1-PersianQA</span></th>
+          <td>Zpm</td>
+          <td>—</td>
+          <td>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:1.5%"></span></span><span class="bar-num">591</span></td>
+          <td>24.08</td>
+          <td>다운로드 하한 미달</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="matrix-note">표가 잘리면 옆으로 밀어 보십시오.</p>
+  <div class="cover-grid">
+<article class="model-card" id="story-01">
+  <h3><span class="article-number">01</span><a href="articles/01_b3a87806cf73f5aa.html#top">문서 이미지에서 답 찾기</a></h3>
+  <p class="repo-name"><span class="repo-owner">impira</span><span class="repo-sep">/</span><span class="repo-repo">layoutlm-document-qa</span></p>
+  <p class="story-hook">&ldquo;문서 이미지에서 답을 찾는 모델이다. MIT 라이선스라 상업 이용 제약이 없고 transformers 최신 버전이 필요하다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">31만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">1,184</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">문서 이해</span><span class="repo-check">예제 있음</span><span class="repo-active">공개일 23.03</span></p>
+</article>
+
+<article class="model-card" id="story-02">
+  <h3><span class="article-number">02</span><a href="articles/02_c65a8f8331c68d77.html#top">청구서 질의응답에 맞춘 모델</a></h3>
+  <p class="repo-name"><span class="repo-owner">impira</span><span class="repo-sep">/</span><span class="repo-repo">layoutlm-invoices</span></p>
+  <p class="story-hook">&ldquo;청구서와 문서에서 답을 찾는 모델이지만 CC-BY-NC-SA-4.0이라 사내 상업 이용은 할 수 없다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">2만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">229</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">cc-by-nc-sa-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></span><span class="model-task">문서 이해</span><span class="repo-active">공개일 23.03</span></p>
+</article>
+
+<article class="model-card" id="story-03">
+  <h3><span class="article-number">03</span><a href="articles/03_ce6034f8301cca8a.html#top">OCR 없이 문서 답 생성</a></h3>
+  <p class="repo-name"><span class="repo-owner">naver-clova-ix</span><span class="repo-sep">/</span><span class="repo-repo">donut-base-finetuned-docvqa</span></p>
+  <p class="story-hook">&ldquo;OCR 없이 문서 이미지에서 답을 생성하는 모델이다. MIT 라이선스지만 카드가 실행 예제와 장비 조건을 거의 밝히지 않았다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">2만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">281</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">문서 이해</span><span class="repo-check">예제 있음</span><span class="repo-active">공개일 24.03</span></p>
+</article>
+
+<article class="model-card" id="story-04">
+  <h3><span class="article-number">04</span><a href="articles/04_e207bd968848af86.html#top">작게 시험하는 문서 QA</a></h3>
+  <p class="repo-name"><span class="repo-owner">fxmarty</span><span class="repo-sep">/</span><span class="repo-repo">tiny-doc-qa-vision-encoder-decoder</span></p>
+  <p class="story-hook">&ldquo;문서 질의응답 실험용 소형 모델로 보인다. MIT 라이선스지만 카드가 사용법과 장비 조건, 성능을 거의 밝히지 않았다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">4,630</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">16</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">문서 이해</span><span class="repo-active">공개일 23.10</span></p>
+</article>
+</div>
+</section>
+<section class="article-group section-fresh group-labeled" style="--sc:#0f766e">
+  <header class="group-header">
+    <h2>이번 주 새로 나온 것</h2>
+    <p>최근 공개된 원본 모델 가운데 눈여겨볼 것입니다.</p>
+  </header>
+  <div class="brief-grid">
+<article class="brief" id="story-05">
+  <p class="repo-name"><span class="repo-owner">nex-agi</span><span class="repo-sep">/</span><span class="repo-repo">Nex-N2.5-Pro</span></p>
+  <h3><span class="article-number">05</span><a href="articles/05_003d94a7ff4cba00.html#top">브라우저 작업까지 맡기는 멀티모달 모델</a></h3>
+  <p class="brief-line">브라우저·컴퓨터 작업까지 겨냥한 멀티모달 에이전트 모델이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 623</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-06">
+  <p class="repo-name"><span class="repo-owner">nex-agi</span><span class="repo-sep">/</span><span class="repo-repo">Nex-N2.5-mini</span></p>
+  <h3><span class="article-number">06</span><a href="articles/06_6d999a50c5c7edff.html#top">H100 2장으로 보는 에이전트형 멀티모달</a></h3>
+  <p class="brief-line">시각 입력으로 화면을 보고 행동하는 소형 에이전트 모델이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 756</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-07">
+  <p class="repo-name"><span class="repo-owner">thesysdev</span><span class="repo-sep">/</span><span class="repo-repo">OUI-1</span></p>
+  <h3><span class="article-number">07</span><a href="articles/07_ef26fe0ce802799b.html#top">설명으로 화면을 만드는 생성형 UI 모델</a></h3>
+  <p class="brief-line">텍스트 설명에서 사용자 화면용 UI를 만드는 생성형 UI 모델이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 102</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+</div>
+</section>
+<section class="article-group section-lab group-labeled" style="--sc:#6d28d9">
+  <header class="group-header">
+    <h2>실험실</h2>
+    <p>이미지와 영상, 음성처럼 실험이 몰리는 자리에서 나온 것입니다.</p>
+  </header>
+  <div class="brief-grid">
+<article class="brief" id="story-08">
+  <p class="repo-name"><span class="repo-owner">mehdi-hf</span><span class="repo-sep">/</span><span class="repo-repo">pocket-tts-farsi</span></p>
+  <h3><span class="article-number">08</span><a href="articles/08_a13bde43c6d4b0cd.html#top">페르시아어를 바로 읽는 음성 합성</a></h3>
+  <p class="brief-line">페르시아어 글을 음성으로 읽고 목소리 조건도 받는 TTS 모델이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 24</span><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-09">
+  <p class="repo-name"><span class="repo-owner">AlicanKiraz0</span><span class="repo-sep">/</span><span class="repo-repo">Kahya-TTS-v1.0</span></p>
+  <h3><span class="article-number">09</span><a href="articles/09_b0ce0f7e64f43a25.html#top">참조 음성으로 읽는 터키어 TTS</a></h3>
+  <p class="brief-line">터키어 문장을 읽고 참조 음성으로 화자 스타일을 맞추는 TTS 모델이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 28</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-10">
+  <p class="repo-name"><span class="repo-owner">rumik-ai</span><span class="repo-sep">/</span><span class="repo-repo">rumik-oss-1</span></p>
+  <h3><span class="article-number">10</span><a href="articles/10_f8970bafb11957ce.html#top">22개 언어를 읽지만 상업용은 막힌 TTS</a></h3>
+  <p class="brief-line">인도계 22개 언어와 영어를 읽는 다국어 TTS 모델이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 56</span><span class="repo-license">cc-by-nc-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></span></p>
+</article>
+</div>
+</section>
+<section class="article-group section-data group-labeled" style="--sc:#b45309">
+  <header class="group-header">
+    <h2>이번 주 데이터셋</h2>
+    <p>학습과 평가에 쓸 만한 공개 데이터입니다.</p>
+  </header>
+  <div class="brief-grid">
+<article class="brief" id="story-11">
+  <p class="repo-name"><span class="repo-owner">datasets</span><span class="repo-sep">/</span><span class="repo-repo">openbmb</span></p>
+  <h3><span class="article-number">11</span><a href="articles/11_f3bb3c8b653f61a4.html#top">코드 원문과 문제형 데이터를 함께 묶은 세트</a></h3>
+  <p class="brief-line">코드 학습용 원천 코드와 과제형 합성 데이터를 함께 묶은 데이터셋이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 117</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-12">
+  <p class="repo-name"><span class="repo-owner">datasets</span><span class="repo-sep">/</span><span class="repo-repo">AxiomicLabs</span></p>
+  <h3><span class="article-number">12</span><a href="articles/12_67c541d1d8451455.html#top">소형 모델 SFT용 대규모 데이터</a></h3>
+  <p class="brief-line">소형 언어모델용 SFT 데이터를 묶은 대규모 데이터셋이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 8</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+</div>
+</section>
+    </section>
+  </main>
+<script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

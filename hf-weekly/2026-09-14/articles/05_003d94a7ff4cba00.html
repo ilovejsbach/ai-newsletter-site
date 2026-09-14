@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>브라우저 작업까지 맡기는 멀티모달 모델</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">05</span> Hugging Face</p>
+      <h1>브라우저 작업까지 맡기는 멀티모달 모델</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.11</span></p>
+      
+      <p class="detail-lead">업무용 AI를 고를 때는 채팅 성능만 보면 부족하다. 브라우저를 열고, 화면을 보고, 다음 동작을 고르는 능력이 따로 필요하다. nex-agi/Nex-N2.5-Pro는 그 자리를 노린 모델이다. 카드도 코딩, 웹 탐색, 컴퓨터 사용 평가를 앞세웠다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>nex-agi/Nex-N2.5-Pro는 장기 과업을 겨냥한 멀티모달 에이전트 모델이다. Nex-AGI가 Nex-N2.5 계열의 한 크기로 공개했다. 카드에 따르면 이 모델은 컴퓨터와 브라우저를 다루고, 프로그램을 실행하고 시험하는 용도를 겨냥했다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>카드는 Pro와 mini, Max를 한 표에서 함께 비교했다. Pro는 BrowseComp에서 89.7, OSWorld-2에서 56.4를 기록했다. 점수 출처는 공개 리더보드와 타사 보고서, 자체 평가가 섞여 있다. WebTest 값은 oracle mode로 측정했고, 결함 탐지만 봤다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>Apache-2.0이라 상업 이용에 제약이 없다. 카드에는 접근 승인 조건이 보이지 않는다. 배포 예시는 단일 노드 H100 8장과 SGLang 서버를 요구했다. 파라미터 수는 이 Pro 카드에 따로 적지 않았다.</p>
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>docker run --gpus all --shm-size 32g --ipc=host \\
+  -p 30000:30000 \\
+  -v /path/to/your/model:/model \\
+  nexagi/sglang:v0.5.18-nex-patch \\
+  python3 -m sglang.launch_server \\
+    --model-path /model \\
+    --tp 8 \\
+    --host 0.0.0.0 --port 30000 \\</code></pre></div><p class="code-src">원문: https://huggingface.co/nex-agi/Nex-N2.5-Pro</p></figure>
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트 모델(Agentic model): 여러 단계를 거쳐 도구를 쓰고 작업을 이어 가는 모델.</span> <span>멀티모달(Multimodal): 텍스트만이 아니라 이미지 같은 여러 입력을 함께 다루는 방식.</span> <span>양자화(Quantization): 모델 표현을 줄여 메모리 사용량을 낮추는 기법.</span> <span>OSWorld: 컴퓨터 사용 과제를 재는 벤치마크.</span> <span>SWE-Bench Pro: 코드 수정 과제를 재는 벤치마크.</span> <span>Apache-2.0: 상업 이용과 배포를 허용하는 오픈소스 라이선스.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: nex-agi/Nex-N2.5-Pro</p>
+        <p class="url">공개일: 2026.09.11</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/nex-agi/Nex-N2.5-Pro" target="_blank" rel="noopener noreferrer">https://huggingface.co/nex-agi/Nex-N2.5-Pro</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

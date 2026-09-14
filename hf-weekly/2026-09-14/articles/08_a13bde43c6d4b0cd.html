@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>페르시아어를 바로 읽는 음성 합성</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-lab detail-repo" style="--sc:#6d28d9">
+      <p class="source"><span class="article-number">08</span> Hugging Face</p>
+      <h1>페르시아어를 바로 읽는 음성 합성</h1>
+      <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.13</span></p>
+      
+      <p class="detail-lead">음성 합성 모델은 언어 지원만으로 고르기 어렵다. 긴 문장에서 멈추는지, 낯선 화자도 따라 하는지가 실무에서 더 중요하다. pocket-tts-farsi 카드는 이 한계를 꽤 구체적으로 적었다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>mehdi-hf/pocket-tts-farsi는 페르시아어 TTS 모델이다. 이 모델은 페르시아어 스크립트를 바로 읽는다. 참조 음성을 넣어 목소리 조건을 줄 수도 있다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>카드는 v2와 직접 비교했다. v1인 이 모델은 페르시아어 스크립트를 바로 읽는 반면, v2는 로마자 음소 입력을 앞단에 요구한다. 보류 음성 300쌍 평가에서 v1의 평균 WER은 2.048이었다. 카드도 숫자만으로는 자연스러움과 에자페 처리를 다 못 본다고 적었다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>MIT라 상업 이용에 제약이 없다. 카드에는 접근 승인 조건이 보이지 않는다. 카드 본문에는 학생 모델 6층, 교사 모델 24층과 8×H100 학습 조건이 나오지만, 추론용 최소 장비는 따로 적지 않았다. 긴 문장은 약 18토큰 아래로 나눠야 하고, 낯선 화자에서는 반복 루프가 늘어난다.</p>
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from pocket_tts import TTSModel
+
+model = TTSModel.load_model(config=&quot;hf://mehdi-hf/pocket-tts-farsi/farsi.yaml&quot;, temp=0.3)
+state = model.get_state_for_audio_prompt(&quot;your_voice.wav&quot;)
+audio = model.generate_audio(state, &quot;سلام، حال شما چطور است؟&quot;, frames_after_eos=0)</code></pre></div><p class="code-src">원문: https://huggingface.co/mehdi-hf/pocket-tts-farsi</p></figure>
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>TTS(Text-to-Speech): 글자를 음성으로 바꾸는 기술.</span> <span>WER(Word Error Rate): 음성 인식 결과의 단어 오류율.</span> <span>보이스 클로닝(Voice cloning): 참조 음성을 바탕으로 비슷한 목소리를 내는 방식.</span> <span>EOS(End of Speech): 음성 생성이 끝났다는 신호.</span> <span>MIT License: 상업 이용과 재배포를 허용하는 오픈소스 라이선스.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: mehdi-hf/pocket-tts-farsi</p>
+        <p class="url">공개일: 2026.09.13</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/mehdi-hf/pocket-tts-farsi" target="_blank" rel="noopener noreferrer">https://huggingface.co/mehdi-hf/pocket-tts-farsi</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

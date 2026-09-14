@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OCR 없이 문서 답 생성</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">03</span> Hugging Face</p>
+      <h1>OCR 없이 문서 답 생성</h1>
+      <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 03.09</span></p>
+      
+      <p class="detail-lead">문서 질의응답은 크게 두 갈래가 있다. 하나는 OCR을 거쳐 답을 찾고, 다른 하나는 이미지에서 바로 답을 생성한다. 이 후보는 두 번째 갈래에 놓인다. 같은 과업이라도 운영 방식과 필요한 구성 요소가 달라진다.</p>
+      <section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>이 모델은 DocVQA용으로 미세조정한 문서 질의응답 모델이다. 사용자는 문서 이미지를 넣고 답 텍스트를 받는다. 카드 소개는 Hugging Face 팀이 대신 작성했다. MIT 라이선스라 상업 이용에는 제약이 없다.</p>
+        
+      </section>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <table class="spec-table"><tr><th scope="row">라이브러리</th><td>transformers</td></tr><tr><th scope="row">파이프라인</th><td>image-text-to-text</td></tr><tr><th scope="row">권장 사용법</th><td>We refer to the documentation which includes code examples.</td></tr></table><p>원문 카드에 실행 예제가 없습니다.</p>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">라이브러리</th><td>transformers</td></tr><tr><th scope="row">파이프라인</th><td>image-text-to-text</td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">제공 형식</th><td>파생본 등 2건 있음</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>카드는 이 모델이 DocVQA에 맞춰졌다고만 적었다. 벤치마크 점수와 측정 주체, 비교 대상은 보이지 않는다. 카드는 평가 결과를 밝히지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>언제 이것을 고르나</h2>
+        <p>OCR 단계를 따로 두고 싶지 않으면 이 후보를 볼 수 있다. impira/layoutlm-document-qa는 바로 실행할 코드와 외부 의존을 적어 시험이 쉽다. 이 후보는 라이선스 부담은 없지만, 카드 정보가 적어 장비와 성능을 먼저 확인해야 한다. 빠른 PoC가 목표면 impira/layoutlm-document-qa가 낫고, OCR 없는 처리 방식을 검토하면 이 후보가 맞다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>OCR-free: 별도 문자 인식 단계 없이 문서 이미지를 바로 처리하는 방식</span> <span>DocVQA: 문서 이미지 질의응답 평가·학습에 쓰는 데이터셋</span> <span>이미지-텍스트 변환(Image-to-Text): 이미지를 입력받아 텍스트를 생성하는 과업</span> <span>파생본(Derivative models): 같은 기반 모델에서 갈라진 다른 배포본</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: naver-clova-ix/donut-base-finetuned-docvqa</p>
+        <p class="url">공개일: 2024.03.09</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/naver-clova-ix/donut-base-finetuned-docvqa" target="_blank" rel="noopener noreferrer">https://huggingface.co/naver-clova-ix/donut-base-finetuned-docvqa</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
