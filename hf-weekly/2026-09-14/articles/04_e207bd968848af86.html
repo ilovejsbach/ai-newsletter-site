@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>작게 시험하는 문서 QA</title>
+  <title>작게 돌려 보는 문서 QA</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
   <main class="newsletter detail-page">
     <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
       <p class="source"><span class="article-number">04</span> Hugging Face</p>
-      <h1>작게 시험하는 문서 QA</h1>
+      <h1>작게 돌려 보는 문서 QA</h1>
       <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 10.17</span></p>
       
-      <p class="detail-lead">문서 질의응답은 정확도만 보지 않는다. 작은 장비에서 먼저 돌려 볼 수 있는지도 중요하다. 이 후보는 이름부터 소형 실험 모델을 내세운다. 문제는 카드가 그 판단 근거를 거의 주지 않는다는 점이다.</p>
+      <p class="detail-lead">같은 과업이라도 모델 크기는 도입 방식에 큰 차이를 만든다. 작은 모델은 시험과 배포가 빠를 수 있다. fxmarty/tiny-doc-qa-vision-encoder-decoder는 이름부터 소형 실험용 성격을 드러내는 후보다. 다만 공개 카드 정보는 매우 짧다.</p>
       <section>
         <h2>무엇을 하는 모델인가</h2>
-        <p>이 후보는 문서 질의응답용 vision-encoder-decoder 모델이다. 카드 요약에는 image-text-to-text와 document-question-answering 태그가 보인다. 작은 규모 실험용 모델로 읽힌다. MIT 라이선스라 상업 이용에는 제약이 없다.</p>
+        <p>이 모델은 문서 질의응답 과업용 후보다. fxmarty가 공개했다. 카드에는 vision-encoder-decoder 계열과 document-question-answering 태그만 적혀 있다. 상업 이용은 허용된다.</p>
         
       </section>
 <section>
@@ -27,7 +27,7 @@
 <section>
         <h2>돌리는 데 필요한 것</h2>
         
-        <table class="spec-table"><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr></table>
+        <table class="spec-table"><tr><th scope="row">라이브러리</th><td>transformers</td></tr><tr><th scope="row">파이프라인</th><td>document-question-answering</td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr></table>
       </section>
 <section>
         <h2>라이선스와 사내 반입</h2>
@@ -41,12 +41,12 @@
       </section>
 <section>
         <h2>언제 이것을 고르나</h2>
-        <p>아주 작은 실험 출발점이 필요하면 이 후보를 목록에 둘 수 있다. 다만 impira/layoutlm-document-qa는 실행 예제와 의존 항목을 밝혀 바로 검증하기 쉽다. naver-clova-ix/donut-base-finetuned-docvqa도 과업 설명은 더 분명하다. 정보가 적은 만큼, 이 후보는 빠른 비교 실험이 아니라면 우선순위가 낮다.</p>
+        <p>소형 모델을 먼저 찾는다면 후보 목록에는 넣을 수 있다. 다만 같은 커버 후보인 impira/layoutlm-document-qa나 naver-clova-ix/donut-base-finetuned-docvqa보다 카드 정보가 훨씬 적다. 사용법, 장비 조건, 성능 수치가 필요한 검토 단계라면 다른 후보를 먼저 보는 편이 낫다. 내부 실험용으로 짧게 확인할 때만 우선순위를 줄 수 있다.</p>
         
       </section>
       <section>
         <h2>주요 용어</h2>
-        <div class="terms"><span>소형 모델(Tiny model): 적은 자원으로 시험용 추론에 쓰는 작은 규모 모델</span> <span>문서 질의응답(Document Question Answering): 문서 이미지에서 질문에 맞는 답을 찾는 과업</span> <span>엔드포인트 호환(Endpoints compatible): 배포형 추론 서비스에서 쓸 수 있게 맞춘 상태를 뜻하는 표기</span></div>
+        <div class="terms"><span>문서 질의응답(Document Question Answering): 문서 이미지에서 질문에 맞는 답을 찾는 과업</span> <span>엔드포인트 호환(Endpoints compatible): 관리형 배포 환경에서 바로 올릴 수 있게 맞춘 형식</span> <span>파라미터(Parameter): 모델 크기를 나타내는 기본 수치</span> <span>추론(Inference): 학습이 끝난 모델로 실제 입력을 처리하는 단계</span></div>
       </section>
       <section>
         <h2>원문 정보</h2>

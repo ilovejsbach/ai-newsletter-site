@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>문서 이미지에서 답 찾기</title>
+  <title>문서 이미지에서 답을 찾는 모델</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
   <main class="newsletter detail-page">
     <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
       <p class="source"><span class="article-number">01</span> Hugging Face</p>
-      <h1>문서 이미지에서 답 찾기</h1>
+      <h1>문서 이미지에서 답을 찾는 모델</h1>
       <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 03.18</span></p>
       
-      <p class="detail-lead">문서 질의응답 모델은 스캔 문서나 PDF 화면에서 필요한 답을 찾는 자리에 들어간다. 사람이 문서를 눈으로 읽고 항목을 확인하던 일을 줄일 때 쓴다. 이번 후보군은 같은 과업을 다루지만, 라이선스와 사용 방식이 다르다. 사내 반입 가능 여부와 실행 조건을 같이 봐야 한다.</p>
+      <p class="detail-lead">문서 질의응답 모델은 계약서, 청구서, 신청서 같은 문서에서 필요한 답만 바로 찾는 자리에 들어간다. 이 과업은 OCR을 먼저 돌린 뒤 답을 찾는 방식과, 이미지 전체를 보고 답을 찾는 방식으로 나뉜다. impira/layoutlm-document-qa는 문서 이미지와 질문을 입력받아 답을 내는 모델이다. 카드에는 문서 QA 파이프라인 예제가 직접 실려 있다.</p>
       <section>
         <h2>무엇을 하는 모델인가</h2>
-        <p>이 모델은 문서 이미지용 질의응답 모델이다. 사용자는 문서 이미지와 질문을 넣는다. 모델은 문서 안에서 답을 찾아 돌려준다. 청구서 번호나 금액처럼 정해진 항목을 찾는 업무에 맞는다.</p>
+        <p>이 모델은 문서 이미지에 질문을 던지면 답을 뽑는다. 청구서 번호, 금액, 주소 같은 항목을 찾는 자리에 맞는다. Impira 팀이 만든 모델이다. 문서 이해용 LayoutLM을 문서 질의응답 과업에 맞춰 미세조정했다. 상업 이용은 허용된다.</p>
         
       </section>
 <section>
@@ -48,17 +48,17 @@ nlp(
       </section>
 <section>
         <h2>성능과 한계</h2>
-        <p>카드에는 예시 실행 결과만 있다. 자체 측정인지 독립 평가인지 밝히지 않았고, 벤치마크 표도 없다. 카드는 평가 결과를 밝히지 않았다.</p>
+        <p>예시 수치는 Impira가 공개한 실행 결과다. 비교 대상이나 독립 평가는 카드에 없다. 카드는 평가 결과를 표로 밝히지 않았다.</p>
         
       </section>
 <section>
         <h2>언제 이것을 고르나</h2>
-        <p>상업 서비스에 넣을 모델을 찾으면 이 후보를 먼저 볼 수 있다. impira/layoutlm-invoices는 청구서에 더 맞춰졌지만 비상업 조건이 붙는다. naver-clova-ix/donut-base-finetuned-docvqa와 fxmarty/tiny-doc-qa-vision-encoder-decoder는 라이선스 부담이 없지만, 이 카드만큼 바로 실행할 예제를 주지 않았다. 문서 이미지와 질문을 곧바로 붙여 시험할 팀이면 이 후보가 가장 빠르다.</p>
+        <p>OCR 도구를 붙여 문서 이미지에서 항목을 바로 찾고 싶다면 이 모델을 먼저 볼 수 있다. 같은 커버 후보인 impira/layoutlm-invoices는 청구서에 더 맞췄지만 비상업 조건이 걸린다. naver-clova-ix/donut-base-finetuned-docvqa는 상업 이용 제약이 없지만 카드 본문에 실행 예제가 없다. 라이선스 제약 없이 바로 시험하려면 이 모델이 편하다.</p>
         
       </section>
       <section>
         <h2>주요 용어</h2>
-        <div class="terms"><span>문서 질의응답(Document Question Answering): 문서 이미지에서 질문에 맞는 답을 찾는 과업</span> <span>OCR(Optical Character Recognition): 이미지 속 글자를 문자로 읽는 기술</span> <span>DocVQA: 문서 이미지 질의응답 평가·학습에 쓰는 데이터셋</span> <span>SQuAD2.0: 질의응답 학습에 널리 쓰는 영어 데이터셋</span> <span>파이프라인(Pipeline): 전처리와 추론을 묶어 바로 호출하는 실행 방식</span></div>
+        <div class="terms"><span>문서 질의응답(Document Question Answering): 문서 이미지나 PDF를 보고 질문에 답하는 과업</span> <span>OCR(Optical Character Recognition): 이미지 속 문자를 읽어 텍스트로 바꾸는 기술</span> <span>파이프라인(Pipeline): 전처리와 추론을 한 번에 묶어 부르는 실행 방식</span> <span>파라미터(Parameter): 모델 크기를 가늠하는 기본 수치</span> <span>접근 승인(Gated access): 모델을 받기 전에 신청이나 승인이 필요한 방식</span></div>
       </section>
       <section>
         <h2>원문 정보</h2>

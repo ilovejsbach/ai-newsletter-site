@@ -3,42 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>브라우저 작업까지 맡기는 멀티모달 모델</title>
+  <title>웹과 화면을 다루는 에이전트 모델</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
   <main class="newsletter detail-page">
     <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
       <p class="source"><span class="article-number">05</span> Hugging Face</p>
-      <h1>브라우저 작업까지 맡기는 멀티모달 모델</h1>
+      <h1>웹과 화면을 다루는 에이전트 모델</h1>
       <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.11</span></p>
       
-      <p class="detail-lead">업무용 AI를 고를 때는 채팅 성능만 보면 부족하다. 브라우저를 열고, 화면을 보고, 다음 동작을 고르는 능력이 따로 필요하다. nex-agi/Nex-N2.5-Pro는 그 자리를 노린 모델이다. 카드도 코딩, 웹 탐색, 컴퓨터 사용 평가를 앞세웠다.</p>
+      <p class="detail-lead">에이전트 모델은 답변만 만드는 자리를 넘어서고 있다. 화면을 보고 웹을 넘기며, 도구를 불러 일 처리를 이어 가는 쪽으로 옮겨 간다. Nex-N2.5-Pro는 그 흐름에서 중간급 배포형 모델로 보인다. 사내 관점에서는 성능보다 먼저 라이선스와 장비 조건을 따져야 한다.</p>
       <section>
-        <h2>무엇이 나왔나</h2>
-        <p>nex-agi/Nex-N2.5-Pro는 장기 과업을 겨냥한 멀티모달 에이전트 모델이다. Nex-AGI가 Nex-N2.5 계열의 한 크기로 공개했다. 카드에 따르면 이 모델은 컴퓨터와 브라우저를 다루고, 프로그램을 실행하고 시험하는 용도를 겨냥했다.</p>
-        
-      </section>
-<section>
-        <h2>눈에 띄는 점</h2>
-        <p>카드는 Pro와 mini, Max를 한 표에서 함께 비교했다. Pro는 BrowseComp에서 89.7, OSWorld-2에서 56.4를 기록했다. 점수 출처는 공개 리더보드와 타사 보고서, 자체 평가가 섞여 있다. WebTest 값은 oracle mode로 측정했고, 결함 탐지만 봤다.</p>
-        
-      </section>
-<section>
         <h2>지금 쓸 수 있나</h2>
-        <p>Apache-2.0이라 상업 이용에 제약이 없다. 카드에는 접근 승인 조건이 보이지 않는다. 배포 예시는 단일 노드 H100 8장과 SGLang 서버를 요구했다. 파라미터 수는 이 Pro 카드에 따로 적지 않았다.</p>
-        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>docker run --gpus all --shm-size 32g --ipc=host \\
-  -p 30000:30000 \\
-  -v /path/to/your/model:/model \\
-  nexagi/sglang:v0.5.18-nex-patch \\
-  python3 -m sglang.launch_server \\
-    --model-path /model \\
-    --tp 8 \\
-    --host 0.0.0.0 --port 30000 \\</code></pre></div><p class="code-src">원문: https://huggingface.co/nex-agi/Nex-N2.5-Pro</p></figure>
+        <p>상업 이용 제약이 없고 접근 승인 조건도 보이지 않으니, 라이선스만 놓고 보면 사내 시험은 수월하다. 다만 같은 계열인 nex-agi/Nex-N2.5-mini는 H100 2장 예시를 제시했고, 이 Pro는 H100 8장 예시를 제시했다. 우리 장비가 제한적이면 mini가 먼저다. 화면 조작 성능을 조금 더 끌어올리고 싶고 H100급 다중 GPU를 쓸 수 있으면 Pro를 고를 만하다.</p>
+        
+      </section>
+<section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>Nex-N2.5-Pro는 화면과 텍스트를 함께 다루는 에이전트 모델이다. 이 모델은 컴퓨터와 브라우저를 조작하는 일을 겨냥했다. 이 모델은 프로그램을 스스로 실행하고 시험하는 용도도 내세운다. 연구 업무와 지식 업무, 생산성 업무를 긴 과업 단위로 처리하는 자리에 맞춘다.</p>
+        
+      </section>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <table class="spec-table"><tr><th scope="row">라이브러리</th><td>sglang</td></tr><tr><th scope="row">과업</th><td>image-text-to-text, text-generation</td></tr><tr><th scope="row">권장 사용법</th><td>OpenAI 호환 Chat Completions 요청에서 reasoning_effort 값을 써 사고 모드를 고르라고 안내했다.</td></tr></table><p>원문 카드에 실행 예제가 없습니다.</p>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">설치</th><td><code>docker run --gpus all --shm-size 32g --ipc=host \
+  -p 30000:30000 \
+  -v /path/to/your/model:/model \
+  nexagi/sglang:v0.5.18-nex-patch \
+  python3 -m sglang.launch_server \
+    --model-path /model \
+    --tp 8 \
+    --host 0.0.0.0 --port 30000 \
+    --reasoning-parser qwen3 \
+    --tool-call-parser qwen3_coder \
+    --chat-template /path/to/nex-N2.5-Pro/chat-template.jinja \
+    --mamba-scheduler-strategy extra_buffer</code></td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">라이브러리</th><td>sglang</td></tr><tr><th scope="row">파이프라인</th><td>image-text-to-text, text-generation</td></tr><tr><th scope="row">필요한 장비</th><td>단일 노드, H100 8장</td></tr><tr><th scope="row">제공 형식</th><td>hosted online services</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>점수는 공개 리더보드와 각 모델 제공사의 최신 평가 보고서를 섞어 썼고, 공개 출처가 없는 값은 Nex-AGI가 자체 측정했다. 브라우저·컴퓨터 사용 평가는 자사 NexCUA 하네스를 썼고, WebTest는 오라클 모드로 결함 탐지만 재서 일반 실행 점수와 바로 같게 볼 수 없다. 카드가 한국어 지원 여부와 최소 메모리는 밝히지 않았다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>평가 이름</th><th>무엇을 재나</th><th>Nex-N2.5-Pro</th><th>비교 기준</th></tr></thead><tbody><tr><td>Terminal-Bench 2.1</td><td>터미널 코딩 작업</td><td>82.7</td><td>Claude Opus 5 89.1</td></tr><tr><td>SWE-Bench Pro</td><td>소프트웨어 수정</td><td>61.2</td><td>GPT-5.6 Sol 64.6, Claude Opus 5 79.2</td></tr><tr><td>AutomationBench v1.0.65</td><td>자동화 에이전트 작업</td><td>44.2</td><td>Claude Opus 5 50.3</td></tr><tr><td>BrowseComp</td><td>웹 탐색 과업</td><td>89.7</td><td>Claude Opus 5 90.8, Qwen3.8-Max 92.6</td></tr><tr><td>OSWorld-Verified</td><td>컴퓨터 조작</td><td>82.2</td><td>Claude Opus 5 83.4, Qwen3.8-Max 86.1</td></tr><tr><td>WebArena-Verified</td><td>웹 에이전트 작업</td><td>67.6</td><td>GPT-5.6 Sol 69.7, Kimi-K3 71.6</td></tr><tr><td>Vision2Web</td><td>화면을 보고 웹 작업</td><td>68.2</td><td>GPT-5.6 Sol 79.8, Qwen3.8-Max 75.1</td></tr><tr><td>OmniDoc</td><td>문서 이해</td><td>92.2</td><td>GPT-5.6 Sol 92.9, Qwen3.8-Max 92.1</td></tr></tbody></table></div>
       </section>
       <section>
         <h2>주요 용어</h2>
-        <div class="terms"><span>에이전트 모델(Agentic model): 여러 단계를 거쳐 도구를 쓰고 작업을 이어 가는 모델.</span> <span>멀티모달(Multimodal): 텍스트만이 아니라 이미지 같은 여러 입력을 함께 다루는 방식.</span> <span>양자화(Quantization): 모델 표현을 줄여 메모리 사용량을 낮추는 기법.</span> <span>OSWorld: 컴퓨터 사용 과제를 재는 벤치마크.</span> <span>SWE-Bench Pro: 코드 수정 과제를 재는 벤치마크.</span> <span>Apache-2.0: 상업 이용과 배포를 허용하는 오픈소스 라이선스.</span></div>
+        <div class="terms"><span>에이전트 모델(Agentic model): 여러 단계를 거치는 일을 스스로 이어 가게 만든 모델</span> <span>멀티모달(Multimodal): 텍스트와 이미지처럼 서로 다른 입력을 함께 다루는 방식</span> <span>함수 호출(Function calling): 모델이 외부 도구나 프로그램을 정해진 형식으로 부르는 기능</span> <span>MoE(Mixture-of-Experts): 여러 전문가 모듈 중 일부만 골라 쓰는 모델 구조</span> <span>OSWorld: 컴퓨터 조작 과업을 재는 평가</span> <span>SWE-Bench Pro: 소프트웨어 수정 과업을 재는 평가</span></div>
       </section>
       <section>
         <h2>원문 정보</h2>
