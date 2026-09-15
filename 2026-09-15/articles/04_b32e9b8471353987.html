@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAI, Agents API 베타 시작</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">04</span> OpenAI <span class="source-date">게시일 2026.09.10</span></p>
+      <h1>OpenAI, Agents API 베타 시작</h1>
+      <img class="detail-image" src="../assets/images/article_04_b32e9b8471353987.png" alt="기사 이미지">
+      <p class="detail-lead">OpenAI가 에이전트용 관리형 API를 내놨다. 핵심은 모델 호출 그 자체보다, 오래 걸리는 작업을 안정적으로 돌리는 실행 구조를 서비스로 제공하는 데 있다. 개발자는 작업, 모델, 도구, 실행 환경만 정하면 된다. OpenAI는 운영 부담을 줄이고 병렬 처리와 문맥 관리도 맡겠다고 했다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>OpenAI는 Agents API를 공개 베타로 출시했다. 이 서비스는 Codex를 돌리던 실행 구조와 인프라를 개발자가 API로 쓸 수 있게 했다. 긴 세션 운영, 도구 사용, 파일 작업, 중간 결과 저장이 핵심 기능이다.</p>
+<p>개발자는 한 번의 API 호출로 에이전트를 만들 수 있다. 작업 내용, 모델, 도구, 실행 환경을 지정하면 된다. OpenAI는 하네스를 직접 운영하고 유지한다.</p>
+<p>실행 환경은 고를 수 있다. OpenAI가 관리하는 샌드박스를 쓰거나, 자체 인프라에 두거나, 파트너 샌드박스를 붙일 수 있다. 파트너로는 Blaxel, Cloudflare, Daytona, DigitalOcean, E2B, Modal, Oracle, Runloop, Vercel이 언급됐다.</p>
+<p>과금 구조도 단순하다.</p>
+<ul><li>공개 베타는 모든 개발자에게 열림</li><li>Agents API 자체 추가 사용료는 없음</li><li>사용한 토큰과 도구 비용만 지불</li><li>OpenAI hosted sandbox도 함께 제공</li></ul>
+        
+      </section>
+<figure class="detail-image-wrap info-image" style="margin:18px 0"><img class="detail-image" src="../assets/images/article_04_info1_07b88a2f.png" alt="원문 자료 이미지"><figcaption style="font-size:12px;color:#888;margin-top:6px">원문 자료 (기사 원문에서 발췌)</figcaption></figure>
+<section>
+        <h2>맥락 읽기</h2>
+        <p>이번 발표의 중심은 새 모델이 아니라 에이전트 운영 계층이다. OpenAI는 유용한 에이전트에 긴 문맥 관리, 효율적인 도구 탐색, 하위 에이전트 조정이 필요하다고 설명했다. 많은 팀이 직접 만들던 운영 코드를 플랫폼으로 흡수하려는 움직임으로 볼 수 있다.</p>
+<p>OpenAI는 세 가지 운영 기능을 특히 강조했다. 문맥 한도에 가까워지면 이전 내용을 자동 압축해 긴 세션을 이어가게 한다. 필요한 도구 정의만 불러와 토큰 사용량과 비용을 줄인다. 복잡한 과업은 여러 서브에이전트로 나눠 병렬 처리한다.</p>
+<p>오픈소스 기반도 강조했다. Agents API는 오픈소스 Codex 하네스를 바탕으로 움직인다. 개발자는 공개 코드로 내부 동작을 살펴볼 수 있다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>OpenAI는 여러 생태계 사업자와 손잡고 샌드박스 연동을 붙였다. 이는 에이전트 플랫폼 경쟁이 모델 회사 단독 경쟁이 아니라 인프라 생태계 경쟁으로 번지고 있음을 보여준다. 다만 고객사별 공개 도입 사례나 경쟁사 대응은 이번 발췌에 없다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 에이전트를 도입한다면 직접 오케스트레이션 코드를 짜는 부담을 줄일 수 있다. 장애 분석, 운영 점검, 보고서 취합, 내부 지식 검색처럼 여러 도구를 섞는 업무에 먼저 맞출 수 있다.</p>
+<p>검토할 항목은 구체적이다.</p>
+<ul><li>샌드박스를 OpenAI 관리형으로 둘지, 사내 인프라로 둘지 결정해야 한다</li><li>파일 저장 위치와 비밀정보 관리 방식을 보안팀이 검토해야 한다</li><li>MCP로 연결할 내부 도구 목록과 권한 범위를 정해야 한다</li><li>긴 세션 로그와 중간 산출물을 어디까지 보관할지 운영 기준이 필요하다</li></ul>
+<p>공개 베타 단계라는 점도 중요하다. 정식 출시 전에는 동작 방식과 성능, 운영 조건이 빠르게 바뀔 수 있다. 핵심 업무에 바로 넣기보다 제한된 파일럿으로 검증하는 편이 안전하다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>에이전트(agent): 목표를 받아 도구를 쓰고 여러 단계를 거쳐 작업을 수행하는 AI 프로그램</span> <span>하네스(harness): 모델 호출, 문맥 관리, 도구 실행을 묶어 운영하는 실행 구조</span> <span>MCP(Model Context Protocol): 모델이 외부 도구와 데이터를 연결할 때 쓰는 규약</span> <span>서브에이전트(subagent): 큰 작업을 쪼개 병렬로 처리하는 하위 에이전트</span> <span>샌드박스(sandbox): 코드를 격리된 환경에서 안전하게 실행하는 공간</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Introducing the Agents API</p>
+        <p class="url">게시일: 2026.09.10</p>
+        <p class="url">출처 URL: <a href="https://openai.com/index/introducing-the-agents-api" target="_blank" rel="noopener noreferrer">https://openai.com/index/introducing-the-agents-api</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
