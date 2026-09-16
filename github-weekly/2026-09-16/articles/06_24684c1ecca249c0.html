@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>터미널 업무를 붙잡는 Gemini CLI</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-agents detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">06</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">google-gemini</span><span class="repo-sep">/</span><span class="repo-repo">gemini-cli</span></p>
+      <h1>터미널 업무를 붙잡는 Gemini CLI</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 107,006</span><span class="repo-delta">이번 주 +127</span><span class="repo-lang">TypeScript</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v0.60.0 (09.15)</span><span class="repo-active">최근 활동 09.15</span><span class="repo-check-state">테스트 없음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_06_24684c1ecca249c0.png" alt="기사 이미지">
+      <p class="detail-lead">이 저장소는 Gemini를 터미널에서 직접 쓰게 해 주는 도구다. 파일 작업, 셸 명령, 웹 조회, 검색을 기본 도구로 묶었다. 스크립트 모드와 GitHub 연동도 함께 제공한다. 개인 계정 무료 구간과 기업용 인증 선택지도 나뉘어 있다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>Gemini CLI는 터미널에서 Gemini 모델을 바로 호출하는 오픈소스 에이전트다. 사용자는 자연어로 코드베이스를 묻고, 파일을 고치고, 셸 작업을 실행할 수 있다. 별도 화면을 옮겨 다니지 않고 명령줄 안에서 검색과 실행, 응답을 묶는다. 업무 창구 하나에서 문의 접수와 조회, 처리 지시를 같이 하는 느낌에 가깝다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>TypeScript 기반이다.</li><li>npx로 즉시 실행하거나 npm 전역 설치를 할 수 있다.</li><li>Homebrew, MacPorts, Anaconda 설치 경로도 제공한다.</li><li>Google 계정 로그인, Gemini API 키, Vertex AI 인증을 지원한다.</li><li>라이선스는 Apache-2.0이다.</li><li>Stable 릴리스는 매주 화요일 UTC 20:00에 낸다.</li><li>Preview 릴리스는 매주 화요일 UTC 23:59에 낸다.</li><li>Nightly 릴리스는 매일 UTC 00:00에 낸다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>야간 배치 점검 스크립트에 비대화식 호출을 넣어 로그 요약과 이상 징후 정리를 자동화할 수 있다.</li><li>고객 문의로 올라온 오류 재현 절차를 GitHub 이슈와 코드 변경 내역까지 묶어 터미널에서 빠르게 확인할 수 있다.</li><li>개발팀이 풀리퀘스트 리뷰나 이슈 분류를 GitHub 워크플로에 붙여 반복 작업을 줄일 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>큰 코드베이스를 질의하고 수정하며 디버깅할 수 있다.</li><li>Google Search 기반 grounding과 파일 작업, 셸 명령, 웹 가져오기를 기본 도구로 제공한다.</li><li>MCP 서버를 붙여 GitHub, Slack, 데이터베이스 같은 외부 기능을 확장할 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>대안 대비 차별점</h2>
+        <p>이 도구는 터미널 우선 설계를 앞세운다. 대화형 사용뿐 아니라 스크립트용 비대화식 실행과 JSON 출력, 스트림 JSON 출력을 같이 제공한다. 인증도 개인 Google 계정, API 키, Vertex AI로 나뉜다. 팀 상황에 따라 무료 사용, 모델 지정, 기업용 배포를 다르게 고를 수 있다.</p>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>Google 계정 로그인, API 키, Vertex AI 중 무엇을 쓸지 먼저 정해야 한다.</li><li>Google Search와 웹 가져오기, MCP 연동을 쓰면 외부 서비스 호출과 데이터 반출 가능성을 검토해야 한다.</li><li>유지보수 주체는 google-gemini 조직 계정이다.</li><li>GitHub Copilot Chat류 상용 도구와 일부 겹치지만, 터미널 자동화와 스크립트 출력 형식은 비교 확인이 필요하다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>터미널(Terminal): 명령어를 입력해 작업하는 텍스트 기반 환경</span> <span>MCP(Model Context Protocol): 모델과 외부 도구를 연결하는 규약</span> <span>OAuth(OAuth): 비밀번호를 직접 주지 않고 계정 권한을 위임하는 로그인 방식</span> <span>컨텍스트 윈도(Context Window): 모델이 한 번에 참고할 수 있는 입력 범위</span> <span>체크포인팅(Checkpointing): 작업 상태를 저장했다가 이어서 쓰는 기능</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: google-gemini/gemini-cli</p>
+        <p class="url">최근 활동: 2026.09.15</p>
+        <p class="url">출처 URL: <a href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener noreferrer">https://github.com/google-gemini/gemini-cli</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
