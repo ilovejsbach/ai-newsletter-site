@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSON 응답을 노린 소형 생성 모델</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">07</span> Hugging Face</p>
+      <h1>JSON 응답을 노린 소형 생성 모델</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.16</span></p>
+      
+      <p class="detail-lead">이번 후보는 자유 문장 생성보다 형식 맞춘 출력에 초점을 둔다. 이런 모델은 분류 결과를 시스템에 바로 넘길 때 편하다. 카드에 적힌 정보는 많지 않다. 그래서 이번 정리는 쓸모와 빈칸을 함께 확인하는 데 뜻이 있다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>harshatheg/Qwen-2.5-1B-RLCD는 텍스트 생성 모델이다. 분류와 JSON 출력, 구조화 생성을 함께 겨냥했다. Apple Silicon과 MLX 태그가 붙어 있다. 기반 모델은 Qwen/Qwen2.5-1.5B-Instruct다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>이 모델은 제약 디코딩을 전면에 내세웠다. 형식이 틀리면 후속 시스템이 멈추는 업무에서 먼저 볼 만하다. 카드에는 벤치마크 점수나 정확도 수치를 싣지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>Apache-2.0이라 상업 이용 제약은 없다. 카드에는 접근 승인 요구도 보이지 않는다. 다만 파라미터 수와 필요한 메모리, 최소 장비는 밝히지 않았다. 사내 시험은 가능하지만, 장비 계획은 카드만으로 세우기 어렵다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>구조화 생성(Structured Generation): JSON처럼 정해진 형식에 맞춰 답을 만들게 하는 방식</span> <span>제약 디코딩(Constrained Decoding): 허용한 형식과 토큰 안에서만 답을 내게 하는 추론 방식</span> <span>미세조정(Finetuning): 기존 모델을 특정 작업에 맞게 다시 학습하는 과정</span> <span>JSON: 키와 값으로 데이터를 주고받는 표준 형식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: harshatheg/Qwen-2.5-1B-RLCD</p>
+        <p class="url">공개일: 2026.09.16</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD" target="_blank" rel="noopener noreferrer">https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

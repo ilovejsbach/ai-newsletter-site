@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>영어 감성 분류 기본기, 정확도 91.3</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">05</span> Hugging Face</p>
+      <h1>영어 감성 분류 기본기, 정확도 91.3</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 12.19</span></p>
+      
+      <p class="detail-lead">감성 분류는 가장 널리 쓰이는 텍스트 분류 과업이다. 짧은 문장 톤을 빠르게 나눌 때 특히 편하다. 이 모델은 영어 감성 분류의 기본 비교점으로 자주 쓰이는 카드다. 금융 특화 모델과 견줄 기준점으로도 쓸 수 있다.</p>
+      <section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>이 모델은 영어 문장의 감성을 분류한다. 카드 설명상 SST-2로 미세조정한 DistilBERT 체크포인트다. 분류 업무에 바로 붙여 쓸 수 있다. 라이선스는 Apache-2.0이다.</p>
+        
+      </section>
+<figure class="detail-image-wrap info-image" style="margin:18px 0"><img class="detail-image" src="../assets/images/article_05_info1_dd5b3491.jpeg" alt="원문 자료 이미지"><figcaption style="font-size:12px;color:#888;margin-top:6px">원문 자료 (기사 원문에서 발췌)</figcaption></figure>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>import torch
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
+
+tokenizer = DistilBertTokenizer.from_pretrained(&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;)
+model = DistilBertForSequenceClassification.from_pretrained(&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;)
+
+inputs = tokenizer(&quot;Hello, my dog is cute&quot;, return_tensors=&quot;pt&quot;)
+with torch.no_grad():
+    logits = model(inputs).logits
+
+predicted_class_id = logits.argmax().item()
+model.config.id2label[predicted_class_id]</code></pre></div><p class="code-src">원문: https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english</p></figure>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">라이브러리</th><td>transformers</td></tr><tr><th scope="row">파이프라인</th><td>text-classification</td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">제공 형식</th><td>ONNX</td></tr><tr><th scope="row">지원 언어</th><td>English</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>정확도 91.3은 카드가 직접 밝힌 자체 측정 값이다. 비교 대상으로 같은 문단에서 bert-base-uncased 92.7을 제시했다. 카드에는 국가명만 바꿔도 긍정 확률이 크게 달라지는 편향 사례를 함께 적었다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>평가 이름</th><th>무엇을 재나</th><th>점수</th><th>측정 주체</th><th>비교 대상</th></tr></thead><tbody><tr><td>SST-2 dev set</td><td>영어 감성 분류 정확도</td><td>91.3</td><td>카드 자체 기재</td><td>bert-base-uncased 92.7</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>언제 이것을 고르나</h2>
+        <p>영어 감성 분류를 빨리 시험하려면 이 모델이 가장 단순하다. 금융 문장으로 바로 들어가려면 ProsusAI/finbert가 과업에는 더 가깝다. 라이선스가 분명하고 예제가 있어야 하면 이 모델이 FinBERT보다 수월하다. 소셜 글 감성처럼 트윗 문체가 중요하면 cardiffnlp/twitter-roberta-base-sentiment-latest가 더 맞다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>정확도(Accuracy): 전체 예측 중 맞힌 비율</span> <span>개발 세트(Dev set): 학습 중간 점검에 쓰는 검증용 데이터</span> <span>편향(Bias): 특정 집단에 예측이 치우치는 현상</span> <span>SST-2: 영어 문장 감성 분류 벤치마크</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: distilbert/distilbert-base-uncased-finetuned-sst-2-english</p>
+        <p class="url">공개일: 2023.12.19</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english" target="_blank" rel="noopener noreferrer">https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

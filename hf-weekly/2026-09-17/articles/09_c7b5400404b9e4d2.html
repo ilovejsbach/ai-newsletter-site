@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>검색 결과를 다시 거르는 다국어 모델</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">09</span> Hugging Face</p>
+      <h1>검색 결과를 다시 거르는 다국어 모델</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 03.19</span></p>
+      
+      <p class="detail-lead">생성 모델이 답을 잘 쓰더라도, 앞단 검색이 흔들리면 결과도 흔들린다. 그래서 검색 후보를 다시 줄 세우는 리랭커가 중요하다. 이번 후보는 그 실무 자리에 맞는 다국어 모델이다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>BAAI/bge-reranker-v2-gemma는 텍스트 재정렬 모델이다. 검색으로 모은 문서 후보를 다시 점수 매겨 순서를 바꾼다. 다국어 태그가 붙어 있어 여러 언어 검색을 겨냥했다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>이 후보는 생성 모델이 아니라 리랭커다. 그래서 사내 검색과 문서 추천 흐름에 바로 끼워 넣기 쉽다. 이 입력에 포함된 카드 정보만으로는 벤치마크 수치를 확인할 수 없다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>Apache-2.0이라 상업 이용 제약은 없다. 카드 본문이 이 입력에 짧게 들어와 있어 접근 승인 요구는 보이지 않는다. 다만 파라미터 수와 필요한 장비는 여기서 확인되지 않는다. 사내 시험은 가능하지만, 배치 크기와 지연 시간은 따로 재야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>리랭커(Reranker): 1차 검색 결과를 다시 점수 매겨 순서를 바꾸는 모델</span> <span>다국어(Multilingual): 여러 언어 입력을 함께 다루는 성질</span> <span>텍스트 분류(Text Classification): 문장이나 문서에 점수나 꼬리표를 붙이는 작업</span> <span>RAG(Retrieval-Augmented Generation): 검색으로 찾은 문서를 붙여 답을 만드는 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: BAAI/bge-reranker-v2-gemma</p>
+        <p class="url">공개일: 2024.03.19</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/BAAI/bge-reranker-v2-gemma" target="_blank" rel="noopener noreferrer">https://huggingface.co/BAAI/bge-reranker-v2-gemma</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

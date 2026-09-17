@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>최근 트윗 1억2400만 건으로 맞춘 감성 분류</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">06</span> Hugging Face</p>
+      <h1>최근 트윗 1억2400만 건으로 맞춘 감성 분류</h1>
+      <p class="repo-facts"><span class="repo-license">cc-by-4.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 08.04</span></p>
+      
+      <p class="detail-lead">감성 분류는 데이터 성격을 많이 탄다. 뉴스 문장과 소셜 글은 말투가 다르다. cardiffnlp/twitter-roberta-base-sentiment-latest는 영어 트윗 환경에 맞춘 모델이다.</p>
+      <section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>이 모델은 영어 트윗 감성을 분류한다. 출력 라벨은 Negative, Neutral, Positive다. 카드 설명에는 2022년 갱신판이라고 적혀 있다. 라이선스는 CC-BY-4.0이다.</p>
+        
+      </section>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from transformers import pipeline
+sentiment_task = pipeline(&quot;sentiment-analysis&quot;, model=model_path, tokenizer=model_path)
+sentiment_task(&quot;Covid cases are increasing fast!&quot;)</code></pre></div><p class="code-src">원문: https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest</p></figure>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">라이브러리</th><td>transformers</td></tr><tr><th scope="row">파이프라인</th><td>sentiment-analysis</td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">지원 언어</th><td>English</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>cc-by-4.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>카드는 약 1억2400만 건 트윗으로 학습했다고 밝혔다. 기간은 2018년 1월부터 2021년 12월까지다. 다만 이 발췌에는 벤치마크 점수 표가 없다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>무엇을 뜻하나</th><th>값</th></tr></thead><tbody><tr><td>학습 데이터 규모</td><td>사전학습에 쓴 트윗 수</td><td>~124M</td></tr><tr><td>학습 데이터 기간</td><td>트윗 수집 기간</td><td>January 2018 to December 2021</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>언제 이것을 고르나</h2>
+        <p>영어 소셜 글 반응을 읽을 일이면 이 모델이 distilbert/distilbert-base-uncased-finetuned-sst-2-english보다 데이터 결이 가깝다. 금융 공시나 리서치 문장을 읽는 일이라면 ProsusAI/finbert가 더 맞을 수 있다. 라이선스 제약이 약하고 호출 예제가 있는 점은 도입 검토에 유리하다. 반면 검색 재정렬 업무라면 BAAI의 reranker 계열을 골라야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>트윗(Tweet): X(옛 Twitter)에 올라오는 짧은 글</span> <span>라벨(Label): 모델이 분류 결과로 붙이는 이름</span> <span>파이프라인(Pipeline): 전처리와 추론을 묶어 바로 쓰게 한 호출 방식</span> <span>TweetEval: 소셜 미디어 텍스트 분류를 비교하는 벤치마크</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: cardiffnlp/twitter-roberta-base-sentiment-latest</p>
+        <p class="url">공개일: 2025.08.04</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest" target="_blank" rel="noopener noreferrer">https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

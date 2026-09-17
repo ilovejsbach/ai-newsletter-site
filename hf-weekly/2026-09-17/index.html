@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>허깅페이스 주간 동향 | 2026.09.10 - 2026.09.17</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../../index.html" style="color:#31518F;text-decoration:none;font-weight:600;">← 전체 호 아카이브</a></div>
+  <main class="newsletter">
+    <header class="masthead">
+      <div>
+        <p class="kicker">Weekly Hugging Face Brief</p>
+        <h1>허깅페이스 주간 동향 | 2026.09.10 - 2026.09.17</h1>
+        <p class="lead">이번 호 커버는 검색 결과 재순위화와 감성 분류, 위험 프롬프트 필터링처럼 금융IT 현장에서 먼저 붙는 분류와 검색 과업을 다룹니다. 지금 장면은 한 모델이 모든 자리를 차지하기보다, 재순위화와 감성, 안전 분류가 용도별로 나뉘어 함께 쓰이는 쪽에 가깝습니다. 사내에서는 고객 문의 검색과 내부 문서 검색, 프롬프트 차단을 같은 기준으로 나눠 시험해 보면 좋습니다.</p>
+      </div>
+      <div class="issue-plate" style="--sc:#1e3a5f"><p class="plate-kicker">이번 호 커버</p><strong class="plate-topic">텍스트 분류와 감성</strong><p class="plate-line">후보 107건에서 6건을 골랐습니다</p><div class="lic-band"><span class="lic-seg tier-permissive" style="width:66.7%"></span><span class="lic-seg tier-unknown" style="width:33.3%"></span></div><p class="plate-legend">사내 사용 가능 4 · 법무 확인 0 · 확인 필요 2</p></div>
+    </header>
+    <section class="articles">
+      <section class="article-group section-cover group-labeled" style="--sc:#1e3a5f">
+  <header class="group-header">
+    <h2>이번 호 커버</h2>
+    <p>이번 호가 다루는 과업에서 실제로 쓰이는 모델의 지형입니다.</p>
+  </header>
+  
+  <div class="matrix">
+    <table class="data-table matrix-table">
+      <thead>
+        <tr><th scope="col">모델</th><th scope="col">만든 곳</th><th scope="col">크기</th><th scope="col">라이선스</th><th scope="col" class="col-bar">다운로드</th><th scope="col">갱신</th><th scope="col">비고</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><span class="repo-owner">BAAI</span><span class="repo-sep">/</span><span class="repo-repo">bge-reranker-v2-m3</span></th>
+          <td>Baai</td>
+          <td>—</td>
+          <td>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:100.0%"></span></span><span class="bar-num">18,034,248</span></td>
+          <td>24.03</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">ProsusAI</span><span class="repo-sep">/</span><span class="repo-repo">finbert</span></th>
+          <td>Prosusai</td>
+          <td>—</td>
+          <td>미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:30.1%"></span></span><span class="bar-num">5,422,679</span></td>
+          <td>22.03</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">meta-llama</span><span class="repo-sep">/</span><span class="repo-repo">Prompt-Guard-86M</span></th>
+          <td>Meta Llama</td>
+          <td>—</td>
+          <td>llama3.1 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:25.3%"></span></span><span class="bar-num">4,568,035</span></td>
+          <td>24.07</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">BAAI</span><span class="repo-sep">/</span><span class="repo-repo">bge-reranker-base</span></th>
+          <td>Baai</td>
+          <td>—</td>
+          <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:22.1%"></span></span><span class="bar-num">3,983,826</span></td>
+          <td>23.09</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">distilbert</span><span class="repo-sep">/</span><span class="repo-repo">distilbert-base-uncased-finetuned-sst-2-english</span></th>
+          <td>Distilbert</td>
+          <td>—</td>
+          <td>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:20.6%"></span></span><span class="bar-num">3,708,875</span></td>
+          <td>22.03</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">cardiffnlp</span><span class="repo-sep">/</span><span class="repo-repo">twitter-roberta-base-sentiment-latest</span></th>
+          <td>Cardiffnlp</td>
+          <td>—</td>
+          <td>cc-by-4.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:17.6%"></span></span><span class="bar-num">3,170,579</span></td>
+          <td>22.03</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">trl-internal-testing</span><span class="repo-sep">/</span><span class="repo-repo">tiny-Qwen2ForSequenceClassification-2.5</span></th>
+          <td>Trl Internal Testing</td>
+          <td>—</td>
+          <td>미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:11.9%"></span></span><span class="bar-num">2,143,304</span></td>
+          <td>25.01</td>
+          <td>라이선스 확인 필요</td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="repo-owner">daekeun-ml</span><span class="repo-sep">/</span><span class="repo-repo">koelectra-small-v3-nsmc</span></th>
+          <td>Daekeun Ml</td>
+          <td>—</td>
+          <td>mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></td>
+          <td class="col-bar"><span class="bar-track"><span class="bar-fill" style="width:10.1%"></span></span><span class="bar-num">1,829,963</span></td>
+          <td>22.03</td>
+          <td>차순위 후보</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="matrix-note">표가 잘리면 옆으로 밀어 보십시오.</p>
+  <div class="cover-grid">
+<article class="model-card" id="story-01">
+  <h3><span class="article-number">01</span><a href="articles/01_3891d3dadfc5a4a4.html#top">다국어 검색 결과를 다시 거르는 재순위화</a></h3>
+  <p class="repo-name"><span class="repo-owner">BAAI</span><span class="repo-sep">/</span><span class="repo-repo">bge-reranker-v2-m3</span></p>
+  <p class="story-hook">&ldquo;다국어 검색 결과를 다시 정렬하는 재순위화 모델이다. Apache-2.0이라 상업 이용에 제약이 없고 FlagEmbedding이나 transformers로 바로 붙일 수 있다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">1,803만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">1,198</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">텍스트 분류와 감성</span><span class="repo-check">예제 있음</span><span class="repo-active">공개일 24.06</span></p>
+</article>
+
+<article class="model-card" id="story-02">
+  <h3><span class="article-number">02</span><a href="articles/02_0186efa1bcb5f93c.html#top">금융 문장 감성을 셋으로 가르는 모델</a></h3>
+  <p class="repo-name"><span class="repo-owner">ProsusAI</span><span class="repo-sep">/</span><span class="repo-repo">finbert</span></p>
+  <p class="story-hook">&ldquo;금융 텍스트 감성 분류 모델이지만 카드가 라이선스와 실행 방법, 장비 조건을 밝히지 않았다. 사내 운영보다 탐색 검토 단계에 가깝다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">542만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">1,244</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span><span class="model-task">텍스트 분류와 감성</span><span class="repo-active">공개일 23.05</span></p>
+</article>
+
+<article class="model-card" id="story-03">
+  <h3><span class="article-number">03</span><a href="articles/03_a01d82997254f35b.html#top">입력 프롬프트를 먼저 거르는 8600만 분류기</a></h3>
+  <p class="repo-name"><span class="repo-owner">meta-llama</span><span class="repo-sep">/</span><span class="repo-repo">Prompt-Guard-86M</span></p>
+  <p class="story-hook">&ldquo;프롬프트 안전 분류 모델이지만 Llama 3.1 조건이 붙어 상업 이용을 자유 라이선스로 보기는 어렵다. 카드 발췌에는 사용 예제와 장비 정보도 없다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">457만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">403</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">llama3.1 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span><span class="model-task">텍스트 분류와 감성</span><span class="repo-active">공개일 25.11</span></p>
+</article>
+
+<article class="model-card" id="story-04">
+  <h3><span class="article-number">04</span><a href="articles/04_762fb7db131614a5.html#top">영중문 검색 결과를 다시 매기는 경량 재순위화</a></h3>
+  <p class="repo-name"><span class="repo-owner">BAAI</span><span class="repo-sep">/</span><span class="repo-repo">bge-reranker-base</span></p>
+  <p class="story-hook">&ldquo;검색 결과를 다시 매기는 재순위화 모델이다. MIT 라이선스라 상업 이용에 제약이 없고 ONNX 형식 표기가 있어 배포 선택지도 읽힌다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">398만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">246</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">텍스트 분류와 감성</span><span class="repo-active">공개일 24.06</span></p>
+</article>
+
+<article class="model-card" id="story-05">
+  <h3><span class="article-number">05</span><a href="articles/05_8b7e67593eb9fb5e.html#top">영어 감성 분류 기본기, 정확도 91.3</a></h3>
+  <p class="repo-name"><span class="repo-owner">distilbert</span><span class="repo-sep">/</span><span class="repo-repo">distilbert-base-uncased-finetuned-sst-2-english</span></p>
+  <p class="story-hook">&ldquo;영어 감성 분류 기본 모델이다. Apache-2.0이라 상업 이용에 제약이 없고 정확도 91.3을 카드가 직접 밝혔다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">371만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">953</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">텍스트 분류와 감성</span><span class="repo-check">예제 있음</span><span class="repo-active">공개일 23.12</span></p>
+</article>
+
+<article class="model-card" id="story-06">
+  <h3><span class="article-number">06</span><a href="articles/06_febab8681c595046.html#top">최근 트윗 1억2400만 건으로 맞춘 감성 분류</a></h3>
+  <p class="repo-name"><span class="repo-owner">cardiffnlp</span><span class="repo-sep">/</span><span class="repo-repo">twitter-roberta-base-sentiment-latest</span></p>
+  <p class="story-hook">&ldquo;영어 소셜 글 감성 분류 모델이다. CC-BY-4.0이라 상업 이용에 제약이 없고 2018년 1월부터 2021년 12월까지 약 1억2400만 건 트윗으로 학습했다.&rdquo;</p>
+  <p class="mp-row"><span class="mp-cell"><span class="mp-num">317만</span><span class="mp-cap">다운로드</span></span><span class="mp-cell"><span class="mp-num">831</span><span class="mp-cap">좋아요</span></span></p>
+  <p class="repo-facts"><span class="repo-license">cc-by-4.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="model-task">텍스트 분류와 감성</span><span class="repo-check">예제 있음</span><span class="repo-active">공개일 25.08</span></p>
+</article>
+</div>
+</section>
+<section class="article-group section-fresh group-labeled" style="--sc:#0f766e">
+  <header class="group-header">
+    <h2>이번 주 새로 나온 것</h2>
+    <p>최근 공개된 원본 모델 가운데 눈여겨볼 것입니다.</p>
+  </header>
+  <div class="brief-grid">
+<article class="brief" id="story-07">
+  <p class="repo-name"><span class="repo-owner">harshatheg</span><span class="repo-sep">/</span><span class="repo-repo">Qwen-2.5-1B-RLCD</span></p>
+  <h3><span class="article-number">07</span><a href="articles/07_b52909325615ce37.html#top">JSON 응답을 노린 소형 생성 모델</a></h3>
+  <p class="brief-line">작은 Qwen 파생 모델이 JSON 출력과 제약 디코딩을 노린다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 127</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-08">
+  <p class="repo-name"><span class="repo-owner">deepseek-ai</span><span class="repo-sep">/</span><span class="repo-repo">DeepSeek-V4.1-Flash</span></p>
+  <h3><span class="article-number">08</span><a href="articles/08_5c348986a15182f2.html#top">100만 토큰 멀티모달 대형 모델</a></h3>
+  <p class="brief-line">이미지와 텍스트를 함께 읽는 초장문 멀티모달 모델이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 2,860</span><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-09">
+  <p class="repo-name"><span class="repo-owner">BAAI</span><span class="repo-sep">/</span><span class="repo-repo">bge-reranker-v2-gemma</span></p>
+  <h3><span class="article-number">09</span><a href="articles/09_c7b5400404b9e4d2.html#top">검색 결과를 다시 거르는 다국어 모델</a></h3>
+  <p class="brief-line">검색 뒤 순서를 다시 매기는 다국어 리랭커다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 87</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+</div>
+</section>
+<section class="article-group section-lab group-labeled" style="--sc:#6d28d9">
+  <header class="group-header">
+    <h2>실험실</h2>
+    <p>이미지와 영상, 음성처럼 실험이 몰리는 자리에서 나온 것입니다.</p>
+  </header>
+  <div class="brief-grid">
+<article class="brief" id="story-10">
+  <p class="repo-name"><span class="repo-owner">WarmBloodAban</span><span class="repo-sep">/</span><span class="repo-repo">Krea-Edit-lora</span></p>
+  <h3><span class="article-number">10</span><a href="articles/10_60669c8bbcb3bf5c.html#top">기반 모델에 얹는 이미지 편집 LoRA</a></h3>
+  <p class="brief-line">Krea 기반 LoRA가 이미지 편집 실험을 겨냥한다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 7</span><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span></p>
+</article>
+
+<article class="brief" id="story-11">
+  <p class="repo-name"><span class="repo-owner">Comfy-Org</span><span class="repo-sep">/</span><span class="repo-repo">YuE2</span></p>
+  <h3><span class="article-number">11</span><a href="articles/11_3d545190c56946d8.html#top">비상업 조건이 붙은 음악 생성 파생본</a></h3>
+  <p class="brief-line">음악 생성 파생 모델이지만 비상업 조건이 붙었다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 152</span><span class="repo-license">cc-by-nc-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></span></p>
+</article>
+</div>
+</section>
+<section class="article-group section-data group-labeled" style="--sc:#b45309">
+  <header class="group-header">
+    <h2>이번 주 데이터셋</h2>
+    <p>학습과 평가에 쓸 만한 공개 데이터입니다.</p>
+  </header>
+  <div class="brief-grid">
+<article class="brief" id="story-12">
+  <p class="repo-name"><span class="repo-owner">datasets</span><span class="repo-sep">/</span><span class="repo-repo">Hokin</span></p>
+  <h3><span class="article-number">12</span><a href="articles/12_610a67f53c89fbfc.html#top">물체 지속성 학습용 대형 영상 데이터</a></h3>
+  <p class="brief-line">영상 속 물체 지속성을 다루는 비상업 데이터셋이다.</p>
+  <p class="repo-facts brief-facts"><span class="model-likes">&hearts; 9</span><span class="repo-license">cc-by-nc-4.0 <span class="license-badge tier-copyleft" title="자동 분류 — 법무 판단을 대신하지 않습니다">법무 확인</span></span></p>
+</article>
+</div>
+</section>
+    </section>
+  </main>
+<script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

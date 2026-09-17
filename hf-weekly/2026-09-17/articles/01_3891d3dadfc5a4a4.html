@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>다국어 검색 결과를 다시 거르는 재순위화</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">01</span> Hugging Face</p>
+      <h1>다국어 검색 결과를 다시 거르는 재순위화</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 06.24</span></p>
+      
+      <p class="detail-lead">사내 검색 품질은 첫 검색보다 재정렬 단계에서 크게 갈린다. 임베딩 모델은 문서를 넓게 추린다. 재순위화 모델은 그 후보를 다시 읽고 순서를 고친다. BAAI/bge-reranker-v2-m3는 그 후단 자리에 놓는 모델이다.</p>
+      <section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>이 모델은 질의와 문서를 함께 넣어 관련도 점수를 낸다. 임베딩 벡터를 따로 만들지 않는다. 검색이 먼저 뽑은 문서 후보를 다시 정렬할 때 쓴다. 다국어 시나리오를 겨냥했다. 라이선스는 Apache-2.0이다.</p>
+        
+      </section>
+<figure class="detail-image-wrap info-image" style="margin:18px 0"><img class="detail-image" src="../assets/images/article_01_info1_e2148973.png" alt="원문 자료 이미지"><figcaption style="font-size:12px;color:#888;margin-top:6px">원문 자료 (기사 원문에서 발췌)</figcaption></figure>
+<figure class="detail-image-wrap info-image" style="margin:18px 0"><img class="detail-image" src="../assets/images/article_01_info2_d71e81c6.png" alt="원문 자료 이미지"><figcaption style="font-size:12px;color:#888;margin-top:6px">원문 자료 (기사 원문에서 발췌)</figcaption></figure>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from FlagEmbedding import FlagReranker
+reranker = FlagReranker(&#x27;BAAI/bge-reranker-v2-m3&#x27;, use_fp16=True) # Setting use_fp16 to True speeds up computation with a slight performance degradation
+
+score = reranker.compute_score([&#x27;query&#x27;, &#x27;passage&#x27;])
+print(score) # -5.65234375
+
+You can map the scores into 0-1 by set &quot;normalize=True&quot;, which will apply sigmoid function to the score
+score = reranker.compute_score([&#x27;query&#x27;, &#x27;passage&#x27;], normalize=True)
+print(score) # 0.003497010252573502
+
+scores = reranker.compute_score([[&#x27;what is panda?&#x27;, &#x27;hi&#x27;], [&#x27;what is panda?&#x27;, &#x27;The giant panda (Ailuropoda melanoleuca), sometimes called a panda bear or simply panda, is a bear species endemic to China.&#x27;]])
+print(scores) # [-8.1875, 5.26171875]
+# ... 이어지는 예제는 원문 카드에 있습니다</code></pre></div><p class="code-src">원문: https://huggingface.co/BAAI/bge-reranker-v2-m3</p></figure>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">설치</th><td><code>pip install -U FlagEmbedding</code></td></tr><tr><th scope="row">라이브러리</th><td>FlagEmbedding, transformers</td></tr><tr><th scope="row">파이프라인</th><td>text-classification</td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">지원 언어</th><td>multilingual</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>평가 이름과 재정렬 대상은 카드가 밝혔지만 점수 표는 이 발췌에 없다. 카드에 평가 결과 수치는 밝히지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>언제 이것을 고르나</h2>
+        <p>다국어 검색을 다루면 BAAI/bge-reranker-v2-m3 쪽이 먼저 검토 대상이다. 영어 감성 분류만 필요하면 ProsusAI/finbert나 cardiffnlp/twitter-roberta-base-sentiment-latest가 맞다. 접근 조건이 느슨한 모델이 필요하면 이 모델과 BAAI/bge-reranker-base가 유리하다. Meta 계열 조건을 피해야 하면 meta-llama/Prompt-Guard-86M 대신 이 모델을 고를 수 있다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>재순위화(Reranker): 검색이 먼저 뽑은 후보 문서를 다시 점수 매겨 순서를 고치는 방식</span> <span>관련도 점수(Relevance score): 질의와 문서가 얼마나 잘 맞는지 수치로 나타낸 값</span> <span>시그모이드(Sigmoid): 점수를 0과 1 사이 값으로 바꾸는 함수</span> <span>파인튜닝(Fine-tuning): 기존 모델을 특정 업무 데이터로 다시 학습하는 작업</span> <span>BEIR: 검색 재현 성능을 재는 벤치마크 묶음</span> <span>CMTEB-retrieval: 중국어 중심 검색 성능을 재는 벤치마크</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: BAAI/bge-reranker-v2-m3</p>
+        <p class="url">공개일: 2024.06.24</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/BAAI/bge-reranker-v2-m3" target="_blank" rel="noopener noreferrer">https://huggingface.co/BAAI/bge-reranker-v2-m3</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
