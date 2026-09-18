@@ -1,0 +1,568 @@
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../../../fonts/PretendardVariable.woff2') format('woff2-variations');
+  font-weight: 45 920;
+  font-display: swap;
+}
+
+:root { color-scheme: light; --ink: #191f28; --muted: #6b7684; --line: #e5e8eb; --paper: #ffffff; --wash: #f4f5f7; --accent: #0f766e; --warm: #b45309;
+  --frontier: #3b5bdb; --open: #0ca678; --research: #a855f7; --tooling: #e8590c; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink); font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif; line-height: 1.65; }
+.newsletter { max-width: 1080px; margin: 0 auto; background: var(--paper); min-height: 100vh; }
+.masthead { display: grid; grid-template-columns: 1.25fr .75fr; gap: 34px; align-items: stretch; padding: 48px 44px 32px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #ffffff 0%, #f7fafb 100%); }
+.kicker { margin: 0 0 8px; color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1 { margin: 0; font-size: 34px; line-height: 1.25; letter-spacing: 0; }
+.lead { margin: 14px 0 0; color: var(--muted); font-size: 17px; }
+/* `cover` on a fixed 4:3 box cropped wide og:images down the middle — a launch
+   banner reading "Advancing the price-performance frontier" lost both ends and
+   printed as "rice-performance fronti". Fit the whole image instead and let the
+   box breathe, with a neutral mat where the aspect ratios disagree. */
+.hero-image { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #f2f6f5; border-radius: 8px; border: 1px solid var(--line); }
+.hero-panel { min-height: 260px; border-radius: 8px; border: 1px solid var(--line); background: #102321; color: #f6fbf9; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; }
+.hero-panel span { font-size: 54px; font-weight: 900; line-height: 1; color: #8dd7c8; }
+.hero-panel strong { font-size: 22px; margin-top: 8px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+.summary div { padding: 18px 44px; border-right: 1px solid var(--line); }
+.summary div:last-child { border-right: 0; }
+.summary strong { display: block; font-size: 24px; }
+.summary span { color: var(--muted); }
+.editors-pick { padding: 34px 44px 28px; border-bottom: 1px solid var(--line); }
+.section-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
+.section-title p { margin: 0; color: var(--accent); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.section-title h2 { margin: 0; font-size: 24px; letter-spacing: 0; }
+/* 카드 수에 맞춰 열이 늘어난다: 3장이면 1열 3개, 2장이면 2개 */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.feature-card { border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px; background: #fbfcfd; display: flex; flex-direction: column; }
+.feature-card h3 { margin: 0 0 10px; font-size: 20px; line-height: 1.38; letter-spacing: 0; }
+.feature-card h3 a { color: var(--ink); text-decoration: none; }
+.feature-card p { margin: 0 0 12px; font-size: 14.5px; }
+.card-callout { padding-left: 12px; border-left: 3px solid var(--sc, var(--accent)); font-weight: 500; color: #333d4b; }
+.feature-card .detail-link { margin-top: auto; font-size: 13.5px; }
+.issue-card .why { background: transparent; border-left: 0; padding: 0; }
+.related-list { margin: 0 0 14px 18px; padding: 0; color: var(--muted); font-size: 14px; }
+.related-list li { margin: 4px 0; }
+.articles { padding: 0; }
+.article-group { border-bottom: 1px solid var(--line); }
+.group-header { padding: 30px 44px 12px; background: #fbfcfd; border-bottom: 1px solid var(--line); }
+.group-header h2 { margin: 0 0 6px; font-size: 22px; letter-spacing: 0; }
+.group-header p { margin: 0; color: var(--muted); }
+.section-empty { margin: 0; padding: 22px 44px 30px; color: var(--muted); }
+.card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 24px 44px 32px; }
+.article-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; min-height: 100%; }
+.article-card .article-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+.article-card h2 { margin: 0 0 10px; font-size: 19px; line-height: 1.38; letter-spacing: 0; }
+.article-card h2 a { color: var(--ink); text-decoration: none; }
+.article-card p { margin: 0 0 12px; }
+.article-card img, .thumb-placeholder { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid var(--line); }
+.thumb-placeholder { display: flex; align-items: center; justify-content: center; background: #e9f4f1; color: var(--accent); font-size: 34px; font-weight: 900; }
+.rank { color: var(--warm); font-size: 22px; font-weight: 800; }
+.source { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
+.source-date { display: inline-block; margin-left: 8px; color: var(--warm); font-weight: 700; }
+.article-number { display: inline-block; min-width: 32px; height: 24px; line-height: 24px; margin-right: 7px; padding: 0 8px; text-align: center; border-radius: 999px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; }
+.article h2 { margin: 0 0 12px; font-size: 23px; line-height: 1.35; letter-spacing: 0; }
+.article h2 a { color: var(--ink); text-decoration: none; }
+.article h2 a:hover, .article-card h2 a:hover, .feature-card h3 a:hover, .detail-link:hover { color: var(--accent); text-decoration: underline; }
+.article img { width: min(520px, 100%); max-height: 280px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); margin: 4px 0 12px; }
+.article p { margin: 0 0 12px; }
+.why { background: #f8fafb; border-left: 4px solid var(--accent); padding: 10px 12px; }
+.terms { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+.terms span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; color: var(--muted); font-size: 13px; }
+.meta, .url { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.url a { color: inherit; text-decoration: underline; word-break: break-all; }
+.detail-link { color: var(--accent); font-weight: 700; text-decoration: none; }
+.quality { padding: 28px 44px 48px; }
+.quality h2 { margin: 0 0 10px; font-size: 20px; }
+.quality p { margin: 0; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; }
+.quality-lead { margin-bottom: 14px !important; }
+.quality-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.quality-list li { border: 1px solid var(--line); border-radius: 8px; padding: 14px; background: #fbfcfd; }
+.quality-list strong { display: block; margin-bottom: 4px; }
+.quality-list span { display: inline-block; color: var(--warm); font-weight: 800; margin-bottom: 6px; }
+.quality-list p { font-size: 14px; }
+.detail-page { max-width: 860px; }
+.detail-article { padding: 28px 44px 52px; }
+.detail-article h1 { margin-bottom: 18px; }
+.detail-lead { margin: 0 0 24px; color: var(--ink); font-size: 17px; line-height: 1.75; }
+.detail-article section { border-top: 1px solid var(--line); padding: 22px 0; }
+.detail-article h2 { margin: 0 0 10px; font-size: 19px; }
+.detail-image { width: min(640px, 100%); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); margin: 4px 0 22px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { border-bottom: 1px solid var(--line); padding: 9px 8px; text-align: left; vertical-align: top; }
+th { width: 140px; color: var(--muted); font-weight: 700; }
+/* 수치 비교가 핵심인 섹션의 본문 표 (LLM detail_sections[].table) — 원문 발췌의
+   벤치마크/스펙 표를 불릿 나열 대신 실제 표로 보여준다. 열이 여럿이라 위
+   두-컬럼용 th { width: 140px }는 무시하고(선택자 우선순위로 재정의) 전체
+   좌측 정렬로 통일 — 숫자 우측 정렬까지 챙기면 열마다 다른 자릿수 정렬 로직이
+   필요해 오히려 깨지기 쉽다. */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.data-table th, .data-table td { width: auto; border: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
+.data-table thead th { background: var(--wash); color: var(--ink); font-weight: 700; }
+.detail-article ul { margin: 8px 0 0 18px; padding: 0; color: var(--ink); }
+.detail-article li { margin: 6px 0; }
+/* 시안 A 구조: 전폭 기사 행 + 4단 슬롯 그리드 (sectioned 모드 본지) */
+.story-list { padding: 6px 44px 34px; }
+.story { position: relative; padding: 18px 0 20px; border-bottom: 1px solid var(--line); }
+.story:last-child { border-bottom: 0; }
+.story-no { position: absolute; top: 18px; right: 0; font-size: 34px; font-weight: 900; color: #c1c7cd; opacity: .35; line-height: 1; }
+.story h3 { margin: 6px 0 4px; font-size: 22px; line-height: 1.4; }
+.story h3 a { color: var(--ink); text-decoration: none; }
+.story h3 a:hover { color: var(--accent); text-decoration: underline; }
+.story-line { margin: 0 0 14px; color: #333d4b; font-size: 15.5px; }
+/* 썸네일 옵션: 텍스트 좌 + 대표 이미지 우, 이미지 위에 번호 배지 */
+.story.has-thumb { display: grid; grid-template-columns: 1fr 200px; gap: 22px; align-items: start; }
+.story-thumb { position: relative; }
+.story-thumb img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; }
+.story-thumb span { position: absolute; top: 8px; left: 8px; background: rgba(17,23,33,.82); color: #fff; font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
+/* 저장소 행(.story-repo): metrics.license_spdx가 있는 기사에만 붙는다. AI 판은 이 클래스와 아래
+   .repo-*·.license-badge를 한 번도 출력하지 않으므로 계산값이 바뀌지 않는다 (docs/DESIGN_REVIEW_GITHUB_STORY_ROW.md 4-1~4-8) */
+.story-repo { padding: 22px 0 24px; }
+.story-repo.has-thumb { grid-template-columns: 1fr 240px; gap: 24px; align-items: start; }
+/* 첫 줄: 순번 칩 + 제목을 한 h3 안에 flex로 나란히. 칩은 .article-number 규격(24px 높이) 그대로, 간격은 gap이 맡는다.
+   flex-start + margin-top 3px = 제목 첫 줄(22px/1.4 = 30.8px)의 세로 중심에 칩을 맞춘다 — 제목이 두 줄로 접혀도 칩은 첫 줄에 남는다 */
+.story-repo h3 { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 2px; }
+.story-repo h3 .article-number { flex: 0 0 auto; margin: 3px 0 0; }
+.story-repo h3 a { min-width: 0; }
+.story-repo .repo-name { margin: 0 0 6px; }
+.story-repo .story-yama { margin: 0 0 10px; }
+.story-repo .story-hook { margin: 0 0 14px; }
+.story-repo .story-thumb img { aspect-ratio: 2 / 1; background: var(--wash); }
+.story-repo .story-thumb span { display: none; }
+/* 명패·지표 띠·배지·점검 알약은 클래스 단독 선택자 — 목록 행과 상세 페이지가 같은 규칙을 공유한다 */
+.repo-name { margin: 0 0 2px; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; font-variant-ligatures: none; }
+.repo-owner { font-weight: 500; color: #4a5361; }
+.repo-sep { margin: 0 1px; color: var(--muted); }
+.repo-repo { font-weight: 700; color: var(--ink); }
+.repo-facts { display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; row-gap: 4px; margin: 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.repo-stars, .repo-delta { color: var(--ink); font-weight: 600; }
+.license-badge { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 10px; font-size: 12px; font-weight: 700; }
+.license-badge.tier-permissive { background: #e6f4ea; color: #1e6b3a; }
+.license-badge.tier-copyleft { background: #fff3e0; color: #9a4a00; }
+.license-badge.tier-unknown { background: #eceff1; color: #4b5563; }
+.repo-checks { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-left: 6px; }
+.repo-check { padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: #4a5361; font-size: 12px; font-weight: 600; }
+.repo-facts .hot { color: var(--sc, var(--ink)); }
+.detail-article .repo-name { margin: 0 0 4px; }
+/* 좁은 폭(게시판 iframe): 저장소 행만 썸네일 열을 줄이고(760px), 더 좁으면 숨긴다(560px). 선택자에 .story-repo 필수 */
+@media (max-width: 760px) {
+  .story-repo.has-thumb { grid-template-columns: 1fr 160px; gap: 16px; }
+}
+@media (max-width: 560px) {
+  .story-repo.has-thumb { grid-template-columns: 1fr; }
+  .story-repo .story-thumb { display: none; }
+}
+
+/* 콜아웃(pull quote): 본문에서 그대로 인용한 한 문장. --sc는 섹션 색을 상속받는다 */
+.story-yama { margin: 4px 0 2px; color: #4a5361; font-size: 15px; line-height: 1.6; max-width: 720px; }
+.story-hook { margin: 2px 0 0; padding: 2px 0 2px 14px; border-left: 3px solid var(--sc, var(--accent)); color: #333d4b; font-size: 16.5px; font-weight: 500; line-height: 1.65; max-width: 720px; }
+.story-summary { margin: 0 0 10px; color: #333d4b; }
+.slots { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.slot { background: #fff; padding: 14px 16px; }
+.slot h4 { margin: 0 0 6px; font-size: 12.5px; font-weight: 700; color: var(--muted); letter-spacing: .06em; }
+.slot p { margin: 0 0 8px; font-size: 14px; line-height: 1.65; color: #333d4b; }
+.slot p:last-child { margin-bottom: 0; }
+.slot ul { margin: 4px 0 8px 18px; padding: 0; font-size: 14px; color: #333d4b; }
+.slot li { margin: 3px 0; }
+.slot.impact { background: #fbfbf6; }
+.story-links { margin: 12px 0 0; font-size: 14px; }
+
+@media (max-width: 720px) {
+  .story-list { padding: 6px 22px 28px; }
+  .slots { grid-template-columns: 1fr; }
+  .story-no { font-size: 26px; }
+  .masthead { grid-template-columns: 1fr; padding: 30px 22px 22px; }
+  h1 { font-size: 27px; }
+  .summary { grid-template-columns: 1fr; }
+  .summary div { padding: 14px 22px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .editors-pick { padding: 28px 22px 22px; }
+  .section-title { display: block; }
+  .feature-grid, .card-grid { grid-template-columns: 1fr; }
+  .card-grid { padding: 20px 22px 28px; }
+  .group-header { padding: 24px 22px 10px; }
+  .article { grid-template-columns: 1fr; padding: 24px 22px; gap: 6px; }
+  .quality { padding: 24px 22px 36px; }
+  .detail-nav { padding: 20px 22px 0; }
+  .detail-article { padding: 24px 22px 40px; }
+  th { width: 112px; }
+}
+
+:root { --frontier: #0b1f3a; --open: #1d6b4f; --research: #5b3a8c; --tooling: #8c4a1d; --accent: #0b1f3a; --warm: #b8963e; }
+body { background: #e9ebef; }
+.newsletter { background: #fdfcf9; }
+h1 { font-weight: 800; letter-spacing: -0.01em; }
+.masthead { background: #0b1f3a; border-bottom: 0; }
+.masthead h1 { color: #fff; }
+.kicker { color: #b8963e; letter-spacing: .14em; }
+.lead { color: rgba(255,255,255,.72); }
+.radar-hint { color: rgba(255,255,255,.5); }
+.section-title p { color: #b8963e; }
+.feature-card { background: #f4f1ea; border: 1px solid #e2dbc9; border-radius: 0; }
+.article-card { border-radius: 0; }
+.article-number { border-radius: 0; background: #0b1f3a; }
+.article-group.section-frontier { --sc: var(--frontier); }
+.article-group.section-open { --sc: var(--open); }
+.article-group.section-research { --sc: var(--research); }
+.article-group.section-tooling { --sc: var(--tooling); }
+.article-group[class*="section-"] .group-header { background: transparent; border-bottom: 2px solid var(--sc, var(--ink)); }
+.article-group[class*="section-"] .group-header h2 { color: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .article-number { background: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .slot h4 { color: var(--sc, var(--ink)); }
+.story { border-bottom: 1px dotted var(--line); }
+.slot.impact { background: #f6f3ec; }
+.detail-article.section-frontier { --sc: var(--frontier); }
+.detail-article.section-open { --sc: var(--open); }
+.detail-article.section-research { --sc: var(--research); }
+.detail-article.section-tooling { --sc: var(--tooling); }
+.detail-article[class*="section-"] .article-number { background: var(--sc, var(--ink)); }
+.detail-article[class*="section-"] h1 { border-bottom: 3px solid var(--sc, var(--ink)); padding-bottom: 14px; }
+.detail-article[class*="section-"] section h2 { color: var(--sc, var(--ink)); }
+.detail-article[class*="section-"] .detail-lead { background: #f6f3ec; border-left: 3px solid #b8963e; padding: 14px 18px; }
+
+.article-group.group-labeled .group-header { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 14px; row-gap: 2px; padding: 34px 44px 10px; background: transparent; border-bottom: 2px solid var(--sc, var(--ink)); }
+.article-group.group-labeled .group-header h2 { font-size: 13.5px; font-weight: 800; line-height: 1.5; letter-spacing: .08em; color: var(--sc, var(--ink)); margin: 0; }
+.article-group.group-labeled .group-header h2::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; background: var(--sc, var(--ink)); vertical-align: 1px; }
+.article-group.group-labeled .group-header p { font-size: 14px; color: var(--muted); margin: 0; flex: 1 1 320px; }
+.group-labeled .story-list { padding-top: 18px; }
+.group-labeled .section-empty { padding-top: 18px; }
+/* 대표 슬롯: ★ 표식 + 금색 테두리 카드. .story-repo padding(22px 0 24px)보다 뒤에 와야 카드 안쪽 여백이 생기고,
+   .story:last-child { border-bottom: 0 }가 카드 밑선을 지우지 않도록 border-bottom을 다시 선언한다 */
+.article-group.section-feature.group-labeled .group-header h2::before { content: "★"; width: auto; height: auto; background: none; font-size: 13px; }
+.section-feature.group-labeled .story { border: 1px solid var(--sc, var(--ink)); border-bottom: 1px solid var(--sc, var(--ink)); border-radius: 8px; padding: 20px 24px; margin: 0 0 6px; }
+@media (max-width: 720px) {
+  .article-group.group-labeled .group-header { padding: 28px 22px 8px; }
+  .group-labeled .story-list { padding-top: 16px; }
+}
+
+/* Gartner edition — 브리프 포털 (설계: docs/DESIGN_GARTNER_BRIEF_PORTAL.md).
+   색은 가트너 화면에서 뽑은 값이다(눈대중이 아니다). 가져오는 것은 화면 문법이고
+   로고·상표·브랜드 글꼴은 쓰지 않는다. 배분은 2단이며 왼쪽이 검색 화면의 필터 판 자리다. */
+/* **이 지면은 밝은 바탕 하나로 간다.** 다크 팔레트를 만들지 않은 것은 빠뜨린 것이 아니다.
+   가트너 화면의 "흰 바탕" 문법을 모티브로 삼았고, 실제 소비처가 인쇄와 내부망 배포이며,
+   다크를 만들면 실측해 뽑은 --gt-pill·--gt-tint를 전부 지어내야 해 근거가 사라진다.
+   공용 `:root { color-scheme: light }`가 이미 못을 박아 다크 환경에서도 같게 보인다. */
+/* 본문 바로가기 — 분류 판 링크 16개를 지나야 첫 문서에 닿던 것을 건너뛴다. 초점을 받을 때만 보인다. */
+.gskip { position: absolute; left: -9999px; top: 0; z-index: 70; padding: 10px 16px;
+  background: #0C2765; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
+.gskip:focus { left: 8px; top: 8px; }
+
+.gartner-newsletter {
+  --gt-ink: #15171C;    /* 제목. 거의 검정 */
+  --gt-body: #33343F;   /* 본문, 라벨 */
+  --gt-muted: #5A5B65;  /* 메타, 보조 */
+  --gt-link: #2D69C1;   /* 링크. 가트너 파랑 */
+  --gt-navy: #0C2765;   /* 알약 글자, 강조 */
+  --gt-pill: #C0DDFC;   /* 알약 바탕 */
+  --gt-tint: #F6FBFD;   /* 띠·판 바탕 */
+  --gt-rule: #A3C9FB;   /* 세로줄 */
+  --gt-line: #E3E6EA;   /* 가로 구분선 */
+  max-width: 1080px; color: var(--gt-ink); background: #fff;
+}
+
+/* 머리부 — 가트너 화면은 전부 흰 바탕이다. 짙은 남색 머리판과 금색 눈썹줄은 쓰지 않는다.
+   배분은 매거진 표지의 문법이다: 왼쪽에 제호와 수치, 오른쪽에 이번 호 도표 한 장. */
+.gartner-masthead.ghero { display: grid; grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 40px; align-items: center; padding: 40px 44px 34px;
+  border-bottom: 1px solid var(--gt-line); background: #fff; }
+.gartner-masthead.ghero-plain { grid-template-columns: minmax(0, 1fr); }
+.gartner-masthead .kicker { margin: 0 0 10px; color: var(--gt-muted); font-size: 12px;
+  font-weight: 600; letter-spacing: .14em; }
+.gartner-masthead h1 { margin: 0; color: var(--gt-ink); font-size: 40px; line-height: 1.16;
+  font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
+.ghero-period { margin: 12px 0 0; font-size: 17px; color: var(--gt-navy);
+  font-variant-numeric: tabular-nums; }
+/* 수치 줄 — 세어서 나온 값이지 문구가 아니다. 위에 짧은 강조선을 얹어 표지의 결을 준다. */
+.ghero-counts { margin: 16px 0 0; padding-top: 14px; font-size: 14px; color: var(--gt-muted);
+  border-top: 3px solid var(--gt-link); display: inline-block; }
+/* 도표 — 이번 호 문서의 Figure다. 어느 기사 것인지 캡션으로 밝힌다. */
+.ghero-fig { display: block; text-decoration: none; }
+/* 도표는 제 제목을 위에 이고 있다. cover로 자르면 그 줄이 글자 중간에서 끊긴다 —
+   무언가 고장 난 인상을 준다. 가트너 도표는 흰 여백이 넓어 contain이 잘 맞는다. */
+.ghero-fig img { display: block; width: 100%; height: 236px; object-fit: contain;
+  object-position: center; border: 1px solid var(--gt-line); background: #fff; }
+.ghero-cap { display: block; margin-top: 8px; font-size: 12.5px; line-height: 1.5;
+  color: var(--gt-muted); }
+.ghero-fig:hover .ghero-cap { color: var(--gt-link); }
+/* 우선과제 띠 — 가트너가 `Priorities:`로 쓰는 자리. 옅은 청색 바탕에 아래 파란 테두리. */
+/* 좌우 여백은 머스트헤드(44px)와 같은 선에 맞춘다 — 어긋나면 글이 화면 끝에 붙어 답답하다. */
+.gstrip { background: var(--gt-tint); border-bottom: 2px solid var(--gt-link);
+  padding: 12px 44px; font-size: 14px; line-height: 1.5; color: var(--gt-body); }
+.gstrip span { font-weight: 600; color: var(--gt-navy); margin-right: 10px; }
+.gstrip span::after { content: ":"; }
+/* 여는 글은 오른쪽 난 맨 위에 둔다. 전폭에 두고 읽기 좋은 폭으로 줄이면 오른쪽이 통째로 빈다. */
+.glede { margin: 0 0 6px; font-size: 16px; line-height: 1.75; color: var(--gt-body);
+  padding-bottom: 20px; border-bottom: 1px solid var(--gt-line); }
+
+/* 2단 배분 — 왼쪽 분류 판은 스크롤을 따라 붙는다. */
+.gcols { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 40px;
+  align-items: start; padding: 26px 44px 0; }
+.gmain { min-width: 0; }
+
+/* 왼쪽 분류 판 — 가트너 검색 화면의 `Filter by:` 문법.
+   정적 지면이라 실제로 거르지는 못한다. 이번 호가 무엇으로 이루어졌는지를 같은 모양으로 보인다. */
+/* 왼쪽 난 전체가 스크롤을 따라 붙는다 — 분류 판만 붙이면 그 아래가 계속 비어 보인다.
+   높이를 화면에 가두지 않으면 난이 뷰포트보다 길 때 아래쪽(도표 묶음)이 영영 화면 밖에
+   머문다. 2026-09-18 점검에서 창 높이 760px에서는 아예 보이지 않았다. */
+.grail { position: sticky; top: 16px; max-height: calc(100vh - 32px);
+  overflow-y: auto; overscroll-behavior: contain; }
+.gfacets { background: var(--gt-tint); border: 1px solid var(--gt-line); padding: 18px 16px 8px; }
+.gfacets h2 { margin: 0; font-size: 15px; font-weight: 600; color: var(--gt-navy); }
+.gfacet-total { margin: 3px 0 14px; font-size: 13px; color: var(--gt-muted); }
+.gfacet-group { border-top: 1px solid var(--gt-line); padding: 12px 0 6px; }
+.gfacet-group h3 { margin: 0 0 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--gt-muted); }
+.gfacet-group ul { list-style: none; margin: 0; padding: 0; }
+/* 이름만 누르는 것이고 건수는 사실 표기다. 줄은 flex로 묶어 숫자를 오른쪽에 세운다. */
+.gfacet-group li { display: flex; gap: 8px; align-items: baseline; margin: 0; }
+.gfacet-group a { flex: 1 1 auto; min-width: 0; padding: 5px 6px; margin: 0 -6px;
+  font-size: 13px; line-height: 1.45; color: var(--gt-body);
+  text-decoration: none; border-radius: 3px; }
+.gfacet-group a:hover { background: #fff; color: var(--gt-link); }
+.gfacet-group a:focus-visible { outline: 2px solid var(--gt-link); outline-offset: 1px; }
+.gfacet-name { display: block; }
+.gfacet-n { flex: 0 0 auto; font-size: 13px; font-variant-numeric: tabular-nums;
+  color: var(--gt-muted); }
+/* 도착한 기사를 짚어 준다. 링크를 눌렀는데 어디로 왔는지 모르면 링크가 없느니만 못하다. */
+.glead:target, .gcard:target, .grow:target {
+  background: var(--gt-tint); box-shadow: inset 4px 0 0 var(--gt-rule);
+  padding-left: 14px; margin-left: -14px; scroll-margin-top: 16px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+/* 그림 확대 보기 — 가트너의 `Expand image`와 같은 일을 자바스크립트 없이 한다.
+   도표는 1800×1128로 촘촘해서 줄이면 글자가 뭉갠다. 확대가 장식이 아니라 읽기의 조건이다. */
+.gfigbox { display: none; }
+.gfigbox:target { position: fixed; inset: 0; z-index: 60; display: flex;
+  align-items: center; justify-content: center; padding: 28px; }
+.gfigbox-veil { position: absolute; inset: 0; background: rgba(12, 39, 101, .62); }
+.gfigbox figure { position: relative; margin: 0; max-width: min(1200px, 94vw);
+  max-height: 92vh; overflow: auto; background: #fff; border: 1px solid var(--gt-line);
+  padding: 18px; box-shadow: 0 18px 48px rgba(12, 39, 101, .28); }
+.gfigbox img { display: block; width: 100%; height: auto; }
+.gfigbox figcaption { margin: 12px 0 0; font-size: 15px; font-weight: 600; color: var(--gt-ink); }
+.gfigbox-note { margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: var(--gt-body); }
+.gfigbox-go { margin: 10px 0 0; font-size: 14px; }
+.gfigbox-go a { color: var(--gt-link); text-decoration: none; font-weight: 600; }
+.gfigbox-go a:hover { text-decoration: underline; }
+.gfigbox-x { position: absolute; top: 10px; right: 12px; padding: 5px 12px; border-radius: 3px;
+  background: var(--gt-pill); color: var(--gt-navy); font-size: 13px; font-weight: 600;
+  text-decoration: none; }
+.gfigbox-x:hover { background: var(--gt-link); color: #fff; }
+/* 확대 표지 — 그림 위에 얹지 않고 캡션 끝에 붙인다. 그림을 가리면 고르는 데 방해가 된다. */
+.ghero-cap em { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px;
+  background: var(--gt-pill); color: var(--gt-navy); font-size: 11.5px; font-style: normal;
+  font-weight: 600; }
+.gdoc-figure-open { display: block; position: relative; text-decoration: none; }
+.gdoc-figure-zoom { position: absolute; left: 10px; bottom: 10px; padding: 4px 11px;
+  border-radius: 999px; background: rgba(255, 255, 255, .94); border: 1px solid #e3e5ea;
+  color: rgb(12, 39, 101); font-size: 12px; font-weight: 600; }
+.gdoc-figure-open:hover .gdoc-figure-zoom { background: rgb(45, 105, 193); color: #fff;
+  border-color: rgb(45, 105, 193); }
+
+/* 이번 호 도표 — 분류 판 아래를 채운다. 누르면 크게 보이고, 거기서 기사로 갈 수 있다. */
+.gfigs { margin-top: 16px; padding: 0 17px; }  /* .gfacets(테두리 1 + 여백 16)와 같은 선 */
+.gfigs h3 { margin: 0 0 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--gt-muted); }
+.gfigs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gfigs-grid a { display: block; border: 1px solid var(--gt-line); background: #fff; }
+.gfigs-grid a:hover { border-color: var(--gt-link); }
+.gfigs-grid img { display: block; width: 100%; height: 70px; object-fit: cover;
+  object-position: top center; }
+
+/* 항목 안의 차례를 하나로 고정한다: 유형 → 제목 → 원제 → 메타 → 독자층 → 알약. */
+.gcard-kind { margin: 0 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--gt-muted); }
+.gcard-original { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: var(--gt-muted); }
+.gcard-meta { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: var(--gt-muted);
+  font-variant-numeric: tabular-nums; }
+.gcard-for { margin: 2px 0 0; font-size: 13px; line-height: 1.5; color: var(--gt-body); }
+/* 알약 — 이 화면에서 가장 눈에 띄는 가트너의 표지. 값은 문서가 스스로 달고 있는 주제다. */
+.gcard-pills { margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+/* 테두리는 인쇄를 위한 것이다. 브라우저 기본값이 배경 그래픽을 끄므로, 배경색만으로 형태를
+   만들면 인쇄물에서는 알약이 사라지고 남색 낱말만 떠 있게 된다. */
+.gt-pill { display: inline-block; padding: 5px 13px; border-radius: 999px;
+  background: var(--gt-pill); border: 1px solid var(--gt-rule); color: var(--gt-navy);
+  font-size: 12.5px; font-weight: 600; line-height: 1.35; }
+
+/* 대표 카드 — 이 한 건만 그림과 요약을 보인다.
+   표지(괘선 + 라벨)는 **그림에 기대지 않는다.** 대표에 Figure가 없고 아래 카드에는 있으면
+   편집 순위 1번이 시각 순위 4번이 된다(2026-09-18 점검). */
+.glead { display: grid; gap: 18px; padding: 22px 0 28px;
+  border-top: 3px solid var(--gt-link); border-bottom: 1px solid var(--gt-line); }
+.glead-badge { margin: 0; font-size: 11.5px; font-weight: 600; letter-spacing: .1em;
+  color: var(--gt-navy); }
+.glead-figure { display: block; border: 1px solid var(--gt-line); background: #f4f5f7; }
+.glead-figure img { display: block; width: 100%; height: 250px; object-fit: cover; object-position: top center; }
+.glead-text h2 { margin: 0 0 4px; font-size: 27px; line-height: 1.34; font-weight: 600; }
+.glead-text h2 a { color: var(--gt-ink); text-decoration: none; }
+.glead-text h2 a:hover { color: var(--gt-link); }
+/* 요약은 4줄까지. 목록은 읽는 자리가 아니라 고르는 자리다. */
+.glead-summary { margin: 12px 0 0; font-size: 15.5px; line-height: 1.68; color: var(--gt-body);
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* 일반 카드 — 왼쪽 글, 오른쪽 작은 썸네일. 썸네일 없는 행과 한 흐름에 섞인다. */
+.glist { display: block; padding: 0 0 8px; }
+.gcard { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 22px; align-items: start;
+  padding: 22px 0; border-bottom: 1px solid var(--gt-line); }
+.gcard h3, .grow h3 { margin: 0 0 2px; font-size: 20px; line-height: 1.4; font-weight: 600; }
+.gcard h3 a, .grow h3 a { color: var(--gt-ink); text-decoration: none; }
+.gcard h3 a:hover, .grow h3 a:hover { color: var(--gt-link); }
+.gcard-thumb { display: block; border: 1px solid var(--gt-line); background: #f4f5f7; }
+.gcard-thumb img { display: block; width: 100%; height: 112px; object-fit: cover; object-position: top center; }
+
+/* 목록 행 — Figure가 없는 문서. 억지로 그림을 만들지 않는다. */
+.grows { list-style: none; margin: 0; padding: 0; }
+.grow { display: block; padding: 20px 0; border-bottom: 1px solid var(--gt-line); }
+.grow-original { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: var(--gt-muted); }
+/* 확장 행은 유형과 날짜를 한 줄에 붙여 목록을 촘촘하게 둔다 — 고르는 자리이지 읽는 자리가 아니다. */
+.gext .grow { padding: 14px 0; }
+.gext .gcard-meta { margin: 0 0 3px; }
+.gext .gcard-kind { display: inline; margin: 0; }
+.gext .gcard-facts { color: var(--gt-muted); }
+.gext .gcard-facts::before { content: " · "; }
+.gext .grow h3 { font-size: 18px; }
+
+/* 저작권 고지는 기사 지면과 같은 `.gdoc-notice`를 쓰는데, 그쪽은 감싸는 `.gdoc`이 여백을
+   주고 목록 지면에는 그 감싸개가 없다. 목록에서만 같은 선(44px)에 맞춘다. */
+.gartner-newsletter > .gdoc-notice { margin: 40px 44px 0; }
+
+/* 더 읽을거리 — 가트너의 `ALSO VIEWED` 난을 옮겼다. 왼쪽 파란 세로줄이 이 블록의 표지다. */
+.gext { margin: 34px 0 10px; padding: 4px 0 10px 18px; border-left: 3px solid var(--gt-rule); }
+.gext h2 { margin: 0 0 6px; font-size: 21px; line-height: 1.4; font-weight: 600; color: var(--gt-navy); }
+.gext-note { margin: 0 0 8px; font-size: 14px; line-height: 1.6; color: var(--gt-muted); }
+
+/* 좁은 화면에서는 분류 판을 목록 위로 내린다 — 240px 난을 억지로 유지하면 본문이 눌린다. */
+@media (max-width: 900px) {
+  .gartner-masthead.ghero { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 28px 24px; }
+  .gartner-masthead h1 { font-size: 30px; }
+  .ghero-fig img { height: 180px; }
+  .gcols { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 20px 24px 0; }
+  .gstrip { padding: 12px 24px; }
+  .gartner-newsletter > .gdoc-notice { margin: 34px 24px 0; }
+  .grail { position: static; }
+  .gfigs-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gfacet-group ul { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .gfacet-group li { flex: 0 1 auto; }
+}
+@media (max-width: 720px) {
+  .gcard { grid-template-columns: minmax(0, 1fr); }
+  /* 1열이 되면 DOM 차례대로 그림이 알약 아래 꼬리에 놓여 어느 항목 것인지 애매해진다.
+     항목 차례를 하나로 고정한다는 설계가 좁은 화면에서만 깨지므로 그림을 맨 위로 올린다. */
+  .gcard-thumb { max-width: 200px; order: -1; }
+  .glead-text h2 { font-size: 24px; }
+  .glead-figure img { height: 190px; }
+}
+@media print {
+  /* 인쇄에서는 분류 판이 자리를 먹기만 한다. 목록만 남긴다. */
+  .gcols { display: block; }
+  .gfacets, .gfigs, .ghero-fig, .gskip { display: none; }
+  .gartner-masthead.ghero { grid-template-columns: minmax(0, 1fr); }
+  .gfigbox, .gfigbox:target, .gdoc-figure-zoom, .ghero-cap em { display: none !important; }
+}
+
+/* Gartner edition — 기사 지면. 원문의 읽기 구조를 옮긴다. */
+.gdoc { max-width: 980px; margin: 0 auto; padding: 0 24px 72px; background: #fff; color: rgb(21,23,29); }
+.gdoc a { color: rgb(0,106,199); text-decoration: none; }
+.gdoc a:hover { text-decoration: underline; }
+.gdoc-crumbs { display: flex; gap: 12px; align-items: baseline; margin: 0; padding: 20px 0 10px; font-size: 14px; }
+.gdoc-crumbs span { color: rgb(50,52,64); letter-spacing: .04em; }
+.gdoc-head { padding: 10px 0 26px; border-bottom: 1px solid #e3e5ea; }
+/* 구획 라벨: 본문보다 작고 자간이 넓다. 제목이 아니라 이름표로 읽히게 하는 값이다. */
+.gdoc-label, .gdoc-kind { margin: 0 0 8px; font-size: 14px; line-height: 20px; font-weight: 600;
+  letter-spacing: .04em; color: rgb(50,52,64); text-transform: uppercase; }
+.gdoc-head h1 { margin: 0 0 10px; font-size: 34px; line-height: 1.32; font-weight: 700; letter-spacing: -.01em; }
+.gdoc-original { margin: 0 0 18px; font-size: 17px; line-height: 1.5; color: rgb(50,52,64); }
+
+/* 원문 정보 카드 — 추출한 메타데이터로 코드가 만든다. */
+.gdoc-source { border: 1px solid #e3e5ea; border-left: 3px solid rgb(50,52,64); padding: 16px 20px; background: #fafafb; }
+.gdoc-source dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; margin: 0; }
+.gdoc-source dt { font-size: 14px; font-weight: 600; color: rgb(50,52,64); white-space: nowrap; }
+/* 원문 주소가 한 낱말이라 좁은 화면에서 줄을 못 바꾸고 지면을 밀어낸다. */
+.gdoc-source dd { margin: 0; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+
+/* 두 열: 좌측 목차 217px(sticky) + 본문 625px. 좁은 화면에서는 목차가 위로 접힌다. */
+.gdoc-grid { display: grid; grid-template-columns: 217px minmax(0, 625px); gap: 48px; padding-top: 34px; }
+.gdoc-toc { position: sticky; top: 24px; align-self: start; }
+.gdoc-toc ol { margin: 0; padding: 0 0 0 1.1em; }
+.gdoc-toc li { margin: 0 0 10px; font-size: 15px; line-height: 1.45; }
+.gdoc-toc a { color: rgb(50,52,64); }
+.gdoc-guide { margin: 22px 0 0; padding-top: 16px; border-top: 1px solid #e3e5ea; font-size: 14px; line-height: 1.6; color: rgb(50,52,64); }
+.gdoc-guide .gdoc-label { display: block; }
+
+/* 열 폭은 좁은 화면에서도 지킨다 — 한 줄이 길어지면 눈이 다음 줄 첫머리를 놓친다. */
+.gdoc-body { max-width: 625px; font-size: 17px; line-height: 1.72; }
+.gdoc-body p { margin: 0 0 18px; }
+.gdoc-body ul { margin: 0 0 18px; padding-left: 1.3em; }
+.gdoc-body li { margin: 0 0 8px; }
+.gdoc-lead { font-size: 19px; line-height: 1.66; color: rgb(50,52,64); margin: 0 0 30px; }
+.gdoc-section { margin: 0 0 34px; }
+/* 크되 가볍다 — 이 한 줄이 원문 지면의 인상을 만든다(실측 H3 24/34/400). */
+.gdoc-section h2 { margin: 0 0 20px; font-size: 24px; line-height: 34px; font-weight: 400; letter-spacing: -.005em; }
+.gdoc-section h3 { margin: 26px 0 8px; font-size: 20px; line-height: 28px; font-weight: 600; }
+.gdoc-section strong { font-weight: 600; color: rgb(50,52,64); }
+/* 전략 계획 가정: 요약 안에서 원문 그대로 읽히는 자리 */
+.gdoc-quote { margin: 0 0 22px; padding: 16px 20px; background: #f4f5f7; border-left: 3px solid rgb(50,52,64); }
+.gdoc-quote p { margin: 0 0 10px; }
+.gdoc-quote p:last-child { margin-bottom: 0; }
+.gdoc-quote .gdoc-label { margin-bottom: 8px; }
+/* 접힌 전문 — 1,500자를 넘던 블록. 눌러서 펼치는 것임이 분명해야 한다:
+   테두리와 배경으로 버튼처럼 세우고, 삼각형 표지가 펼침에 따라 돈다. */
+.gdoc-full { margin: 0 0 22px; border: 1px solid #d5d8de; border-radius: 4px; background: #fafafb; }
+.gdoc-full summary { cursor: pointer; list-style: none; padding: 11px 16px; font-size: 15px;
+  font-weight: 600; color: rgb(0,106,199); display: flex; align-items: center; gap: 8px; }
+.gdoc-full summary::-webkit-details-marker { display: none; }
+.gdoc-full summary::before { content: "▸"; display: inline-block; font-size: 13px;
+  transition: transform .12s ease; }
+.gdoc-full[open] summary::before { transform: rotate(90deg); }
+.gdoc-full summary:hover { background: #f1f2f5; }
+.gdoc-full[open] summary { border-bottom: 1px solid #e3e5ea; }
+.gdoc-full > *:not(summary) { margin-left: 16px; margin-right: 16px; }
+.gdoc-full > p:first-of-type { margin-top: 14px; }
+
+/* 확장 문서 지면 — 요약본임을 지면에서 밝힌다. */
+.gdoc-ext .gdoc-body { margin: 0 auto; }
+.gdoc-digest-note { margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: rgb(90,94,105); }
+
+/* 저작권 고지 — 모든 지면 맨 아래. 낱장으로 돌아다닐 것을 전제한다. */
+.gdoc-notice { margin: 48px 0 0; padding: 18px 0 8px; border-top: 1px solid #e3e5ea;
+  font-size: 15px; line-height: 1.6; color: rgb(110,114,124); }
+.gdoc-notice p { margin: 0 0 4px; }
+.gdoc-notice p:last-child { margin-bottom: 0; }
+
+/* 그림: 캡션이 위에 붙고 본문 열 폭(실측 619px)에 맞춘다. */
+.gdoc-figure { margin: 0 0 34px; }
+.gdoc-figure figcaption { margin: 0 0 10px; font-size: 15px; font-weight: 600; color: rgb(50,52,64); }
+.gdoc-figure img { display: block; width: 100%; max-width: 619px; height: auto; border: 1px solid #e3e5ea; }
+.gdoc-figure-note { margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: rgb(50,52,64); }
+
+.gdoc-meta { margin-top: 44px; padding-top: 26px; border-top: 1px solid #e3e5ea; }
+.gdoc-meta-block { margin: 0 0 30px; }
+.gdoc-meta-block h2 { margin: 0 0 14px; font-size: 20px; line-height: 28px; font-weight: 600; }
+.gdoc-glossary { margin: 0; }
+.gdoc-term { padding: 10px 0; border-top: 1px solid #eceef1; }
+.gdoc-term dt { font-size: 16px; font-weight: 600; }
+.gdoc-term dd { margin: 4px 0 0; font-size: 16px; line-height: 1.6; color: rgb(50,52,64); }
+.gdoc-related { list-style: none; margin: 0; padding: 0; }
+.gdoc-related li { padding: 10px 0; border-top: 1px solid #eceef1; font-size: 16px; line-height: 1.55; }
+.gdoc-related-meta { display: inline-block; margin-left: 10px; font-size: 14px; color: rgb(50,52,64); white-space: nowrap; }
+/* 원제는 옮긴 제목 아래 한 줄로 남긴다 — 원문을 요청할 때 독자가 대는 값이다. */
+.gdoc-related-original { display: block; margin-top: 3px; font-size: 14px; line-height: 1.45; color: rgb(50,52,64); }
+.gdoc-request { display: inline-block; margin-left: 10px; padding: 1px 8px; border: 1px solid #d5d8de;
+  border-radius: 3px; font-size: 14px; color: rgb(50,52,64); white-space: nowrap; }
+
+@media (max-width: 1000px) {
+  /* 목차는 위로 접힌다. 내부망 화면과 인쇄 모두에서 본문이 먼저 온다. */
+  .gdoc-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .gdoc-toc { position: static; padding-bottom: 20px; border-bottom: 1px solid #e3e5ea; }
+  .gdoc-toc ol { columns: 2; column-gap: 24px; }
+  .gdoc-head h1 { font-size: 28px; }
+}
+@media print {
+  .gdoc-toc { position: static; }
+  /* 접힌 전문은 종이에서 **펼쳐진 채로** 나온다. 인쇄물에서 눌러 펼칠 방법이 없으므로
+     접혀 있으면 그 내용이 통째로 사라진다. */
+  .gdoc-full > *:not(summary) { display: block !important; }
+  .gdoc-full summary { color: rgb(50,52,64); }
+  .gdoc-full summary::before { content: "▾"; }
+  /* 고지는 인쇄에서도 반드시 나온다 — 종이로 뽑아 나가는 경우가 실제 위험이다. */
+  .gdoc-notice { display: block !important; break-inside: avoid; }
+}
