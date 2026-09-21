@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partior·LSEG, 24시간 은행 간 정산 연결 시험</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-infra">
+      <p class="source"><span class="article-number">03</span> Ledger Insights <span class="source-date">보도일 2026.09.17</span></p>
+      <h1>Partior·LSEG, 24시간 은행 간 정산 연결 시험</h1>
+      <img class="detail-image" src="../assets/images/article_03_72ae3d73b52e1a54.jpg" alt="기사 이미지">
+      <p class="detail-lead">실시간 송금망이 생겨도 은행끼리의 정산은 여전히 느릴 수 있다. Partior는 이 빈틈을 LSEG의 DiSH와 연결해 메우려 한다. 핵심은 여러 네트워크에 자금을 따로 예치하지 않고 한 풀에서 정산 유동성을 돌리는 구조다. 상용 개시는 2027년 1분기로 잡았다.</p>
+      <section>
+        <h2>무슨 일이 있었나</h2>
+        <p>Partior는 런던증권거래소그룹(LSEG)과 협력해 LSEG Digital Settlement House, DiSH를 자사 네트워크에 연계한다고 밝혔다. 이 연계는 Partior의 결제은행들이 서로 주고받을 잔액을 모아 24시간 정산할 수 있게 한다.</p>
+<p>Partior는 달러, 유로, 싱가포르달러를 지원하는 다통화 결제 네트워크다. 결제은행으로는 DBS, Deutsche Bank, JP Morgan, Standard Chartered가 참여한다. 이 은행들은 다른 은행들의 국경 간 지급을 즉시 처리해 준다. 다만 결제은행끼리의 최종 정산은 여전히 기존 은행 간 지급 방식에 의존해 왔다.</p>
+<ul><li>현재 시험 단계: 업계 테스트 진행 중</li><li>상용화 목표: 2027년 1분기</li><li>해결하려는 문제: 영업시간 밖 은행 간 최종 정산 공백</li><li>구조적 차이: 네트워크별 사전 예치 대신 단일 잔액 풀 활용</li></ul>
+        
+      </section>
+<section>
+        <h2>왜 지금 나왔나</h2>
+        <p>분산원장 기반 플랫폼은 네트워크마다 유동성을 따로 가둔다는 문제가 있었다. 은행이 새로운 네트워크를 쓸 때마다 자금을 따로 미리 넣어 둬야 했다. Partior는 고객 은행 간 지급은 실시간으로 처리했지만, 결제은행끼리의 마무리 정산은 기존 방식에 남아 있었다.</p>
+        
+      </section>
+<section>
+        <h2>제도와 시스템에서 바뀌는 것</h2>
+        <p>이번 변화는 고객 송금 단계가 아니라 결제은행 사이 정산 단계에 있다. 지금은 DBS를 쓰는 은행이 JP Morgan을 쓰는 은행으로 달러를 보내면 고객 쪽 처리는 즉시 끝나도, DBS와 JP Morgan의 상호 정산은 따로 남는다. 영업시간 밖에는 사전 예치나 상호 신용공여가 필요했다. DiSH를 붙이면 여러 네트워크에서 쓸 수 있는 단일 잔액 풀을 두고 그 안에서 24시간 정산 유동성을 돌릴 수 있다.</p>
+        
+      </section>
+<section>
+        <h2>국내와의 접점</h2>
+        <p>원문은 국내 적용에 대해 언급하지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>우리 업무로 옮기면</h2>
+        <p>대외계 연계와 결제 허브를 만드는 팀은 고객 거래 체결 시점과 결제은행 간 최종 정산 시점을 분리해 보고 있는지 점검해야 한다. 여러 네트워크를 동시에 붙이는 구조라면 계좌 잔액 조회, 한도 통제, 담보·신용 한도 관리가 더 중요해진다.</p>
+<ul><li>검토 팀: 외환결제, 청산결제, 계정계, 자금, 대외계 API</li><li>확인할 질문: 단일 유동성 풀을 여러 네트워크가 함께 쓸 때 잔액 우선순위와 락 방식은 무엇인가</li><li>선행 과제: 24시간 모니터링, 컷오프 없는 장애 복구 절차, 은행별 정산 보고서 표준화</li><li>주의점: 현재는 업계 테스트 단계다. 실제 수수료 구조와 참여 은행 확대 방식은 아직 공개되지 않았다</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>토큰화 현금(tokenized cash): 예금 등 현금성 자산을 디지털 토큰으로 표현한 결제 수단</span> <span>코레스폰던트 뱅킹(correspondent banking): 은행이 다른 은행 계좌망을 빌려 국경 간 지급결제를 처리하는 방식</span> <span>노스트로 계좌(nostro account): 자국 은행이 해외 다른 은행에 보유한 자기 명의 계좌</span> <span>청산결제(clearing and settlement): 거래 내용을 확정하고 자금·자산 이전으로 마무리하는 절차</span> <span>유동성 풀(liquidity pool): 여러 거래에 공통으로 쓸 수 있게 모아 둔 자금 잔액</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Partior taps LSEG DiSH tokenized cash to tackle interbank settlement gap</p>
+        <p class="url">보도일: 2026.09.17</p>
+        <p class="url">출처 URL: <a href="https://www.ledgerinsights.com/partior-taps-lseg-dish-tokenized-cash-to-tackle-interbank-settlement-gap/" target="_blank" rel="noopener noreferrer">https://www.ledgerinsights.com/partior-taps-lseg-dish-tokenized-cash-to-tackle-interbank-settlement-gap/</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
