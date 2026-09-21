@@ -46,13 +46,20 @@ h1 { margin: 0; font-size: 34px; line-height: 1.25; letter-spacing: 0; }
   align-items: stretch;
 }
 .issue-lead { grid-area: lead; display: flex; flex-direction: column; }
-/* 요약이 남은 자리를 메운다. 빈 칸을 남기느니 두세 줄 더 보이는 편이 낫다. */
+/* 대표 이미지가 없는 기사는 요약이 남은 자리를 메운다. 빈 칸을 남기느니 두세 줄 더
+   보이는 편이 낫다. 이미지가 있으면 아래 .has-image 규칙이 이 자리를 이미지에 넘긴다. */
 .issue-lead .lead-summary { flex: 1 1 auto; }
 .feature-grid:has(.issue-lead) .issue-support:nth-of-type(2) { grid-area: support1; }
 .feature-grid:has(.issue-lead) .issue-support:nth-of-type(3) { grid-area: support2; }
 .feature-card.issue-lead h3 { font-size: 27px; line-height: 1.32; font-weight: 700; }
 .issue-lead .lead-summary { margin: 10px 0 0; font-size: 16px; line-height: 1.7;
   color: var(--ink); }
+/* 대표 이미지가 있으면 요약 아래 남는 공간을 이미지가 메운다 — 짧은 요약 뒤 빈
+   여백을 두느니 사진으로 채우는 편이 낫다(2026-09-21 지시). */
+.issue-lead.has-image .lead-summary { flex: 0 0 auto; }
+.issue-lead .lead-image { flex: 1 1 auto; margin-top: 14px; min-height: 120px;
+  border-radius: 8px; overflow: hidden; background: #f2f6f5; }
+.issue-lead .lead-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* 라벨은 이 자리가 왜 큰지 말해 준다. 크기만 다르면 우연으로 읽힌다. */
 .lead-badge { display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px;
   background: var(--sc, var(--accent)); color: #fff; font-size: 11px; font-weight: 600;
