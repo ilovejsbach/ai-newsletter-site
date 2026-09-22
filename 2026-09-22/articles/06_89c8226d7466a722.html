@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vercel 게이트웨이서 오픈웨이트 토큰 56% 차지</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-open">
+      <p class="source"><span class="article-number">06</span> The New Stack <span class="source-date">게시일 2026.09.18</span></p>
+      <h1>Vercel 게이트웨이서 오픈웨이트 토큰 56% 차지</h1>
+      <img class="detail-image" src="../assets/images/article_06_89c8226d7466a722.jpg" alt="기사 이미지">
+      <p class="detail-lead">Vercel이 자사 AI Gateway 사용 데이터를 공개했다. 이 게이트웨이는 여러 모델 사업자를 한 화면과 한 키 체계로 묶어주는 중간 계층이다. 그래서 실제 운영 환경에서 어떤 모델이 얼마나 쓰이는지 볼 수 있다. 이번 데이터는 사용량과 지출이 다른 방향으로 갈 수 있다는 점을 잘 보여준다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>이번 수치는 모델 채택 흐름을 보여준다. 오픈웨이트 모델은 이제 생산 환경에서 많은 요청을 처리한다. 하지만 돈은 아직 폐쇄형 상용 모델 쪽으로 더 크게 흐른다.</p>
+<p>Vercel 보고서에서 오픈웨이트 모델은 8월 AI Gateway 토큰의 56%를 처리했다. 월간 기준으로 과반을 넘긴 것은 처음이다. 2025년 12월에는 7%였고, 4월에는 13%였다. 7월 수치는 36%였다. Vercel CEO 기예르모 라우치는 8월 22일 하루 기준으로는 오픈웨이트 비중이 62%까지 올라간 날도 있었다고 밝혔다.</p>
+<p>다만 지출은 전혀 다른 그림이다. 8월 오픈웨이트 모델의 지출 비중은 1달러당 14센트였다. 반면 Anthropic 모델은 1달러당 64센트를 차지했다. Anthropic의 지출 비중은 2025년 12월 이후 어느 달에도 61% 아래로 내려가지 않았다고 Vercel은 밝혔다.</p>
+<p>8월 평균 토큰 단가는 전월보다 23.2% 떨어졌다. 7월과 8월 모두 1천만 토큰 이상 처리한 팀만 따로 보면, 팀별 토큰 단가 중간값은 7.6% 낮아졌다. Vercel은 토큰 집계에 입력, 출력, 추론, 캐시 입력, 캐시 생성 토큰을 모두 포함한다고 설명했다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>구분</th><th>2025년 12월</th><th>2026년 4월</th><th>2026년 7월</th><th>2026년 8월</th></tr></thead><tbody><tr><td>오픈웨이트 토큰 비중</td><td>7%</td><td>13%</td><td>36%</td><td>56%</td></tr><tr><td>오픈웨이트 지출 비중</td><td>-</td><td>-</td><td>-</td><td>14센트/1달러</td></tr><tr><td>Anthropic 지출 비중</td><td>61% 이상</td><td>61% 이상</td><td>61% 이상</td><td>64센트/1달러</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <p>이 기사는 모델 자체의 크기나 라이선스를 다루지 않는다. 대신 운영 관점의 도입 조건을 보여준다. AI Gateway는 여러 모델 공급자를 하나의 인터페이스로 묶는다. 개발팀은 모델마다 다른 API 키, 계정, 속도 제한을 직접 관리하지 않아도 된다.</p>
+<p>이 구조는 모델 전환 비용을 낮춘다. 같은 애플리케이션 안에서 다른 공급자 모델로 빠르게 갈아탈 수 있기 때문이다. 실제로 Vercel 데이터에서도 가격과 성능 조합이 맞지 않으면 팀들이 같은 사업자 안에서도 모델을 바꾸고, 필요하면 다른 사업자로도 이동하는 모습이 나타났다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>여러 매체가 함께 다룬 사건이다. The New Stack은 앞서 OpenRouter의 8월 미국 토큰 소비에서도 오픈웨이트 비중이 60%였다고 전했다. Vercel 데이터에서는 사업자 간 이동도 확인됐다. Z.ai의 GLM-5.3-Flash는 출시 5일 만에 GLM-5.2의 일일 처리량 3배를 기록했다. 반대로 Google의 Gemini 3 Flash에서 빠진 물량의 4분의 3 이상은 OpenAI와 Anthropic 같은 다른 사업자 모델로 이동했다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 봐야 할 핵심은 &#x27;무엇이 많이 쓰이느냐&#x27;보다 &#x27;무엇이 예산을 잠식하느냐&#x27;다. 토큰 비중이 높아도 단가가 낮으면 총비용 영향은 작을 수 있다. 반대로 고성능 모델은 비중이 낮아도 예산 대부분을 차지할 수 있다.</p>
+<p>검토 항목은 구체적이어야 한다.</p>
+<ul><li>부서별 사용량과 지출을 따로 볼 수 있는가</li><li>같은 업무를 더 싼 모델로 옮겨도 품질이 유지되는가</li><li>모델 교체 때 프롬프트, 평가, 통제 규칙을 얼마나 다시 손봐야 하는가</li><li>특정 사업자 의존도가 높아지는 구간은 어디인가</li></ul>
+<p>금융IT에서는 비용 절감만 보고 오픈웨이트를 늘리기 어렵다. 보안, 배포 방식, 책임 분계, 운영 인력도 함께 따져야 한다. 다만 게이트웨이 구조를 쓰면 공급자 전환 실험은 쉬워진다. 조달과 아키텍처 팀은 멀티모델 운영 기준을 먼저 정해둘 필요가 있다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>open-weight model: 가중치를 공개해 직접 배포하거나 수정해 쓸 수 있는 모델</span> <span>token: 모델이 처리하는 텍스트 단위로, 사용량과 과금의 기준이 된다</span> <span>inference: 학습된 모델이 실제 입력을 받아 답을 내는 실행 단계</span> <span>AI Gateway: 여러 모델 사업자를 하나의 인터페이스로 연결해 주는 중간 계층</span> <span>Pass-through cost: 중간 플랫폼이 여러 모델 사용 비용을 집계해 보여주는 구조에서의 추정 지출 개념</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Open-weight models now handle a majority of tokens on Vercel&#x27;s AI Gateway. But Anthropic still takes 64% of the spend.</p>
+        <p class="url">게시일: 2026.09.18</p>
+        <p class="url">출처 URL: <a href="https://thenewstack.io/open-weight-anthropic-spend/" target="_blank" rel="noopener noreferrer">https://thenewstack.io/open-weight-anthropic-spend/</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StepFun, 100만 토큰 Step 5 미리 공개</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">03</span> MarkTechPost <span class="source-date">게시일 2026.09.21</span></p>
+      <h1>StepFun, 100만 토큰 Step 5 미리 공개</h1>
+      <img class="detail-image" src="../assets/images/article_03_6b4661d9b32d9cd3.png" alt="기사 이미지">
+      <p class="detail-lead">StepFun이 장문 작업과 에이전트형 업무를 겨냥한 Step 5 Preview를 공개했다. 코딩, 전문 지식 업무, 금융을 목표 분야로 콕 집었다. 발표의 중심 메시지는 최고 성능보다 작업당 비용 대비 성능이다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>이 모델은 긴 문서를 읽고, 도구를 여러 번 쓰며, 여러 단계를 거치는 업무를 처리하려는 AI다. 비전문가 기준으로 보면, 한 번에 훨씬 긴 자료를 보고 오래 이어지는 작업을 맡기려는 모델이다.</p>
+<p>Step 5 Preview는 6,000억 매개변수 중 토큰마다 약 270억만 쓰는 희소 MoE 구조다. 활성 비율은 토큰당 약 4.5%다. StepFun은 이 구조로 지능 수준은 유지하면서 비용을 낮췄다고 주장했다.</p>
+<p>공개된 주요 사양은 이렇다.</p>
+<ul><li>모델 ID는 step-5-preview다</li><li>문맥창은 100만 토큰이다</li><li>입력은 텍스트, 이미지, 영상을 받는다</li><li>추론 강도는 low, medium, high를 지원한다</li><li>스트리밍, 툴 콜링, JSON Mode, JSON Schema, 프롬프트 캐싱을 지원한다</li><li>현재는 호스티드 API와 StepFun 플랫폼에서 쓸 수 있다</li><li>오픈 웨이트는 2026년 10월 15일 공개 예정이라고 StepFun이 밝혔다</li></ul>
+<p>하드웨어 조건도 만만치 않다. 기사에는 6,000억 매개변수를 BF16으로 올리면 KV 캐시를 빼고도 약 1.2TB가 필요하다고 적었다. 오픈 웨이트가 나오면 다중 GPU 서버를 준비해야 한다는 뜻이다.</p>
+<p>StepFun은 긴 작업 성능도 사례로 제시했다. 연구 작업에서 한 번의 에이전트 행동으로 웹 요청 950건을 조정했다고 밝혔다. 학습과 추론 정렬, MTP-3 추측 디코딩, FP8 MoE, KV 캐시 오프로딩을 적용했고, 장기 강화학습에서는 종단 간 속도가 3배 이상 빨라졌다고 설명했다.</p>
+        
+      </section>
+<section>
+        <h2>주요 트렌드</h2>
+        <p>이번 발표는 플래그십 모델 경쟁이 &#x27;가장 큰 모델&#x27;보다 &#x27;긴 작업을 얼마나 싸게 처리하느냐&#x27;로 이동하고 있음을 보여준다. StepFun은 100만 토큰 문맥과 낮은 출력 단가를 앞세워 장기 에이전트 업무를 노렸다.</p>
+<p>배포 전략도 이중 구조다. 지금은 API로 먼저 시장을 열고, 나중에 오픈 웨이트를 풀어 자가 호스팅 수요를 받는다. 기업 입장에서는 빠른 시험은 API로 하고, 규제나 비용 요구가 맞으면 온프레미스(사내 서버에 직접 설치해 쓰는 방식)로 검토할 수 있는 그림이다.</p>
+<p>다만 비용 비교에는 단서가 붙는다. Artificial Analysis는 비슷한 가격대 모델의 중앙값을 입력 100만 토큰당 1.88달러, 출력 100만 토큰당 10.00달러로 제시했다. 그런데 Step 5 Preview는 인덱스 측정에서 출력 토큰 1억 6,000만 개를 생성했다. 비교군 중앙값은 9,200만 개였다. 토큰당 가격이 낮아도 답변이 길면 총비용 이점이 줄 수 있다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>Step 5 Preview</th><th>Claude Opus 5</th><th>GPT-6 Astra</th></tr></thead><tbody><tr><td>FrontierFinance</td><td>66.4</td><td>69.7</td><td>55</td></tr><tr><td>DRACO</td><td>83.3</td><td>87.6</td><td>76.8</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>독립 평가는 Artificial Analysis가 내놨다. 이 기관은 Step 5 Preview의 Intelligence Index를 44로 측정했고, StepFun API에서 초당 99.8토큰을 기록했다고 밝혔다. 반면 코딩 벤치마크 3종에서는 GPT-6 Astra와 Claude Opus 5가 모두 앞섰다고 기사에 적혔다. StepCodeBench는 StepFun 자체 벤치마크라는 단서도 함께 공개됐다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>금융IT 기업은 이 모델을 긴 문서 검토와 다단계 업무 자동화 후보로 볼 수 있다. 투자 설명서, 규정집, 내부 매뉴얼, 고객 질의 이력처럼 길고 엮인 자료를 한 번에 다루는 업무가 맞는지 먼저 따져볼 만하다.</p>
+<ul><li>API 시험 도입 시 입력 단가뿐 아니라 실제 출력 토큰 길이를 함께 재야 한다</li><li>오픈 웨이트를 기다린다면 GPU 메모리와 KV 캐시 요구량을 먼저 계산해야 한다</li><li>벤치마크는 일부가 StepFun 자체 측정이다. 금융 도메인 정확도는 별도 검증이 필요하다</li><li>영상 입력과 툴 콜링을 지원하므로, 화면 기반 업무 자동화와 문서 처리 자동화를 한 모델로 묶을 수 있는지 볼 만하다</li></ul>
+<p>가격표도 확인할 필요가 있다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>토큰 구분</th><th>가격</th></tr></thead><tbody><tr><td>입력, 캐시 미스</td><td>100만 토큰당 1.00달러</td></tr><tr><td>입력, 캐시 히트</td><td>100만 토큰당 0.05달러</td></tr><tr><td>출력, 추론 포함</td><td>100만 토큰당 2.70달러</td></tr></tbody></table></div>
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>MoE(Mixture of Experts): 여러 전문가 모듈 중 일부만 골라 계산해 비용을 줄이는 모델 구조</span> <span>문맥창(context window): 모델이 한 번에 참고할 수 있는 입력 길이</span> <span>오픈 웨이트(open weights): 학습된 모델 가중치를 외부에 배포하는 방식</span> <span>BF16: AI 연산에 많이 쓰는 16비트 숫자 형식</span> <span>KV 캐시(KV cache): 이전 토큰 계산 결과를 저장해 추론 속도를 높이는 메모리 구조</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: StepFun Launches Step 5 Preview: A 600B-Total, 27B-Active MoE Model With 1M Context for Long-Horizon Agentic Work</p>
+        <p class="url">게시일: 2026.09.21</p>
+        <p class="url">출처 URL: <a href="https://www.marktechpost.com/2026/09/20/stepfun-launches-step-5-preview/" target="_blank" rel="noopener noreferrer">https://www.marktechpost.com/2026/09/20/stepfun-launches-step-5-preview/</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

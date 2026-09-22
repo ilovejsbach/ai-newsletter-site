@@ -1,0 +1,291 @@
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('../../fonts/PretendardVariable.woff2') format('woff2-variations');
+  font-weight: 45 920;
+  font-display: swap;
+}
+
+:root { color-scheme: light; --ink: #191f28; --muted: #6b7684; --line: #e5e8eb; --paper: #ffffff; --wash: #f4f5f7; --accent: #0f766e; --warm: #b45309;
+  --frontier: #3b5bdb; --open: #0ca678; --research: #a855f7; --tooling: #e8590c; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink); font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif; line-height: 1.65; }
+.newsletter { max-width: 1080px; margin: 0 auto; background: var(--paper); min-height: 100vh; }
+.masthead { display: grid; grid-template-columns: 1.25fr .75fr; gap: 34px; align-items: stretch; padding: 48px 44px 32px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #ffffff 0%, #f7fafb 100%); }
+.kicker { margin: 0 0 8px; color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1 { margin: 0; font-size: 34px; line-height: 1.25; letter-spacing: 0; }
+.lead { margin: 14px 0 0; color: var(--muted); font-size: 17px; }
+/* `cover` on a fixed 4:3 box cropped wide og:images down the middle — a launch
+   banner reading "Advancing the price-performance frontier" lost both ends and
+   printed as "rice-performance fronti". Fit the whole image instead and let the
+   box breathe, with a neutral mat where the aspect ratios disagree. */
+.hero-image { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #f2f6f5; border-radius: 8px; border: 1px solid var(--line); }
+.hero-panel { min-height: 260px; border-radius: 8px; border: 1px solid var(--line); background: #102321; color: #f6fbf9; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; }
+.hero-panel span { font-size: 54px; font-weight: 900; line-height: 1; color: #8dd7c8; }
+.hero-panel strong { font-size: 22px; margin-top: 8px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+.summary div { padding: 18px 44px; border-right: 1px solid var(--line); }
+.summary div:last-child { border-right: 0; }
+.summary strong { display: block; font-size: 24px; }
+.summary span { color: var(--muted); }
+.editors-pick { padding: 34px 44px 28px; border-bottom: 1px solid var(--line); }
+.section-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
+.section-title p { margin: 0; color: var(--accent); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.section-title h2 { margin: 0; font-size: 24px; letter-spacing: 0; }
+/* 카드 수에 맞춰 열이 늘어난다: 3장이면 1열 3개, 2장이면 2개 */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+
+/* 머리기사 하나 + 보조 둘. `selection.lead_feature`를 켠 판에서만 이 마크업이 나오므로,
+   끄여 있는 판의 격자는 위 규칙 그대로다(2026-09-18 편집 디자인 리뷰).
+   세 장을 같은 크기로 늘어놓으면 독자가 중요도를 다시 판단해야 한다. */
+.feature-grid:has(.issue-lead) {
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-areas: "lead support1" "lead support2";
+  /* `start`로 두면 머리기사가 보조 둘을 합친 높이보다 짧을 때 왼쪽 아래가 비어 보인다.
+     머리기사 칸이 두 줄을 채우게 늘린다 — 크기가 곧 무게라는 것이 이 배치의 뜻이다. */
+  align-items: stretch;
+}
+.issue-lead { grid-area: lead; display: flex; flex-direction: column; }
+/* 대표 이미지가 없는 기사는 요약이 남은 자리를 메운다. 빈 칸을 남기느니 두세 줄 더
+   보이는 편이 낫다. 이미지가 있으면 아래 .has-image 규칙이 이 자리를 이미지에 넘긴다. */
+.issue-lead .lead-summary { flex: 1 1 auto; }
+.feature-grid:has(.issue-lead) .issue-support:nth-of-type(2) { grid-area: support1; }
+.feature-grid:has(.issue-lead) .issue-support:nth-of-type(3) { grid-area: support2; }
+.feature-card.issue-lead h3 { font-size: 27px; line-height: 1.32; font-weight: 700; }
+.issue-lead .lead-summary { margin: 10px 0 0; font-size: 16px; line-height: 1.7;
+  color: var(--ink); }
+/* 대표 이미지가 있으면 요약 아래 남는 공간을 이미지가 메운다 — 짧은 요약 뒤 빈
+   여백을 두느니 사진으로 채우는 편이 낫다(2026-09-21 지시).
+   높이를 고정값으로 박으면 옆 보조 카드 두 장의 실제 높이와 우연히 어긋나 그
+   자리에 다시 여백이 남는다. 반대로 img를 grid 흐름에 그대로 두면 원본 종횡비가
+   카드의 고유 높이 계산에 끼어들어 카드 자체가 부풀고, `align-items: stretch`가
+   그 부푼 높이를 보조 카드에도 그대로 옮겨 거기 여백이 커진다(2026-09-21 실측
+   — 두 접근 모두 실패). 그래서 img를 절대 배치로 빼 카드의 고유 높이 계산에서
+   제외한다: 카드 높이는 이제 옆 보조 카드 두 장의 자연스러운 높이가 그대로
+   정하고, 이미지는 `flex: 1 1 auto`로 그 결과 남는 자리만큼만 정확히 채운다 —
+   두 열의 높이가 서로를 밀어 올리는 악순환 없이 균형이 맞는다. */
+.issue-lead.has-image .lead-summary { flex: 0 0 auto; }
+.issue-lead .lead-image { position: relative; flex: 1 1 auto; min-height: 120px;
+  margin-top: 14px; border-radius: 8px; overflow: hidden; background: #f2f6f5; }
+.issue-lead .lead-image img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block; }
+/* 라벨은 이 자리가 왜 큰지 말해 준다. 크기만 다르면 우연으로 읽힌다. */
+.lead-badge { display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px;
+  background: var(--sc, var(--accent)); color: #fff; font-size: 11px; font-weight: 600;
+  letter-spacing: 0; vertical-align: 1px; }
+.feature-card.issue-support h3 { font-size: 18px; line-height: 1.4; }
+.issue-support .card-callout { font-size: 14px; }
+/* 좁은 화면에서는 한 줄로 쌓되 머리기사가 여전히 먼저다. */
+@media (max-width: 720px) {
+  .feature-grid:has(.issue-lead) { grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "lead" "support1" "support2"; }
+  .feature-card.issue-lead h3 { font-size: 23px; }
+}
+.feature-card { border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px; background: #fbfcfd; display: flex; flex-direction: column; }
+.feature-card h3 { margin: 0 0 10px; font-size: 20px; line-height: 1.38; letter-spacing: 0; }
+.feature-card h3 a { color: var(--ink); text-decoration: none; }
+.feature-card p { margin: 0 0 12px; font-size: 14.5px; }
+.card-callout { padding-left: 12px; border-left: 3px solid var(--sc, var(--accent)); font-weight: 500; color: #333d4b; }
+.feature-card .detail-link { margin-top: auto; font-size: 13.5px; }
+.issue-card .why { background: transparent; border-left: 0; padding: 0; }
+.related-list { margin: 0 0 14px 18px; padding: 0; color: var(--muted); font-size: 14px; }
+.related-list li { margin: 4px 0; }
+.articles { padding: 0; }
+.article-group { border-bottom: 1px solid var(--line); }
+.group-header { padding: 30px 44px 12px; background: #fbfcfd; border-bottom: 1px solid var(--line); }
+.group-header h2 { margin: 0 0 6px; font-size: 22px; letter-spacing: 0; }
+.group-header p { margin: 0; color: var(--muted); }
+.section-empty { margin: 0; padding: 22px 44px 30px; color: var(--muted); }
+.card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 24px 44px 32px; }
+.article-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; min-height: 100%; }
+.article-card .article-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+.article-card h2 { margin: 0 0 10px; font-size: 19px; line-height: 1.38; letter-spacing: 0; }
+.article-card h2 a { color: var(--ink); text-decoration: none; }
+.article-card p { margin: 0 0 12px; }
+.article-card img, .thumb-placeholder { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid var(--line); }
+.thumb-placeholder { display: flex; align-items: center; justify-content: center; background: #e9f4f1; color: var(--accent); font-size: 34px; font-weight: 900; }
+.rank { color: var(--warm); font-size: 22px; font-weight: 800; }
+.source { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
+.source-date { display: inline-block; margin-left: 8px; color: var(--warm); font-weight: 700; }
+.article-number { display: inline-block; min-width: 32px; height: 24px; line-height: 24px; margin-right: 7px; padding: 0 8px; text-align: center; border-radius: 999px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; }
+.article h2 { margin: 0 0 12px; font-size: 23px; line-height: 1.35; letter-spacing: 0; }
+.article h2 a { color: var(--ink); text-decoration: none; }
+.article h2 a:hover, .article-card h2 a:hover, .feature-card h3 a:hover, .detail-link:hover { color: var(--accent); text-decoration: underline; }
+.article img { width: min(520px, 100%); max-height: 280px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); margin: 4px 0 12px; }
+.article p { margin: 0 0 12px; }
+.why { background: #f8fafb; border-left: 4px solid var(--accent); padding: 10px 12px; }
+.terms { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+.terms span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; color: var(--muted); font-size: 13px; }
+.meta, .url { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.url a { color: inherit; text-decoration: underline; word-break: break-all; }
+.detail-link { color: var(--accent); font-weight: 700; text-decoration: none; }
+.quality { padding: 28px 44px 48px; }
+.quality h2 { margin: 0 0 10px; font-size: 20px; }
+.quality p { margin: 0; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; }
+.quality-lead { margin-bottom: 14px !important; }
+.quality-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.quality-list li { border: 1px solid var(--line); border-radius: 8px; padding: 14px; background: #fbfcfd; }
+.quality-list strong { display: block; margin-bottom: 4px; }
+.quality-list span { display: inline-block; color: var(--warm); font-weight: 800; margin-bottom: 6px; }
+.quality-list p { font-size: 14px; }
+.detail-page { max-width: 860px; }
+/* 상세 본문. 2026-09-18 편집 디자인 리뷰의 공통 권고를 따른다.
+   - 본문 14→17px, 행간 1.75: 장문을 읽는 지면인데 목록 글자와 같은 크기였다.
+   - 한 줄 폭 772→690px: 17px 글자에 772px은 한 줄이 길어 눈이 되돌아올 자리를 잃는다.
+   목록 지면은 건드리지 않는다 — 고르는 자리와 읽는 자리는 다른 값을 쓴다. */
+.detail-article { padding: 28px 44px 52px; }
+.detail-article section p { font-size: 17px; line-height: 1.75; }
+.detail-article section { max-width: 690px; }
+.detail-article section ul, .detail-article section ol { font-size: 17px; line-height: 1.75; }
+.detail-article h1 { margin-bottom: 18px; }
+.detail-lead { margin: 0 0 24px; color: var(--ink); font-size: 17px; line-height: 1.75; }
+.detail-article section { border-top: 1px solid var(--line); padding: 22px 0; }
+.detail-article h2 { margin: 0 0 10px; font-size: 19px; }
+.detail-image { width: min(640px, 100%); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); margin: 4px 0 22px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { border-bottom: 1px solid var(--line); padding: 9px 8px; text-align: left; vertical-align: top; }
+th { width: 140px; color: var(--muted); font-weight: 700; }
+/* 수치 비교가 핵심인 섹션의 본문 표 (LLM detail_sections[].table) — 원문 발췌의
+   벤치마크/스펙 표를 불릿 나열 대신 실제 표로 보여준다. 열이 여럿이라 위
+   두-컬럼용 th { width: 140px }는 무시하고(선택자 우선순위로 재정의) 전체
+   좌측 정렬로 통일 — 숫자 우측 정렬까지 챙기면 열마다 다른 자릿수 정렬 로직이
+   필요해 오히려 깨지기 쉽다. */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.data-table th, .data-table td { width: auto; border: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
+.data-table thead th { background: var(--wash); color: var(--ink); font-weight: 700; }
+.detail-article ul { margin: 8px 0 0 18px; padding: 0; color: var(--ink); }
+.detail-article li { margin: 6px 0; }
+/* 시안 A 구조: 전폭 기사 행 + 4단 슬롯 그리드 (sectioned 모드 본지) */
+.story-list { padding: 6px 44px 34px; }
+.story { position: relative; padding: 18px 0 20px; border-bottom: 1px solid var(--line); }
+.story:last-child { border-bottom: 0; }
+.story-no { position: absolute; top: 18px; right: 0; font-size: 34px; font-weight: 900; color: #c1c7cd; opacity: .35; line-height: 1; }
+.story h3 { margin: 6px 0 4px; font-size: 22px; line-height: 1.4; }
+.story h3 a { color: var(--ink); text-decoration: none; }
+.story h3 a:hover { color: var(--accent); text-decoration: underline; }
+.story-line { margin: 0 0 14px; color: #333d4b; font-size: 15.5px; }
+/* 썸네일 옵션: 텍스트 좌 + 대표 이미지 우, 이미지 위에 번호 배지 */
+.story.has-thumb { display: grid; grid-template-columns: 1fr 200px; gap: 22px; align-items: start; }
+.story-thumb { position: relative; }
+.story-thumb img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; }
+.story-thumb span { position: absolute; top: 8px; left: 8px; background: rgba(17,23,33,.82); color: #fff; font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
+/* 저장소 행(.story-repo): metrics.license_spdx가 있는 기사에만 붙는다. AI 판은 이 클래스와 아래
+   .repo-*·.license-badge를 한 번도 출력하지 않으므로 계산값이 바뀌지 않는다 (docs/DESIGN_REVIEW_GITHUB_STORY_ROW.md 4-1~4-8) */
+.story-repo { padding: 22px 0 24px; }
+.story-repo.has-thumb { grid-template-columns: 1fr 240px; gap: 24px; align-items: start; }
+/* 첫 줄: 순번 칩 + 제목을 한 h3 안에 flex로 나란히. 칩은 .article-number 규격(24px 높이) 그대로, 간격은 gap이 맡는다.
+   flex-start + margin-top 3px = 제목 첫 줄(22px/1.4 = 30.8px)의 세로 중심에 칩을 맞춘다 — 제목이 두 줄로 접혀도 칩은 첫 줄에 남는다 */
+.story-repo h3 { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 2px; }
+.story-repo h3 .article-number { flex: 0 0 auto; margin: 3px 0 0; }
+.story-repo h3 a { min-width: 0; }
+.story-repo .repo-name { margin: 0 0 6px; }
+.story-repo .story-yama { margin: 0 0 10px; }
+.story-repo .story-hook { margin: 0 0 14px; }
+.story-repo .story-thumb img { aspect-ratio: 2 / 1; background: var(--wash); }
+.story-repo .story-thumb span { display: none; }
+/* 명패·지표 띠·배지·점검 알약은 클래스 단독 선택자 — 목록 행과 상세 페이지가 같은 규칙을 공유한다 */
+.repo-name { margin: 0 0 2px; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; font-variant-ligatures: none; }
+.repo-owner { font-weight: 500; color: #4a5361; }
+.repo-sep { margin: 0 1px; color: var(--muted); }
+.repo-repo { font-weight: 700; color: var(--ink); }
+.repo-facts { display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; row-gap: 4px; margin: 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.repo-stars, .repo-delta { color: var(--ink); font-weight: 600; }
+.license-badge { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 10px; font-size: 12px; font-weight: 700; }
+.license-badge.tier-permissive { background: #e6f4ea; color: #1e6b3a; }
+.license-badge.tier-copyleft { background: #fff3e0; color: #9a4a00; }
+.license-badge.tier-unknown { background: #eceff1; color: #4b5563; }
+.repo-checks { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-left: 6px; }
+.repo-check { padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: #4a5361; font-size: 12px; font-weight: 600; }
+.repo-facts .hot { color: var(--sc, var(--ink)); }
+.detail-article .repo-name { margin: 0 0 4px; }
+/* 좁은 폭(게시판 iframe): 저장소 행만 썸네일 열을 줄이고(760px), 더 좁으면 숨긴다(560px). 선택자에 .story-repo 필수 */
+@media (max-width: 760px) {
+  .story-repo.has-thumb { grid-template-columns: 1fr 160px; gap: 16px; }
+}
+@media (max-width: 560px) {
+  .story-repo.has-thumb { grid-template-columns: 1fr; }
+  .story-repo .story-thumb { display: none; }
+}
+
+/* 콜아웃(pull quote): 본문에서 그대로 인용한 한 문장. --sc는 섹션 색을 상속받는다 */
+.story-yama { margin: 4px 0 2px; color: #4a5361; font-size: 15px; line-height: 1.6; max-width: 720px; }
+.story-hook { margin: 2px 0 0; padding: 2px 0 2px 14px; border-left: 3px solid var(--sc, var(--accent)); color: #333d4b; font-size: 16.5px; font-weight: 500; line-height: 1.65; max-width: 720px; }
+.story-summary { margin: 0 0 10px; color: #333d4b; }
+.slots { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.slot { background: #fff; padding: 14px 16px; }
+.slot h4 { margin: 0 0 6px; font-size: 12.5px; font-weight: 700; color: var(--muted); letter-spacing: .06em; }
+.slot p { margin: 0 0 8px; font-size: 14px; line-height: 1.65; color: #333d4b; }
+.slot p:last-child { margin-bottom: 0; }
+.slot ul { margin: 4px 0 8px 18px; padding: 0; font-size: 14px; color: #333d4b; }
+.slot li { margin: 3px 0; }
+.slot.impact { background: #fbfbf6; }
+.story-links { margin: 12px 0 0; font-size: 14px; }
+
+@media (max-width: 720px) {
+  .story-list { padding: 6px 22px 28px; }
+  .slots { grid-template-columns: 1fr; }
+  .story-no { font-size: 26px; }
+  .masthead { grid-template-columns: 1fr; padding: 30px 22px 22px; }
+  h1 { font-size: 27px; }
+  .summary { grid-template-columns: 1fr; }
+  .summary div { padding: 14px 22px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .editors-pick { padding: 28px 22px 22px; }
+  .section-title { display: block; }
+  .feature-grid, .card-grid { grid-template-columns: 1fr; }
+  .card-grid { padding: 20px 22px 28px; }
+  .group-header { padding: 24px 22px 10px; }
+  .article { grid-template-columns: 1fr; padding: 24px 22px; gap: 6px; }
+  .quality { padding: 24px 22px 36px; }
+  .detail-nav { padding: 20px 22px 0; }
+  .detail-article { padding: 24px 22px 40px; }
+  th { width: 112px; }
+}
+
+h1 { font-weight: 800; letter-spacing: -0.02em; }
+.masthead { border-bottom: 2px solid var(--ink); }
+.radar-hint { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
+.article-number { border-radius: 4px; background: var(--ink); font-weight: 900; }
+/* 섹션 컬러 코딩: 헤더 밑줄·번호 칩·배지가 섹션 색을 따른다 */
+.article-group.section-frontier { --sc: var(--frontier); }
+.article-group.section-open { --sc: var(--open); }
+.article-group.section-research { --sc: var(--research); }
+.article-group.section-tooling { --sc: var(--tooling); }
+.article-group[class*="section-"] .group-header { border-bottom: 3px solid var(--sc, var(--ink)); background: #fff; }
+.article-group[class*="section-"] .group-header h2 { font-weight: 800; }
+.article-group[class*="section-"] .article-number { background: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .detail-link { color: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .thumb-placeholder { background: color-mix(in srgb, var(--sc, var(--ink)) 10%, #fff); color: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .slot h4 { color: var(--sc, var(--ink)); }
+.article-group[class*="section-"] .story-no { color: var(--sc, var(--ink)); opacity: .28; }
+/* 상세 아티클(개별 PNG)도 섹션 색 상속 */
+.detail-article.section-frontier { --sc: var(--frontier); }
+.detail-article.section-open { --sc: var(--open); }
+.detail-article.section-research { --sc: var(--research); }
+.detail-article.section-tooling { --sc: var(--tooling); }
+.detail-article[class*="section-"] .article-number { background: var(--sc, var(--ink)); }
+/* 제목 굵기 800은 한글에서 검은 덩어리로 보인다. 700으로 낮춰 판명·머리기사·소제목이
+   서로 다른 무게를 갖게 한다(네 판 공통 지적). */
+.detail-article[class*="section-"] h1 { border-bottom: 3px solid var(--sc, var(--ink));
+  padding-bottom: 14px; font-weight: 700; }
+/* 절 제목. 15px이던 것을 21px로 올렸다 — 본문(14px)보다 1px 클 뿐이라 절의 전환을
+   색과 굵기에만 기대고 있었다(2026-09-18 편집 디자인 리뷰, 네 판 공통 지적).
+   자간은 뺐다 — 한국어 본문에 영문식 넓은 자간을 주면 낱말이 흩어져 읽힌다. */
+.detail-article[class*="section-"] section h2 {
+  color: var(--sc, var(--ink)); font-size: 21px; font-weight: 600;
+  line-height: 1.4; margin: 30px 0 10px; letter-spacing: 0; }
+.detail-article[class*="section-"] .detail-lead { background: #f8f9fa; border-left: 3px solid var(--sc, var(--ink)); padding: 14px 18px; }
+
+.article-group.group-labeled .group-header { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 14px; row-gap: 2px; padding: 34px 44px 10px; background: transparent; border-bottom: 2px solid var(--sc, var(--ink)); }
+.article-group.group-labeled .group-header h2 { font-size: 13.5px; font-weight: 800; line-height: 1.5; letter-spacing: .08em; color: var(--sc, var(--ink)); margin: 0; }
+.article-group.group-labeled .group-header h2::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; background: var(--sc, var(--ink)); vertical-align: 1px; }
+.article-group.group-labeled .group-header p { font-size: 14px; color: var(--muted); margin: 0; flex: 1 1 320px; }
+.group-labeled .story-list { padding-top: 18px; }
+.group-labeled .section-empty { padding-top: 18px; }
+/* 대표 슬롯: ★ 표식 + 금색 테두리 카드. .story-repo padding(22px 0 24px)보다 뒤에 와야 카드 안쪽 여백이 생기고,
+   .story:last-child { border-bottom: 0 }가 카드 밑선을 지우지 않도록 border-bottom을 다시 선언한다 */
+.article-group.section-feature.group-labeled .group-header h2::before { content: "★"; width: auto; height: auto; background: none; font-size: 13px; }
+.section-feature.group-labeled .story { border: 1px solid var(--sc, var(--ink)); border-bottom: 1px solid var(--sc, var(--ink)); border-radius: 8px; padding: 20px 24px; margin: 0 0 6px; }
+@media (max-width: 720px) {
+  .article-group.group-labeled .group-header { padding: 28px 22px 8px; }
+  .group-labeled .story-list { padding-top: 16px; }
+}
