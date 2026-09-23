@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>설치 전 에이전트 스킬 보안 검사</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-agents detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">01</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">NVIDIA</span><span class="repo-sep">/</span><span class="repo-repo">SkillSpector</span></p>
+      <h1>설치 전 에이전트 스킬 보안 검사</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 18,124</span><span class="repo-delta">이번 주 +783</span><span class="repo-lang">Python</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v2.11.2 (09.09)</span><span class="repo-active">최근 활동 09.23</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_01_98255810d4c42dd8.png" alt="기사 이미지">
+      <p class="detail-lead">이 저장소는 에이전트 스킬을 설치하기 전에 안전성을 점검하는 검사기다. 만든 쪽은 연구 데이터셋의 31,132개 스킬 부분집합을 분석했을 때 26.1%에 취약점이 있었고 5.2%는 악성 의도가 의심됐다고 밝혔다. 도구는 설치 전 검사와 보고서 해석, 설치 차단 기준 수립까지 염두에 두고 만들었다. NVIDIA의 Verified Skills 절차에도 들어간다고 적혀 있다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>이 도구는 에이전트 스킬을 설치하기 전에 취약점과 악성 징후를 검사한다. 외부 문서를 들여오기 전에 보안팀이 악성 첨부와 위험 링크를 먼저 훑어보는 장면에 가깝다. 이 도구가 없으면 스킬 파일과 저장소를 사람이 직접 열어 보고 위험 패턴을 일일이 확인해야 한다. 검사 결과는 점수와 권고 문구, 여러 형식의 보고서로 남길 수 있다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어는 Python이다.</li><li>설치 형태는 CLI 도구 설치, 소스 설치, Docker 이미지 빌드를 지원한다.</li><li>MCP 기능을 쓰려면 추가 설치가 필요하다.</li><li>LLM 분석을 켜면 외부 모델 제공자 설정과 API 키가 필요할 수 있다.</li><li>LLM 없이 정적 분석만으로도 실행할 수 있다.</li><li>라이선스는 Apache-2.0이다.</li><li>최신 릴리스는 v2.11.2다.</li><li>포함된 Dockerfile로 Python 없이도 돌릴 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>사내 개발팀이 외부에서 받은 Codex나 Claude Code 스킬을 설치하기 전에 1차 보안 심사를 걸 때 맞다.</li><li>정보보호 조직이 MCP 도구 묶음을 반입하기 전에 데이터 반출, 권한 상승, 공급망 위험을 함께 확인할 때 쓸 수 있다.</li><li>여러 팀이 만든 에이전트 스킬 저장소를 정기 점검하고, 이전에 승인한 항목을 제외한 새 문제만 다시 보고 싶을 때 유용하다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>Git 저장소, URL, zip 파일, 디렉터리, 단일 파일을 입력으로 받아 검사한다.</li><li>17개 범주, 71개 취약 패턴을 탐지한다.</li><li>터미널, JSON, Markdown, SARIF 형식으로 결과를 내고, 기준선 파일로 이미 수용한 경고를 제외할 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>대안 대비 차별점</h2>
+        <p>이 저장소는 단순 문자열 검색기가 아니다. 빠른 정적 분석 뒤에 선택형 LLM 의미 평가를 붙이는 2단계 구조를 쓴다. 공급망 위험, 프롬프트 인젝션, 데이터 반출, 권한 상승, MCP 최소 권한, MCP 도구 오염까지 범위를 넓게 잡았다. 실시간 취약점 조회도 넣었고, OSV.dev에 연결하지 못할 때는 오프라인 대체 경로로 돌아간다고 적혀 있다.</p>
+<p>원격 입력과 압축 파일에는 크기 상한을 둔다. URL 다운로드, zip 압축 해제 총량, Git 복제 뒤 디스크 사용량은 100 MiB 상한을 쓴다. zip 내부 항목 수는 10,000개까지 허용한다. 이 상한을 넘기면 닫힌 실패 방식으로 중단한다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>값</th><th>적용 범위</th></tr></thead><tbody><tr><td>분석한 스킬 부분집합</td><td>31,132개</td><td>연구 데이터셋 부분집합</td></tr><tr><td>취약점 포함 비율</td><td>26.1%</td><td>위 부분집합 기준</td></tr><tr><td>악성 의도 의심 비율</td><td>5.2%</td><td>위 부분집합 기준</td></tr><tr><td>취약 패턴 수</td><td>71개</td><td>17개 범주</td></tr><tr><td>원격·압축 입력 상한</td><td>100 MiB</td><td>URL, zip, Git 저장소 유입 크기</td></tr><tr><td>zip 항목 수 상한</td><td>10,000개</td><td>단일 zip 파일 내부 항목 수</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>LLM 분석을 켜면 외부 모델 제공자와 API 키가 필요하다. 정적 분석만 쓸 때는 외부 호출 없이 운영할 수 있다.</li><li>원격 저장소와 URL, 압축 파일을 가져와 검사할 수 있으므로 반입 대상 자체가 외부 데이터다. 내부 코드 스캔에 쓸 때는 업로드 경로와 저장 위치를 확인해야 한다.</li><li>유지보수 주체는 NVIDIA 조직이다.</li><li>대체할 수 있는 상용 보안 스캐너는 있다. 다만 에이전트 스킬과 MCP 패턴을 전면에 내세운 전용 도구라는 점은 구분된다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>프롬프트 인젝션(Prompt injection): 모델 지시를 교란해 의도와 다른 행동을 유도하는 공격</span> <span>데이터 반출(Data exfiltration): 내부 정보를 외부로 빼내는 행위</span> <span>공급망 위험(Supply-chain risk): 외부 의존 요소를 통해 들어오는 보안 위험</span> <span>정적 분석(Static analysis): 실행하지 않고 코드나 파일을 검사하는 방식</span> <span>SARIF: 보안 검사 결과를 도구끼리 주고받는 표준 형식</span> <span>YARA: 악성 패턴을 규칙으로 탐지하는 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: NVIDIA/SkillSpector</p>
+        <p class="url">최근 활동: 2026.09.23</p>
+        <p class="url">출처 URL: <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener noreferrer">https://github.com/NVIDIA/SkillSpector</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

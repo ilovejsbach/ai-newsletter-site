@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>사내 문서를 검색형 위키로 바꾸는 WeKnora</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-rising detail-repo" style="--sc:#c2410c">
+      <p class="source"><span class="article-number">04</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">Tencent</span><span class="repo-sep">/</span><span class="repo-repo">WeKnora</span></p>
+      <h1>사내 문서를 검색형 위키로 바꾸는 WeKnora</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 29,099</span><span class="repo-delta hot">이번 주 +4,870</span><span class="repo-lang">Go</span><span class="repo-license">미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span><span class="repo-release">릴리스 v0.8.0 (09.03)</span><span class="repo-active">최근 활동 09.23</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 있음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_04_b4484a96aa90c3f2.png" alt="기사 이미지">
+      <p class="detail-lead">사내 지식 검색은 문서 적재만으로 끝나지 않는다. 권한 관리, 최신화, 답변 추적, 위키 편집까지 붙어야 실제 업무에 쓰인다. 이 저장소는 그런 요구를 한 플랫폼으로 묶으려는 성격이 강하다. 만든 쪽은 기업용 문서 이해와 의미 검색, 자율 추론을 위한 구조라고 소개한다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>이 플랫폼은 흩어진 문서를 올리면 검색 가능한 지식베이스와 질의응답 도구로 바꿔 준다. 사내 위키를 손으로 정리하던 방식과 달리, 문서 묶음에서 답변용 검색과 에이전트 기능, 위키 초안 생성을 한곳에서 다룬다. 이 도구가 없으면 문서 적재, 검색, 권한, 모델 연결을 각각 따로 맞춰야 한다. 문서를 계속 동기화하고 수정 이력도 관리한다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어는 Go로 표시돼 있다.</li><li>설치 형태는 자체 운영을 지원한다고 적혀 있고, Docker 기반 실행과 배포 문서가 언급돼 있다.</li><li>OpenAI, DeepSeek, Qwen, Gemini, Ollama 등 여러 외부 모델 연동을 지원한다.</li><li>라이선스는 NOASSERTION으로 표시돼 있어 확인이 필요하다.</li><li>최신 릴리스는 v0.8.0이며 2026년 9월 3일 기준으로 공개돼 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>규정 문서 검색 업무에서 PDF, Word, 이미지 문서를 한곳에 모아 질의응답과 출처 확인을 붙이고 싶을 때 적합하다.</li><li>고객센터나 사내 헬프데스크가 Slack, Feishu, Telegram 같은 채널에서 같은 지식베이스를 바탕으로 답하게 하려면 검토할 만하다.</li><li>운영 지식이 여러 저장소와 협업 도구에 흩어져 있을 때, 자동 동기화와 수정 이력까지 포함한 내부 위키를 만들고 싶을 때 쓸 만하다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>문서를 RAG 기반 빠른 질의응답 지식베이스로 바꾼다.</li><li>ReAct 에이전트가 검색, MCP 도구, 웹 검색, 샌드박스를 조합해 여러 단계를 수행한다.</li><li>Wiki Mode가 원문 문서를 연결형 Markdown 위키와 지식 그래프로 정리하고 수정 이력과 되돌리기를 제공한다.</li></ul>
+        
+      </section>
+<section>
+        <h2>왜 지금 주목받나</h2>
+        <p>문서 검색 도구는 많지만, 이 저장소는 검색만이 아니라 지식 정리와 운영 기능까지 한데 묶는다. Feishu, GitLab, Notion, Yuque 같은 원천에서 자동 동기화를 지원하고, PDF·Word·이미지·Excel·XMind를 포함한 10개 이상 형식을 처리한다고 적혀 있다. 모델도 20개 이상 제공자와 연결할 수 있고, 온프레미스(사내 서버에 직접 설치해 쓰는 방식)와 프라이빗 클라우드 배치를 지원한다. 최신 v0.8.0에는 세션 유지형 Docker·E2B·Cube 샌드박스, 장기 메모리, GitLab·Tencent IMA 원천, LiteLLM, 웹 검색, XMind 파싱이 추가됐다.</p>
+        
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 모델과 웹 검색을 붙일 수 있어, 어떤 경로로 데이터가 나가는지 구성별 확인이 필요하다.</li><li>자체 운영을 지원하므로 민감 문서의 외부 반출을 줄일 여지는 있다.</li><li>만든 쪽은 Tencent 조직 계정이다.</li><li>상용 사내 검색, 엔터프라이즈 위키, 문서 Q&amp;A 제품과 기능이 겹칠 수 있어 대체 가능성 비교가 필요하다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>RAG(Retrieval-Augmented Generation): 문서를 먼저 찾고 그 결과를 바탕으로 답변을 만드는 방식</span> <span>리랭킹(reranking): 찾은 문서 후보를 관련성 순서로 다시 정렬하는 과정</span> <span>RBAC(Role-Based Access Control): 역할에 따라 접근 권한을 나누는 방식</span> <span>관찰성(observability): 시스템 내부 처리 과정을 추적하고 점검하는 능력</span> <span>OIDC(OpenID Connect): 로그인과 사용자 인증을 연동하는 표준 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Tencent/WeKnora</p>
+        <p class="url">최근 활동: 2026.09.23</p>
+        <p class="url">출처 URL: <a href="https://github.com/Tencent/WeKnora" target="_blank" rel="noopener noreferrer">https://github.com/Tencent/WeKnora</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
