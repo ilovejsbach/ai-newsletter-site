@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>사내 PC에서 AI 모델 돌리고 학습하는 도구</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-infra detail-repo" style="--sc:#4b5563">
+      <p class="source"><span class="article-number">08</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">unslothai</span><span class="repo-sep">/</span><span class="repo-repo">unsloth</span></p>
+      <h1>사내 PC에서 AI 모델 돌리고 학습하는 도구</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 76,595</span><span class="repo-delta">이번 주 +385</span><span class="repo-lang">Python</span><span class="repo-license">Apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v0.1.814-beta (09.22)</span><span class="repo-active">최근 활동 09.23</span><span class="repo-check-state">테스트 있음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 없음</span></p>
+      <img class="detail-image" src="../assets/images/article_08_1970f2aab6a882fb.png" alt="기사 이미지">
+      <p class="detail-lead">Unsloth는 모델 실행과 학습을 함께 다루는 데스크톱 앱으로 소개된다. Windows, macOS, Linux, WSL을 지원하고, NVIDIA·AMD·Intel GPU와 CPU, Vulkan 백엔드까지 폭넓게 적었다. 데스크톱 앱, 웹 UI인 Unsloth Studio, 코드 기반 버전인 Unsloth Core로 나뉜다. 로컬 모델을 Claude Code나 Codex 같은 외부 도구와 연결하는 기능도 전면에 내세운다.</p>
+      <section>
+        <h2>무엇을 하는 물건인가</h2>
+        <p>Unsloth는 PC나 서버에서 AI 모델을 직접 실행하고 학습시키는 도구다. 채팅 모델, 임베딩 모델, 이미지·영상 모델까지 한 화면이나 한 설치 체계 안에서 다룬다. 이 도구가 없으면 사람은 모델 실행, 학습, 배포, 외부 도구 연결을 서로 다른 프로그램으로 따로 맞춰야 한다. 사내 문서창고와 실험실, 배포 창구를 한 건물에 모아 둔 셈이다.</p>
+        
+      </section>
+<section>
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>Python 기반 저장소다.</li><li>네이티브 데스크톱 앱, 웹 UI, Docker 이미지, 코드 기반 설치를 지원한다.</li><li>OpenAI 호환 API와 Anthropic 호환 API를 제공하며, ChatGPT/Codex 구독과 클라우드 제공자 연결도 지원한다.</li><li>라이선스는 Apache-2.0이다.</li><li>최신 릴리스는 v0.1.814-beta다.</li><li>Windows, macOS, Linux, WSL을 지원하며, NVIDIA·AMD·Intel GPU와 CPU, Vulkan 백엔드를 지원한다고 밝혔다.</li></ul>
+        
+      </section>
+<section>
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>고객 상담 분류나 내부 문서 검색용 모델을 외부 반출 없이 사내 GPU 서버에서 돌려야 할 때 검토할 만하다.</li><li>야간 배치 점검처럼 반복 작업을 Claude Code나 Codex에 맡기되 실제 모델은 내부 장비에서 쓰고 싶을 때 맞다.</li><li>상품 설명서, 약관, PDF 보고서, CSV를 모아 규정 문서 검색용 데이터셋을 만들고 추가 학습할 때 유용하다.</li></ul>
+        
+      </section>
+<section>
+        <h2>핵심 기능</h2>
+        <ul><li>LLM, GGUF, MLX, 디퓨전, 임베딩, 오디오 모델을 실행하고 학습할 수 있다.</li><li>Claude Code, Codex, MCP와 연결해 로컬 모델에서 도구 호출과 코드 실행을 쓸 수 있다.</li><li>PDF, CSV, DOCX 등에서 데이터셋을 만들고 GGUF, NVFP4, FP8 등 형식으로 내보내거나 배포할 수 있다.</li></ul>
+        
+      </section>
+<section>
+        <h2>성능과 운영 비용</h2>
+        <p>만든 쪽은 학습 속도와 메모리 절감 수치를 여러 항목으로 제시했다. 파인튜닝은 정확도 손실 없이 2배 빠르고 VRAM은 70% 덜 쓴다고 적었다. DiffusionGemma 추론은 1.8배 빠르다고 밝혔다. Qwen3.6 추론은 MTP 사용 시 1.4~2.2배 빠르다고 적었다. MoE LLM 학습은 12배 빠르고 VRAM은 35% 덜 쓴다고 소개했다. 임베딩 파인튜닝은 약 1.8~3.3배 빠르다고 적었다. 다만 이 수치들은 만든 쪽이 소개한 값이며, 같은 문단에 측정 환경과 비교 대상의 세부 조건은 함께 적혀 있지 않다. 운영 측면에서는 멀티 GPU와 원격 HTTPS 공개, LAN 접속, Docker 배포를 지원한다. 공개 접속 시 서버 쪽 도구가 기본으로 켜져 있어 비밀번호 관리나 --disable-tools 같은 통제 설정이 필요하다고 경고한다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>항목</th><th>수치</th><th>조건·단서</th></tr></thead><tbody><tr><td>파인튜닝 속도</td><td>2배 빠름</td><td>정확도 손실 없음, VRAM 70% 절감</td></tr><tr><td>DiffusionGemma 추론</td><td>1.8배 빠름</td><td>만든 쪽 소개 수치</td></tr><tr><td>Qwen3.6 추론</td><td>1.4~2.2배 빠름</td><td>MTP 사용 시</td></tr><tr><td>MoE LLM 학습</td><td>12배 빠름</td><td>VRAM 35% 절감</td></tr><tr><td>임베딩 파인튜닝</td><td>약 1.8~3.3배 빠름</td><td>만든 쪽 소개 수치</td></tr><tr><td>긴 문맥 학습</td><td>500K 초과 문맥 가능</td><td>80GB GPU에서 20B 모델 학습</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>사내 도입 체크</h2>
+        <ul><li>OpenAI 호환 API와 Anthropic 호환 API를 제공하므로 외부 도구가 내부 모델을 호출하게 만들 수 있다.</li><li>원격 HTTPS와 LAN 접속을 지원한다. 공개 접속 시 데이터 반출과 권한 통제를 별도로 설계해야 한다.</li><li>유지보수 주체는 Unsloth 조직이다.</li><li>상용 대체재는 있다. 다만 이 저장소는 로컬 실행, 학습, 에이전트 연결, API 제공을 한 묶음으로 제공한다.</li></ul>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>로컬 모델(Local model): 외부 클라우드 대신 내부 PC나 서버에서 직접 돌리는 모델</span> <span>파인튜닝(Fine-tuning): 기존 모델을 특정 업무 데이터로 추가 학습하는 방식</span> <span>LoRA: 적은 자원으로 모델을 미세 조정하는 학습 기법</span> <span>GGUF: 경량 모델 배포에 쓰는 파일 형식</span> <span>RAG(Retrieval-Augmented Generation): 외부 문서를 찾아 답변에 반영하는 방식</span> <span>VRAM: GPU가 쓰는 전용 메모리</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: unslothai/unsloth</p>
+        <p class="url">최근 활동: 2026.09.23</p>
+        <p class="url">출처 URL: <a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener noreferrer">https://github.com/unslothai/unsloth</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
