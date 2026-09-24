@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>42B 활성 파라미터 멀티모달 에이전트</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">09</span> Hugging Face</p>
+      <h1>42B 활성 파라미터 멀티모달 에이전트</h1>
+      <p class="repo-facts"><span class="repo-license">mit <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">공개일 09.22</span></p>
+      
+      <p class="detail-lead">멀티모달 에이전트는 한 모델 안에서 더 많은 입력을 받는다. 대신 장비 요구가 빠르게 커진다. 이번 공개본은 성능표보다 배포 구성부터 먼저 봐야 하는 사례다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>Xiaomi MiMo가 MiMo-V2.6-Pro-RL을 공개했다. 텍스트, 이미지, 영상, 음성을 한 모델에서 다루는 에이전트 계열이다. 공개된 설명에는 이 시리즈의 주력 체크포인트라고 적혀 있다. MIT라 상업 이용에 제약이 없다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>공개된 설명에는 문맥 길이 100만 토큰이 적혀 있다. 활성 파라미터는 42B이고, 전체 파라미터는 1.02T라고 밝혔다. 벤치마크 표도 함께 실렸지만, 측정 주체는 만든 쪽이다. 예를 들어 AutomationBench v1.0.6에서 53.1을 기록했다고 적었다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>상업 이용은 가능하다. 접근 승인 필요 여부는 따로 적혀 있지 않다. 모델은 42B 활성 파라미터 규모이며, 배포 예시에는 SGLang에서 텐서 병렬 16과 데이터 병렬 2가 들어간다. 일반 사내 GPU 한두 장으로 바로 시험하는 그림은 공개된 설명만으로는 잡기 어렵다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>멀티모달(multimodal): 글, 이미지, 영상, 음성처럼 여러 형태의 입력을 함께 다루는 방식이다.</span> <span>문맥 길이(context length): 모델이 한 번에 읽는 입력 길이다.</span> <span>활성 파라미터(activated parameters): 실제 추론 때 동원되는 파라미터 수다.</span> <span>텐서 병렬(tensor parallel): 여러 GPU가 한 모델 계산을 나눠 맡는 방식이다.</span> <span>vLLM: 대형 언어모델 추론에 쓰는 실행 엔진이다.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: XiaomiMiMo/MiMo-V2.6-Pro-RL</p>
+        <p class="url">공개일: 2026.09.22</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL" target="_blank" rel="noopener noreferrer">https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
