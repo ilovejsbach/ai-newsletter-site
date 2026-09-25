@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>메일과 티켓을 바로 분류하는 다국어 모델</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">07</span> Hugging Face</p>
+      <h1>메일과 티켓을 바로 분류하는 다국어 모델</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">갱신일 09.23</span></p>
+      
+      <p class="detail-lead">업무 자동화에서 첫 단계는 대개 분류다. 메일을 어느 부서로 보낼지, 환불 요청인지, 이탈 위험이 큰지 먼저 가른다. laya는 이런 자리에 놓는 모델이다. 긴 답변을 쓰기보다 정해진 질문에 정해진 형식으로 답한다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>convaiinnovations가 공개한 laya는 다국어 의사결정 모델이다. 텍스트, 메일, 티켓, JSON을 넣고 질문을 주면 분류 답과 확률을 한 번에 돌려준다. 사람이 내용을 읽고 부서를 나누거나 규칙을 손으로 적어 걸러야 하던 일을 대신 겨냥했다. Apache-2.0이라 상업 이용에 제약이 없다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>만든 쪽은 100개 이상 언어를 지원한다고 밝혔다. 답을 문장으로 생성하지 않고 정해진 형식으로 내놓는 점도 다르다. 공개된 설명에는 단일 추론이 약 33밀리초라고 적혀 있다. 라우터는 문자 체계를 0.5밀리초 미만에 가려 알맞은 체크포인트로 보낸다고 밝혔다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>상업 이용은 가능하다. 접근 승인은 따로 필요 없다고 볼 수 있다. 공개된 설명에는 영어 루트 모델이 약 808MB, 다국어 하위 모델이 약 647MB라고 적혀 있다. 전체 파라미터 수는 421M이라고 밝혔고, 자체 서버와 ONNX Runtime 실행 방법도 함께 안내했다.</p>
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>import laya
+from laya import Router
+
+Preload checkpoints into memory for instant sub-35ms routing
+router = Router(preload=True)
+
+state = {
+    &quot;from&quot;: &quot;user@acme.com&quot;,
+# ... 이어지는 예제는 원문 카드에 있습니다</code></pre></div><p class="code-src">원문: https://huggingface.co/convaiinnovations/laya</p></figure>
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>비자기회귀(non-autoregressive): 토큰을 한 글자씩 이어 쓰지 않고 한 번에 답을 낸다.</span> <span>라우팅(routing): 입력 언어나 조건에 따라 알맞은 하위 모델로 보내는 방식이다.</span> <span>체크포인트(checkpoint): 같은 계열 모델의 저장본이다.</span> <span>ONNX Runtime: 학습이 아니라 추론에 맞춘 실행 환경이다.</span> <span>확률 보정(calibration): 모델이 낸 확률이 실제 정답률과 가깝게 맞는 성질이다.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: convaiinnovations/laya</p>
+        <p class="url">갱신일: 2026.09.23</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/convaiinnovations/laya" target="_blank" rel="noopener noreferrer">https://huggingface.co/convaiinnovations/laya</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

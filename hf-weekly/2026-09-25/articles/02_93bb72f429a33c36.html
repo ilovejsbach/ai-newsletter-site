@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>영문 프롬프트용 이미지 생성 기본기</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">02</span> Hugging Face</p>
+      <h1>영문 프롬프트용 이미지 생성 기본기</h1>
+      <p class="repo-facts"><span class="repo-license">creativeml-openrail-m <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span><span class="repo-active">갱신일 09.07</span></p>
+      
+      <p class="detail-lead">텍스트로 이미지를 만드는 모델은 사내에서 가장 먼저 눈에 띄는 생성 AI 도구다. 하지만 그림 품질만으로는 도입을 정할 수 없다. 라이선스와 안전 장치가 함께 맞아야 실제 업무에 넣을 수 있다. 이 후보는 널리 쓰이는 Stable Diffusion v1-5 계열이다.</p>
+      <section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>이 모델은 영문 글 설명을 받아 사실감 있는 이미지를 만든다. 이미지를 바꾸는 작업에도 쓸 수 있다고 만든 쪽은 밝혔다. 이런 모델이 없으면 사람이 소스 이미지를 찾고 편집 도구로 합성해야 한다. 공개된 설명에는 제품 사용 전 추가 안전 장치가 필요하다고 적혀 있다.</p>
+        
+      </section>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from diffusers import StableDiffusionPipeline
+import torch
+
+model_id = &quot;sd-legacy/stable-diffusion-v1-5&quot;
+pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = pipe.to(&quot;cuda&quot;)
+
+prompt = &quot;a photo of an astronaut riding a horse on mars&quot;
+image = pipe(prompt).images[0]
+
+image.save(&quot;astronaut_rides_horse.png&quot;)</code></pre></div><p class="code-src">원문: https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5</p></figure>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">파라미터</th><td>860M(GPU 1장)</td></tr><tr><th scope="row">모델 크기</th><td>3.2GB — F32 860M 개 × 4바이트 (가중치 기준)</td></tr><tr><th scope="row">라이브러리</th><td>Diffusers, ComfyUI, Automatic1111, SD.Next, InvokeAI</td></tr><tr><th scope="row">제공 형식</th><td>safetensors</td></tr><tr><th scope="row">지원 언어</th><td>English</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        <p>공개된 설명에는 연구 목적 중심과 제품 사용 전 추가 안전 장치 필요성이 함께 적혀 있다.</p>
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>creativeml-openrail-m <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></dd></div><div><dt>상업 이용</dt><dd>비상업 조건 — 사내 상업 이용 불가</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>자체 측정 수치나 독립 평가 표는 공개되지 않았다. 만든 쪽은 글자를 또렷하게 그리지 못하고, 복잡한 배치와 얼굴 생성이 약하다고 적었다. 영문 중심으로 학습해 다른 언어 성능도 떨어진다고 밝혔다. 카드는 평가 결과를 밝히지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>언제 이것을 고르나</h2>
+        <p>상용 반입보다 내부 실험이 먼저면 이 후보를 볼 수 있다. 같은 요청의 Tongyi-MAI/Z-Image-Turbo는 Apache-2.0이라 라이선스가 더 단순하다. 사내 GPU 1장 기준의 중간 크기 모델을 찾으면 이 후보와 Lykon/dreamshaper-7이 비슷한 출발점이 된다. 사진풍 기본형이 필요하면 이 후보를, 스타일 튜닝 쪽을 보려면 dreamshaper-7을 고르면 된다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>파라미터(Parameter): 모델 내부 값의 규모를 나타내는 수치</span> <span>양자화(Quantization): 메모리를 줄이려고 가중치 표현을 낮추는 방법</span> <span>VRAM: GPU가 추론 때 쓰는 메모리</span> <span>Safety Checker: 생성 결과에서 유해 이미지를 걸러내는 검사 모듈</span> <span>OpenRAIL: 사용 목적과 배포 방식에 조건을 붙이는 라이선스 계열</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: stable-diffusion-v1-5/stable-diffusion-v1-5</p>
+        <p class="url">갱신일: 2024.09.07</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5" target="_blank" rel="noopener noreferrer">https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

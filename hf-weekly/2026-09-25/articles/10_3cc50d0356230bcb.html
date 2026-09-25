@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>투명 배경까지 다루는 이미지 생성·편집</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-lab detail-repo" style="--sc:#6d28d9">
+      <p class="source"><span class="article-number">10</span> Hugging Face</p>
+      <h1>투명 배경까지 다루는 이미지 생성·편집</h1>
+      <p class="repo-facts"><span class="repo-license">미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span><span class="repo-active">갱신일 09.21</span></p>
+      
+      <p class="detail-lead">이미지 생성 모델은 이제 한 장을 새로 만드는 데서 그치지 않는다. 기존 이미지를 고치고, 투명 배경을 만들고, 여러 참조 이미지를 함께 쓰는 쪽으로 넓어졌다. Qwen-Image-2.1은 이런 작업을 한 모델에 모았다고 밝힌 공개본이다.</p>
+      <section>
+        <h2>무엇이 나왔나</h2>
+        <p>Qwen/Qwen-Image-2.1은 텍스트로 이미지를 만들고 기존 이미지를 고치는 모델이다. 공개된 설명에는 투명 배경 이미지와 피사체 추출까지 한 모델에서 다룬다고 적혀 있다. 라이선스는 Qwen Research License Agreement라 상업 이용 가능 여부를 먼저 따져야 한다.</p>
+        
+      </section>
+<section>
+        <h2>눈에 띄는 점</h2>
+        <p>이 모델은 최대 10장의 참조 이미지를 지원한다고 밝혔다. 원형 표시, 손그림 표시, 분리 마스크로 부분 수정도 지정할 수 있다고 적었다. 시각 생성 구성은 7B 파라미터라고 공개했다.</p>
+        
+      </section>
+<section>
+        <h2>지금 쓸 수 있나</h2>
+        <p>라이선스는 other로 표기돼 있고, 본문에는 Qwen Research License Agreement라고 적혀 있다. 상업 이용 가능 여부를 이 정보만으로 단정하기 어렵다. 접근 승인 필요 여부는 드러나지 않는다. 공개된 예제는 CUDA와 bfloat16을 쓰며, 필요한 메모리와 최소 장비 조건은 공개되지 않았다.</p>
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>import torch
+from diffusers import QwenImage21Pipeline
+
+pipe = QwenImage21Pipeline.from_pretrained(
+    &quot;Qwen/Qwen-Image-2.1&quot;, torch_dtype=torch.bfloat16
+).to(&quot;cuda&quot;)</code></pre></div><p class="code-src">원문: https://huggingface.co/Qwen/Qwen-Image-2.1</p></figure>
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>RGBA: 빨강·초록·파랑·투명도까지 담는 이미지 형식이다.</span> <span>오프로드(offload): 모델 일부를 CPU 메모리로 보내 GPU 메모리 부담을 줄이는 방식이다.</span> <span>참조 이미지(reference image): 새 이미지를 만들거나 고칠 때 기준으로 넣는 이미지다.</span> <span>접근 승인(gated access): 내려받기 전에 승인 절차가 필요한 방식이다.</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Qwen/Qwen-Image-2.1</p>
+        <p class="url">갱신일: 2026.09.21</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank" rel="noopener noreferrer">https://huggingface.co/Qwen/Qwen-Image-2.1</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

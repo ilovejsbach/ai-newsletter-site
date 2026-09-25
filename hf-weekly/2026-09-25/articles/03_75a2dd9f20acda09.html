@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>한두 번 계산으로 그리는 SDXL 속도형</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">03</span> Hugging Face</p>
+      <h1>한두 번 계산으로 그리는 SDXL 속도형</h1>
+      <p class="repo-facts"><span class="repo-license">미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></span><span class="repo-active">갱신일 07.10</span></p>
+      
+      <p class="detail-lead">이미지 생성 과업에서는 품질과 속도가 자주 충돌한다. 이 후보는 그중 속도를 앞세운 계열이다. 실시간 화면이나 체험형 도구에 넣을 모델을 찾을 때 먼저 보게 된다.</p>
+      <section>
+        <h2>무엇을 하는 모델인가</h2>
+        <p>이 모델은 글 설명으로 이미지를 만들고, 입력 이미지를 바탕으로 다른 이미지를 만들 수도 있다. 만든 쪽은 실시간 합성용 모델이라고 밝혔다. 이런 모델이 없으면 사용자는 여러 번 계산이 끝날 때까지 더 오래 기다려야 한다. 상업 이용은 별도 Stability AI 조건을 따르라고 적혀 있다.</p>
+        
+      </section>
+<section>
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from diffusers import AutoPipelineForText2Image
+import torch
+
+pipe = AutoPipelineForText2Image.from_pretrained(&quot;stabilityai/sdxl-turbo&quot;, torch_dtype=torch.float16, variant=&quot;fp16&quot;)
+pipe.to(&quot;cuda&quot;)
+
+prompt = &quot;A cinematic shot of a baby racoon wearing an intricate italian priest robe.&quot;
+
+image = pipe(prompt=prompt, num_inference_steps=1, guidance_scale=0.0).images[0]</code></pre></div><p class="code-src">원문: https://huggingface.co/stabilityai/sdxl-turbo</p></figure>
+      </section>
+<section>
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">설치</th><td><code>pip install diffusers transformers accelerate --upgrade</code></td></tr><tr><th scope="row">파라미터</th><td>2.6B(GPU 1장)</td></tr><tr><th scope="row">모델 크기</th><td>9.6GB — F32 2.6B 개 × 4바이트 (가중치 기준)</td></tr><tr><th scope="row">라이브러리</th><td>diffusers</td></tr><tr><th scope="row">제공 형식</th><td>onnx, safetensors</td></tr></table>
+      </section>
+<section>
+        <h2>라이선스와 사내 반입</h2>
+        <p>공개된 설명은 비상업·연구 용도 라이선스를 제시하고, 상업 이용은 Stability AI membership을 보라고 적었다.</p>
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>미표기 <span class="license-badge tier-unknown" title="자동 분류 — 법무 판단을 대신하지 않습니다">확인 필요</span></dd></div><div><dt>상업 이용</dt><dd>비상업 조건 — 사내 상업 이용 불가</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section>
+        <h2>성능과 한계</h2>
+        <p>만든 쪽은 단일 단계 기준에서 LCM-XL의 4단계 이하 결과보다 사람 평가 선호도가 높다고 밝혔다. 이 평가는 만든 쪽의 사용자 선호 조사이며, 자세한 조건은 논문을 보라고 적었다.</p>
+        <div class="table-scroll" style="overflow-x:auto"><table class="data-table"><thead><tr><th>평가 이름</th><th>무엇을 재나</th><th>비교 내용</th></tr></thead><tbody><tr><td>사용자 선호 평가</td><td>사람이 본 이미지 품질과 프롬프트 충실도</td><td>SDXL-Turbo 1 step is preferred over LCM-XL at four (or fewer) steps</td></tr><tr><td>사용자 선호 평가</td><td>단계 수에 따른 품질 변화</td><td>using four steps for SDXL-Turbo further improves performance</td></tr></tbody></table></div>
+      </section>
+<section>
+        <h2>언제 이것을 고르나</h2>
+        <p>사용자가 바로 결과를 봐야 하면 이 후보가 먼저다. 같은 요청의 stabilityai/stable-diffusion-xl-base-1.0은 기본형이지만 속도 수치가 공개되지 않았다. 상업 반입이 먼저면 Tongyi-MAI/Z-Image-Turbo처럼 Apache-2.0인 후보가 더 단순하다. 실시간 데모와 내부 체험 화면이면 이 후보가 맞다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>추론 단계(Inference steps): 결과를 만들 때 반복 계산하는 횟수</span> <span>가이던스 스케일(Guidance scale): 프롬프트를 얼마나 강하게 따를지 조절하는 값</span> <span>이미지-투-이미지(Image-to-image): 입력 이미지를 바탕으로 새 이미지를 만드는 작업</span> <span>실시간 추론(Real-time inference): 사용자가 기다리는 동안 바로 결과를 내는 방식</span> <span>증류(Distillation): 큰 모델의 동작을 더 빠른 모델에 옮기는 학습 방식</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: stabilityai/sdxl-turbo</p>
+        <p class="url">갱신일: 2024.07.10</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/stabilityai/sdxl-turbo" target="_blank" rel="noopener noreferrer">https://huggingface.co/stabilityai/sdxl-turbo</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
