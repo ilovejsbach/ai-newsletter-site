@@ -1,8 +1,8 @@
 {
-  "week": "2026-09-18",
+  "week": "2026-09-25",
   "track": "official",
-  "iframe_path": "gartner/2026-09-18/",
-  "title": "Gartner 리서치 브리프 | 2026.09.11 - 2026.09.18",
+  "iframe_path": "gartner/2026-09-25/",
+  "title": "Gartner 리서치 브리프 | 2026.09.18 - 2026.09.25",
   "tags": [
     "Gartner",
     "리서치",
@@ -11,6 +11,6 @@
   "edition_name": "Gartner 리서치 브리프",
   "weekday": "fri",
   "brief": "가트너 보고서를 요약해서 소개합니다. 원문을 보고 싶으면 R&D부에 문의하세요.",
-  "previous_week": "2026-09-10",
-  "published_at": "20260918T064910Z"
+  "previous_week": "2026-09-18",
+  "published_at": "20260925T102435Z"
 }
