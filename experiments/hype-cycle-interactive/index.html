@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hype Cycle 인터랙티브 실험</title>
+<style>
+:root { color-scheme: light; --ink: #191f28; --muted: #6b7684; --line: #e5e8eb; --paper: #ffffff; --wash: #f4f5f7; --accent: #0f766e; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  line-height: 1.65; padding-block: 40px; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+h1 { font-size: 22px; margin: 0 0 8px; }
+p.note { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+.card { display: block; background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+  padding: 18px 20px; margin-bottom: 12px; text-decoration: none; color: inherit; }
+.card h2 { margin: 0 0 4px; font-size: 16px; color: var(--accent); }
+.card p { margin: 0; font-size: 13px; color: var(--muted); }
+</style></head>
+<body><div class="wrap">
+<h1>Hype Cycle 인터랙티브 실험</h1>
+<p class="note">가트너 "Hype Cycle for Artificial Intelligence, 2026"의 26개 기술 항목 상세 정보를 클릭으로 보여주는 두 가지 프로토타입입니다. 정식 뉴스레터에는 아직 반영되지 않은 번외 실험입니다.</p>
+<a class="card" href="native.html">
+  <h2>네이티브 HTML판 (자바스크립트 없음)</h2>
+  <p>&lt;details&gt;/&lt;summary&gt;와 앵커 점프만으로 구현. 오프라인·내부망·인쇄 환경 호환.</p>
+</a>
+<a class="card" href="interactive.html">
+  <h2>JS 인터랙티브판</h2>
+  <p>점을 클릭하면 플로팅 카드가 뜨고, 휠로 확대·축소, 끌어서 이동·크기 조절이 가능합니다.</p>
+</a>
+</div></body></html>
