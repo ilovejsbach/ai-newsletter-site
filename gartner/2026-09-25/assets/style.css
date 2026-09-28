@@ -510,6 +510,23 @@ h1 { font-weight: 800; letter-spacing: -0.01em; }
 .gext .gcard-facts::before { content: " · "; }
 .gext .grow h3 { font-size: 18px; }
 
+/* 시그니처 그래픽 카드 — 그림이 주인공, 텍스트는 최소화. 다른 카드(.gcard 좌우 분할, .grow
+   텍스트 전용)와 다르게 이미지가 카드 폭 전체를 차지하고 캡션은 두 줄을 넘기지 않는다. */
+.gsig { display: grid; gap: 10px; padding: 24px 0; border-bottom: 1px solid var(--gt-line); }
+.gsig-badge { margin: 0; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; color: var(--gt-navy); }
+.gsig-figure { display: block; border: 1px solid var(--gt-line); background: #fff; }
+.gsig-figure img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: contain; }
+.gsig h3 { margin: 0; font-size: 20px; line-height: 1.4; font-weight: 600; }
+.gsig h3 a { color: var(--gt-ink); text-decoration: none; }
+.gsig h3 a:hover { color: var(--gt-link); }
+.gsig-original { margin: 0; font-size: 14px; line-height: 1.5; color: var(--gt-muted); }
+.gsig-caption { margin: 4px 0 0; font-size: 14px; line-height: 1.6; color: var(--gt-body);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* 시그니처 그래픽 상세 지면 — 목차가 없어(.gdoc-toc 미사용) 본문 열 폭을 그대로 쓴다. */
+.gsig-detail-figure { margin: 0 0 30px; border: 1px solid #e3e5ea; background: #fff; }
+.gsig-detail-figure img { display: block; width: 100%; height: auto; }
+
 /* 저작권 고지는 기사 지면과 같은 `.gdoc-notice`를 쓰는데, 그쪽은 감싸는 `.gdoc`이 여백을
    주고 목록 지면에는 그 감싸개가 없다. 목록에서만 같은 선(44px)에 맞춘다. */
 .gartner-newsletter > .gdoc-notice { margin: 40px 44px 0; }
