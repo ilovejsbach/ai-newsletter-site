@@ -1,8 +1,8 @@
 {
-  "week": "2026-09-21",
+  "week": "2026-09-28",
   "track": "official",
-  "iframe_path": "digital-asset-weekly/2026-09-21/",
-  "title": "디지털 자산 주간 동향 | 2026.09.14 - 2026.09.21",
+  "iframe_path": "digital-asset-weekly/2026-09-28/",
+  "title": "디지털 자산 주간 동향 | 2026.09.21 - 2026.09.28",
   "tags": [
     "디지털자산",
     "주간동향"
@@ -10,6 +10,6 @@
   "edition_name": "디지털 자산 주간 동향",
   "weekday": "mon",
   "brief": "자본시장과 관련된 디지털 자산의 흐름을 짚어봅니다.",
-  "previous_week": "2026-09-14",
-  "published_at": "20260921T021305Z"
+  "previous_week": "2026-09-21",
+  "published_at": "20260928T010548Z"
 }

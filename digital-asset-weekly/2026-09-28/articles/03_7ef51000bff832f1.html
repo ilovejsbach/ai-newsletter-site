@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IBM, Swift 원장 토큰화 예금 연동 베타</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-infra">
+      <p class="source"><span class="article-number">03</span> Cointelegraph <span class="source-date">보도일 2026.09.24</span></p>
+      <h1>IBM, Swift 원장 토큰화 예금 연동 베타</h1>
+      <img class="detail-image" src="../assets/images/article_03_7ef51000bff832f1.jpg" alt="기사 이미지">
+      <p class="detail-lead">IBM이 은행용 디지털 자산 플랫폼에 Swift 원장 연동 기능을 추가했다. Swift의 블록체인 원장과 연결해 토큰화 예금 이체를 지시하는 기능이다. 은행은 기존 지급 메시지와 기존 컴플라이언스 절차를 계속 쓸 수 있다. 설치형 운영 옵션도 함께 공개했다.</p>
+      <section>
+        <h2>무슨 일이 있었나</h2>
+        <p>IBM이 Digital Asset Haven에 두 가지 베타 기능을 추가했다. 하나는 Swift의 토큰화 예금 원장과 연결하는 기능이고, 다른 하나는 플랫폼을 은행 자체 데이터센터에서 돌리는 온프레미스 옵션이다.</p>
+<p>Digital Asset Haven은 은행과 규제 대상 기관이 디지털 자산을 관리하고 보호하는 플랫폼이다. 새 메시지 어댑터는 ISO 20022를 써서 토큰화 예금 거래를 지시하게 한다. IBM은 은행이 블록체인 전용 업무 흐름을 새로 만들지 않아도 된다고 설명했다. Swift 프로그램 참여 기관은 이 플랫폼으로 원장 위 토큰화 예금을 시험했다.</p>
+<p>Swift는 40곳이 넘는 금융기관과 함께 이 블록체인 원장을 개발했다. 7월에는 17개 은행으로 첫 파일럿 그룹을 출범시켰다. HSBC와 Standard Chartered는 8월에 이 원장에서 첫 실거래 해외 송금을 마쳤다.</p>
+        
+      </section>
+<section>
+        <h2>왜 지금 나왔나</h2>
+        <p>Swift는 이미 7월에 원장을 출범했다. 8월에는 HSBC와 Standard Chartered가 첫 실거래를 마쳤다. IBM은 그 흐름에 맞춰 은행이 기존 메시지 체계로 원장에 붙도록 베타 연동을 내놨다.</p>
+        
+      </section>
+<section>
+        <h2>제도와 시스템에서 바뀌는 것</h2>
+        <p>이번 변경은 토큰화 예금 거래 지시 단계에 영향을 준다. 은행은 Swift 원장 위 토큰화 예금 이전을 24시간 지시할 수 있다. 다만 최종 결제는 기존 시스템에서 처리한다.</p>
+<p>온프레미스 옵션도 시스템 구조를 바꾼다. 은행과 규제 대상 기관은 공개 클라우드에 기대지 않고 IBM Z와 LinuxONE 위에서 디지털 자산 운영과 키 관리를 자체 데이터센터 안에 둘 수 있다.</p>
+        
+      </section>
+<section>
+        <h2>국내와의 접점</h2>
+        <p>원문은 국내 적용에 대해 언급하지 않았다.</p>
+        
+      </section>
+<section>
+        <h2>우리 업무로 옮기면</h2>
+        <p>대외계·결제 메시지 팀은 ISO 20022 재사용 범위를 먼저 따져볼 만하다. 토큰화 예금 업무를 새 채널로 빼기보다 기존 지급 메시지와 제재 점검, 로그 체계에 얹는 접근이기 때문이다.</p>
+<p>검토 포인트는 다음과 같다.</p>
+<ul><li>토큰화 예금 지시와 기존 계정계 결제 확정을 어떻게 연결할지</li><li>원장 상태와 내부 원장 잔액을 어떤 주기로 대사할지</li><li>온프레미스 운영 시 HSM, 키 보관, 접근통제를 누가 맡을지</li><li>24시간 지시와 기존 운영 시간 결제 사이의 예외 처리를 어떻게 둘지</li></ul>
+<p>베타 단계라는 점은 주의해야 한다. 실제 상용 범위, 장애 책임 분담, 참여 조건은 더 확인해야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>토큰화 예금(Tokenized deposits): 상업은행 예금을 디지털 토큰 형태로 표시한 자산</span> <span>ISO 20022: 금융기관이 지급·결제 메시지에 쓰는 국제 표준</span> <span>원장(Ledger): 거래와 잔액을 기록하는 기준 장부</span> <span>온프레미스(On-premises): 외부 클라우드 대신 자체 데이터센터에서 운영하는 방식</span> <span>키 관리(Key management): 디지털 자산 접근에 쓰는 암호키를 생성·보관·통제하는 절차</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: IBM opens beta Swift ledger link for 24/7 tokenized deposits</p>
+        <p class="url">보도일: 2026.09.24</p>
+        <p class="url">출처 URL: <a href="https://cointelegraph.com/news/ibm-banks-swift-ledger-tokenized-deposit-transfers?utm_source=rss_feed&amp;utm_medium=rss_tag_tokenization&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener noreferrer">https://cointelegraph.com/news/ibm-banks-swift-ledger-tokenized-deposit-transfers?utm_source=rss_feed&amp;utm_medium=rss_tag_tokenization&amp;utm_campaign=rss_partner_inbound</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
