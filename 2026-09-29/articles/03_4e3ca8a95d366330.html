@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Sonnet 5.5, 더 빠르고 토큰도 덜 쓴다</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-frontier">
+      <p class="source"><span class="article-number">03</span> Anthropic <span class="source-date">게시일 2026.09.28</span></p>
+      <h1>Claude Sonnet 5.5, 더 빠르고 토큰도 덜 쓴다</h1>
+      <img class="detail-image" src="../assets/images/article_03_4e3ca8a95d366330.jpg" alt="기사 이미지">
+      <p class="detail-lead">이 모델은 복잡한 최고난도 업무보다는 범위가 분명한 실무 작업을 빠르고 싸게 처리하려는 목적이 크다. 비개발자 기준으로는 보고서 초안, 슬라이드, 스프레드시트, 버그 수정 같은 반복 업무를 더 적은 비용으로 돌리려는 업데이트다. Anthropic은 상위 모델 Opus 5.5의 보조가 아니라, 별도 주력 모델로 쓸 수 있다고 강조했다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>Claude Sonnet 5.5는 Claude 5.5 계열의 두 번째 모델이다. Anthropic은 Sonnet 5보다 분명한 업그레이드라고 밝혔다. 이 모델은 일상 업무, 버그 수정, 문서·슬라이드·스프레드시트 작성에 강점을 둔다. Opus 5.5가 복잡한 판단이 필요한 업무용이라면, Sonnet 5.5는 범위가 분명한 업무용이라는 설명이다.</p>
+<p>속도와 비용 수치도 함께 제시했다. Sonnet 5.5는 Sonnet 5보다 출력 생성 속도가 30% 이상 빠르다. 입력·출력 토큰 가격은 Sonnet 5와 같지만, 같은 일을 할 때 필요한 토큰 수가 더 적다고 Anthropic은 밝혔다. 그래서 작업당 비용은 최대 30% 낮아진다고 설명했다.</p>
+<ul><li>입력 가격은 100만 토큰당 2달러다.</li><li>출력 가격은 100만 토큰당 10달러다.</li><li>캐시 읽기 가격은 100만 토큰당 0.20달러다.</li><li>작업당 비용은 최대 30% 낮다.</li><li>출력 속도는 30% 이상 빠르다.</li></ul>
+<p>성능 수치도 크다. Terminal-Bench 4.0에서 Sonnet 5.5는 70.6%를 기록했다. Sonnet 5는 10.3%였다. GDPval-AA에서는 Opus 5.5보다 2점 낮다고 밝혔다. 스크린샷만 보고 Pokémon Red를 깨는 시험도 처음 통과한 Sonnet 계열이라고 설명했다.</p>
+        
+      </section>
+<section>
+        <h2>주요 트렌드</h2>
+        <p>이번 발표는 중간급 모델도 성능이 많이 좋아졌다는 뜻이다. Anthropic은 Sonnet 5.5가 몇몇 벤치마크에서 Max effort 기준 Opus 5.5와 비슷한 성능을 낸다고 밝혔다. 다만 회사는 복잡하고 열린 문제에서는 Opus 5.5가 여전히 더 강하다고 선을 그었다.</p>
+<p>비용 대비 성능 비교도 눈에 띈다. Medium effort의 Sonnet 5.5는 Terminal-Bench 4.0에서 Sonnet 5 최고 점수를 작업당 비용 10분의 1 미만으로 넘겼다고 Anthropic은 밝혔다. FrontierCode에서는 High effort 기준 GPT-6 Sol 최고 점수와 비슷한 성능을 작업당 비용 약 5분의 1로 냈다고 설명했다. CursorBench에서는 Low effort만으로 Sonnet 5 최고 점수를 작업당 비용 10분의 1 미만으로 넘겼다. 같은 예산이면 더 많은 작업을 돌릴 수 있다는 뜻이다.</p>
+<p>현장 사례도 효율 쪽에 모인다. Anthropic은 118건의 실제 앱 빌드에서 Sonnet 5.5가 Opus 5와 같은 수준의 앱을 만들었다고 소개했다. 평균 반복 횟수는 Sonnet 5.5가 3.6회였고 Opus 5는 7.7회였다. 고객 지원 사례에서는 티켓 처리 속도가 20% 빨라졌다고 밝혔다. 비공개 금융 과제 2,441건에서는 답변당 약 12만1000토큰을 썼고, Sonnet 5는 49만7000토큰을 썼다고 소개했다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>The New Stack은 Sonnet 5.5를 Opus에 가까운 성능을 더 낮은 가격대에 둔 모델로 다뤘다. 외부 시험자 인용도 비슷한 반응을 보였다. Epic, Unity, Slackbot 운영팀, 고객 지원팀, 금융 과제 평가팀은 품질을 유지하거나 높이면서 단계 수와 토큰 사용량이 줄었다고 말했다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사에는 Sonnet급 모델이 더 실용적일 수 있다. 문서 초안, 티켓 분류, 운영 리뷰 자료 작성, 코드 리뷰, 데이터 추출처럼 물량이 많은 업무에서 비용 절감 폭이 커질 가능성이 있다.</p>
+<p>도입 전에는 업무를 두 층으로 나눠 보는 편이 좋다. 구조가 정해진 반복 업무는 Sonnet 5.5 후보로 넣고, 규정 해석이나 설계 판단처럼 맥락이 길고 책임이 큰 일은 Opus급 모델과 비교해 봐야 한다.</p>
+<p>체크포인트는 네 가지다.</p>
+<ul><li>현행 업무 프롬프트를 바꾸지 않아도 품질이 오르는지 본다.</li><li>토큰 사용량 감소가 실제 청구액 감소로 이어지는지 계산한다.</li><li>사이버 안전 장치가 우리 개발 업무를 막는 요청이 있는지 시험한다.</li><li>슬라이드·보고서 초안의 편집 시간을 얼마나 줄이는지 측정한다.</li></ul>
+<p>Anthropic은 GPT-6 Sol의 일부 공개 점수가 없어서 비교표에 GPT-5.6 Sol을 넣은 구간이 있다고 밝혔다. 공개 비교가 완전하지 않다는 뜻이므로, 타사 모델과의 우열은 같은 과제로 다시 재야 한다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>장기 과제(long-horizon work): 여러 단계가 이어지는 긴 작업</span> <span>노력 수준(effort level): 모델이 답을 만들 때 쓰는 계산량 설정</span> <span>폴백(fallback): 안전 장치가 개입할 때 다른 모델로 작업을 넘기는 방식</span> <span>컴퓨터 사용(computer use): 화면·도구를 다루며 작업하는 모델 능력</span> <span>차트 인식(chart recognition): 그래프·도표를 읽고 해석하는 능력</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Introducing Claude Sonnet 5.5 Announcements Sep 28, 2026 A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.</p>
+        <p class="url">게시일: 2026.09.28</p>
+        <p class="url">출처 URL: <a href="https://www.anthropic.com/claude-sonnet-5-5" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/claude-sonnet-5-5</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>

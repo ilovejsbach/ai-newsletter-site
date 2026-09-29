@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anthropic, NVIDIA와 에이전트 통제층 결합</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-tooling">
+      <p class="source"><span class="article-number">10</span> Claude Blog <span class="source-date">게시일 2026.09.28</span></p>
+      <h1>Anthropic, NVIDIA와 에이전트 통제층 결합</h1>
+      <img class="detail-image" src="../assets/images/article_10_f4ef4f2d0cced829.jpg" alt="기사 이미지">
+      <p class="detail-lead">Anthropic과 NVIDIA가 기업용 AI 에이전트의 통제 수단을 함께 내놨다. 핵심은 모델이 똑똑해지는 것보다, 실제 시스템에서 무엇을 할 수 있는지 바깥에서 제한하는 데 있다. 에이전트가 사내 데이터와 업무 시스템에 더 많이 닿을수록 이런 통제층의 가치가 커진다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>NVIDIA는 Open Agent Safety Platform을 발표했다. Anthropic은 이 플랫폼의 에이전트 스택에 보안과 통제 계층을 더하는 방식으로 협력했고, 대상은 실제 업무를 맡는 기업용 에이전트다.</p>
+<p>Anthropic의 Claude Managed Agents는 운영용 에이전트를 만들고 배포하는 API 묶음이다. 이 구성에서 자격 증명은 별도 금고에 보관한다. 에이전트는 그 값을 직접 보지 않는다. 에이전트 루프도 샌드박스와 분리된 별도 서버에서 실행된다.</p>
+<p>NVIDIA OpenShell은 오픈소스 보안 런타임이다. 에이전트가 어떤 도구를 쓰고, 어떤 파일과 네트워크, 데이터에 닿을 수 있는지 규칙으로 통제한다. 기본값은 전부 차단이다. 규칙이 허용한 행동만 실행한다.</p>
+<p>고객은 두 제품을 함께 써서 통제 범위를 확인할 수 있다.</p>
+<ul><li>에이전트가 할 수 있는 행동 제한</li><li>에이전트가 실제로 한 행동 검토</li><li>설정한 제한의 적용 여부 확인</li></ul>
+<p>Managed Agents는 현재 이용할 수 있다. 고객은 자사 인프라에서 직접 운영하는 샌드박스를 붙일 수 있고, 관리형 제공자 환경도 고를 수 있다. OpenShell은 Apache 2.0 라이선스의 오픈소스로 GitHub와 NVIDIA 개발자 리소스 페이지에서 제공된다.</p>
+        
+      </section>
+<section>
+        <h2>도입 가치</h2>
+        <p>이 조합의 차이는 보안 통제를 모델 바깥에 둔다는 점이다. 모델 내부 안전장치가 실패해도, 외부 실행 계층이 다시 한 번 막는 구조다. 보호가 한 층에만 달리지 않도록 설계했다.</p>
+<p>Managed Agents는 인증, 도구 실행, 장시간 세션 운영 기능을 묶어 제공한다. 세션은 몇 시간 동안 자율적으로 돌 수 있다. 연결이 끊겨도 진행 상황과 결과가 유지된다. 복수 에이전트를 띄워 병렬로 일하게 하는 기능도 포함한다.</p>
+<p>OpenShell은 모든 에이전트 행동을 감시하고 결정 로그를 남긴다. 팀은 좁은 권한부터 시작할 수 있다. 로그를 보고 규칙을 더 조인다. OpenShell의 정책 증명 기능은 팀이 쓴 규칙 아래에서 에이전트가 어디까지 접근할 수 있는지 수학적 증명으로 확인한다.</p>
+<p>도입 측면에서 의미는 분명하다. 에이전트에 넓은 시스템 권한을 주지 않아도 된다. 비밀번호나 접근 키를 에이전트 프롬프트 안에 넣을 필요도 없다. 실행 권한과 감사 기록을 분리해 관리할 수 있어, 금융권처럼 통제 증적이 필요한 환경에 더 잘 맞는다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>Anthropic은 고객 사례도 함께 공개했다. Notion은 작업공간 안에서 Claude에 일을 맡기고, 엔지니어는 코드 작업에, 다른 직원은 웹사이트와 프레젠테이션 제작에 쓴다고 밝혔다. Rakuten은 엔지니어링, 제품, 영업, 마케팅, 재무에 걸쳐 전문 에이전트를 운용하며 각 에이전트를 1주 안에 배치했다고 소개했다. Asana는 AI Teammates를 만들었고, Managed Agents를 써서 고급 기능을 더 빨리 넣었다고 밝혔다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 검토할 포인트는 모델 교체보다 권한 구조다. 고객정보, 결제, 내부 문서, 개발 시스템에 닿는 에이전트라면 자격 증명 분리 보관과 실행 계층 통제를 먼저 설계해야 한다.</p>
+<p>실행 전 확인할 질문도 명확하다.</p>
+<ul><li>에이전트가 직접 보는 비밀번호와 키를 없앨 수 있는지.</li><li>파일, 네트워크, 데이터 접근 규칙을 업무별로 분리할 수 있는지.</li><li>모든 허용·차단 결정을 로그로 남겨 감사에 제출할 수 있는가.</li><li>장애나 오작동이 났을 때 장시간 자율 세션의 복구 범위.</li></ul>
+<p>선행 과제도 있다. IAM과 기존 접근통제 체계를 에이전트 계층과 연결해야 한다. 샌드박스를 자사 인프라에 둘지, 관리형으로 둘지도 결정해야 한다. 이번 발표에는 가격, 성능 영향, 국내 규제 대응 방식은 나오지 않았다. 도입 전에는 보안 아키텍처 검토와 파일럿 범위 설정이 필요하다.</p>
+        
+      </section>
+      <section>
+        <h2>주요 용어</h2>
+        <div class="terms"><span>자격 증명(Credentials): 비밀번호, API 키, 토큰처럼 시스템 접근에 쓰는 정보</span> <span>감사 추적(Audit Trail): 누가 언제 무엇을 했는지 남기는 기록</span> <span>최소 권한(Least Privilege): 업무에 꼭 필요한 범위까지만 권한을 주는 원칙</span> <span>정책 증명(Policy Prover): 설정한 규칙이 실제 접근 범위를 어떻게 제한하는지 검증하는 기능</span> <span>런타임(Runtime): 프로그램이 실제로 실행되는 환경</span></div>
+      </section>
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Giving companies more control over their AI agents, with NVIDIA</p>
+        <p class="url">게시일: 2026.09.28</p>
+        <p class="url">출처 URL: <a href="https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia" target="_blank" rel="noopener noreferrer">https://claude.com/blog/giving-companies-more-control-over-their-ai-agents-with-nvidia</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
