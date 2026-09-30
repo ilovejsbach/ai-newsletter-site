@@ -299,7 +299,11 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
 .gdoc-label { margin: 0 0 8px; font-size: 14px; line-height: 20px; font-weight: 600;
   letter-spacing: .04em; color: rgb(50,52,64); text-transform: uppercase; }
 .gdoc-grid { display: grid; grid-template-columns: 217px minmax(0, 625px); gap: 48px; }
-.gdoc-toc { position: sticky; top: 24px; align-self: start; }
+/* 메인 페이지 .grail과 같은 방식(자기 높이를 뷰포트로 가두고 넘치면 자체 스크롤)으로
+   맞춘다 — 내부 게시판에서 관찰된 차이(2026-09-30, gartner-toc-sticky-board-quirk 메모)를
+   좁히는 조치. */
+.gdoc-toc { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px);
+  overflow-y: auto; overscroll-behavior: contain; }
 .gdoc-toc ol { margin: 0; padding: 0 0 0 1.1em; }
 .gdoc-toc li { margin: 0 0 10px; font-size: 15px; line-height: 1.45; }
 .gdoc-toc a { color: rgb(50,52,64); }
