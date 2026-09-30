@@ -308,3 +308,21 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
   .gdoc-toc { position: static; padding-bottom: 20px; border-bottom: 1px solid #e3e5ea; }
   .gdoc-toc ol { columns: 2; column-gap: 24px; }
 }
+
+.gterm { position: relative; border-bottom: 1px dashed rgb(45, 105, 193);
+  cursor: help; outline-offset: 2px; }
+.gterm-note { position: absolute; left: 0; top: calc(100% + 6px); z-index: 20; width: max-content;
+  max-width: min(360px, 78vw); padding: 10px 13px; border: 1px solid #c0ddfc; border-radius: 4px;
+  background: #fff; box-shadow: 0 6px 20px rgba(12, 39, 101, .16);
+  font-size: 13.5px; line-height: 1.6; font-weight: 400; color: rgb(51, 52, 63);
+  opacity: 0; visibility: hidden; transition: opacity .12s ease; }
+.gterm:hover .gterm-note, .gterm:focus .gterm-note, .gterm:focus-within .gterm-note {
+  opacity: 1; visibility: visible; }
+@media (prefers-reduced-motion: reduce) { .gterm-note { transition: none; } }
+@media print {
+  .gterm { border-bottom: 0; }
+  .gterm-note { position: static; opacity: 1; visibility: visible; display: inline;
+    width: auto; max-width: none; padding: 0; border: 0; box-shadow: none; color: rgb(90, 91, 101); }
+  .gterm-note::before { content: " ("; }
+  .gterm-note::after { content: ")"; }
+}
