@@ -303,6 +303,10 @@ h1 { font-weight: 800; letter-spacing: -0.02em; }
 .gdoc-toc ol { margin: 0; padding: 0 0 0 1.1em; }
 .gdoc-toc li { margin: 0 0 10px; font-size: 15px; line-height: 1.45; }
 .gdoc-toc a { color: rgb(50,52,64); }
+.gdoc-toc-home { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid #e3e5ea;
+  font-size: 13px; }
+.gdoc-toc-home a { color: #31518F; font-weight: 600; text-decoration: none; }
+.gdoc-toc-home a:hover { text-decoration: underline; }
 @media (max-width: 1000px) {
   .gdoc-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .gdoc-toc { position: static; padding-bottom: 20px; border-bottom: 1px solid #e3e5ea; }
