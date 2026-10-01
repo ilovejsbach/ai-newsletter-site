@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27B 양자화 모델, vLLM 서빙 전제</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page has-toc">
+    <div class="gdoc-grid">
+      <nav class="gdoc-toc" aria-label="이 기사의 차례"><p class="gdoc-label">차례</p><ol><li><a href="#sec-1">무엇이 나왔나</a></li><li><a href="#sec-2">눈에 띄는 점</a></li><li><a href="#sec-3">지금 쓸 수 있나</a></li></ol><p class="gdoc-toc-home"><a href="../index.html">← 뉴스레터 메인</a></p></nav>
+      <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">08</span> Hugging Face</p>
+      <h1>27B 양자화 모델, vLLM 서빙 전제</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">갱신일 09.24</span></p>
+      
+      <p class="detail-lead">이번 주 새 모델 중에는 바로 업무에 쓰기보다 서빙 실험을 겨냥한 후보도 있다. 이 모델은 큰 언어 모델을 더 적은 자원으로 돌리는 쪽에 초점이 있다. 다만 독자가 당장 봐야 할 것은 라이선스와 장비 조건이다.</p>
+      <section id="sec-1">
+        <h2>무엇이 나왔나</h2>
+        <p>orcarouter가 OrcaSAQ-2-27B를 공개했다. 이 모델은 Qwen3.8-27B를 바탕으로 만든 텍스트 전용 <span class="gterm" tabindex="0">양자화<span class="gterm-note" role="note">Quantization — 모델 값을 더 적은 비트로 줄여 메모리 사용을 낮추는 방식이다.</span></span> 모델이다. Apache-2.0 라이선스라 상업 이용 제약은 없다.</p>
+        
+      </section>
+<section id="sec-2">
+        <h2>눈에 띄는 점</h2>
+        <p>만든 쪽은 <span class="gterm" tabindex="0">BF16<span class="gterm-note" role="note">16비트 부동소수점 형식이다.</span></span> 대비 Top-1 일치율 93.2%와 PPL 0.02% 증가를 적었다. 다만 이 수치는 만든 쪽이 제시한 충실도 지표다. 실제 에이전트 작업은 같은 도구 구조와 같은 평가 장치로 다시 재야 한다고도 밝혔다.</p>
+        
+      </section>
+<section id="sec-3">
+        <h2>지금 쓸 수 있나</h2>
+        <p>Apache-2.0 라이선스라 상업 이용 제약은 없고, <span class="gterm" tabindex="0">접근 승인<span class="gterm-note" role="note">Gated access — 모델을 받기 전에 신청이나 승인이 필요한 방식이다.</span></span>이 필요하다는 문구도 없다. 파라미터는 27B급이며, 최대 문맥 길이 262144 설정 예제가 보이지만 모든 GPU 메모리 범위에 들어간다는 뜻은 아니라고 적혀 있다. 만든 쪽은 OrcaSAQ2 <span class="gterm" tabindex="0">vLLM<span class="gterm-note" role="note">대형 언어 모델을 서버로 띄워 응답하게 하는 실행 도구다.</span></span> 통합이 필요하다고 밝혔다.</p>
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from openai import OpenAI
+
+client = OpenAI(
+    base_url=&quot;http://localhost:8000/v1&quot;,
+    api_key=&quot;not-needed&quot;,
+)
+
+response = client.chat.completions.create(</code></pre></div><p class="code-src">원문: https://huggingface.co/orcarouter/OrcaSAQ-2-27B</p></figure>
+      </section>
+      
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: orcarouter/OrcaSAQ-2-27B</p>
+        <p class="url">갱신일: 2026.09.24</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/orcarouter/OrcaSAQ-2-27B" target="_blank" rel="noopener noreferrer">https://huggingface.co/orcarouter/OrcaSAQ-2-27B</a></p>
+      </section>
+    </article>
+    </div>
+  </main>
+</body>
+</html>

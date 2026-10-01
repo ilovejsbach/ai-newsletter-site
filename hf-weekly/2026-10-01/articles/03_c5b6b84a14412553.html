@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8단 추론을 내세운 MiniMax-H3 조정본</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page has-toc">
+    <div class="gdoc-grid">
+      <nav class="gdoc-toc" aria-label="이 기사의 차례"><p class="gdoc-label">차례</p><ol><li><a href="#sec-1">무엇을 하는 모델인가</a></li><li><a href="#sec-2">어떻게 불러 쓰나</a></li><li><a href="#sec-3">돌리는 데 필요한 것</a></li><li><a href="#sec-4">라이선스와 사내 반입</a></li><li><a href="#sec-5">성능과 한계</a></li><li><a href="#sec-6">언제 이것을 고르나</a></li></ol><p class="gdoc-toc-home"><a href="../index.html">← 뉴스레터 메인</a></p></nav>
+      <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">03</span> Hugging Face</p>
+      <h1>8단 추론을 내세운 MiniMax-H3 조정본</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">갱신일 09.10</span></p>
+      
+      <p class="detail-lead">같은 기반 모델도 배포 방식에 따라 쓰임이 달라진다. 어떤 후보는 로컬 실행을, 어떤 후보는 API 연결을 앞세운다. 이번 후보는 후자에 가깝다.</p>
+      <section id="sec-1">
+        <h2>무엇을 하는 모델인가</h2>
+        <p>lightx2v/Minimax-h3-Turbo는 MiniMax-H3 기반 영상 생성 조정본이다. 글과 이미지로 영상을 만드는 자리에 놓인다. 이런 조정본이 없으면 사용자는 기반 모델을 직접 고르고 세부 설정을 손으로 맞춰야 한다. 공개된 설명에는 Apache-2.0이 적혀 있다.</p>
+        
+      </section>
+<section id="sec-2">
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <table class="spec-table"><tr><th scope="row">라이브러리</th><td>LightX2V API</td></tr><tr><th scope="row">과업</th><td>t2v, i2v, r2v</td></tr><tr><th scope="row">권장 사용법</th><td>LightX2V Studio 또는 API 문서를 보고 결과를 재현하라고 안내했다.</td></tr></table><p>원문 카드에 실행 예제가 없습니다.</p>
+      </section>
+<section id="sec-3">
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">파생본 유무</th><td>파인튜닝 기반 묶음임</td></tr></table>
+      </section>
+<section id="sec-4">
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section id="sec-5">
+        <h2>성능과 한계</h2>
+        <p>공개된 설명에는 스튜디오가 FL2V 8-step v1.0 <span class="gterm" tabindex="0">768p<span class="gterm-note" role="note">768p — 영상 해상도 등급 표기</span></span> <span class="gterm" tabindex="0">LoRA<span class="gterm-note" role="note">LoRA — 원본 모델 위에 얹는 가벼운 조정 가중치</span></span>를 쓴다고 적혀 있다. 만든 쪽은 이 조합이 8단 <span class="gterm" tabindex="0">추론<span class="gterm-note" role="note">Inference — 학습이 끝난 모델로 실제 결과를 만드는 단계</span></span>에서 영상과 오디오 품질을 높인다고 밝혔다. 다만 수치 표와 측정 주체, 필요한 장비는 공개되지 않았다.</p>
+        
+      </section>
+<section id="sec-6">
+        <h2>언제 이것을 고르나</h2>
+        <p>서비스에 <span class="gterm" tabindex="0">API<span class="gterm-note" role="note">API — 다른 프로그램이 기능을 호출하는 연결 규칙</span></span>로 붙일 후보를 먼저 찾으면 이 모델이 편하다. Comfy-Org/Wan_2.2_ComfyUI_Repackaged처럼 파일 배치와 작업 흐름을 직접 다루는 후보보다 연결 지점이 단순하다. 반면 사내 장비에서 얼마나 가볍게 도는지가 우선이면 Abiray/MiniMax-H3-GGUF처럼 양자화본을 내세운 후보가 더 맞을 수 있다. 로컬 실행 조건이 중요하면 이 후보만으로는 판단이 부족하다.</p>
+        
+      </section>
+      
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: lightx2v/Minimax-h3-Turbo</p>
+        <p class="url">갱신일: 2026.09.10</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/lightx2v/Minimax-h3-Turbo" target="_blank" rel="noopener noreferrer">https://huggingface.co/lightx2v/Minimax-h3-Turbo</a></p>
+      </section>
+    </article>
+    </div>
+  </main>
+</body>
+</html>
