@@ -6,6 +6,11 @@
 :root { color-scheme: light; --ink: #191f28; --muted: #6b7684; --line: #e5e8eb;
   --paper: #ffffff; --wash: #f4f5f7; --accent: #0f766e; --warm: #b45309; }
 * { box-sizing: border-box; }
+.hc-explainer { margin: 0 0 20px; padding: 2px 16px; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 10px; font-size: 13.5px; color: var(--muted); }
+.hc-explainer summary { padding: 10px 0; font-weight: 700; color: var(--ink); cursor: pointer; }
+.hc-explainer p { margin: 0 0 14px; line-height: 1.7; }
+.hc-explainer p:last-child { margin-bottom: 16px; }
 body { margin: 0; background: var(--wash); color: var(--ink);
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif;
   line-height: 1.65; padding-block: 32px; }
@@ -127,6 +132,19 @@ table.pm-table thead th.pm-row-head { background: var(--wash); z-index: 2; }
   <h1>Hype Cycle for Artificial Intelligence, 2026</h1>
   <p class="note">데스크톱에서는 마우스 휠로 확대·축소하고 끌어서 이동할 수 있고, 모바일에서는 두 손가락으로 화면을 확대해 보세요. 점을 클릭(탭)하면 화면 위에 뜨는 카드에 상세 정보가 즉시 나타납니다. 카드 위쪽 점선 손잡이를 끌면 카드도 원하는 자리로 옮길 수 있습니다.</p>
 </header>
+<details class="hc-explainer">
+  <summary>하이프 사이클이란?</summary>
+  <p>가트너 하이프 사이클은 혁신 기술의 성숙도·채택도·사업 적합성을 한 장의 곡선으로
+  보여준다. 대부분의 혁신은 "과도한 기대 → 환멸 → 주류 채택과 생산성 안정"이라는
+  공통된 패턴을 다섯 단계(혁신 촉발 → 기대 정점 → 환멸의 골 → 계몽의 언덕 →
+  생산성 안정기)로 거친다.</p>
+  <p>이 곡선이 막아 주는 네 가지 흔한 함정은 너무 일찍 도입하기, 너무 빨리 포기하기,
+  너무 늦게 도입하기, 너무 오래 붙잡고 있기다. 도입 시점을 정할 때는 그 혁신이
+  곡선의 어디에 있는지, 조직에 줄 잠재 가치가 얼마나 큰지, 조직이 감수할 수 있는
+  위험이 어느 정도인지를 함께 저울질해야 한다. 우선순위 매트릭스(이 페이지의
+  매트릭스 탭)는 여기에 수혜 등급과 주류화까지 걸리는 기간이라는 두 축을 더해
+  우선순위를 가늠하는 도구다.</p>
+</details>
 <div class="view-tab-bar">
   <button type="button" class="view-tab-btn is-active" data-view="curve">곡선 보기</button>
   <button type="button" class="view-tab-btn" data-view="matrix">매트릭스 보기</button>
