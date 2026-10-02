@@ -185,6 +185,19 @@ dragHandle.addEventListener('pointermove', e => {
 });
 dragHandle.addEventListener('pointerup', () => { dragOffset = null; panel.classList.remove('is-dragging'); });
 
+// 끌어서 옮긴 뒤 창을 모바일 폭으로 줄이면 그 인라인 위치가 하단 시트 규칙보다
+// 우선해 카드가 화면 밖으로 밀려난다(하이프 사이클과 같은 패턴, 2026-10-02 실측).
+const mobileLayout = window.matchMedia('(max-width: 700px)');
+function releaseDragPositionIfMobile() {
+  if (!mobileLayout.matches) return;
+  panel.style.left = '';
+  panel.style.top = '';
+  panel.style.right = '';
+  panel.style.bottom = '';
+}
+mobileLayout.addEventListener('change', releaseDragPositionIfMobile);
+window.addEventListener('resize', releaseDragPositionIfMobile);
+
 const PANEL_SCALE_BASE = 420;
 function updatePanelScale() {
   const scale = clamp(panel.getBoundingClientRect().width / PANEL_SCALE_BASE, 0.75, 1.9);

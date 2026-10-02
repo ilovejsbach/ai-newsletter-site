@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시그니처 리서치 체험</title>
+<style>
+@font-face { font-family: 'Pretendard'; src: url('../../fonts/PretendardVariable.woff2') format('woff2-variations'); font-weight: 45 920; }
+:root {
+  --gt-ink: #15171C; --gt-body: #33343F; --gt-muted: #5A5B65; --gt-link: #2D69C1;
+  --gt-navy: #0C2765; --gt-pill: #C0DDFC; --gt-tint: #F6FBFD; --gt-rule: #A3C9FB; --gt-line: #E3E6EA;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #fff; color: var(--gt-ink);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  line-height: 1.6; }
+.topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--gt-line);
+  background: #fff; padding: 9px 20px; font-size: 13px; }
+.topbar a { color: var(--gt-link); text-decoration: none; font-weight: 600; }
+.topbar a:hover { text-decoration: underline; }
+main { max-width: 880px; margin: 0 auto; padding: 56px 24px 80px; }
+.eyebrow { margin: 0 0 14px; display: inline-flex; align-items: center; gap: 8px; }
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gt-link); }
+.eyebrow span.label { font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gt-navy); }
+h1 { margin: 0 0 16px; font-size: 34px; line-height: 1.25; letter-spacing: -.01em; }
+.lede { margin: 0 0 12px; font-size: 16px; color: var(--gt-body); max-width: 620px; }
+.lede.sub { font-size: 14px; color: var(--gt-muted); margin-bottom: 44px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.sig-card { display: flex; flex-direction: column; gap: 14px; padding: 26px 26px 24px;
+  border: 1px solid var(--gt-line); border-radius: 14px; background: #fff; text-decoration: none;
+  color: inherit; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+.sig-card:hover { transform: translateY(-3px); border-color: var(--gt-rule);
+  box-shadow: 0 14px 32px rgba(12, 39, 101, .1); }
+.sig-icon { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center;
+  justify-content: center; }
+.sig-icon svg { width: 24px; height: 24px; }
+.sig-card h2 { margin: 0; font-size: 19px; }
+.sig-source { margin: -8px 0 0; font-size: 12px; color: var(--gt-muted); }
+.sig-takeaway { margin: 0; padding-left: 12px; border-left: 3px solid var(--gt-rule);
+  font-size: 14px; color: var(--gt-body); font-style: italic; }
+.sig-card p.desc { margin: 0; font-size: 13.5px; color: var(--gt-muted); flex: 1 1 auto; }
+.sig-cta { display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; font-weight: 700;
+  color: var(--gt-link); }
+.sig-card:hover .sig-cta { text-decoration: underline; }
+.notice { margin: 48px 0 0; font-size: 12.5px; color: var(--gt-muted); }
+</style>
+</head>
+<body>
+<div class="topbar"><a href="../../index.html">← 전체 호 아카이브</a></div>
+<main>
+  <p class="eyebrow"><span class="dot"></span><span class="label">Beta · Gartner Signature Research</span></p>
+  <h1>시그니처 리서치 체험</h1>
+  <p class="lede">가트너의 대표 리서치 포맷을 인터랙티브 화면으로 옮겼습니다. 원문의 그림 한 장이 아니라, 화면 안에서 직접 눌러 보며 구조를 살펴볼 수 있습니다.</p>
+  <p class="lede sub">카드를 누르면 새 창에서 열립니다.</p>
+  <div class="card-grid">
+
+    <!-- 시그니처 카드: 하이프 사이클. 새 시그니처를 추가하려면 이 <a class="sig-card">
+         블록 전체를 복사해 href·아이콘 색·아이콘 모양·제목·sig-source(원문 제목·발행일·ID)·
+         sig-takeaway(그 호의 핵심 한 문장)·desc(인터랙티브 기능 설명)만 바꾸세요. -->
+    <a class="sig-card" href="hype-cycle.html" target="_blank" rel="noopener">
+      <span class="sig-icon" style="background:#0f766e">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 18 C 7 18, 8 4, 12 4 S 17 16, 22 14" />
+        </svg>
+      </span>
+      <h2>하이프 사이클</h2>
+      <p class="sig-source">Hype Cycle for Artificial Intelligence, 2026 · 2026.08.28 · G00846822</p>
+      <p class="sig-takeaway">"2026년의 화두는 AI를 구축할 수 있는가에서, AI가 무엇을 하고 있고 비용이 얼마인지 설명할 수 있는가로 옮겨갔다."</p>
+      <p class="desc">AI 하이프 사이클 전체를 한 화면에서 훑어보고, 기술을 누르면 설명이 바로 뜹니다. 곡선 보기와 우선순위 매트릭스 보기를 탭으로 오갈 수 있습니다.</p>
+      <span class="sig-cta">인터랙티브로 열기 ↗</span>
+    </a>
+
+    <!-- 시그니처 카드: 매직 쿼드런트 -->
+    <a class="sig-card" href="magic-quadrant.html" target="_blank" rel="noopener">
+      <span class="sig-icon" style="background:#2D69C1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="8" height="8" rx="1.5" />
+          <rect x="13" y="3" width="8" height="8" rx="1.5" />
+          <rect x="3" y="13" width="8" height="8" rx="1.5" />
+          <rect x="13" y="13" width="8" height="8" rx="1.5" />
+        </svg>
+      </span>
+      <h2>매직 쿼드런트</h2>
+      <p class="sig-source">Magic Quadrant for AI-Augmented Low-Code Application Platforms · 2026.09.28 · G00841123</p>
+      <p class="sig-takeaway">"2028년이면 기업의 40%가 AI 증강 로우코드 플랫폼에서 자율 AI 에이전트를 운영 환경의 애플리케이션 전달에 쓰게 된다(2025년 5% 미만에서 증가)."</p>
+      <p class="desc">벤더를 사분면 위에서 확인하고, 벤더를 누르면 강점·주의할 점까지 포함한 평가가 바로 뜹니다.</p>
+      <span class="sig-cta">인터랙티브로 열기 ↗</span>
+    </a>
+
+  </div>
+  <p class="notice">두 콘텐츠 모두 베타입니다. 화면 구성이나 내용이 계속 바뀔 수 있습니다.</p>
+</main>
+</body>
+</html>
