@@ -93,6 +93,11 @@ table.pm-table th.pm-row-head { width: 8.5em; font-weight: 700; }
 #panel-close:hover { background: var(--line); }
 .chart-hint { margin: 10px 0 0; font-size: 13px; color: var(--muted); display: flex;
   align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.view-tab-bar { display: flex; gap: 8px; margin-bottom: 16px; }
+.view-tab-btn { font: inherit; padding: 8px 18px; border-radius: 999px; background: var(--paper);
+  color: var(--muted); font-size: 14px; font-weight: 700; cursor: pointer; border: 1px solid var(--line); }
+.view-tab-btn:hover { background: var(--wash); }
+.view-tab-btn.is-active { background: var(--accent); color: #fff; border-color: var(--accent); }
 #zoom-reset { font: inherit; font-size: 12px; font-weight: 700; color: var(--accent);
   background: var(--wash); border: 1px solid var(--line); border-radius: 999px;
   padding: 4px 12px; cursor: pointer; }
@@ -114,6 +119,11 @@ table.pm-table th.pm-row-head { width: 8.5em; font-weight: 700; }
   <h1>Hype Cycle for Artificial Intelligence, 2026</h1>
   <p class="note">데스크톱에서는 마우스 휠로 확대·축소하고 끌어서 이동할 수 있고, 모바일에서는 두 손가락으로 화면을 확대해 보세요. 점을 클릭(탭)하면 화면 위에 뜨는 카드에 상세 정보가 즉시 나타납니다. 카드 위쪽 점선 손잡이를 끌면 카드도 원하는 자리로 옮길 수 있습니다.</p>
 </header>
+<div class="view-tab-bar">
+  <button type="button" class="view-tab-btn is-active" data-view="curve">곡선 보기</button>
+  <button type="button" class="view-tab-btn" data-view="matrix">매트릭스 보기</button>
+</div>
+<div class="view-curve">
 <figure class="chart-card">
   <svg id="chart" class="hype-svg" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
     <rect x="0.0" y="0" width="164.7" height="450" fill="#525e6f" opacity=".07" /><rect x="164.7" y="0" width="72.0" height="450" fill="#b45309" opacity=".07" /><line x1="164.7" y1="0" x2="164.7" y2="450" stroke="#b45309" stroke-opacity=".3" stroke-width="1" /><rect x="236.7" y="0" width="143.6" height="450" fill="#8a2e36" opacity=".07" /><line x1="236.7" y1="0" x2="236.7" y2="450" stroke="#8a2e36" stroke-opacity=".3" stroke-width="1" /><rect x="380.2" y="0" width="229.8" height="450" fill="#2e7a67" opacity=".07" /><line x1="380.2" y1="0" x2="380.2" y2="450" stroke="#2e7a67" stroke-opacity=".3" stroke-width="1" /><rect x="610.0" y="0" width="190.0" height="450" fill="#0f766e" opacity=".07" /><line x1="610.0" y1="0" x2="610.0" y2="450" stroke="#0f766e" stroke-opacity=".3" stroke-width="1" />
@@ -126,12 +136,15 @@ table.pm-table th.pm-row-head { width: 8.5em; font-weight: 700; }
   </p>
   <ul class="phase-legend"><li><span class="chip" style="background:#525e6f"></span>혁신 촉발</li><li><span class="chip" style="background:#b45309"></span>기대 정점</li><li><span class="chip" style="background:#8a2e36"></span>환멸의 골</li><li><span class="chip" style="background:#2e7a67"></span>계몽의 언덕</li><li><span class="chip" style="background:#0f766e"></span>생산성 안정기</li></ul>
 </figure>
+</div>
+<div class="view-matrix" hidden>
 <section class="pm-section">
   <h2 class="pm-head">우선순위 매트릭스</h2>
   <p class="pm-note">같은 기술을 곡선이 아니라 "수혜 등급 × 주류화까지 걸리는 기간" 표로
   다시 본 것입니다. 기술을 누르면 위와 같은 상세 설명이 나타납니다.</p>
   <table class="pm-table"><thead><tr><th></th><th>2년 미만</th><th>2~5년</th><th>5~10년</th><th>10년 이상</th></tr></thead><tbody><tr><th class="pm-row-head">변혁적</th><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I848177">Composite AI</button><button type="button" class="pm-chip" data-id="I849219">Foundation Models</button><button type="button" class="pm-chip" data-id="I846693">Generative AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I843919">AI Engineering</button><button type="button" class="pm-chip" data-id="I844886">AI-Native Software Engineering</button><button type="button" class="pm-chip" data-id="I849220">AI-Ready Data</button><button type="button" class="pm-chip" data-id="I848216">Decision Intelligence</button><button type="button" class="pm-chip" data-id="I848192">First-Principles AI</button><button type="button" class="pm-chip" data-id="I846691">Multimodal AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I845987">Agentic Commerce</button><button type="button" class="pm-chip" data-id="I853538">AI Observability</button><button type="button" class="pm-chip" data-id="I846687">Physical AI</button><button type="button" class="pm-chip" data-id="I845880">World Models</button></div></td><td><div class="pm-chips"><span class="pm-chip is-plain">Artificial General Intelligence</span></div></td></tr><tr><th class="pm-row-head">높음</th><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I847149">Edge AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I852327">AI Agent Identity</button><button type="button" class="pm-chip" data-id="I843915">AI Agents</button><button type="button" class="pm-chip" data-id="I849217">Causal AI</button><button type="button" class="pm-chip" data-id="I844650">FinOps for AI</button><button type="button" class="pm-chip" data-id="I843910">Knowledge Graphs</button><button type="button" class="pm-chip" data-id="I847528">Sovereign AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I851512">AI Factories</button><button type="button" class="pm-chip" data-id="I849221">AI Simulation</button></div></td><td><span class="pm-empty">—</span></td></tr><tr><th class="pm-row-head">보통</th><td><span class="pm-empty">—</span></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I843909">Synthetic Data</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I849773">AI Cybersecurity Governance</button><button type="button" class="pm-chip" data-id="I851510">AI Governance Technologies</button></div></td><td><span class="pm-empty">—</span></td></tr><tr><th class="pm-row-head">낮음</th><td><span class="pm-empty">—</span></td><td><span class="pm-empty">—</span></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I849198">Quantum for AI</button></div></td><td><span class="pm-empty">—</span></td></tr></tbody></table>
 </section>
+</div>
 <aside id="panel">
   <div id="panel-drag">⠿⠿⠿ 끌어서 이동 · 모서리를 끌면 크기 조절</div>
   <button id="panel-close" type="button" aria-label="닫기">&times;</button>
@@ -210,6 +223,18 @@ document.querySelectorAll('#chart .pt-group').forEach(g => {
 document.querySelectorAll('.pm-chip[data-id]').forEach(btn => {
   btn.addEventListener('click', () => showDetail(btn.dataset.id));
 });
+
+const viewCurve = document.querySelector('.view-curve');
+const viewMatrix = document.querySelector('.view-matrix');
+document.querySelectorAll('.view-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.view-tab-btn').forEach(b => b.classList.toggle('is-active', b === btn));
+    const showMatrix = btn.dataset.view === 'matrix';
+    viewCurve.hidden = showMatrix;
+    viewMatrix.hidden = !showMatrix;
+  });
+});
+
 document.getElementById('panel-close').addEventListener('click', closePanel);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 
