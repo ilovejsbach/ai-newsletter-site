@@ -41,6 +41,24 @@ ul.field-list li { margin-bottom: 4px; }
 .analysis-by { margin-top: 14px; font-size: 12px; color: var(--muted); }
 .tech-num { flex: none; width: 23px; height: 23px; border-radius: 50%; color: #fff;
   font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.pm-section { margin-top: 28px; }
+.pm-head { margin: 0 0 4px; font-size: 19px; }
+.pm-note { margin: 0 0 14px; color: var(--muted); font-size: 13.5px; }
+table.pm-table { width: 100%; border-collapse: collapse; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 13.5px; }
+table.pm-table th, table.pm-table td { border: 1px solid var(--line); padding: 10px 12px;
+  vertical-align: top; text-align: left; }
+table.pm-table thead th { background: var(--wash); font-weight: 700; color: var(--muted);
+  font-size: 12.5px; text-align: center; }
+table.pm-table th.pm-row-head { width: 8.5em; font-weight: 700; }
+.pm-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.pm-chip { display: inline-block; padding: 3px 9px; border-radius: 999px; background: var(--wash);
+  color: var(--ink); font-size: 12.5px; text-decoration: none; border: 1px solid var(--line);
+  cursor: pointer; font: inherit; }
+.pm-chip:hover { background: var(--line); }
+.pm-chip.is-plain { cursor: default; color: var(--muted); }
+.pm-chip.is-plain:hover { background: var(--wash); }
+.pm-empty { color: var(--muted); font-size: 12px; }
 
 .wrap { max-width: 1320px; position: relative; }
 .hype-svg .pt-group.is-active { transform-box: fill-box; transform-origin: center; transform: scale(1.55); }
@@ -108,6 +126,12 @@ ul.field-list li { margin-bottom: 4px; }
   </p>
   <ul class="phase-legend"><li><span class="chip" style="background:#525e6f"></span>혁신 촉발</li><li><span class="chip" style="background:#b45309"></span>기대 정점</li><li><span class="chip" style="background:#8a2e36"></span>환멸의 골</li><li><span class="chip" style="background:#2e7a67"></span>계몽의 언덕</li><li><span class="chip" style="background:#0f766e"></span>생산성 안정기</li></ul>
 </figure>
+<section class="pm-section">
+  <h2 class="pm-head">우선순위 매트릭스</h2>
+  <p class="pm-note">같은 기술을 곡선이 아니라 "수혜 등급 × 주류화까지 걸리는 기간" 표로
+  다시 본 것입니다. 기술을 누르면 위와 같은 상세 설명이 나타납니다.</p>
+  <table class="pm-table"><thead><tr><th></th><th>2년 미만</th><th>2~5년</th><th>5~10년</th><th>10년 이상</th></tr></thead><tbody><tr><th class="pm-row-head">변혁적</th><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I848177">Composite AI</button><button type="button" class="pm-chip" data-id="I849219">Foundation Models</button><button type="button" class="pm-chip" data-id="I846693">Generative AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I843919">AI Engineering</button><button type="button" class="pm-chip" data-id="I844886">AI-Native Software Engineering</button><button type="button" class="pm-chip" data-id="I849220">AI-Ready Data</button><button type="button" class="pm-chip" data-id="I848216">Decision Intelligence</button><button type="button" class="pm-chip" data-id="I848192">First-Principles AI</button><button type="button" class="pm-chip" data-id="I846691">Multimodal AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I845987">Agentic Commerce</button><button type="button" class="pm-chip" data-id="I853538">AI Observability</button><button type="button" class="pm-chip" data-id="I846687">Physical AI</button><button type="button" class="pm-chip" data-id="I845880">World Models</button></div></td><td><div class="pm-chips"><span class="pm-chip is-plain">Artificial General Intelligence</span></div></td></tr><tr><th class="pm-row-head">높음</th><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I847149">Edge AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I852327">AI Agent Identity</button><button type="button" class="pm-chip" data-id="I843915">AI Agents</button><button type="button" class="pm-chip" data-id="I849217">Causal AI</button><button type="button" class="pm-chip" data-id="I844650">FinOps for AI</button><button type="button" class="pm-chip" data-id="I843910">Knowledge Graphs</button><button type="button" class="pm-chip" data-id="I847528">Sovereign AI</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I851512">AI Factories</button><button type="button" class="pm-chip" data-id="I849221">AI Simulation</button></div></td><td><span class="pm-empty">—</span></td></tr><tr><th class="pm-row-head">보통</th><td><span class="pm-empty">—</span></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I843909">Synthetic Data</button></div></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I849773">AI Cybersecurity Governance</button><button type="button" class="pm-chip" data-id="I851510">AI Governance Technologies</button></div></td><td><span class="pm-empty">—</span></td></tr><tr><th class="pm-row-head">낮음</th><td><span class="pm-empty">—</span></td><td><span class="pm-empty">—</span></td><td><div class="pm-chips"><button type="button" class="pm-chip" data-id="I849198">Quantum for AI</button></div></td><td><span class="pm-empty">—</span></td></tr></tbody></table>
+</section>
 <aside id="panel">
   <div id="panel-drag">⠿⠿⠿ 끌어서 이동 · 모서리를 끌면 크기 조절</div>
   <button id="panel-close" type="button" aria-label="닫기">&times;</button>
@@ -182,6 +206,9 @@ function closePanel() {
 
 document.querySelectorAll('#chart .pt-group').forEach(g => {
   g.addEventListener('click', () => showDetail(g.dataset.id));
+});
+document.querySelectorAll('.pm-chip[data-id]').forEach(btn => {
+  btn.addEventListener('click', () => showDetail(btn.dataset.id));
 });
 document.getElementById('panel-close').addEventListener('click', closePanel);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
@@ -303,6 +330,7 @@ document.addEventListener('click', e => {
   if (panMoved) { panMoved = false; return; }
   if (e.target.closest('#panel')) return;
   if (e.target.closest('.pt-group')) return;
+  if (e.target.closest('.pm-chip')) return;
   closePanel();
 });
 </script>
