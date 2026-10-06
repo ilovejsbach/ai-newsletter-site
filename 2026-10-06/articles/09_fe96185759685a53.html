@@ -16,7 +16,7 @@
       <section>
         <h2>핵심 브리핑</h2>
         <p>Strands Decider 2B는 <span class="gterm" tabindex="0">에이전트<span class="gterm-note" role="note">Agent — 목표를 받고 도구 호출과 단계 실행을 스스로 이어 가는 AI 소프트웨어</span></span>가 행동하기 전, 로컬에서 빠르게 한 번 더 점검하는 작은 <span class="gterm" tabindex="0">결정 모델<span class="gterm-note" role="note">Decision model — 자유 문장 생성 대신 정해진 선택지 중 하나를 고르거나 점수를 매기는 모델</span></span>이다. 이 모델은 자유 문장을 만들지 않는다. 개발자가 준 선택지 중 하나를 고르거나 점수를 매긴다. 그래서 없는 선택지를 지어내는 일은 막을 수 있다. AWS는 모델과 함께 학습 데이터, 학습 스크립트도 같이 공개했다.</p>
-<p>AWS는 이 모델을 지난 목요일 공개했다. 기반 언어이해 모델은 Qwen3.5-2B다. AWS는 여기에 문장 생성용 헤드를 빼고, 선택지 점수화용 포인터 헤드를 붙였다. 이 헤드는 100만 개가 조금 넘는 파라미터를 쓴다. 백본에는 rank-16 <span class="gterm" tabindex="0">LoRA<span class="gterm-note" role="note">Low-Rank Adaptation — 적은 추가 파라미터로 기존 모델을 미세조정하는 방식</span></span> 어댑터를 적용했다.</p>
+<p>AWS는 이 모델을 공개했다. 기반 언어이해 모델은 Qwen3.5-2B다. AWS는 여기에 문장 생성용 헤드를 빼고, 선택지 점수화용 포인터 헤드를 붙였다. 이 헤드는 100만 개가 조금 넘는 파라미터를 쓴다. 백본에는 rank-16 <span class="gterm" tabindex="0">LoRA<span class="gterm-note" role="note">Low-Rank Adaptation — 적은 추가 파라미터로 기존 모델을 미세조정하는 방식</span></span> 어댑터를 적용했다.</p>
 <p>AWS가 든 예시는 날씨 질의다. 사용자가 도시를 말하지 않았는데 에이전트가 임의로 도시를 추정하고 날씨 도구를 부르려 하면, Decider가 대화 근거가 있는지 먼저 본다. 정보가 부족하면 애플리케이션은 에이전트에게 사용자가 어느 도시를 뜻하는지 다시 묻게 한다.</p>
 <p>Strands의 개입 시스템에서는 개발자가 다음 행동을 고를 수 있다.</p>
 <ul><li>도구 호출을 그대로 진행</li><li>도구 호출을 거부</li><li>사람 확인을 요청</li><li>에이전트에 피드백을 반환</li></ul>
