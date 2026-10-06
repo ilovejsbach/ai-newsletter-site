@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>기업용 에이전트 제어판 OpenClaw 개발 공개</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body><div id="top" style="position:sticky;top:0;z-index:90;border-bottom:1px solid #e2e2e2;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div>
+  <main class="newsletter detail-page">
+    <article class="detail-article section-tooling">
+      <p class="source"><span class="article-number">10</span> The New Stack <span class="source-date">게시일 2026.09.30</span></p>
+      <h1>기업용 에이전트 제어판 OpenClaw 개발 공개</h1>
+      <img class="detail-image" src="../assets/images/article_10_c1253beb2035c29a.jpg" alt="기사 이미지">
+      <p class="detail-lead">많은 기업은 에이전트를 바로 도입하지 않는다. 코드 저장소, 자격 증명, 메시징 채널에 닿는 순간 통제 문제가 먼저 생기기 때문이다. OpenClaw는 이 장벽을 넘기 위해 기업용 제어판을 별도 프로젝트로 꺼냈다. 목표는 에이전트를 더 똑똑하게 만드는 것이 아니라, 더 관리 가능하게 만드는 데 있다.</p>
+      <section>
+        <h2>핵심 브리핑</h2>
+        <p>OpenClaw Enterprise는 조직 안에서 여러 에이전트를 중앙에서 관리하려는 오픈소스 플랫폼이다. 핵심은 OpenClaw Control Plane이다. 관리자는 여기서 에이전트를 배포하고, <span class="gterm" tabindex="0">네임스페이스<span class="gterm-note" role="note">Namespace — 같은 인프라 안에서 작업과 자원을 논리적으로 분리하는 구획</span></span>로 분리하고, 설정과 자격 증명을 관리하고, 권한을 정하고, 변경 기록을 남길 수 있다. 실제 에이전트 활동은 별도 계층에서 처리한다. 게이트웨이는 메시지를 받고, 하니스는 에이전트 턴과 모델 호출, 도구 실행을 맡는다.</p>
+<p>프로젝트는 아직 초기 단계다. OpenClaw는 올해 후반 1.0 전까지 공개 개발로 진행한다고 밝혔다. 지금은 내부 파일럿에만 적합하다고 설명했다. 완성형 기업 플랫폼으로 보기에는 아직 이르다는 뜻이다.</p>
+<p>현재 구현된 영역과 남은 영역도 공개했다.</p>
+<ul><li>구현: API, 콘솔, 영속 워커, PostgreSQL 백엔드, Kubernetes 패키징</li><li>미완성: 외부 게이트웨이 승인, OCC로 돌아오는 워크로드 인증, 일부 모델 인증 방식</li></ul>
+<p>배포 방식은 사내 인프라 중심이다. OpenClaw는 OCE가 자체 인프라에서 돌도록 만들었고, 어떤 조직이든 무료로 쓸 수 있다고 밝혔다. 코드는 이미 GitHub에 올라와 있다. 로컬 실행과 조직 내부 배포용 시작 가이드도 함께 제공한다.</p>
+<p>Docker 또는 Podman Compose 옵션도 문서에 있다. 다만 지금은 <span class="gterm" tabindex="0">컨트롤 플레인<span class="gterm-note" role="note">Control plane — 배포, 권한, 설정, 정책 같은 운영 제어를 중앙에서 맡는 계층</span></span> 프리뷰에 한정된다. 이 방식으로는 OCC를 통해 에이전트를 배포할 수 없다.</p>
+        
+      </section>
+<section>
+        <h2>도입 가치</h2>
+        <p>OCE가 풀려는 문제는 성능이 아니라 거버넌스다. 기업 IT는 에이전트가 유용해질수록 권한 문제와 사고 위험도 함께 커진다고 본다. 그래서 중앙에서 감시하고 막을 표준이 없으면, 금지가 기본값이 되기 쉽다. OpenClaw는 그 공백을 메우려 한다.</p>
+<p>도입 관점에서 눈에 띄는 점은 Kubernetes와 비슷한 운영 모델이다. 기업이 이미 쓰는 Kubernetes 인프라에 설치하는 경로를 기본으로 잡았다. 로컬 개발 환경도 컨트롤 플레인, PostgreSQL, 에이전트 워크로드를 Kubernetes 클러스터 안에서 돌린다. 기존 플랫폼 팀이 컨테이너 운영 경험을 갖고 있다면, 새로운 개념을 처음부터 전부 배우는 부담은 줄어든다.</p>
+<p>보안은 아직 공사 중이다. OpenClaw는 신뢰 워크로드와 비신뢰 워크로드를 분리하고, <span class="gterm" tabindex="0">샌드박싱<span class="gterm-note" role="note">Sandboxing — 프로그램이 허용된 자원 안에서만 움직이게 제한하는 격리 기법</span></span>과 세밀한 권한, LLM 보조 리뷰를 결합하고 있다고 밝혔다. 다만 이 구성이 실제로 어떻게 맞물리는지는 앞으로 공개할 참조 아키텍처를 더 봐야 한다.</p>
+        
+      </section>
+<section>
+        <h2>업계의 움직임</h2>
+        <p>OpenAI가 원래 이 프로젝트를 품고 있다가 OpenClaw Foundation으로 넘겼다. Red Hat과 Nvidia는 이후 개발에 기여했다. OpenAI와 Red Hat은 이미 내부에서 소프트웨어를 시험 중이라고 밝혔다. 대형 기업이 재단 후원과 내부 테스트에 같이 들어온 만큼, 여러 매체가 함께 다룬 사건으로 번지고 있다.</p>
+        
+      </section>
+<section>
+        <h2>시사점과 체크포인트</h2>
+        <p>우리 회사가 여러 부서에서 에이전트를 쓰기 시작하면, 모델 선택보다 먼저 공통 운영면이 필요해진다. 누가 어떤 에이전트를 배포했는지, 어떤 자격 증명을 썼는지, 어떤 변경이 있었는지 한곳에서 봐야 감사와 사고 대응이 가능하다.</p>
+<p>검토할 질문은 구체적이다.</p>
+<ul><li>에이전트를 부서별로 격리할 네임스페이스 정책이 있는가</li><li>자격 증명과 플러그인 권한을 중앙에서 회수할 수 있는가</li><li>변경 기록을 감사 로그와 연결할 수 있는가</li><li>Kubernetes 기반 운영 역량이 사내에 충분한가</li></ul>
+<p>주의할 점도 분명하다. OCE는 아직 1.0 전 단계다. 일부 인증과 외부 게이트웨이 통제는 미완성이다. 지금 당장 전사 표준으로 두기보다, 제한된 파일럿에서 보안팀·플랫폼팀·개발팀이 함께 운영 모델을 검증하는 편이 맞다.</p>
+        
+      </section>
+      
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: &quot;Think of it as Kubernetes for agents&quot;: OpenClaw lands in the enterprise with OpenAI, Nvidia and Red Hat on board</p>
+        <p class="url">게시일: 2026.09.30</p>
+        <p class="url">출처 URL: <a href="https://thenewstack.io/openclaw-enterprise-kubernetes-agents/" target="_blank" rel="noopener noreferrer">https://thenewstack.io/openclaw-enterprise-kubernetes-agents/</a></p>
+      </section>
+    </article>
+  </main>
+<div style="border-top:1px solid #e2e2e2;margin-top:24px;background:#fff;padding:9px 18px;font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:13px;"><a href="../index.html#top" style="color:#31518F;text-decoration:none;font-weight:600;">← 뉴스레터 메인</a></div><script>window.addEventListener('load',function(){var t=document.getElementById('top');if(t){t.scrollIntoView({block:'start'});}});</script></body>
+</html>
