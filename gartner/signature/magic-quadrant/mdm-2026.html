@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>매직 쿼드런트 인터랙티브 (JS판)</title>
+<style>
+:root { color-scheme: light; --ink: #191f28; --muted: #6b7684; --line: #e5e8eb;
+  --paper: #ffffff; --wash: #f4f5f7; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  line-height: 1.65; padding-block: 32px; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+header.page-head { margin-bottom: 24px; }
+.back-link { margin: 0 0 10px; font-size: 13px; }
+.back-link a { color: #2D69C1; font-weight: 600; text-decoration: none; }
+.back-link a:hover { text-decoration: underline; }
+h1 { margin: 0 0 8px; font-size: 26px; }
+.note { margin: 0; color: var(--muted); font-size: 14px; }
+.chart-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+  padding: 24px; margin: 0 auto 20px; max-width: 760px; }
+svg.mq-svg { width: 100%; height: auto; display: block; }
+.mq-svg .gterm { cursor: help; }
+.gterm { position: relative; border-bottom: 1px dashed rgb(45, 105, 193); cursor: help;
+  outline-offset: 2px; }
+.gterm-note { position: absolute; left: 0; top: calc(100% + 6px); z-index: 20; width: max-content;
+  max-width: min(320px, 78vw); padding: 10px 13px; border: 1px solid #c0ddfc; border-radius: 4px;
+  background: #fff; box-shadow: 0 6px 20px rgba(12, 39, 101, .16);
+  font-size: 13px; line-height: 1.6; font-weight: 400; color: rgb(51, 52, 63);
+  opacity: 0; visibility: hidden; transition: opacity .12s ease; }
+.gterm:hover .gterm-note, .gterm:focus .gterm-note, .gterm:focus-within .gterm-note {
+  opacity: 1; visibility: visible; }
+.mq-svg .mq-outline { fill: none; stroke: #191f28; stroke-width: 2; }
+.mq-svg .mq-divider { stroke: #c7ccd4; stroke-width: 1.5; }
+.mq-svg .mq-qlabel { font-weight: 700; letter-spacing: .03em; }
+.mq-svg .mq-axis { font-size: 13px; fill: var(--muted); font-weight: 600; }
+.mq-svg .mq-cap { font-size: 11px; fill: var(--muted); }
+.mq-svg .pt { stroke: var(--paper); stroke-width: 1.5; cursor: pointer; }
+.mq-svg .pt:hover { stroke: var(--ink); stroke-width: 2; }
+.mq-svg .pt-num { fill: #fff; font-weight: 700; pointer-events: none; }
+.q-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 14px 0 0;
+  padding: 0; list-style: none; font-size: 12.5px; color: var(--muted); }
+.q-legend li { display: flex; align-items: center; gap: 6px; }
+.q-legend .chip { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.tech-num { flex: none; width: 23px; height: 23px; border-radius: 50%; color: #fff;
+  font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.badge { display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; white-space: nowrap; background: var(--wash); color: var(--muted); }
+.content-area { position: relative; }
+.content-area:has(.peek-item:target) .idx-list { display: none; }
+.idx-list { display: grid; grid-template-columns: 1fr; gap: 2px; }
+@media (min-width: 640px) {
+  .idx-list { grid-template-columns: 1fr 1fr; gap: 2px 14px; }
+}
+.idx-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px;
+  text-decoration: none; color: var(--ink); }
+.idx-row:hover { background: var(--wash); }
+.idx-title { flex: 1 1 auto; font-weight: 600; font-size: 14px; }
+.peek-item { display: none; background: var(--paper); border: 1px solid var(--line);
+  border-radius: 12px; padding: 22px 24px; position: relative; }
+.peek-item:target { display: block; }
+.peek-close { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 700;
+  color: #0f766e; text-decoration: none; }
+.peek-close:hover { text-decoration: underline; }
+.peek-eyebrow { margin: 0 0 4px; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+.peek-title { margin: 0 0 10px; font-size: 21px; display: flex; align-items: center;
+  gap: 10px; flex-wrap: wrap; }
+.peek-body { font-size: 15.5px; line-height: 1.75; color: var(--ink); }
+.sc-section { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.sc-heading { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  text-transform: uppercase; }
+.sc-heading.is-strength { color: #0f766e; }
+.sc-heading.is-caution { color: #b45309; }
+.sc-list { margin: 0 0 4px; padding-left: 18px; }
+.sc-list + .sc-heading { margin-top: 16px; }
+.sc-list li { margin: 0 0 9px; font-size: 14.5px; line-height: 1.7; }
+.sc-list li:last-child { margin-bottom: 0; }
+
+.wrap { max-width: 1320px; position: relative; }
+.mq-svg .pt-group.is-active { transform-box: fill-box; transform-origin: center; transform: scale(1.4); }
+.mq-svg .pt-group.is-active .pt { stroke: #fff; stroke-width: 1.8; }
+#panel { position: fixed; right: 24px; bottom: 24px; width: min(420px, calc(100vw - 32px));
+  height: min(72vh, 560px); min-width: 280px; min-height: 180px; max-width: 92vw;
+  max-height: 90vh; overflow: auto; resize: both; background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line); border-radius: 14px; padding: 20px;
+  box-shadow: 0 12px 32px rgba(25, 31, 40, .18); z-index: 20;
+  transform: translateY(12px); opacity: 0; pointer-events: none;
+  transition: transform .18s ease, opacity .18s ease;
+  font-size: calc(14px * var(--panel-scale, 1)); }
+#panel.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+#panel.is-dragging { transition: none; }
+#panel h3 { margin: 0 0 10px; padding-right: 26px; font-size: 1.3em; display: flex;
+  align-items: center; gap: 8px; }
+#panel .peek-body { font-size: 1em; }
+#panel-drag { margin: -20px -20px 10px; padding: 8px 0; text-align: center;
+  font-size: 11px; letter-spacing: .08em; color: var(--muted); cursor: grab;
+  border-bottom: 1px dashed var(--line); user-select: none; }
+#panel-drag:active { cursor: grabbing; }
+#panel-close { position: absolute; top: 14px; right: 14px; width: 26px; height: 26px;
+  border: none; border-radius: 999px; background: var(--wash); color: var(--muted);
+  font-size: 15px; line-height: 1; cursor: pointer; }
+#panel-close:hover { background: var(--line); }
+#panel-resize-hint { position: absolute; bottom: 3px; right: 5px; font-size: 10px;
+  color: var(--muted); opacity: .55; pointer-events: none; }
+@media (max-width: 700px) {
+  #panel { left: 0; right: 0; bottom: 0; width: auto; max-height: 60vh;
+    border-radius: 16px 16px 0 0; resize: none; }
+  #panel-drag { display: none; }
+  #panel-resize-hint { display: none; }
+}
+</style></head>
+<body><div class="wrap">
+<header class="page-head">
+  <p class="back-link"><a href="../index.html">← 시그니처 체험으로</a></p>
+  <h1>Magic Quadrant for Master Data Management Solutions</h1>
+  <p class="note">점을 클릭하면 화면 위에 뜨는 카드에 그 벤더의 설명이 즉시 나타납니다.
+  카드 위쪽 점선 손잡이를 끌면 원하는 자리로 옮길 수 있고, 모서리를 끌면 크기를
+  조절할 수 있습니다.</p>
+</header>
+<figure class="chart-card">
+  <svg id="chart" class="mq-svg" viewBox="-22.0 -16.0 1085.902 702.0" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2.0" y="2.0" width="516.951" height="319.5" fill="#b45309" opacity=".07" /><rect x="518.951" y="2.0" width="516.951" height="319.5" fill="#0f766e" opacity=".07" /><rect x="2.0" y="321.5" width="516.951" height="319.5" fill="#56606f" opacity=".07" /><rect x="518.951" y="321.5" width="516.951" height="319.5" fill="#3a5a9c" opacity=".07" /><line x1="2.0" y1="321.5" x2="1035.902" y2="321.5" class="mq-divider" /><line x1="518.951" y1="2.0" x2="518.951" y2="641.0" class="mq-divider" /><rect x="2.0" y="2.0" width="1033.902" height="639.0" class="mq-outline" />
+    <text class="mq-qlabel" x="270.588" y="14.0" font-size="13" text-anchor="start" fill="#b45309">챌린저</text><text class="mq-qlabel" x="270.588" y="631.0" font-size="13" text-anchor="start" fill="#56606f">니치 플레이어</text><text class="mq-qlabel" x="796.4380000000001" y="14.0" font-size="13" text-anchor="end" fill="#0f766e">리더</text><text class="mq-qlabel" x="796.4380000000001" y="631.0" font-size="13" text-anchor="end" fill="#3a5a9c">비저너리</text>
+    <g class="pt-group" data-id="1"><title>Prospecta Software</title><circle class="pt" cx="102.8014" cy="578.7" r="12" fill="#56606f" /><text class="pt-num" x="102.8014" y="578.7" dy=".32em" text-anchor="middle" font-size="11">1</text></g><g class="pt-group" data-id="2"><title>TIBCO</title><circle class="pt" cx="110.22790656506022" cy="349.946645569547" r="12" fill="#56606f" /><text class="pt-num" x="110.22790656506022" y="349.946645569547" dy=".32em" text-anchor="middle" font-size="11">2</text></g><g class="pt-group" data-id="3"><title>Viamedici</title><circle class="pt" cx="174.7456823449244" cy="427.717088607774" r="12" fill="#56606f" /><text class="pt-num" x="174.7456823449244" y="427.717088607774" dy=".32em" text-anchor="middle" font-size="11">3</text></g><g class="pt-group" data-id="4"><title>Precisely</title><circle class="pt" cx="187.7420688340399" cy="481.32077004240296" r="12" fill="#56606f" /><text class="pt-num" x="187.7420688340399" y="481.32077004240296" dy=".32em" text-anchor="middle" font-size="11">4</text></g><g class="pt-group" data-id="5"><title>PiLog Group</title><circle class="pt" cx="212.3423718296965" cy="411.004514767748" r="12" fill="#56606f" /><text class="pt-num" x="212.3423718296965" y="411.004514767748" dy=".32em" text-anchor="middle" font-size="11">5</text></g><g class="pt-group" data-id="6"><title>SAP</title><circle class="pt" cx="256.9014112169367" cy="293.446751054931" r="12" fill="#b45309" /><text class="pt-num" x="256.9014112169367" y="293.446751054931" dy=".32em" text-anchor="middle" font-size="11">6</text></g><g class="pt-group" data-id="7"><title>IBM</title><circle class="pt" cx="260.61466449998704" cy="222.798143459685" r="12" fill="#b45309" /><text class="pt-num" x="260.61466449998704" y="222.798143459685" dy=".32em" text-anchor="middle" font-size="11">7</text></g><g class="pt-group" data-id="8"><title>Gaine Technology</title><circle class="pt" cx="264.327917781997" cy="397.330590716993" r="12" fill="#56606f" /><text class="pt-num" x="264.327917781997" y="397.330590716993" dy=".32em" text-anchor="middle" font-size="11">8</text></g><g class="pt-group" data-id="9"><title>Boomi</title><circle class="pt" cx="360.872503122578" cy="259.072025316415" r="12" fill="#b45309" /><text class="pt-num" x="360.872503122578" y="259.072025316415" dy=".32em" text-anchor="middle" font-size="11">9</text></g><g class="pt-group" data-id="10"><title>Tamr</title><circle class="pt" cx="434.2092554490364" cy="483.36236286925805" r="12" fill="#56606f" /><text class="pt-num" x="434.2092554490364" y="483.36236286925805" dy=".32em" text-anchor="middle" font-size="11">10</text></g><g class="pt-group" data-id="11"><title>Ataccama</title><circle class="pt" cx="444.42070197612423" cy="301.803037974944" r="12" fill="#b45309" /><text class="pt-num" x="444.42070197612423" y="301.803037974944" dy=".32em" text-anchor="middle" font-size="11">11</text></g><g class="pt-group" data-id="12"><title>Syndigo</title><circle class="pt" cx="464.8435950282191" cy="449.177552742692" r="12" fill="#56606f" /><text class="pt-num" x="464.8435950282191" y="449.177552742692" dy=".32em" text-anchor="middle" font-size="11">12</text></g><g class="pt-group" data-id="13"><title>Pimcore</title><circle class="pt" cx="468.55684831126956" cy="413.85324894506897" r="12" fill="#56606f" /><text class="pt-num" x="468.55684831126956" y="413.85324894506897" dy=".32em" text-anchor="middle" font-size="11">13</text></g><g class="pt-group" data-id="14"><title>Syncari</title><circle class="pt" cx="540.0369739956826" cy="473.201877637006" r="12" fill="#3a5a9c" /><text class="pt-num" x="540.0369739956826" y="473.201877637006" dy=".32em" text-anchor="middle" font-size="11">14</text></g><g class="pt-group" data-id="15"><title>Semarchy</title><circle class="pt" cx="652.3628857874068" cy="262.44302742627696" r="12" fill="#0f766e" /><text class="pt-num" x="652.3628857874068" y="262.44302742627696" dy=".32em" text-anchor="middle" font-size="11">15</text></g><g class="pt-group" data-id="16"><title>CluedIn</title><circle class="pt" cx="657.9327657104216" cy="418.2213080167041" r="12" fill="#3a5a9c" /><text class="pt-num" x="657.9327657104216" y="418.2213080167041" dy=".32em" text-anchor="middle" font-size="11">16</text></g><g class="pt-group" data-id="17"><title>Stibo Systems</title><circle class="pt" cx="696.9219251756873" cy="200.38810126566" r="12" fill="#0f766e" /><text class="pt-num" x="696.9219251756873" y="200.38810126566" dy=".32em" text-anchor="middle" font-size="11">17</text></g><g class="pt-group" data-id="18"><title>Profisee</title><circle class="pt" cx="722.9146981518376" cy="251.665316455509" r="12" fill="#0f766e" /><text class="pt-num" x="722.9146981518376" y="251.665316455509" dy=".32em" text-anchor="middle" font-size="11">18</text></g><g class="pt-group" data-id="19"><title>Salesforce (Informatica)</title><circle class="pt" cx="799.5005470997945" cy="128.59999999999997" r="12" fill="#0f766e" /><text class="pt-num" x="799.5005470997945" y="128.59999999999997" dy=".32em" text-anchor="middle" font-size="11">19</text></g><g class="pt-group" data-id="20"><title>Reltio</title><circle class="pt" cx="831.0632" cy="234.28803797494402" r="12" fill="#0f766e" /><text class="pt-num" x="831.0632" y="234.28803797494402" dy=".32em" text-anchor="middle" font-size="11">20</text></g>
+    <text class="mq-axis" x="518.951" y="657" text-anchor="middle">COMPLETENESS OF VISION →</text>
+    <text class="mq-axis" x="-330" y="-10" text-anchor="middle" transform="rotate(-90)">↑ ABILITY TO EXECUTE</text>
+    <text class="mq-cap" x="1035.902" y="684" text-anchor="end">© Gartner, Inc</text>
+    <text class="mq-cap" x="2.0" y="684" text-anchor="start"></text>
+  </svg>
+  <ul class="q-legend"><li><span class="chip" style="background:#b45309"></span>챌린저</li><li><span class="chip" style="background:#0f766e"></span>리더</li><li><span class="chip" style="background:#56606f"></span>니치 플레이어</li><li><span class="chip" style="background:#3a5a9c"></span>비저너리</li></ul>
+</figure>
+<aside id="panel">
+  <div id="panel-drag">⠿⠿⠿ 끌어서 이동 · 모서리를 끌면 크기 조절</div>
+  <button id="panel-close" type="button" aria-label="닫기">&times;</button>
+  <div id="panel-body"></div>
+  <span id="panel-resize-hint">⤡</span>
+</aside>
+</div>
+<script>
+const DATA = [{"order": 1, "name": "Prospecta Software", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "Prospecta Software는 이 Magic Quadrant에서 Niche Player이며, 호주 시드니에 본사를 두고 있다. Prospecta Master Data Online(MDO)은 다중 도메인을 지원하는 SAP 승인 앱으로, 내장 AI 비서(KAI)를 탑재해 자산 집약적 산업을 지원하는 특화된 워크플로를 제공한다. Prospecta는 자사의 MDM 제품에 활성 고객 46개사가 있으며, 이들 대부분은 APAC과 북미에 위치한다고 밝혔다. 이 벤더는 고객이 주로 에너지 및 유틸리티, 제조, 서비스 산업에 속한다고 보고했다.", "sc_html": ""}, {"order": 2, "name": "TIBCO", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "TIBCO는 미국 캘리포니아주 팔로알토에 본사를 둔 이 Magic Quadrant의 Niche Player다. TIBCO EBX는 MDM, 기준 데이터 관리, <span class=\"gterm\" tabindex=\"0\">거버넌스<span class=\"gterm-note\">조직이 정한 규칙과 권한 범위 안에서 시스템과 데이터를 통제하는 체계</span></span>를 계층 관리, 데이터 시각화, 워크플로 오케스트레이션과 결합한다. TIBCO는 자사의 MDM 제품에 활성 고객 268개사가 있다고 보고했다. 또한 전 산업 핵심 영역과 모든 데이터 도메인에 걸친 글로벌 고객 기반을 보유하고 있다.", "sc_html": ""}, {"order": 3, "name": "Viamedici", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "Viamedici는 이 Magic Quadrant의 Niche Player다. Viamedici는 전 세계적으로 사업을 운영하며, 북미와 아시아에 사무소를 두고 있고, 독일 베를린에 본사를 두고 있다. Viamedici EPIM/5는 통합 제품 마스터 및 구성, 주권 클라우드 배포, 실시간 콘텐츠 배포를 제공한다. Viamedici는 자사의 MDM 제품에 활성 고객 491개사가 있으며, 그 대부분은 유럽에 위치한다고 보고했다. 벤더는 고객이 주로 제조, 의료, 소매 산업에 속한다고 밝혔다.", "sc_html": ""}, {"order": 4, "name": "Precisely", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "Precisely는 미국 매사추세츠주 벌링턴에 본사를 둔 이 Magic Quadrant의 Niche Player다. Precisely의 EnterWorks 소프트웨어는 제품, 고객, 공급업체, 위치, 기준 데이터와 같은 데이터 도메인을 위한 MDM 솔루션이다. Precisely는 자사의 MDM 제품에 고객이 몇 명인지 공개하지 않았다. 벤더는 고객의 대부분이 북미에 위치하며, 주로 소매, 제조, 금융 서비스 산업에 속한다고 밝혔다. Precisely는 보충 정보 요청이나 이 문서의 초안 내용을 검토해 달라는 요청에 응답하지 않았다. 따라서 Gartner의 분석은 다른 신뢰할 수 있는 출처를 기반으로 한다.", "sc_html": ""}, {"order": 5, "name": "PiLog Group", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "PiLog Group은 이 Magic Quadrant에서 니치 플레이어이며, 아랍에미리트 두바이에 본사를 두고 있다. PiLog Data Quality &amp; Governance Suite는 ISO 표준 기술 사전, 사전 구축된 자산 및 자재 분류 체계, SAP 통합, 자동화된 데이터 품질 기능을 제공한다. PiLog은 자사 MDM 제품의 활성 고객 수를 공개하지 않았다. 이 벤더는 고객 대부분이 중동, APAC, 아프리카에 위치하며, 주로 석유 및 가스, 광업, 유틸리티, 제조 산업에 속한다고 밝혔다.", "sc_html": ""}, {"order": 6, "name": "SAP", "quadrant_color": "#b45309", "quadrant_ko": "챌린저", "overview_html": "SAP은 독일 발도르프에 본사를 둔 이 Magic Quadrant의 Challenger이다. SAP Master Data Governance는 S/4HANA를 위한 임베디드 <span class=\"gterm\" tabindex=\"0\">거버넌스<span class=\"gterm-note\">조직이 정한 규칙과 권한 범위 안에서 시스템과 데이터를 통제하는 체계</span></span>, 하이브리드 환경을 위한 연합 거버넌스, 프로세스 자동화, 사전 구축된 산업 콘텐츠를 제공한다. SAP은 자사 MDM 제품의 활성 고객 수를 공개하지 않았다. 전반적으로 고객은 지역적으로 분산되어 있으며, 벤더는 고객이 주로 제조, 헬스케어, 에너지 산업에 속한다고 밝혔다. 2026년 3월 27일, SAP는 Reltio 인수를 합의했다고 발표했다. 이 Magic Quadrant 발간 시점에는 거래가 아직 종결되지 않았으며, SAP는 종결 시점을 2026년 2분기 또는 3분기로 예상된다고 밝혔다.", "sc_html": ""}, {"order": 7, "name": "IBM", "quadrant_color": "#b45309", "quadrant_ko": "챌린저", "overview_html": "IBM은 미국 뉴욕주 아몽크에 본사를 둔 이 Magic Quadrant의 Challenger이다. IBM Master Data Management(MDM)는 다영역 마스터링, 하이브리드 클라우드 배포, <span class=\"gterm\" tabindex=\"0\">데이터 패브릭<span class=\"gterm-note\">여러 시스템에 흩어진 데이터를 하나로 묶어 접근할 수 있게 하는 데이터 통합 계층</span></span> 통합, 개인정보 인식 <span class=\"gterm\" tabindex=\"0\">거버넌스<span class=\"gterm-note\">조직이 정한 규칙과 권한 범위 안에서 시스템과 데이터를 통제하는 체계</span></span>를 제공하며, 이는 IBM의 더 넓은 데이터·거버넌스·AI 스택과 통합되어 있다. IBM은 자사 MDM 제품의 활성 고객 수를 공개하지 않았다. 이 벤더는 고객 대부분이 북미와 유럽에 위치하며, 주로 금융 서비스, 헬스케어, 공공 부문, 제조/소매 산업에 속한다고 밝혔다.", "sc_html": ""}, {"order": 8, "name": "Gaine Technology", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "Gaine Technology는 이 Magic Quadrant의 니치 플레이어이며, 미국 캘리포니아주 샌루이스오비스포에 본사를 두고 있다. Gaine Health Data Management Platform은 헬스케어 특화 온톨로지, 교차 도메인 관계 마스터링, 실시간 오케스트레이터, zero-ETL 통합을 제공한다. Gaine은 자사 MDM 제품의 활성 고객이 49개라고 밝혔으며, 이들 대부분은 북미에 위치한다. 이 벤더는 모든 고객이 헬스케어, 생명과학, 보험 산업에 속한다고 밝혔다.", "sc_html": ""}, {"order": 9, "name": "Boomi", "quadrant_color": "#b45309", "quadrant_ko": "챌린저", "overview_html": "Boomi는 이 Magic Quadrant에서 Challenger이며, 미국 펜실베이니아주 콘쇼호켄에 본사를 두고 있다. Boomi Data Hub는 핵심 데이터 통합 기능을 확장해 클라우드 네이티브 마스터링, <span class=\"gterm\" tabindex=\"0\">로우코드<span class=\"gterm-note\">코드를 적게 짜고 화면에서 끌어다 놓는 방식으로 애플리케이션을 만드는 개발 방식</span></span> 통합, GenAI 매핑, 실시간 양방향 동기화를 포함하도록 했다. Boomi는 자사의 MDM 제품 고객 수를 공개하지 않았다. 벤더에 따르면 고객의 대부분은 북미에 있고, 주로 제조, 은행/금융, 서비스 산업에 속한다.", "sc_html": ""}, {"order": 10, "name": "Tamr", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "Tamr는 이 Magic Quadrant에서 Niche Player이며, 미국 매사추세츠주 케임브리지에 본사를 두고 있다. Tamr Cloud는 AI 네이티브 데이터 마스터링, 머신 러닝 기반 엔터티 해상도, 데이터 보강 서비스, 데이터 제품 템플릿을 제공한다. Tamr는 MDM 제품의 활성 고객이 74곳이라고 보고했으며, 그 대부분은 북미에 위치한다. 벤더에 따르면 고객은 주로 의료, 은행/금융, 서비스 산업에 속한다.", "sc_html": ""}, {"order": 11, "name": "Ataccama", "quadrant_color": "#b45309", "quadrant_ko": "챌린저", "overview_html": "Ataccama는 이 Magic Quadrant에서 Challenger이며, 미국 매사추세츠주 보스턴에 본사를 두고 있다. 자사의 MDM 제품은 Ataccama ONE 플랫폼의 일부인 Ataccama Master Data Management이다. 이 플랫폼은 MDM뿐 아니라 메타데이터 관리, 데이터 관찰성, 데이터 품질 기능도 제공한다. Ataccama는 MDM 제품의 활성 고객이 190곳이라고 보고했으며, 그 대부분은 북미에 위치한다. 벤더에 따르면 고객은 주로 금융 서비스, 보험, 제조 부문에 속한다. 벤더는 모든 고객이 당사자(공급업체, 고객, 파트너) 도메인을 단독으로 또는 다른 도메인과 함께 마스터링한다고 주장한다.", "sc_html": ""}, {"order": 12, "name": "Syndigo", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "Syndigo는 이 Magic Quadrant에서 Niche Player이며, 미국 일리노이주 시카고에 본사를 두고 있다. Syndigo Master Data Management(MDM)는 통합 PIM/MDM, 활성 콘텐츠 신디케이션, 디지털 선반 분석, 통합 데이터 품질을 제공한다. Syndigo는 특정 MDM 제품의 활성 고객이 53곳이라고 보고했으며, 그 대부분은 북미에 위치한다. 벤더에 따르면 고객은 주로 소매, 제조, 기술 산업에 속한다.", "sc_html": ""}, {"order": 13, "name": "Pimcore", "quadrant_color": "#56606f", "quadrant_ko": "니치 플레이어", "overview_html": "Pimcore는 이 매직 쿼드런트에서 독주자(Niche Player)이며, 오스트리아 잘츠부르크에 본사를 두고 있다. Pimcore Platform은 통합 MDM 및 제품 정보 관리(PIM), 디지털 자산 관리(DAM), 유연한 아키텍처, 멀티채널 커머스 기능을 제공한다. Pimcore는 자사의 MDM 제품에 활성 고객이 179개 있으며, 이들 대부분이 유럽에 있다고 밝혔다. 또한 고객은 주로 제조, 서비스, 미디어 산업에 속한다고 전했다.", "sc_html": ""}, {"order": 14, "name": "Syncari", "quadrant_color": "#3a5a9c", "quadrant_ko": "비저너리", "overview_html": "Syncari는 이 매직 쿼드런트에서 비저너리(Visionary)이며, 미국 캘리포니아주 샌프란시스코에 본사를 두고 있다. Syncari는 상태 기반 다방향 동기화, <span class=\"gterm\" tabindex=\"0\">노코드<span class=\"gterm-note\">코드를 전혀 짜지 않고 화면 구성만으로 애플리케이션을 만드는 개발 방식</span></span> 자동화, 분산형 데이터 마스터링, 데이터 적합성(data fitness) 기능을 제공한다. Syncari는 자사의 MDM 제품에 활성 고객이 38개 있으며, 이들 대부분이 북미에 있다고 밝혔다. 또한 고객은 주로 기술, 의료, 금융 서비스 산업에 속한다고 전했다.", "sc_html": ""}, {"order": 15, "name": "Semarchy", "quadrant_color": "#0f766e", "quadrant_ko": "리더", "overview_html": "Semarchy는 이 매직 쿼드런트에서 리더(Leader)이며, 미국 애리조나주 피닉스와 프랑스 리옹에 이중 본사를 두고 있다. Semarchy Data Platform(SDP)은 MDM, 데이터 품질, 민첩한 데이터 모델링, 통합, 매칭, 데이터 제품 제공을 결합한 통합 데이터 플랫폼을 제공한다. Semarchy는 자사의 MDM 제품에 활성 고객이 약 400개이며, 이들 대부분이 유럽과 북미에 있다고 밝혔다. 또한 고객은 주로 은행/금융, 리테일, 제조 산업에 속한다고 전했다.", "sc_html": ""}, {"order": 16, "name": "CluedIn", "quadrant_color": "#3a5a9c", "quadrant_ko": "비저너리", "overview_html": "CluedIn은 이 매직 쿼드런트에서 비저너리(Visionary)이며, 덴마크 코펜하겐에 본사를 두고 있다. CluedIn의 플랫폼은 여러 도메인에 걸친 엔터티 모델링, 신원 해석(identity resolution), survivorship, 골든 레코드 관리, 버전 관리, 전체 계보 추적을 지원한다. CluedIn은 자사의 MDM 제품에 활성 고객이 128개이며, 이들 대부분이 EMEA에 있고 일부는 북미와 아시아/태평양(APAC)에 있다고 밝혔다. 또한 고객은 주로 금융 서비스, 에너지 및 유틸리티, 의료 분야에 속한다고 전했다.", "sc_html": ""}, {"order": 17, "name": "Stibo Systems", "quadrant_color": "#0f766e", "quadrant_ko": "리더", "overview_html": "Stibo Systems는 이 Magic Quadrant의 리더이며, 덴마크 오르후스에 본사를 두고 있다. Stibo Systems Platform(STEP)은 Customer Experience Data Cloud, Product Experience Data Cloud, Business Partner Data Cloud, Supplier Data Cloud, Sustainability Data Cloud, Location Data Cloud를 포함하는 통합 플랫폼이다. Stibo Systems는 자사 MDM 제품의 활성 고객이 554곳이라고 밝혔다. 이 회사는 핵심 산업과 데이터 도메인 전반에 걸쳐 글로벌한 입지를 보유하고 있다.", "sc_html": ""}, {"order": 18, "name": "Profisee", "quadrant_color": "#0f766e", "quadrant_ko": "리더", "overview_html": "Profisee는 미국 조지아주 알파레타에 본사를 둔 이 Magic Quadrant의 리더이다. Profisee Master Data Management(MDM)는 Microsoft Azure 및 Microsoft Fabric과의 네이티브 통합을 제공한다. 또한 데이터 스튜어드십과 멀티도메인 마스터링을 위한 FastApps도 제공한다. Profisee는 자사 MDM 제품의 활성 고객이 373곳이라고 보고했으며, 그중 상당수는 북미에 있다. 이 벤더는 고객이 주로 제조, 서비스, 금융 서비스 산업에 속해 있다고 밝혔다.", "sc_html": ""}, {"order": 19, "name": "Salesforce (Informatica)", "quadrant_color": "#0f766e", "quadrant_ko": "리더", "overview_html": "Salesforce(Informatica)는 미국 캘리포니아주 레드우드 시티에 본사를 둔 이 Magic Quadrant의 리더이다. Informatica Intelligent Data Management Cloud(IDMC)는 멀티도메인 MDM, CLAIRE AI 엔진, 사전 구축된 360 애플리케이션, 광범위한 데이터 계보를 단일 플랫폼에서 제공한다. Informatica는 활성 MDM 고객 수를 공개하지 않았지만, Gartner는 Informatica가 시장 점유율 기준으로 가장 큰 MDM 벤더 중 하나라고 추정한다. 고객 기반은 지역적으로 분산되어 있으며, 이 벤더는 고객이 주로 금융 서비스, 의료, 제조 산업에 속한다고 밝혔다. 2025년 5월 Salesforce는 Informatica 인수 계약을 체결했으며, 인수는 2025년 11월 18일에 완료되었다.", "sc_html": ""}, {"order": 20, "name": "Reltio", "quadrant_color": "#0f766e", "quadrant_ko": "리더", "overview_html": "Reltio는 미국 캘리포니아주 레드우드 시티에 본사를 둔 이 Magic Quadrant의 리더이다. Reltio Data Cloud는 개체, 관계, 상호작용, 그룹을 통합하는 지능형 데이터 그래프를 기반으로 구축된 클라우드 네이티브 <span class=\"gterm\" tabindex=\"0\">멀티테넌트<span class=\"gterm-note\">여러 고객이 같은 시스템 인프라를 나눠 쓰되 데이터는 서로 분리되는 구조</span></span> 멀티도메인 MDM 플랫폼이다. Reltio는 자사 MDM 플랫폼의 활성 대기업 고객이 200곳 이상이며, 주로 미국, 영국, 캐나다, 프랑스, 스위스에 분포한다고 밝혔다. 이 벤더는 고객이 주로 생명과학, 의료, 기술 및 통신, 금융 서비스 산업에 속한다고 말했다. 2026년 3월 27일 SAP는 Reltio를 인수하기로 합의했다고 발표했다. 이 Magic Quadrant 발행 시점에는 거래가 아직 완료되지 않았으며, SAP는 완료 시점을 2026년 2분기 또는 2026년 3분기로 예상한다고 밝혔다.", "sc_html": ""}];
+const byOrder = Object.fromEntries(DATA.map(d => [String(d.order), d]));
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+const panel = document.getElementById('panel');
+const panelBody = document.getElementById('panel-body');
+
+function showDetail(id) {
+  const item = byOrder[id];
+  if (!item) return;
+  document.querySelectorAll('#chart .pt-group').forEach(g => g.classList.toggle('is-active', g.dataset.id === id));
+  const numHtml = `<span class="tech-num" style="background:${item.quadrant_color}">${item.order}</span>`;
+  panelBody.innerHTML = `<h3>${numHtml}${esc(item.name)}<span class="badge" style="background:${item.quadrant_color};color:#fff">${esc(item.quadrant_ko)}</span></h3>` +
+    `<p class="peek-body">${item.overview_html}</p>` + item.sc_html;
+  panel.classList.add('is-open');
+  panel.scrollTop = 0;
+}
+
+function closePanel() {
+  panel.classList.remove('is-open');
+  document.querySelectorAll('#chart .pt-group').forEach(g => g.classList.remove('is-active'));
+}
+
+document.querySelectorAll('#chart .pt-group').forEach(g => {
+  g.addEventListener('click', () => showDetail(g.dataset.id));
+});
+document.getElementById('panel-close').addEventListener('click', closePanel);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+
+const dragHandle = document.getElementById('panel-drag');
+let dragOffset = null;
+function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+dragHandle.addEventListener('pointerdown', e => {
+  const rect = panel.getBoundingClientRect();
+  panel.style.left = rect.left + 'px'; panel.style.top = rect.top + 'px';
+  panel.style.right = 'auto'; panel.style.bottom = 'auto';
+  dragOffset = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  panel.classList.add('is-dragging');
+  dragHandle.setPointerCapture(e.pointerId);
+});
+dragHandle.addEventListener('pointermove', e => {
+  if (!dragOffset) return;
+  const rect = panel.getBoundingClientRect();
+  const x = clamp(e.clientX - dragOffset.x, 8, window.innerWidth - rect.width - 8);
+  const y = clamp(e.clientY - dragOffset.y, 8, window.innerHeight - rect.height - 8);
+  panel.style.left = x + 'px'; panel.style.top = y + 'px';
+});
+dragHandle.addEventListener('pointerup', () => { dragOffset = null; panel.classList.remove('is-dragging'); });
+
+// 끌어서 옮긴 뒤 창을 모바일 폭으로 줄이면 그 인라인 위치가 하단 시트 규칙보다
+// 우선해 카드가 화면 밖으로 밀려난다(하이프 사이클과 같은 패턴, 2026-10-02 실측).
+const mobileLayout = window.matchMedia('(max-width: 700px)');
+function releaseDragPositionIfMobile() {
+  if (!mobileLayout.matches) return;
+  panel.style.left = '';
+  panel.style.top = '';
+  panel.style.right = '';
+  panel.style.bottom = '';
+}
+mobileLayout.addEventListener('change', releaseDragPositionIfMobile);
+window.addEventListener('resize', releaseDragPositionIfMobile);
+
+const PANEL_SCALE_BASE = 420;
+function updatePanelScale() {
+  const scale = clamp(panel.getBoundingClientRect().width / PANEL_SCALE_BASE, 0.75, 1.9);
+  panel.style.setProperty('--panel-scale', scale.toFixed(3));
+}
+new ResizeObserver(updatePanelScale).observe(panel);
+panel.addEventListener('mouseup', updatePanelScale);
+
+document.addEventListener('click', e => {
+  if (e.target.closest('#panel')) return;
+  if (e.target.closest('.pt-group')) return;
+  closePanel();
+});
+</script>
+</body></html>
