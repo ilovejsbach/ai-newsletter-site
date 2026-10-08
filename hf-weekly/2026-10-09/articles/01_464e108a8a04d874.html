@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>저렴하게 붙이는 경량 음성 합성</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page has-toc">
+    <div class="gdoc-grid">
+      <nav class="gdoc-toc" aria-label="이 기사의 차례"><p class="gdoc-label">차례</p><ol><li><a href="#sec-1">무엇을 하는 모델인가</a></li><li><a href="#sec-2">어떻게 불러 쓰나</a></li><li><a href="#sec-3">돌리는 데 필요한 것</a></li><li><a href="#sec-4">라이선스와 사내 반입</a></li><li><a href="#sec-5">성능과 한계</a></li><li><a href="#sec-6">언제 이것을 고르나</a></li></ol><p class="gdoc-toc-home"><a href="../index.html">← 뉴스레터 메인</a></p></nav>
+      <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">01</span> Hugging Face</p>
+      <h1>저렴하게 붙이는 경량 음성 합성</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">갱신일 04.10</span></p>
+      
+      <p class="detail-lead">음성 합성 모델은 안내 멘트, 콘텐츠 읽기, 상담 보조에 자주 들어간다. 실무에서는 자연스러운 소리만큼 비용과 반입 조건이 중요하다. Kokoro-82M은 큰 모델보다 가볍게 쓰는 자리를 노린 공개형 모델이다.</p>
+      <section id="sec-1">
+        <h2>무엇을 하는 모델인가</h2>
+        <p>Kokoro-82M은 글을 입력하면 음성을 내보내는 모델이다. 안내 문구나 읽기 콘텐츠를 소리로 바꿀 때 쓴다. 이 모델이 없으면 사람이 직접 녹음하거나 외부 음성 <span class="gterm" tabindex="0">API<span class="gterm-note" role="note">Application Programming Interface — 다른 프로그램이 모델을 호출하는 연결 규칙</span></span>를 불러야 한다. 만든 쪽은 큰 모델에 견줄 만한 품질을 내면서 더 빠르고 비용도 낮다고 밝혔다.</p>
+        
+      </section>
+<section id="sec-2">
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from kokoro import KPipeline
+from IPython.display import display, Audio
+import soundfile as sf
+import torch
+pipeline = KPipeline(lang_code=&#x27;a&#x27;)
+text = &#x27;&#x27;&#x27;
+Kokoro is an open-weight TTS model with 82 million parameters. Despite its lightweight architecture, it delivers comparable quality to larger models while being significantly faster and more cost-efficient. With Apache-licensed weights, Kokoro can be deployed anywhere from production environments to personal projects.
+&#x27;&#x27;&#x27;
+generator = pipeline(text, voice=&#x27;af_heart&#x27;)
+for i, (gs, ps, audio) in enumerate(generator):
+    print(i, gs, ps)
+    display(Audio(data=audio, rate=24000, autoplay=i==0))
+# ... 이어지는 예제는 원문 카드에 있습니다</code></pre></div><p class="code-src">원문: https://huggingface.co/hexgrad/Kokoro-82M</p></figure>
+      </section>
+<section id="sec-3">
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">설치</th><td><code>!pip install -q kokoro&gt;=0.9.2 soundfile</code></td></tr><tr><th scope="row">함께 필요한 것</th><td>espeak-ng, misaki</td></tr><tr><th scope="row">라이브러리</th><td>kokoro</td></tr><tr><th scope="row">파라미터</th><td>카드·API에 없음</td></tr><tr><th scope="row">지원 언어</th><td>Multiple</td></tr><tr><th scope="row">제공 형식</th><td>파생본 등 7건 있음</td></tr></table>
+      </section>
+<section id="sec-4">
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section id="sec-5">
+        <h2>성능과 한계</h2>
+        <p>만든 쪽은 더 큰 모델에 견줄 만한 품질을 내면서 더 빠르고 비용도 낮다고 밝혔다. 2025년 4월 기준 API 시세는 입력 100만 글자당 1달러 미만이거나 출력 오디오 1시간당 0.06달러 미만이라고 적었다. 이 수치는 ArtificialAnalysis·Replicate와 DeepInfra 가격을 함께 적은 값이다. 벤치마크 평가는 공개되지 않았다.</p>
+        
+      </section>
+<section id="sec-6">
+        <h2>언제 이것을 고르나</h2>
+        <p>상업 서비스에 바로 넣어야 하면 Kokoro-82M이나 Qwen/Qwen3-<span class="gterm" tabindex="0">TTS<span class="gterm-note" role="note">Text-to-Speech — 글을 사람 목소리 같은 음성으로 바꾸는 기술</span></span>-12Hz-1.7B-CustomVoice 쪽이 먼저 검토 대상이다. 둘 다 Apache-2.0이다. 작은 모델을 우선 보고 싶으면 Kokoro-82M이 맞다. 반대로 언어 수와 음성 제어 기능을 더 보려면 Qwen 쪽이 낫다.</p>
+        
+      </section>
+      
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: hexgrad/Kokoro-82M</p>
+        <p class="url">갱신일: 2025.04.10</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/hexgrad/Kokoro-82M" target="_blank" rel="noopener noreferrer">https://huggingface.co/hexgrad/Kokoro-82M</a></p>
+      </section>
+    </article>
+    </div>
+  </main>
+</body>
+</html>

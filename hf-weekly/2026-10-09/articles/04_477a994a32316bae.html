@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>지시문으로 말투를 고르는 19억 TTS</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page has-toc">
+    <div class="gdoc-grid">
+      <nav class="gdoc-toc" aria-label="이 기사의 차례"><p class="gdoc-label">차례</p><ol><li><a href="#sec-1">무엇을 하는 모델인가</a></li><li><a href="#sec-2">어떻게 불러 쓰나</a></li><li><a href="#sec-3">돌리는 데 필요한 것</a></li><li><a href="#sec-4">라이선스와 사내 반입</a></li><li><a href="#sec-5">성능과 한계</a></li><li><a href="#sec-6">언제 이것을 고르나</a></li></ol><p class="gdoc-toc-home"><a href="../index.html">← 뉴스레터 메인</a></p></nav>
+      <article class="detail-article section-cover detail-repo" style="--sc:#1e3a5f">
+      <p class="source"><span class="article-number">04</span> Hugging Face</p>
+      <h1>지시문으로 말투를 고르는 19억 TTS</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">갱신일 01.29</span></p>
+      
+      <p class="detail-lead">음성 합성은 이제 읽기 기능을 넘어서 말투와 감정 제어까지 요구받는다. 상담 봇과 캐릭터 음성은 특히 그렇다. Qwen3-TTS-12Hz-1.7B-CustomVoice는 그 요구를 겨냥한 대형 공개형 모델이다.</p>
+      <section id="sec-1">
+        <h2>무엇을 하는 모델인가</h2>
+        <p>Qwen3-<span class="gterm" tabindex="0">TTS<span class="gterm-note" role="note">Text-to-Speech — 글을 음성으로 바꾸는 기술</span></span>-12Hz-1.7B-CustomVoice는 글과 화자, 지시문을 받아 음성을 만드는 모델이다. 10개 주요 언어와 여러 방언 음성 프로필을 지원한다고 만든 쪽은 밝혔다. 말투와 속도, 감정 표현을 지시문으로 조절할 수 있다. 이 모델이 없으면 정해진 음색만 쓰거나 문구별 음성을 따로 녹음해야 한다.</p>
+        
+      </section>
+<section id="sec-2">
+        <h2>어떻게 불러 쓰나</h2>
+        
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>import torch
+import soundfile as sf
+from qwen_tts import Qwen3TTSModel
+
+model = Qwen3TTSModel.from_pretrained(
+    &quot;Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice&quot;,
+    device_map=&quot;cuda:0&quot;,
+    dtype=torch.bfloat16,
+    attn_implementation=&quot;flash_attention_2&quot;,
+)
+
+single inference
+# ... 이어지는 예제는 원문 카드에 있습니다</code></pre></div><p class="code-src">원문: https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice</p></figure>
+      </section>
+<section id="sec-3">
+        <h2>돌리는 데 필요한 것</h2>
+        
+        <table class="spec-table"><tr><th scope="row">설치</th><td><code>pip install -U qwen-tts</code></td></tr><tr><th scope="row">함께 필요한 것</th><td>FlashAttention 2 호환 하드웨어 권장</td></tr><tr><th scope="row">라이브러리</th><td>qwen-tts</td></tr><tr><th scope="row">파라미터</th><td>1.9B(GPU 1장)</td></tr><tr><th scope="row">모델 크기</th><td>3.6GB — BF16 1.9B 개 × 2바이트 (가중치 기준)</td></tr><tr><th scope="row">필요한 장비</th><td>GPU 1장</td></tr><tr><th scope="row">지원 언어</th><td>Chinese, English, Japanese, Korean, German, French, Russian, Portuguese, Spanish, Italian</td></tr></table>
+      </section>
+<section id="sec-4">
+        <h2>라이선스와 사내 반입</h2>
+        
+        <dl class="license-grid"><div><dt>라이선스</dt><dd>apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></dd></div><div><dt>상업 이용</dt><dd>상업 이용에 제약 없음</dd></div><div><dt>접근 승인</dt><dd>필요 없음</dd></div><div><dt>재배포·파생</dt><dd>제한 없음</dd></div></dl><p class="license-note">자동 분류이며 법무 판단을 대신하지 않습니다.</p>
+      </section>
+<section id="sec-5">
+        <h2>성능과 한계</h2>
+        <p>한 글자만 넣어도 첫 오디오가 바로 나올 수 있고, 지연은 최저 97밀리초라고 밝혔다. 이 수치는 만든 쪽 설명에 적힌 자체 소개값이다. 지연 외 벤치마크 표는 공개되지 않았다.</p>
+        
+      </section>
+<section id="sec-6">
+        <h2>언제 이것을 고르나</h2>
+        <p>상업 이용이 가능하고 다국어 제어가 필요하면 Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice가 먼저 맞다. 더 작은 모델을 원하면 hexgrad/Kokoro-82M 쪽이 낫다. 비상업 조건을 감수하고 600개 이상 언어 범위를 우선 보면 k2-fsa/OmniVoice가 후보가 된다. GPU 1장 환경을 전제로 하면 Qwen과 OmniVoice를 올릴 수 있지만, 더 가볍게 붙이려면 Kokoro-82M이 유리하다.</p>
+        
+      </section>
+      
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice</p>
+        <p class="url">갱신일: 2026.01.29</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice" target="_blank" rel="noopener noreferrer">https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice</a></p>
+      </section>
+    </article>
+    </div>
+  </main>
+</body>
+</html>
