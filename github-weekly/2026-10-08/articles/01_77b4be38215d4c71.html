@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>명령어 한 줄로 오픈 모델을 내 PC에서 실행</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page has-toc">
+    <div class="gdoc-grid">
+      <nav class="gdoc-toc" aria-label="이 기사의 차례"><p class="gdoc-label">차례</p><ol><li><a href="#sec-1">무엇을 하는 물건인가</a></li><li><a href="#sec-2">스펙과 도입 조건</a></li><li><a href="#sec-3">대안 대비 차별점</a></li><li><a href="#sec-4">이럴 때 쓰면 좋다</a></li><li><a href="#sec-5">핵심 기능</a></li><li><a href="#sec-6">사내 도입 체크</a></li></ol><p class="gdoc-toc-home"><a href="../index.html">← 뉴스레터 메인</a></p></nav>
+      <article class="detail-article section-releases detail-repo" style="--sc:#1d4ed8">
+      <p class="source"><span class="article-number">01</span> GitHub</p>
+      <p class="repo-name"><span class="repo-owner">ollama</span><span class="repo-sep">/</span><span class="repo-repo">ollama</span></p>
+      <h1>명령어 한 줄로 오픈 모델을 내 PC에서 실행</h1>
+      <p class="repo-facts"><span class="repo-stars">★ 182,517</span><span class="repo-delta">이번 주 +587</span><span class="repo-lang">Go</span><span class="repo-license">MIT <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-release">릴리스 v0.40.1 (10.07)</span><span class="repo-active">최근 활동 10.08</span><span class="repo-check-state">테스트 없음</span><span class="repo-check-state">예제 없음</span><span class="repo-check-state">AGENTS.md 있음</span></p>
+      <img class="detail-image" src="../assets/images/article_01_77b4be38215d4c71.png" alt="기사 이미지">
+      <p class="detail-lead">ollama/ollama는 Go로 만든 오픈소스 도구로, Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma 같은 모델의 실행을 맡는다. macOS, Windows, Linux용 설치 방법과 공식 Docker 이미지를 배포한다. 설치한 뒤 ollama를 실행하면 모델을 돌릴지, 기존 에이전트나 앱에 연결할지 고르라는 안내가 뜬다. 전체 모델 목록은 ollama.com/library에서 볼 수 있다.</p>
+      <section id="sec-1">
+        <h2>무엇을 하는 물건인가</h2>
+        <p>ollama/ollama는 AI 언어 모델을 내 컴퓨터에서 실행하고 다른 프로그램에 연결해 주는 도구다. 사무실에 복합기를 한 대 두고 모든 부서가 같은 방식으로 인쇄하듯, 모델 하나를 띄워 두면 여러 앱이 같은 창구로 불러 쓴다. 이 도구가 없으면 모델마다 실행 환경을 직접 맞추고 앱마다 연결 방법을 따로 찾아야 한다.</p>
+        
+      </section>
+<section id="sec-2">
+        <h2>스펙과 도입 조건</h2>
+        <ul><li>언어: Go로 작성했다.</li><li>설치 형태: macOS, Windows, Linux용 설치 스크립트와 수동 내려받기를 제공하고, Docker Hub에 공식 <span class="gterm" tabindex="0">Docker 이미지<span class="gterm-note" role="note">Docker image — 프로그램과 실행 환경을 하나로 묶어 어느 서버에서나 똑같이 띄우게 하는 배포 단위</span></span>가 있다.</li><li>개발 연동: Python용 ollama-python과 JavaScript용 ollama-js 라이브러리가 있고, 모델 실행과 관리용 <span class="gterm" tabindex="0">REST API<span class="gterm-note" role="note">REST API — 다른 프로그램이 인터넷 주소 형태의 요청으로 모델을 호출하게 해 주는 연결 규칙</span></span>도 제공한다.</li><li>실행 엔진: 지원 백엔드로 llama.cpp 프로젝트가 적혀 있다.</li><li>라이선스: MIT다.</li><li>성숙도: 최신 릴리스는 v0.40.1(2026년 10월 7일)이다. 저장소에 AGENTS.md와 Dockerfile이 있다.</li></ul>
+        
+      </section>
+<section id="sec-3">
+        <h2>대안 대비 차별점</h2>
+        <p>Ollama는 <span class="gterm" tabindex="0">오픈 모델<span class="gterm-note" role="note">open model — 누구나 내려받아 자기 환경에서 실행할 수 있게 공개된 AI 모델</span></span>을 실행하고 다른 앱이 그 모델을 부르는 창구도 맡는다. 연동 목록에는 Open WebUI 같은 채팅 화면, RAGFlow와 MaxKB 같은 문서 검색 앱, Cline과 Continue 같은 코딩 보조 도구가 올라 있다. LangChain과 LlamaIndex 같은 개발용 라이브러리도 연동 목록에 있다.</p>
+<p>다른 모델 실행 도구와 견준 설명은 적혀 있지 않다. 지원 백엔드로는 llama.cpp 프로젝트 하나만 나온다. 이번 릴리스의 변경 내용은 릴리스 번호 외에는 알 수 없다.</p>
+        
+      </section>
+<section id="sec-4">
+        <h2>이럴 때 쓰면 좋다</h2>
+        <ul><li>개발팀이 사내 PC에서 오픈 모델 여러 개를 돌려 고객 문의 분류 정확도를 비교하는 PoC에 쓴다.</li><li>규정 문서 검색 챗봇을 시험할 때 연동 목록에 있는 Open WebUI나 RAGFlow 같은 앱에 모델 실행부를 붙인다.</li><li>야간 배치 점검 스크립트가 Python 라이브러리로 모델을 호출해 로그 요약을 만들게 하는 시험에 쓴다.</li></ul>
+        
+      </section>
+<section id="sec-5">
+        <h2>핵심 기능</h2>
+        <ul><li>모델 실행과 대화: 명령어 한 줄로 Gemma 4 같은 모델을 실행해 대화한다.</li><li>REST API와 라이브러리: 모델 실행과 관리를 위한 REST API를 열고, Python과 JavaScript 라이브러리로 같은 기능을 호출한다.</li><li>에이전트와 앱 연결: Claude Code, Codex, Copilot CLI, DeepSeek Harness, Droid, OpenCode에 붙이는 실행 명령이 있고, OpenClaw로 WhatsApp, Telegram, Slack, Discord에서 쓰는 개인 AI 비서도 만든다.</li></ul>
+        
+      </section>
+<section id="sec-6">
+        <h2>사내 도입 체크</h2>
+        <ul><li>외부 API 호출: REST API 예시는 같은 컴퓨터(localhost)의 11434번 포트로 요청을 보낸다. Claude Code 등 외부 서비스와 연결할 때 데이터가 어디로 가는지는 확인 필요.</li><li>데이터 반출: 모델을 내려받는 경로와 반출 가능성은 확인 필요. 접근 통제용으로 보안 프록시 Ollama Fortress가 연동 목록에 올라 있다.</li><li>유지보수 주체: 저장소 소유자는 ollama 계정이며 공식 Docker 이미지와 라이브러리를 배포한다. 조직 형태와 상용 지원 여부는 확인 필요.</li><li>상용 대체: 대체할 상용 제품과 모델 실행에 필요한 서버 사양은 적혀 있지 않아 확인 필요.</li></ul>
+        
+      </section>
+      
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: ollama/ollama</p>
+        <p class="url">최근 활동: 2026.10.08</p>
+        <p class="url">출처 URL: <a href="https://github.com/ollama/ollama" target="_blank" rel="noopener noreferrer">https://github.com/ollama/ollama</a></p>
+      </section>
+    </article>
+    </div>
+  </main>
+</body>
+</html>
