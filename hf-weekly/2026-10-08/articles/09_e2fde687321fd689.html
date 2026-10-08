@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>독일어·영어 장문 처리용 Kolibri</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="newsletter detail-page has-toc">
+    <div class="gdoc-grid">
+      <nav class="gdoc-toc" aria-label="이 기사의 차례"><p class="gdoc-label">차례</p><ol><li><a href="#sec-1">무엇이 나왔나</a></li><li><a href="#sec-2">눈에 띄는 점</a></li><li><a href="#sec-3">지금 쓸 수 있나</a></li></ol><p class="gdoc-toc-home"><a href="../index.html">← 뉴스레터 메인</a></p></nav>
+      <article class="detail-article section-fresh detail-repo" style="--sc:#0f766e">
+      <p class="source"><span class="article-number">09</span> Hugging Face</p>
+      <h1>독일어·영어 장문 처리용 Kolibri</h1>
+      <p class="repo-facts"><span class="repo-license">apache-2.0 <span class="license-badge tier-permissive" title="자동 분류 — 법무 판단을 대신하지 않습니다">사내 사용 가능</span></span><span class="repo-active">갱신일 10.03</span></p>
+      
+      <p class="detail-lead">이번 주 모델 중에는 긴 문서를 읽고 도구를 부르는 작업을 겨냥한 것도 있다. 이런 모델은 사내 지식 검색, 문서 요약, 초안 작성에 들어간다. 독자는 지원 언어와 길게 읽을 수 있는 범위를 먼저 보면 된다.</p>
+      <section id="sec-1">
+        <h2>무엇이 나왔나</h2>
+        <p>Aleph Alpha가 Kolibri-1을 공개했다. 이 모델은 독일어와 영어 텍스트를 처리하는 추론 모델이다. Apache-2.0 라이선스라 상업 이용 제약은 없다.</p>
+        
+      </section>
+<section id="sec-2">
+        <h2>눈에 띄는 점</h2>
+        <p>기본 <span class="gterm" tabindex="0">문맥 길이<span class="gterm-note" role="note">context length — 모델이 한 번에 읽는 입력 길이</span></span>는 약 26만 토큰이라고 밝혔다. 104만 토큰까지도 품질과 제공 효율을 확인했다고 밝혔다. 긴 문서를 읽는 업무에 바로 맞춘 모델이라는 뜻이다.</p>
+        
+      </section>
+<section id="sec-3">
+        <h2>지금 쓸 수 있나</h2>
+        <p>상업 이용은 가능하다. 접근 승인이 필요하다는 안내는 없다. 공개된 설명에는 aleph-alpha-inference 패키지와 vLLM 제공 구성이 적혀 있지만, 최소 장비 조건은 밝히지 않았다. 파라미터 수와 메모리 요구량도 공개되지 않아, 긴 문맥 사용 전에는 사내 장비에서 먼저 재야 한다.</p>
+        <figure class="code-plate"><figcaption class="code-cap">원문 모델 카드의 예제 · Python</figcaption><div class="code-scroll"><pre><code>from openai import OpenAI
+
+client = OpenAI(base_url=&quot;http://localhost:8000/v1&quot;, api_key=&quot;EMPTY&quot;)
+
+response = client.chat.completions.create(
+    model=&quot;Aleph-Alpha/Kolibri-1&quot;,
+    messages=[
+        {</code></pre></div><p class="code-src">원문: https://huggingface.co/Aleph-Alpha/Kolibri-1</p></figure>
+      </section>
+      
+      <section>
+        <h2>원문 정보</h2>
+        <p class="url">제목: Aleph-Alpha/Kolibri-1</p>
+        <p class="url">갱신일: 2026.10.03</p>
+        <p class="url">출처 URL: <a href="https://huggingface.co/Aleph-Alpha/Kolibri-1" target="_blank" rel="noopener noreferrer">https://huggingface.co/Aleph-Alpha/Kolibri-1</a></p>
+      </section>
+    </article>
+    </div>
+  </main>
+</body>
+</html>
